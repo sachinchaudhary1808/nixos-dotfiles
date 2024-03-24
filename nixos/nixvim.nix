@@ -4,11 +4,11 @@
   inputs,
   ...
 }: let
- #  nixvim = import (builtins.fetchGit {
- #    url = "https://github.com/nix-community/nixvim";
- #    # If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
- # #   ref = "nixos-23.11";
- #  });
+  #  nixvim = import (builtins.fetchGit {
+  #    url = "https://github.com/nix-community/nixvim";
+  #    # If you are not running an unstable channel of nixpkgs, select the corresponding branch of nixvim.
+  # #   ref = "nixos-23.11";
+  #  });
 in {
   imports = [
     # For home-manager
@@ -17,8 +17,10 @@ in {
     # nixvim.nixosModules.nixvim
     # For nix-darwin
     # nixvim.nixDarwinModules.nixvim
-   /*  inputs.nixvim.homeManagerModules.nixvim */
-   # inputs.nixvim.nixosModules.nixvim
+    /*
+    inputs.nixvim.homeManagerModules.nixvim
+    */
+    # inputs.nixvim.nixosModules.nixvim
   ];
 
   programs.nixvim = {
@@ -41,7 +43,8 @@ in {
 
   programs.nixvim = {
     plugins.lualine.enable = true;
-   # plugins.commentary.enable = true;
+    plugins.sniprun.enable = true;
+    # plugins.commentary.enable = true;
     plugins.telescope.enable = true;
     plugins.comment-nvim.enable = true;
     plugins.neo-tree.enable = true;

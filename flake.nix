@@ -13,7 +13,7 @@
     };
   };
 
-  outputs = inputs@{
+  outputs = inputs @ {
     self,
     nixpkgs,
     home-manager,
@@ -39,14 +39,14 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-           /*  home-manager.users.coco = import ./nixos/home-manager.nix; */
-
-          } 
-	  # inputs.nixvim.nixosModules.nixvim
-	   ./nixos/nixvim.nix
-inputs.nixvim.nixosModules.nixvim
-	  ./nixos/home-manager.nix
-
+            /*
+            home-manager.users.coco = import ./nixos/home-manager.nix;
+            */
+          }
+          # inputs.nixvim.nixosModules.nixvim
+          ./nixos/nixvim.nix
+          inputs.nixvim.nixosModules.nixvim
+          ./nixos/home-manager.nix
         ];
       };
     };

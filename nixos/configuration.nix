@@ -140,6 +140,9 @@
     wireplumber.enable = true;
   };
 
+  #   hardware.pulseaudio.enable = true;
+  # hardware.pulseaudio.support32Bit = true;
+
   services.xserver.libinput.enable = true;
 
   services.locate = {
