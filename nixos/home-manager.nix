@@ -56,6 +56,7 @@ in {
 
       shellAliases = {
         nixupdate = "sudo nixos-rebuild switch";
+	flakesisupdate = "sudo nixos-rebuild switch --flake";
         nixgen = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
         ne = "nix-env";
         ni = "nix-env -iA";
