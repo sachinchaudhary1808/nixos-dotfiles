@@ -43,6 +43,7 @@ in {
 
   programs.nixvim = {
     plugins.lualine.enable = true;
+    # plugins.startup.enable = true;
     plugins.nvim-colorizer.enable = true;
     plugins.leap.enable = true;
     plugins.sniprun.enable = true;
@@ -52,6 +53,7 @@ in {
     plugins.neo-tree.enable = true;
     plugins.twilight.enable = true;
     plugins.lsp.servers.pyright.enable = true;
+    plugins.lsp.servers.nil_ls.enable = true;
     plugins.cmp.enable = true;
     plugins.treesitter.enable = true;
     plugins.lsp.enable = true;
