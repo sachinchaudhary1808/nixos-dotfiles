@@ -69,7 +69,7 @@ in {
     keymaps = [
       {
         action = "<cmd>Neotree toggle<CR>";
-        key = "<C-n>"; # this line is changed
+        key = "<space>n"; # this line is changed
         mode = "n";
         options = {
           desc = "Toggle Tree View.";
@@ -77,7 +77,7 @@ in {
       }
       {
         action = "<cmd>lua vim.lsp.buf.hover()<CR>";
-        key = "<C-k>"; # this line is changed
+        key = "<space>k"; # this line is changed
         mode = "n";
         options = {
           desc = "info about things";
@@ -93,12 +93,21 @@ in {
       }
       {
         action = "<cmd>Telescope find_files<CR>";
-        key = "<C-f>"; # this line is changed
+        key = "<space>f"; # this line is changed
         mode = ["n"];
         options = {
-          desc = "telescope find file's";
+          desc = "telescope finding files";
         };
       }
+      {
+        action = "<cmd>Neoformat<CR>";
+        key = "<space>="; # this line is changed
+        mode = ["n"];
+        options = {
+          desc = "formatting";
+        };
+      }
+
     ];
     # ...
   };
