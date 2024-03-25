@@ -43,6 +43,7 @@ in {
 
   programs.nixvim = {
     plugins.lualine.enable = true;
+    plugins.nvim-colorizer.enable = true;
     plugins.leap.enable = true;
     plugins.sniprun.enable = true;
     # plugins.commentary.enable = true;
