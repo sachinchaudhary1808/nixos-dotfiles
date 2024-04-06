@@ -26,7 +26,7 @@
   networking.networkmanager.unmanaged = ["wlan0"]; # Replace with actual interface names
 
   # Dns server
-  services.gnome.at-spi2-core.enable = true;
+networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
 
   # what to do when lid is closed
   services.logind.lidSwitch = "suspend";
@@ -267,7 +267,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services.openssh.enable = false;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
