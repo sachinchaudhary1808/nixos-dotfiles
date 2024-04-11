@@ -34,7 +34,7 @@
         specialArgs = {inherit inputs system;};
 
         modules = [
-          ./nixos/configuration.nix
+          ./configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
@@ -46,7 +46,7 @@
           # inputs.nixvim.nixosModules.nixvim
          /*  ./nixos/nixvim.nix */
           /* inputs.nixvim.nixosModules.nixvim */
-          ./nixos/home-manager.nix
+          ./home-manager.nix
         ];
       };
     };

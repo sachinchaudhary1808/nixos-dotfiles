@@ -148,6 +148,9 @@ in {
       latitude = 23.030357;
       longitude = 72.517845;
     };
-    home.file.".config/foot/foot.ini".source = ./foot/foot.ini;
+home.file.".config/foot/foot.ini".source = ./nixos/foot/foot.ini;
+home.file.".config/waybar/config.jsonc".source = ./nixos/waybar/config.jsonc;
+home.file.".config/waybar/style.css".source = ./nixos/waybar/style.css;
+
   };
 }
