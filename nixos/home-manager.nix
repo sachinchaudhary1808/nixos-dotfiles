@@ -148,8 +148,6 @@ in {
       latitude = 23.030357;
       longitude = 72.517845;
     };
-home.file = {
-  ".config/foot/foot.ini".source = /home/coco/mysystem/nixos/foot/foot.ini;
-};
+    home.file.".config/foot/foot.ini".source = ./foot/foot.ini;
   };
 }
