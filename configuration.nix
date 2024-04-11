@@ -167,7 +167,6 @@
     wget
     swayidle
     greetd.tuigreet
-    wlogout
     swaylock-effects
     alejandra
     swaylock
