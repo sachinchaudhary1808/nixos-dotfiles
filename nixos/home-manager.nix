@@ -6,15 +6,13 @@
 }: let
 in {
   imports = [
-    /*
-    inputs.nixvim.homeManagerModules.nixvim
-    */
-    /*
-    inputs.nixvim.homeManagerModules.nixvim
-    */
-    /*
-    ./nixvim.nix
-    */
+    # inputs.nixvim.homeManagerModules.nixvim
+    #
+    #
+    # inputs.nixvim.homeManagerModules.nixvim
+    #
+    #
+    # ./nixvim.nix
   ];
 
   home-manager.users.coco = {
@@ -30,6 +28,7 @@ in {
       atool
       httpie
       cinnamon.nemo
+      distrobox
       black
       brave
       dex
@@ -41,6 +40,7 @@ in {
       yazi
       #image editing and etc...
       gimp
+      waybar
     ];
 
     programs.git = {
@@ -148,5 +148,8 @@ in {
       latitude = 23.030357;
       longitude = 72.517845;
     };
+home.file = {
+  ".config/foot/foot.ini".source = /home/coco/mysystem/nixos/foot/foot.ini;
+};
   };
 }

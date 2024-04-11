@@ -26,7 +26,7 @@
   networking.networkmanager.unmanaged = ["wlan0"]; # Replace with actual interface names
 
   # Dns server
-networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
+  networking.nameservers = ["8.8.8.8" "8.8.4.4"];
 
   # what to do when lid is closed
   services.logind.lidSwitch = "suspend";
@@ -236,6 +236,11 @@ networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
     obs-studio
     v4l-utils
     cliphist
+    #podman
+    dive # look into docker image layers
+    podman-tui # status of containers in the terminal
+    docker-compose # start group of containers for dev
+    #podman-compose # start group of containers for dev
   ];
 
   #polkit service
@@ -310,7 +315,7 @@ networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
     ];
   };
 
-  home-manager.useGlobalPkgs = true;
+  # home-manager.useGlobalPkgs = true;
 
   #masked services
   systemd.services.NetworkManager-wait-online.enable = false;
@@ -339,10 +344,11 @@ networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
   ];
   # programs.waybar.enable = true;
 
-  environment.variables = {
-  };
+  # environment.variables = {
+  #   EDITOR = "nvim";
+  # };
 
-  virtualisation.waydroid.enable = true;
+  # virtualisation.waydroid.enable = true;
 
   virtualisation.libvirtd.enable = true;
   programs.virt-manager.enable = true;
@@ -352,5 +358,18 @@ networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 7d";
+  };
+
+  virtualisation.containers.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      dockerCompat = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
   };
 }
