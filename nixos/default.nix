@@ -8,5 +8,6 @@
   ./git.nix
   ./gammastep.nix
   ./zoxide.nix
+  ./zathura.nix
   ];
 }

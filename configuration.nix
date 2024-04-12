@@ -224,7 +224,6 @@
     qt5.qtwayland
     qt5.qmake
     qt6.qtwayland
-    rofi-wayland
     trash-cli
     wlroots
     xdg-desktop-portal-gtk

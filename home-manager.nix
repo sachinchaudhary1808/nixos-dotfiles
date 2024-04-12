@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  home-manager,
   ...
 }: let
 in {
@@ -13,9 +14,11 @@ in {
     #
     #
     # ./nixvim.nix
+    ./nixos/default.nix
   ];
+home.username = "coco";
+home.homeDirectory = "/home/coco";
 
-  home-manager.users.coco = {
     /*
     The home.stateVersion option does not have a default and must be set
     */
@@ -24,9 +27,6 @@ in {
     Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     */
 
-    imports = [
-      ./nixos/default.nix
-    ];
     home.packages = with pkgs; [
       atool
       httpie
@@ -44,14 +44,22 @@ in {
       #image editing and etc...
       gimp
       waybar
+      rofi-wayland
     ];
+xdg.configFile."sway/config".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/mysystem/nixos/sway/config";    
+xdg.configFile."rofi/config.rasi".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/mysystem/nixos/rofi/config.rasi";    
+xdg.configFile."rofi/tokyonight.rasi".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/mysystem/nixos/rofi/tokyonight.rasi";    
+xdg.configFile."foot/foot.ini".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/mysystem/nixos/foot/foot.ini";    
+xdg.configFile."swaylock/config".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/mysystem/nixos/swaylock/config";    
+xdg.configFile."waybar/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/mysystem/nixos/waybar/config.jsonc";    
+xdg.configFile."waybar/style.css".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/mysystem/nixos/waybar/style.css";    
 
-   
-    home.file.".config/foot/foot.ini".source = ./nixos/foot/foot.ini;
-    home.file.".config/waybar/config.jsonc".source = ./nixos/waybar/config.jsonc;
-    home.file.".config/waybar/style.css".source = ./nixos/waybar/style.css;
-    home.file.".config/alacritty/alacritty.toml".source = ./nixos/alacritty/alacritty.toml;
-    home.file.".config/sway/config".source = ./nixos/sway/config;
-    home.file.".config/swaylock/config".source = ./nixos/swaylock/config;
+
+
+  
+
+home.sessionVariables = {
+    # EDITOR = "emacs";
   };
+  programs.home-manager.enable = true;
 }

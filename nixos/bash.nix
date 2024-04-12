@@ -14,7 +14,7 @@ programs.bash = {
 
       shellAliases = {
         nixupdate = "sudo nixos-rebuild switch";
-        flakesisupdate = "sudo nixos-rebuild switch --flake";
+        flakesisupdate = "sudo nixos-rebuild switch --flake ~/mysystem/";
         nixgen = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
         ne = "nix-env";
         ni = "nix-env -iA";
@@ -26,6 +26,10 @@ programs.bash = {
         #z
         cd = "z";
         cdi = "zi";
+	hw = "home-manager switch";
+	hwf = "home-manager switch --flake";
+	gp = "git push -u origin main";
+	npi = "nix profile install";
       };
     };
 }
