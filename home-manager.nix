@@ -59,7 +59,7 @@ xdg.configFile."waybar/style.css".source = config.lib.file.mkOutOfStoreSymlink "
   
 
 home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "nvim";
   };
   programs.home-manager.enable = true;
 }
