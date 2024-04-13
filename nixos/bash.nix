@@ -27,9 +27,10 @@ programs.bash = {
         cd = "z";
         cdi = "zi";
 	hw = "home-manager switch";
-	hwf = "home-manager switch --flake";
+	hsf = "home-manager switch --flake";
 	gp = "git push -u origin main";
 	npi = "nix profile install";
+	h = "htop";
       };
     };
 }

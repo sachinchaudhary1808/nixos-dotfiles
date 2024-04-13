@@ -6,6 +6,7 @@
   ...
 }: let
 in {
+  # home-manager.users.coco = {
   imports = [
     # inputs.nixvim.homeManagerModules.nixvim
     #
@@ -33,6 +34,7 @@ home.homeDirectory = "/home/coco";
       cinnamon.nemo
       distrobox
       black
+      btop
       brave
       dex
       foot
@@ -45,6 +47,20 @@ home.homeDirectory = "/home/coco";
       gimp
       waybar
       rofi-wayland
+      vesktop
+      wmenu
+      chromium
+      gnome.nautilus
+      cmatrix
+      element-desktop
+      pciutils
+      libsForQt5.konversation
+      gnome.gnome-system-monitor
+      trash-cli
+      tldr
+      gnome-frog
+      ttyper
+      nomacs
     ];
 xdg.configFile."sway/config".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/mysystem/nixos/sway/config";    
 xdg.configFile."rofi/config.rasi".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/mysystem/nixos/rofi/config.rasi";    
@@ -61,5 +77,6 @@ xdg.configFile."waybar/style.css".source = config.lib.file.mkOutOfStoreSymlink "
 home.sessionVariables = {
     EDITOR = "nvim";
   };
-  programs.home-manager.enable = true;
+  # programs.home-manager.enable = true;
+# };
 }

@@ -23,6 +23,7 @@
         "temperature",
         "backlight",
         "battery",
+	"power-profiles-daemon",
         "battery#bat2",
         "clock",
         "tray"
@@ -143,6 +144,17 @@
     },
     "battery#bat2": {
         "bat": "BAT2"
+    },
+"power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface

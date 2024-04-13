@@ -68,7 +68,7 @@ tooltip label {
   padding-right: 6px;
   color: rgb(201, 203, 255);
 }
-#mode, #clock, #memory, #temperature,#cpu,#mpd, #idle_inhibitor, #temperature, #backlight, #pulseaudio, #network, #battery, #custom-powermenu, #custom-cava-internal {
+#mode, #clock, #memory, #temperature,#cpu,#mpd, #idle_inhibitor, #temperature, #backlight, #pulseaudio, #network, #battery, #power-profiles-daemon, #custom-powermenu, #custom-cava-internal {
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -110,6 +110,29 @@ tooltip label {
 }
 #battery.critical:not(.charging) {
   color: rgb(242, 143, 173);
+}
+#power-profiles-daemon {
+    padding-right: 15px;
+}
+
+#power-profiles-daemon.performance {
+    color: rgb(221, 182, 242);
+    color: #f53c3c;
+}
+
+#power-profiles-daemon.balanced {
+color: rgb(221, 182, 242);
+    color: #2980b9;
+}
+
+#power-profiles-daemon.power-saver {
+color: rgb(221, 182, 242);
+  color: #2ecc71;
+
+}
+
+label:focus {
+    background-color: #000000;
 }
 #custom-powermenu {
   color: rgb(242, 143, 173);

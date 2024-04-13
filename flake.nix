@@ -23,7 +23,7 @@
 
     pkgs = import nixpkgs {
       inherit system;
-    pkgs = nixpkgs.legacyPackages."x86_64-linux";
+    # pkgs = nixpkgs.legacyPackages."x86_64-linux";
 
       config = {
         allowtnfree = true;
@@ -36,14 +36,14 @@
 
         modules = [
           ./configuration.nix
-          # home-manager.nixosModules.home-manager
-          # {
-          #   home-manager.useGlobalPkgs = true;
-          #   home-manager.useUserPackages = true;
-          #   /*
-          #   home-manager.users.coco = import ./nixos/home-manager.nix;
-          #   */
-          # }
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            # home-manager.useUserPackages = true;
+           
+            home-manager.users.coco = import ./home-manager.nix;
+            
+           }
           # inputs.nixvim.nixosModules.nixvim
          /*  ./nixos/nixvim.nix */
           /* inputs.nixvim.nixosModules.nixvim */
@@ -51,15 +51,14 @@
         ];
       };
     };
- homeConfigurations."coco" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home-manager.nix ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
-      };
+ # homeConfigurations."coco" = home-manager.lib.homeManagerConfiguration {
+ #        inherit pkgs;
+ #
+ #        # Specify your home configuration modules here, for example,
+ #        # the path to your home.nix.
+ #        modules = [ ./home-manager.nix ];
+ #        # Optionally use extraSpecialArgs
+ #        # to pass through arguments to home.nix
+ #      };
   };
 }
