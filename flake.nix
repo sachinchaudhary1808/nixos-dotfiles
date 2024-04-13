@@ -11,6 +11,7 @@
     #   url = "github:nix-community/nixvim";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
+    nix-colors.url = "github:misterio77/nix-colors";
   };
 
   outputs = inputs @ {
@@ -23,10 +24,10 @@
 
     pkgs = import nixpkgs {
       inherit system;
-    # pkgs = nixpkgs.legacyPackages."x86_64-linux";
+    pkgs = nixpkgs.legacyPackages."x86_64-linux";
 
       config = {
-        allowtnfree = true;
+        allowunfree = true;
       };
     };
   in {
@@ -39,8 +40,8 @@
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
-            # home-manager.useUserPackages = true;
-           
+            home-manager.useUserPackages = true;
+           home-manager.extraSpecialArgs = {inherit inputs;};
             home-manager.users.coco = import ./home-manager.nix;
             
            }

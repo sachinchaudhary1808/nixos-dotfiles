@@ -9,5 +9,7 @@
   ./gammastep.nix
   ./zoxide.nix
   ./zathura.nix
+  ./kitty.nix
+  ./alacritty.nix
   ];
 }

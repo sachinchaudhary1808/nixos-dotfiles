@@ -13,13 +13,14 @@ in {
     #
     # inputs.nixvim.homeManagerModules.nixvim
     #
-    #
+   inputs.nix-colors.homeManagerModules.default 
     # ./nixvim.nix
     ./nixos/default.nix
   ];
 home.username = "coco";
 home.homeDirectory = "/home/coco";
 
+colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
     /*
     The home.stateVersion option does not have a default and must be set
     */
