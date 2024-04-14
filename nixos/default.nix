@@ -13,5 +13,6 @@
   ./alacritty.nix
   ./foot.nix
   ./swaylock.nix
+  ./yazi.nix
   ];
 }

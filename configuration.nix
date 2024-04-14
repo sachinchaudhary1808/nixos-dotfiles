@@ -32,8 +32,8 @@
   services.logind.lidSwitch = "suspend";
 
   #kernel settings
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
   #zram settings
   zramSwap.enable = true;
   zramSwap.memoryPercent = 200;
@@ -342,9 +342,9 @@
   ];
   # programs.waybar.enable = true;
 
-  # environment.variables = {
-  #   EDITOR = "nvim";
-  # };
+  environment.variables = {
+    EDITOR = "nvim";
+  };
 
   # virtualisation.waydroid.enable = true;
 
@@ -369,5 +369,19 @@
       # Required for containers under podman-compose to be able to talk to each other.
       defaultNetwork.settings.dns_enabled = true;
     };
+  };
+
+  #thunar file-manager
+programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [
+      thunar-archive-plugin
+      thunar-volman
+      thunar-dropbox-plugin
+    ];
+  };
+
+  services.gvfs = {
+  enable = true;
   };
 }
