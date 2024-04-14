@@ -66,8 +66,8 @@ colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
 xdg.configFile."sway/config".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/sway/config";    
 xdg.configFile."rofi/config.rasi".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/rofi/config.rasi";    
 xdg.configFile."rofi/tokyonight.rasi".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/rofi/tokyonight.rasi";    
-xdg.configFile."foot/foot.ini".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/foot/foot.ini";    
-xdg.configFile."swaylock/config".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/swaylock/config";    
+# xdg.configFile."foot/foot.ini".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/foot/foot.ini";    
+# xdg.configFile."swaylock/config".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/swaylock/config";    
 xdg.configFile."waybar/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/waybar/config.jsonc";    
 xdg.configFile."waybar/style.css".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/waybar/style.css";    
 

@@ -1,3 +1,7 @@
+{pkgs, config, ... }:
+
+{
+home.file.".config/swaylock/config".text = ''
 daemonize
 show-failed-attempts
 clock
@@ -36,4 +40,6 @@ datestr=%a, %B %e
 timestr=%I:%M %p
 fade-in=0.2
 ignore-empty-password
+'';
 
+}

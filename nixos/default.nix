@@ -11,5 +11,7 @@
   ./zathura.nix
   ./kitty.nix
   ./alacritty.nix
+  ./foot.nix
+  ./swaylock.nix
   ];
 }
