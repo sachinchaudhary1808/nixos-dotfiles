@@ -19,7 +19,7 @@
   boot.loader.grub.efiSupport = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
-  boot.loader.grub.useOSProber = true;
+  # boot.loader.grub.useOSProber = true;
   # networking
   networking.hostName = "nixos"; # Define your hostname.
   networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
@@ -30,10 +30,10 @@
 
   # what to do when lid is closed
   services.logind.lidSwitch = "suspend";
-
+  services.logind.lidSwitchExternalPower = "suspend";
   #kernel settings
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_zen;
   #zram settings
   zramSwap.enable = true;
   zramSwap.memoryPercent = 200;
@@ -61,13 +61,7 @@
     };
   };
 
-  # Swaylock screem
-  security.pam.services.waylock = {
-    text = ''
-      auth include login
-    '';
-  };
-
+  
   #power savings
   services.power-profiles-daemon.enable = true;
 
@@ -165,11 +159,11 @@
   environment.systemPackages = with pkgs; [
     # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    swayidle
     greetd.tuigreet
-    swaylock-effects
     alejandra
-    swaylock
+    swayidle
+    # swaylock
+    swaylock-effects
     gnome.cheese
     kitty
     alacritty
@@ -184,13 +178,14 @@
     go-mtpfs
     scrcpy
     cmake
-    wbg
     acpi
     xarchiver
     baobab
     transmission-gtk
     cinnamon.warpinator
     tor-browser
+    brave
+    chromium
     fish
     slurp
     grim
@@ -203,13 +198,10 @@
     lxqt.lxqt-policykit
     xorg.xhost
     gparted
-    qimgv
-    dunst
     libnotify
     gtk3
     amdgpu_top
     appimage-run
-    pcmanfm
     mpv
     meson
     nitch
@@ -218,7 +210,6 @@
     pavucontrol
     pipewire
     pkg-config
-    sddm
     python311
     python311Packages.pip
     qt5.qtwayland
@@ -239,6 +230,20 @@
     podman-tui # status of containers in the terminal
     docker-compose # start group of containers for dev
     #podman-compose # start group of containers for dev
+
+
+    # nixos helper
+    nh
+    #nh helper
+    nix-output-monitor
+    nvd
+
+
+    jdk
+    jdk17
+
+
+
   ];
 
   #polkit service
@@ -299,6 +304,7 @@
 
     NIXOS_OZONE_WL = "1";
     ACCESSIBILITY_ENABLED = "1";
+    FLAKE = "/home/coco/nixos-dotfiles";
   };
 
   #experimantlal features
@@ -346,10 +352,10 @@
     EDITOR = "nvim";
   };
 
-  # virtualisation.waydroid.enable = true;
+  virtualisation.waydroid.enable = true;
 
-#  virtualisation.libvirtd.enable = true;
- # programs.virt-manager.enable = true;
+  #  virtualisation.libvirtd.enable = true;
+  # programs.virt-manager.enable = true;
 
   # Automatic Garbage Collection
   nix.gc = {
@@ -359,6 +365,7 @@
   };
 
   virtualisation.containers.enable = true;
+  services.flatpak.enable = true;
   virtualisation = {
     podman = {
       enable = true;
@@ -372,7 +379,7 @@
   };
 
   #thunar file-manager
-programs.thunar = {
+  programs.thunar = {
     enable = true;
     plugins = with pkgs.xfce; [
       thunar-archive-plugin
@@ -382,6 +389,10 @@ programs.thunar = {
   };
 
   services.gvfs = {
-  enable = true;
+    enable = true;
+  };
+
+  xdg.mime.defaultApplications = {
+    "image/png" = ["nomacs.desktop"];
   };
 }

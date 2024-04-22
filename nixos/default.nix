@@ -14,5 +14,6 @@
   ./foot.nix
   ./swaylock.nix
   ./yazi.nix
+  ./tmux.nix
   ];
 }

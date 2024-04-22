@@ -2,25 +2,19 @@
   config,
   pkgs,
   inputs,
-  home-manager,
   ...
 }: let
 in {
   # home-manager.users.coco = {
   imports = [
-    # inputs.nixvim.homeManagerModules.nixvim
-    #
-    #
-    # inputs.nixvim.homeManagerModules.nixvim
-    #
+
     inputs.nix-colors.homeManagerModules.default
-    # ./nixvim.nix
     ./nixos/default.nix
   ];
   home.username = "coco";
   home.homeDirectory = "/home/coco";
 
-  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
+  colorScheme = inputs.nix-colors.colorSchemes.equilibrium-dark;
   /*
   The home.stateVersion option does not have a default and must be set
   */
@@ -30,16 +24,9 @@ in {
   */
 
   home.packages = with pkgs; [
-    atool
-    httpie
-    cinnamon.nemo
     distrobox
     black
-    btop
-    brave
-    dex
     foot
-    gedit
     superTuxKart
     swww
     swaynotificationcenter
@@ -50,7 +37,6 @@ in {
     rofi-wayland
     vesktop
     wmenu
-    chromium
     gnome.nautilus
     cmatrix
     element-desktop
@@ -62,7 +48,16 @@ in {
     gnome-frog
     ttyper
     nomacs
+     
+
+     upower
+    telegram-desktop
+
+bottles
+    
   ];
+
+
   xdg.configFile."sway/config".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/sway/config";
   xdg.configFile."rofi/config.rasi".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/rofi/config.rasi";
   xdg.configFile."rofi/tokyonight.rasi".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/rofi/tokyonight.rasi";

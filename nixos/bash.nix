@@ -10,6 +10,7 @@ programs.bash = {
                  #    fi
         set -o vi
 
+
       '';
 
       shellAliases = {

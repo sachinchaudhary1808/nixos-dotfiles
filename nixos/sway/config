@@ -13,7 +13,7 @@ set $right l
 # Your preferred terminal emulator
 set $term foot 
 set $browser brave
-set $file-manager yazi
+set $file-manager thunar
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -46,6 +46,9 @@ exec blueman-applet
 exec gammastep-indicator
 exec swaync
 
+
+#startup apps
+
 # Example configuration:
 set $lock_bg ~/Pictures/lockscreen.jpg
 
@@ -53,9 +56,9 @@ bindsym $mod+End exec swaylock -i $lock_bg
 
 exec swayidle -w \
          timeout 300 'swaylock -f -c 000000 -i $lock_bg' \
-         timeout 600 'swaymsg "output * dpms off"' \
+         timeout 300 'swaymsg "output * dpms off"' \
               resume 'swaymsg "output * dpms on"' \
-         before-sleep 'swaylock -f -c 000000 -i $lock_bg'
+         timeout 600 'systemctl suspend' before-sleep 'swaylock -f -c 000000 -i $lock_bg'
 exec sway-audio-idle-inhibit
 
 #lock screen
@@ -81,6 +84,9 @@ bindsym  $mod+Escape exec wlogout
 
 input "7247:52:SIGMACHIP_Usb_Mouse" {
 scroll_factor 1
+accel_profile "adaptive" # disable mouse acceleration (enabled by default; to set it manually, use "adaptive" instead of "flat")
+	pointer_accel 0.5 # set mouse sensitivity (between -1 and 1)	
+
 }
 
 # You can get the names of your inputs by running: swaymsg -t get_inputs
@@ -105,7 +111,7 @@ scroll_factor 1
 bindsym $mod+Shift+b exec $browser
 
 #file manager
-bindsym $mod+Shift+f exec kitty -e yazi
+bindsym $mod+Shift+f exec $file-manager
 bindsym $mod+Shift+return exec kitty
 bindsym $mod+Shift+n exec alacritty  -e nvim
 
@@ -276,8 +282,8 @@ default_border pixel 3
 #gaps inner 1
 
 #screenshots
-bindsym  Print exec grim -g "$(slurp)" - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | dunstify "Screenshot of the region taken" -t 1000 # screenshot of a region
-bindsym Shift+Print exec grim - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | dunstify "Screenshot of whole screen taken" -t 1000 # screenshot of the whole screen
+bindsym  Print exec grim -g "$(slurp)" - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | notify-send "Screenshot of the region taken" -t 1000 # screenshot of a region
+bindsym Shift+Print exec grim - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | notify-send "Screenshot of whole screen taken" -t 1000 # screenshot of the whole screen
 
 #python 
 bindsym xf86calculator exec alacritty -e python3
@@ -289,9 +295,9 @@ bindsym $mod+q exec foot --working-directory /etc/nixos/ -e bash -c "exec bash"
 
 bindsym $mod+o exec swaync-client -op
 
-bindsym $mod+Help exec /home/coco/.config/hypr/battery/off.sh
+bindsym $mod+Help exec /home/coco/nixos-dotfiles/nixos/conservation_mode/off.sh
 
-bindsym Help exec /home/coco/.config/hypr/battery/on.sh
+bindsym Help exec /home/coco/nixos-dotfiles/nixos/conservation_mode/on.sh
 
 bindsym $mod+n exec nvim
 
