@@ -61,7 +61,6 @@
     };
   };
 
-  
   #power savings
   services.power-profiles-daemon.enable = true;
 
@@ -231,19 +230,14 @@
     docker-compose # start group of containers for dev
     #podman-compose # start group of containers for dev
 
-
     # nixos helper
     nh
     #nh helper
     nix-output-monitor
     nvd
 
-
     jdk
     jdk17
-
-
-
   ];
 
   #polkit service
@@ -265,12 +259,6 @@
       pkgs.xdg-desktop-portal-gtk
     ];
   };
-
-  #Fonts:
-  fonts.packages = with pkgs; [
-    nerdfonts
-    meslo-lgs-nf
-  ];
 
   # List services that you want to enable:
 
@@ -363,6 +351,9 @@
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
+  # nix store auto-optimization
+nix.settings.auto-optimise-store = true;
+
 
   virtualisation.containers.enable = true;
   services.flatpak.enable = true;

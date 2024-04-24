@@ -32,6 +32,7 @@ programs.bash = {
 	gp = "git push -u origin main";
 	npi = "nix profile install";
 	h = "htop";
+	gc = "git commit -m";
       };
     };
 }

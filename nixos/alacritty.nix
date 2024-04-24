@@ -1,7 +1,7 @@
 { pkgs, config, lib, host, ... }:
 
 let
-palette = config.colorScheme.colors;
+palette = config.colorScheme.palette;
 in
 {
 programs.alacritty = {

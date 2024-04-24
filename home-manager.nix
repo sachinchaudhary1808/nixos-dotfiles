@@ -7,14 +7,13 @@
 in {
   # home-manager.users.coco = {
   imports = [
-
     inputs.nix-colors.homeManagerModules.default
     ./nixos/default.nix
   ];
   home.username = "coco";
   home.homeDirectory = "/home/coco";
 
-  colorScheme = inputs.nix-colors.colorSchemes.equilibrium-dark;
+  colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
   /*
   The home.stateVersion option does not have a default and must be set
   */
@@ -48,15 +47,19 @@ in {
     gnome-frog
     ttyper
     nomacs
-     
 
-     upower
+    upower
     telegram-desktop
 
-bottles
-    
-  ];
+    #fonts
+    nerdfonts
+    bottles
+    spotube
 
+    vscode
+
+    lazygit
+  ];
 
   xdg.configFile."sway/config".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/sway/config";
   xdg.configFile."rofi/config.rasi".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/rofi/config.rasi";
@@ -68,8 +71,7 @@ bottles
 
   home.sessionVariables = {
     EDITOR = "nvim";
-        GIO_EXTRA_MODULES = "${pkgs.gvfs}/lib/gio/modules";
-
+    GIO_EXTRA_MODULES = "${pkgs.gvfs}/lib/gio/modules";
   };
   # programs.home-manager.enable = true;
   # };
