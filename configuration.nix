@@ -133,7 +133,7 @@
     wireplumber.enable = true;
   };
 
-  #   hardware.pulseaudio.enable = true;
+  hardware.pulseaudio.enable = false;
   # hardware.pulseaudio.support32Bit = true;
 
   services.xserver.libinput.enable = true;
@@ -153,6 +153,13 @@
       };
     };
   };
+# unlock keyring on login
+  security.pam.services.greetd.enableGnomeKeyring = true;
+
+
+  #   services.xserver.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -260,6 +267,12 @@
     ];
   };
 
+  #fonts
+  fonts.packages = with pkgs; [
+    nerdfonts
+    font-awesome
+  ];
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
@@ -352,8 +365,7 @@
     options = "--delete-older-than 7d";
   };
   # nix store auto-optimization
-nix.settings.auto-optimise-store = true;
-
+  nix.settings.auto-optimise-store = true;
 
   virtualisation.containers.enable = true;
   services.flatpak.enable = true;

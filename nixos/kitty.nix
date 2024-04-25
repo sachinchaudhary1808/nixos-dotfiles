@@ -6,7 +6,7 @@
     font.name = "JetBrainsMono Nerd Font";
     font.size = 16;
     settings = {
-      background_opacity = "0.85";
+      background_opacity = "0.89";
     };
 
     extraConfig = ''

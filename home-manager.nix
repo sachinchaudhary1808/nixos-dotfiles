@@ -13,7 +13,7 @@ in {
   home.username = "coco";
   home.homeDirectory = "/home/coco";
 
-  colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
+  colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
   /*
   The home.stateVersion option does not have a default and must be set
   */
@@ -51,8 +51,6 @@ in {
     upower
     telegram-desktop
 
-    #fonts
-    nerdfonts
     bottles
     spotube
 

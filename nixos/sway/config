@@ -112,7 +112,7 @@ bindsym $mod+Shift+b exec $browser
 
 #file manager
 bindsym $mod+Shift+f exec $file-manager
-bindsym $mod+Shift+return exec kitty -e fish
+bindsym $mod+Shift+return exec alacritty 
 bindsym $mod+Shift+n exec kitty  -e nvim
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -290,7 +290,7 @@ bindsym xf86calculator exec alacritty -e python3
 
 
 
-bindsym $mod+q exec foot --working-directory /etc/nixos/ -e bash -c "exec bash"
+bindsym $mod+q exec  kitty
 
 
 bindsym $mod+o exec swaync-client -op
