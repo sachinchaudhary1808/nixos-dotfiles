@@ -64,6 +64,10 @@
   #power savings
   services.power-profiles-daemon.enable = true;
 
+
+# geoclue2
+# services.geoclue2.enable = true;
+
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -212,6 +216,7 @@
     meson
     nitch
     ninja
+    dbus
     networkmanagerapplet
     pavucontrol
     pipewire

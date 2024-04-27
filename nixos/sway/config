@@ -32,8 +32,9 @@ set $menu rofi -show drun | xargs swaymsg exec --
 ### Idle configuration
 
 #startup programs
-
+exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 exec swww init
+exec dbus-update-activation-environment
 exec dbus-sway-environment
 exec configure-gtk
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
@@ -77,6 +78,7 @@ bindsym  $mod+Escape exec wlogout
 	dwt enabled
 	tap enabled
 	natural_scroll enabled
+	scroll_factor 1
 	middle_emulation enabled
 	accel_profile "adaptive" # disable mouse acceleration (enabled by default; to set it manually, use "adaptive" instead of "flat")
 	pointer_accel 0.5 # set mouse sensitivity (between -1 and 1)	
