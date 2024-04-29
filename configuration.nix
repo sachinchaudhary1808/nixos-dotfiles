@@ -4,7 +4,8 @@
   pkgs,
   inputs,
   ...
-}: {
+}: let
+in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -64,9 +65,8 @@
   #power savings
   services.power-profiles-daemon.enable = true;
 
-
-# geoclue2
-# services.geoclue2.enable = true;
+  # geoclue2
+  # services.geoclue2.enable = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -157,9 +157,8 @@
       };
     };
   };
-# unlock keyring on login
+  # unlock keyring on login
   security.pam.services.greetd.enableGnomeKeyring = true;
-
 
   #   services.xserver.enable = true;
   # services.xserver.displayManager.gdm.enable = true;
@@ -202,6 +201,7 @@
     fzf
     gcc
     htop
+    gnome.nautilus
     powertop
     git
     gnome.gnome-keyring
@@ -395,7 +395,7 @@
       thunar-dropbox-plugin
     ];
   };
-
+  programs.nautilus-open-any-terminal.enable = true;
   services.gvfs = {
     enable = true;
   };

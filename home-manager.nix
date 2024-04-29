@@ -41,7 +41,6 @@ in {
       rofi-wayland
       vesktop
       wmenu
-      gnome.nautilus
       cmatrix
       element-desktop
       pciutils
@@ -65,6 +64,7 @@ in {
       geoclue2
     ];
   };
+
 
   xdg.configFile = {
     "sway/config".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/sway/config";
