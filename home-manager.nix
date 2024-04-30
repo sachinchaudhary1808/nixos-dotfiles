@@ -7,12 +7,13 @@
 in {
   # home-manager.users.coco = {
   imports = [
-    inputs.nix-colors.homeManagerModules.default
 
     ./nixos/default.nix
   ];
 
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
+
+  catppuccin.flavour = "mocha";
 
   home = {
     username = "coco";

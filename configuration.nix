@@ -140,7 +140,7 @@ in {
   hardware.pulseaudio.enable = false;
   # hardware.pulseaudio.support32Bit = true;
 
-  services.xserver.libinput.enable = true;
+  services.libinput.enable = true;
 
   services.locate = {
     enable = true;
@@ -230,7 +230,6 @@ in {
     wlroots
     xdg-desktop-portal-gtk
     xdg-utils
-    nodejs_21
     ripgrep
     unzip
     obs-studio

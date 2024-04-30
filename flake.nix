@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # Home manager
+      catppuccin.url = "github:catppuccin/nix";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -20,6 +21,7 @@
     self,
     nixpkgs,
     home-manager,
+     catppuccin,
     ...
   }: let
     system = "x86_64-linux";
@@ -45,7 +47,14 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               extraSpecialArgs = {inherit inputs;};
-              users.coco = import ./home-manager.nix;
+	      users.coco = {
+	      imports = [
+	      ./home-manager.nix
+	       inputs.nix-colors.homeManagerModules.default
+	      catppuccin.homeManagerModules.catppuccin
+
+	      ];
+	      };
             };
           }
           # inputs.nixvim.nixosModules.nixvim
