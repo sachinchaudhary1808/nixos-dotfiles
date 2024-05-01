@@ -29,7 +29,7 @@
 }
 {
     "label" = "suspend";
-    "action" = "systemctl suspend";
+    "action" = "swaylock -f && sleep 1.5 && systemctl suspend";
     "text" = "Suspend";
     "keybind" = "u";
 }

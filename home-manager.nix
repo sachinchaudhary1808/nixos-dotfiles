@@ -7,7 +7,6 @@
 in {
   # home-manager.users.coco = {
   imports = [
-
     ./nixos/default.nix
   ];
 
@@ -35,6 +34,10 @@ in {
       superTuxKart
       swww
       swaynotificationcenter
+      # news
+      liferea
+      newsflash
+
       yazi
       #image editing and etc...
       gimp
@@ -65,7 +68,6 @@ in {
       geoclue2
     ];
   };
-
 
   xdg.configFile = {
     "sway/config".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/sway/config";
