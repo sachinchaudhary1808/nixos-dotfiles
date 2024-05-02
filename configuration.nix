@@ -41,9 +41,12 @@ in {
   boot.kernel.sysctl."vm.page-cluster" = 0;
 
   # Gpu settings
-
-  #boot.initrd.kernelModules = [ "amdgpu" ];
+  services.xserver.videoDrivers = ["amdgpu"];
+  boot.initrd.kernelModules = ["amdgpu"];
   hardware = {
+    cpu.amd.updateMicrocode = true;
+    enableRedistributableFirmware = true;
+    enableAllFirmware = true;
     opengl = {
       enable = true;
       driSupport = true; # amd
@@ -273,7 +276,7 @@ in {
 
   #fonts
   fonts.packages = with pkgs; [
-    nerdfonts
+    (nerdfonts.override {fonts = ["JetBrainsMono" "DroidSansMono"];})
     font-awesome
   ];
 
