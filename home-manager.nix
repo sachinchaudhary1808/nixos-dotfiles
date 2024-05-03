@@ -29,8 +29,11 @@ in {
     #Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     packages = with pkgs; [
       distrobox
+      # inputs.nixvim-config.packages.${system}.default
       black
+      luajitPackages.lua-utils-nvim
       foot
+neovim
       superTuxKart
       swww
       swaynotificationcenter
@@ -66,6 +69,8 @@ in {
 
       lazygit
       geoclue2
+
+      tree
     ];
   };
 

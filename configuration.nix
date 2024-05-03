@@ -42,7 +42,7 @@ in {
 
   # Gpu settings
   services.xserver.videoDrivers = ["amdgpu"];
-  boot.initrd.kernelModules = ["amdgpu"];
+  # boot.initrd.kernelModules = ["amdgpu"];
   hardware = {
     cpu.amd.updateMicrocode = true;
     enableRedistributableFirmware = true;
