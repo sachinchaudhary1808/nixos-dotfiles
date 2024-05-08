@@ -14,7 +14,6 @@ default_floating_border normal
 
 font pango:monospace 16px 
 
-
 set $cl_high #b4befe
 set $cl_indi #9399b2
 set $cl_back #1e1e2e
@@ -334,6 +333,7 @@ exec wl-paste --watch cliphist store
 
 #rofi clibpboard manu
 bindsym Insert exec  cliphist list | rofi -dmenu | cliphist decode | wl-copy
+bindsym $mod+Tab exec rofi -show window
 
 # set $cl_high #009ddc
 # set $cl_indi #d9d8d8

@@ -1,10 +1,6 @@
-#my nixos config
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: let
+# my nixos config
+{ config, pkgs, inputs, ... }:
+let
 in {
   imports = [
     # Include the results of the hardware scan.
@@ -23,11 +19,13 @@ in {
   # boot.loader.grub.useOSProber = true;
   # networking
   networking.hostName = "nixos"; # Define your hostname.
-  networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
-  networking.networkmanager.unmanaged = ["wlan0"]; # Replace with actual interface names
+  networking.wireless.enable =
+    true; # Enables wireless support via wpa_supplicant.
+  networking.networkmanager.unmanaged =
+    [ "wlan0" ]; # Replace with actual interface names
 
   # Dns server
-  networking.nameservers = ["8.8.8.8" "8.8.4.4"];
+  networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
 
   # what to do when lid is closed
   services.logind.lidSwitch = "suspend";
@@ -41,7 +39,7 @@ in {
   boot.kernel.sysctl."vm.page-cluster" = 0;
 
   # Gpu settings
-  services.xserver.videoDrivers = ["amdgpu"];
+  services.xserver.videoDrivers = [ "amdgpu" ];
   # boot.initrd.kernelModules = ["amdgpu"];
   hardware = {
     cpu.amd.updateMicrocode = true;
@@ -60,8 +58,7 @@ in {
         amdvlk
         libva-utils
       ];
-      extraPackages32 = with pkgs; [
-      ];
+      extraPackages32 = with pkgs; [ ];
     };
   };
 
@@ -82,18 +79,18 @@ in {
   time.timeZone = "Asia/Kolkata";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_IN";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_IN";
-    LC_IDENTIFICATION = "en_IN";
-    LC_MEASUREMENT = "en_IN";
-    LC_MONETARY = "en_IN";
-    LC_NAME = "en_IN";
-    LC_NUMERIC = "en_IN";
-    LC_PAPER = "en_IN";
-    LC_TELEPHONE = "en_IN";
-    LC_TIME = "en_IN";
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
   };
 
   # Configure keymap in X11
@@ -110,16 +107,24 @@ in {
   users.users.coco = {
     isNormalUser = true;
     description = "sachin chaudhary";
-    extraGroups = ["networkmanager" "wheel" "video" "kvm" "input"];
-    packages = with pkgs; [];
+    extraGroups = [ "networkmanager" "wheel" "video" "kvm" "input" ];
+    packages = with pkgs; [ ];
   };
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+
+    packageOverrides = pkgs: {
+      nur = import (builtins.fetchTarball
+        "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+          inherit pkgs;
+        };
+    };
+  };
+  # nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowInsecure = true;
-  nixpkgs.config.PermittedInsecurePakages = [
-    "python-2.7.18.6"
-  ];
+  nixpkgs.config.PermittedInsecurePakages = [ "python-2.7.18.6" ];
 
   services.blueman.enable = true;
   services.gnome.gnome-keyring.enable = true;
@@ -155,7 +160,8 @@ in {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd sway";
+        command =
+          "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd sway";
         user = "greeter";
       };
     };
@@ -269,14 +275,14 @@ in {
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
-    ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   #fonts
   fonts.packages = with pkgs; [
-    (nerdfonts.override {fonts = ["JetBrainsMono" "DroidSansMono"];})
+    (nerdfonts.override {
+      fonts = [ "JetBrainsMono" "DroidSansMono" "FiraCode" ];
+    })
     font-awesome
   ];
 
@@ -316,15 +322,13 @@ in {
   };
 
   #experimantlal features
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # settings of obs
   boot = {
-    kernelModules = ["v4l2loopback"];
+    kernelModules = [ "v4l2loopback" ];
 
-    extraModulePackages = [
-      config.boot.kernelPackages.v4l2loopback
-    ];
+    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
   };
 
   # home-manager.useGlobalPkgs = true;
@@ -339,26 +343,21 @@ in {
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true; # so that gtk works properly
-    extraPackages = with pkgs; [
-      sway-audio-idle-inhibit
-    ];
-    extraSessionCommands = ''
-      export MOZ_ENABLE_WAYLAND=1    '';
+    extraPackages = with pkgs; [ sway-audio-idle-inhibit ];
+    extraSessionCommands = "export MOZ_ENABLE_WAYLAND=1    ";
   };
 
-  security.pam.loginLimits = [
-    {
-      domain = "@users";
-      item = "rtprio";
-      type = "-";
-      value = 1;
-    }
-  ];
+  security.pam.loginLimits = [{
+    domain = "@users";
+    item = "rtprio";
+    type = "-";
+    value = 1;
+  }];
   # programs.waybar.enable = true;
 
-  environment.variables = {
-    EDITOR = "nvim";
-  };
+  #environment.variables = {
+  # EDITOR = "nvim";
+  # };
 
   virtualisation.waydroid.enable = true;
 
@@ -398,11 +397,7 @@ in {
     ];
   };
   programs.nautilus-open-any-terminal.enable = true;
-  services.gvfs = {
-    enable = true;
-  };
+  services.gvfs = { enable = true; };
 
-  xdg.mime.defaultApplications = {
-    "image/png" = ["nomacs.desktop"];
-  };
+  xdg.mime.defaultApplications = { "image/png" = [ "nomacs.desktop" ]; };
 }

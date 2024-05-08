@@ -1,9 +1,6 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{ pkgs, config, ... }: {
   programs.foot = {
+    # catppuccin.enable = true;
     enable = true;
     settings = {
       key-bindings = {

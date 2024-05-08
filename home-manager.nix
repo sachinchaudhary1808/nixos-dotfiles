@@ -1,14 +1,8 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
-}: let
+{ config, pkgs, inputs, ... }:
+let
 in {
   # home-manager.users.coco = {
-  imports = [
-    ./nixos/default.nix
-  ];
+  imports = [ ./nixos/default.nix ];
 
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
@@ -31,16 +25,14 @@ in {
       distrobox
       # inputs.nixvim-config.packages.${system}.default
       black
-      luajitPackages.lua-utils-nvim
       foot
-neovim
+      neovim
       superTuxKart
       swww
       swaynotificationcenter
       # news
       liferea
       newsflash
-
       yazi
       #image editing and etc...
       gimp
@@ -71,18 +63,29 @@ neovim
       geoclue2
 
       tree
+      freetube
     ];
   };
 
   xdg.configFile = {
-    "sway/config".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/sway/config";
-    "rofi/config.rasi".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/rofi/config.rasi";
-    "rofi/tokyonight.rasi".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/rofi/tokyonight.rasi";
+    # you don't have to rebuild..., but have to give full path..
+    "sway/config".source = config.lib.file.mkOutOfStoreSymlink
+      "/home/coco/nixos-dotfiles/nixos/sway/config";
+    "rofi/config.rasi".source = config.lib.file.mkOutOfStoreSymlink
+      "/home/coco/nixos-dotfiles/nixos/rofi/config.rasi";
+    "rofi/tokyonight.rasi".source = config.lib.file.mkOutOfStoreSymlink
+      "/home/coco/nixos-dotfiles/nixos/rofi/tokyonight.rasi";
     #"foot/foot.ini".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/foot/foot.ini";
     #"swaylock/config".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/swaylock/config";
-    "waybar/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/waybar/config.jsonc";
-    "waybar/style.css".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/waybar/style.css";
+    "waybar/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink
+      "/home/coco/nixos-dotfiles/nixos/waybar/config.jsonc";
+    "waybar/style.css".source = config.lib.file.mkOutOfStoreSymlink
+      "/home/coco/nixos-dotfiles/nixos/waybar/style.css";
+
+    # u have to rebuild but don't need to give full path...
+    "nixpkgs/config.nix".source = ./nixos/nixpkgs/config.nix;
   };
+
   # programs.home-manager.enable = true;
   # };
 }

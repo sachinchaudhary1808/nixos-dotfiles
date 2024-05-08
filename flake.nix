@@ -1,14 +1,14 @@
 {
   description = "coco-system";
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # Home manager
-      catppuccin.url = "github:catppuccin/nix";
+    catppuccin.url = "github:catppuccin/nix";
     home-manager = {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nur.url = "github:nix-community/nur";
     # nixvim
     # nixvim = {
     #   url = "github:nix-community/nixvim";
@@ -24,7 +24,8 @@
     self,
     nixpkgs,
     home-manager,
-     catppuccin,
+    catppuccin,
+    nur,
     ...
   }: let
     system = "x86_64-linux";
@@ -46,18 +47,21 @@
           ./configuration.nix
           home-manager.nixosModules.home-manager
           {
+            nixpkgs.overlays = [
+              nur.overlay
+            ];
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;
               extraSpecialArgs = {inherit inputs;};
-	      users.coco = {
-	      imports = [
-	      ./home-manager.nix
-	       inputs.nix-colors.homeManagerModules.default
-	      catppuccin.homeManagerModules.catppuccin
-
-	      ];
-	      };
+              users.coco = {
+                imports = [
+                  ./home-manager.nix
+                  inputs.nix-colors.homeManagerModules.default
+                  catppuccin.homeManagerModules.catppuccin
+                  inputs.nur.hmModules.nur
+                ];
+              };
             };
           }
           # inputs.nixvim.nixosModules.nixvim
