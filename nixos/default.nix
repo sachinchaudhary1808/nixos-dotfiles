@@ -1,19 +1,25 @@
 { pkgs, config, ... }: {
   imports = [
-    ./wlogout.nix
-    ./bash.nix
-    ./startship.nix
-    ./theme.nix
-    ./git.nix
-    ./gammastep.nix
-    ./zoxide.nix
-    ./zathura.nix
-    ./kitty.nix
-    ./alacritty.nix
-    ./foot.nix
-    ./swaylock.nix
-    ./yazi.nix
-    ./tmux.nix
+
+    # user-system programms
+    ./user-system/bash.nix
+    ./user-system/startship.nix
+    ./user-system/theme.nix
+    ./user-system/zoxide.nix
+
+    # gui programms
+    ./gui/gammastep.nix
+    ./gui/wlogout.nix
+    ./gui/zathura.nix
+    ./gui/kitty.nix
+    ./gui/alacritty.nix
+    ./gui/foot.nix
     # ./emacs.nix
+    ./gui/swaylock.nix
+
+    # tui programms
+    ./tui/yazi.nix
+    ./tui/git.nix
+    ./tui/tmux.nix
   ];
 }
