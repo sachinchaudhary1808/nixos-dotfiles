@@ -196,6 +196,7 @@ in {
     go-mtpfs
     scrcpy
     cmake
+    gnumake
     acpi
     xarchiver
     baobab

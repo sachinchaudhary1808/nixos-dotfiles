@@ -5,8 +5,8 @@ in {
   imports = [ ./nixos/default.nix ];
 
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
-
   catppuccin.flavour = "mocha";
+
 
   home = {
     username = "coco";
@@ -81,7 +81,7 @@ in {
       "/home/coco/nixos-dotfiles/nixos/waybar/config.jsonc";
     "waybar/style.css".source = config.lib.file.mkOutOfStoreSymlink
       "/home/coco/nixos-dotfiles/nixos/waybar/style.css";
-
+    #
     # u have to rebuild but don't need to give full path...
     "nixpkgs/config.nix".source = ./nixos/nixpkgs/config.nix;
   };
