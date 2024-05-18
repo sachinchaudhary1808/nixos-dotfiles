@@ -141,7 +141,7 @@ bindsym $mod+Shift+b exec $browser
 #file manager
 bindsym $mod+Shift+f exec $file-manager
 bindsym $mod+Shift+return exec alacritty 
-bindsym $mod+Shift+n exec kitty  -e nvim
+bindsym $mod+m exec kitty  -e nvim
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -275,6 +275,10 @@ bindsym $mod+d mode "resize"
 bar {
 
        swaybar_command waybar
+       hidden_state hide
+       mode hide
+       modifier Mod4
+       position bottom
 
    }
 

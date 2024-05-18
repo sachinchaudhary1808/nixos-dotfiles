@@ -1,5 +1,15 @@
 {
   description = "coco-system";
+
+  nixConfig = {
+    extra-substituters = [ "https://nix-community.cachix.org" ];
+    extra-trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+  };
+
+  inputs.cachix.url = "github:cachix/cachix";
+
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -15,15 +25,24 @@
 
     nix-colors.url = "github:misterio77/nix-colors";
 
-    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, catppuccin, nur
-    , nix-doom-emacs, ... }:
+  outputs =
+    inputs@{ self, nixpkgs, home-manager, catppuccin, nur, cachix, ... }:
     let
       system = "x86_64-linux";
-
       lib = nixpkgs.lib;
+
+      systemSettings = {
+        hostname = "nixos";
+        timeZone = "Asia/Kolkata";
+        locale = "en_US.UTF-8";
+      };
+      userSettings = {
+        username = "coco"; # username
+        name = "sachin chaudhary";
+        hostname = "nixos";
+      };
 
       pkgs = import nixpkgs {
         inherit system;
@@ -34,8 +53,8 @@
 
     in {
       nixosConfigurations = {
-        nixos = lib.nixosSystem {
-          specialArgs = { inherit inputs system; };
+        ${systemSettings.hostname} = lib.nixosSystem {
+          specialArgs = { inherit inputs system userSettings systemSettings; };
 
           modules = [
             ./configuration.nix
@@ -45,14 +64,16 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                extraSpecialArgs = { inherit inputs; };
-                users.coco = {
+                extraSpecialArgs = {
+                  inherit inputs;
+                  inherit userSettings;
+                };
+                users.${userSettings.username} = {
                   imports = [
                     ./home-manager.nix
                     inputs.nix-colors.homeManagerModules.default
                     catppuccin.homeManagerModules.catppuccin
                     inputs.nur.hmModules.nur
-                    nix-doom-emacs.hmModule
 
                   ];
                 };

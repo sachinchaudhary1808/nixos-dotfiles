@@ -1,5 +1,5 @@
 # my nixos config
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, lib, userSettings, systemSettings, ... }:
 let
 in {
   imports = [
@@ -18,7 +18,7 @@ in {
   boot.loader.efi.efiSysMountPoint = "/boot";
   # boot.loader.grub.useOSProber = true;
   # networking
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = systemSettings.hostname; # Define your hostname.
   networking.wireless.enable =
     true; # Enables wireless support via wpa_supplicant.
   networking.networkmanager.unmanaged =
@@ -76,21 +76,21 @@ in {
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = "Asia/Kolkata";
+  time.timeZone = systemSettings.timeZone;
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = systemSettings.locale;
 
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+    LC_ADDRESS = systemSettings.locale;
+    LC_IDENTIFICATION = systemSettings.locale;
+    LC_MEASUREMENT = systemSettings.locale;
+    LC_MONETARY = systemSettings.locale;
+    LC_NAME = systemSettings.locale;
+    LC_NUMERIC = systemSettings.locale;
+    LC_PAPER = systemSettings.locale;
+    LC_TELEPHONE = systemSettings.locale;
+    LC_TIME = systemSettings.locale;
   };
 
   # Configure keymap in X11
@@ -104,9 +104,9 @@ in {
   #systemd.services."autovt@tty1".enable = false;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.coco = {
+  users.users.${userSettings.username} = {
     isNormalUser = true;
-    description = "sachin chaudhary";
+    description = userSettings.name;
     extraGroups = [ "networkmanager" "wheel" "video" "kvm" "input" ];
     packages = with pkgs; [ ];
   };
@@ -136,6 +136,8 @@ in {
     bluetooth.powerOnBoot = true;
   };
 
+  # setup pipewire for audio
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -178,6 +180,7 @@ in {
     # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     greetd.tuigreet
+    cachix
     alejandra
     swayidle
     # swaylock
@@ -230,6 +233,7 @@ in {
     networkmanagerapplet
     pavucontrol
     pipewire
+
     pkg-config
     python311
     python311Packages.pip
@@ -401,4 +405,8 @@ in {
   services.gvfs = { enable = true; };
 
   xdg.mime.defaultApplications = { "image/png" = [ "nomacs.desktop" ]; };
+
+  # bye bye nano
+  programs.nano.enable = lib.mkForce false;
+
 }

@@ -14,7 +14,6 @@
     ./gui/kitty.nix
     ./gui/alacritty.nix
     ./gui/foot.nix
-    # ./emacs.nix
     ./gui/swaylock.nix
 
     # tui programms

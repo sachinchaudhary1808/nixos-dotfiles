@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, userSettings, ... }:
 let
 in {
   # home-manager.users.coco = {
@@ -7,10 +7,9 @@ in {
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
   catppuccin.flavour = "mocha";
 
-
   home = {
-    username = "coco";
-    homeDirectory = "/home/coco";
+    username = userSettings.username;
+    homeDirectory = "/home/" + userSettings.username;
 
     #The home.stateVersion option does not have a default and must be set
     stateVersion = "23.11";
@@ -88,4 +87,5 @@ in {
 
   # programs.home-manager.enable = true;
   # };
+
 }
