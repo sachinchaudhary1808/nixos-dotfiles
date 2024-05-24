@@ -10,9 +10,9 @@ in {
         padding.x = 15;
         padding.y = 15;
         decorations = "none";
-        startup_mode = "Windowed";
+        # startup_mode = "Windowed";
         dynamic_title = true;
-        opacity = 0.6;
+        opacity = lib.mkForce 0.6;
       };
       cursor = {
         style = {

@@ -9,6 +9,43 @@ in {
     # ./home-manager.nix
   ];
 
+  # stylix.base16Scheme =
+  #   "${pkgs.base16-schemes}/share/themes/catppuccin-macchiato.yaml";
+  # stylix.targets.grub.useImage = true;
+  # stylix.autoEnable = true;
+  # stylix.image = ./at-infinity-pi4a3mucMEA-unsplash.jpg;
+  # stylix.cursor.package = pkgs.bibata-cursors;
+  # stylix.cursor.name = "Bibata-Modern-Ice";
+  # stylix.fonts = {
+  #   monospace = {
+  #     package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
+  #     name = "JetBrainsMono Nerd Font Mono";
+  #   };
+  #   # sansSerif = {
+  #   #   package = pkgs.dejavu_fonts;
+  #   #   name = "DejaVu Sans";
+  #   # };
+  #   # serif = {
+  #   #   package = pkgs.dejavu_fonts;
+  #   #   name = "DejaVu serif";
+  #   # };
+  # };
+  #
+  # stylix.fonts.sizes = {
+  #   applications = 12;
+  #   terminal = 15;
+  #   desktop = 19;
+  #   popups = 10;
+  # };
+  # stylix.opacity = {
+  #
+  #   applications = 1.0;
+  #   terminal = 1.0;
+  #   desktop = 1.0;
+  #
+  #   popups = 1.8;
+  # };
+  # stylix.polarity = "dark";
   # Bootloader.
   # boot.loader.systemd-boot.enable = true;
   boot.loader.grub.enable = true;
@@ -16,6 +53,18 @@ in {
   boot.loader.grub.efiSupport = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
+  boot.loader.grub.splashImage = ./at-infinity-pi4a3mucMEA-unsplash.jpg;
+  boot.loader.grub.theme = pkgs.stdenv.mkDerivation {
+    pname = "distro-grub-themes";
+    version = "3.1";
+    src = pkgs.fetchFromGitHub {
+      owner = "AdisonCavani";
+      repo = "distro-grub-themes";
+      rev = "v3.1";
+      hash = "sha256-ZcoGbbOMDDwjLhsvs77C7G7vINQnprdfI37a9ccrmPs=";
+    };
+    installPhase = "cp -r customize/lenovo $out";
+  };
   # boot.loader.grub.useOSProber = true;
   # networking
   networking.hostName = systemSettings.hostname; # Define your hostname.
@@ -407,6 +456,6 @@ in {
   xdg.mime.defaultApplications = { "image/png" = [ "nomacs.desktop" ]; };
 
   # bye bye nano
-  programs.nano.enable = lib.mkForce false;
+  # programs.nano.enable = lib.mkForce false;
 
 }

@@ -23,7 +23,7 @@ set $cl_text #5A5A5A
 
 # Colors                border   bg       text     indi     childborder
 client.focused          $cl_high $cl_high $cl_text $cl_indi $cl_high
-client.focused_inactive $cl_back $cl_back $cl_fore $cl_back $cl_back
+# client.focused_inactive $cl_back $cl_back $cl_fore $cl_back $cl_back
 client.unfocused        $cl_text $cl_back $cl_fore $cl_back $cl_back
 client.urgent           $cl_urge $cl_urge $cl_fore $cl_urge $cl_urge
 
@@ -58,6 +58,7 @@ set $menu rofi -show drun | xargs swaymsg exec --
 #startup programs
 exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
 exec swww init
+exec dbus-update-activation-environment --all --systemd
 exec dbus-update-activation-environment
 exec dbus-update-activation-environment DISPLAY
 exec dbus-sway-environment
@@ -275,10 +276,10 @@ bindsym $mod+d mode "resize"
 bar {
 
        swaybar_command waybar
-       hidden_state hide
-       mode hide
-       modifier Mod4
-       position bottom
+       # hidden_state hide
+       # mode hide
+       # modifier Mod4
+       # position bottom
 
    }
 
@@ -327,9 +328,9 @@ bindsym $mod+q exec  kitty
 
 bindsym $mod+o exec swaync-client -op
 
-bindsym $mod+Help exec /home/coco/nixos-dotfiles/nixos/conservation_mode/off.sh
+bindsym $mod+Help exec /home/coco/nixos-dotfiles/nixos/scripts/conservation_mode/off.sh
 
-bindsym Help exec /home/coco/nixos-dotfiles/nixos/conservation_mode/on.sh
+bindsym Help exec /home/coco/nixos-dotfiles/nixos/scripts/conservation_mode/on.sh
 
 bindsym $mod+n exec nvim
 

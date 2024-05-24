@@ -24,6 +24,7 @@
     nur.url = "github:nix-community/nur";
 
     nix-colors.url = "github:misterio77/nix-colors";
+    stylix.url = "github:danth/stylix";
 
   };
 
@@ -44,12 +45,9 @@
         hostname = "nixos";
       };
 
-      pkgs = import nixpkgs {
-        inherit system;
-        pkgs = nixpkgs.legacyPackages."${system}";
+      pkgs = nixpkgs.legacyPackages."${system}";
 
-        config = { allowunfree = true; };
-      };
+      config = { allowunfree = true; };
 
     in {
       nixosConfigurations = {
@@ -59,6 +57,7 @@
           modules = [
             ./configuration.nix
             home-manager.nixosModules.home-manager
+            # inputs.stylix.nixosModules.stylix
             {
               nixpkgs.overlays = [ nur.overlay ];
               home-manager = {

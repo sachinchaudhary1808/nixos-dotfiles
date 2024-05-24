@@ -36,8 +36,11 @@ in {
 
 
     '';
+    bashrcExtra = ''
+    '';
 
     shellAliases = myAliases;
 
   };
+
 }

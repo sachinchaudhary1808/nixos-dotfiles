@@ -5,6 +5,7 @@ in {
   imports = [ ./nixos/default.nix ];
 
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
+
   catppuccin.flavour = "mocha";
 
   home = {
@@ -25,9 +26,10 @@ in {
       # inputs.nixvim-config.packages.${system}.default
       black
       foot
-      neovim
+      #neovim
       superTuxKart
       swww
+      neovim
       swaynotificationcenter
       # news
       liferea
@@ -87,5 +89,4 @@ in {
 
   # programs.home-manager.enable = true;
   # };
-
 }

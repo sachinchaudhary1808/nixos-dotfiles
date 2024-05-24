@@ -1,11 +1,10 @@
-{pkgs, config, ...}:
-{
+{ pkgs, config, lib, ... }: {
 
   programs.kitty = {
     enable = true;
     catppuccin.enable = true;
-    font.name = "JetBrainsMono Nerd Font";
-    font.size = 16;
+    font.name = lib.mkForce "JetBrainsMono Nerd Font";
+    font.size = lib.mkForce 16;
     settings = {
       # background_opacity = "0.89";
     };
