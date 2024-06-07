@@ -1,7 +1,7 @@
 let
   myAliases = {
     nixupdate = "sudo nixos-rebuild switch";
-    flakesisupdate = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles/";
+    u = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles/";
     nixgen = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
     ne = "nix-env";
     ni = "nix-env -iA";

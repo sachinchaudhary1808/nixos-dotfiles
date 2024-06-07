@@ -2,11 +2,11 @@
 let
 in {
   # home-manager.users.coco = {
-  imports = [ ./nixos/default.nix ];
+  imports = [ ./modules/default.nix ./nvim/neovim.nix ];
 
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
-  catppuccin.flavour = "mocha";
+  catppuccin.flavor = "mocha";
 
   home = {
     username = userSettings.username;
@@ -26,15 +26,15 @@ in {
       # inputs.nixvim-config.packages.${system}.default
       black
       foot
-      #neovim
       superTuxKart
       swww
-      neovim
+      # neovim
       swaynotificationcenter
       # news
       liferea
       newsflash
       yazi
+      emacs-gtk
       #image editing and etc...
       gimp
       waybar
@@ -71,20 +71,20 @@ in {
   xdg.configFile = {
     # you don't have to rebuild..., but have to give full path..
     "sway/config".source = config.lib.file.mkOutOfStoreSymlink
-      "/home/coco/nixos-dotfiles/nixos/config/sway/config";
+      "/home/coco/nixos-dotfiles/modules/config/sway/config";
     "rofi/config.rasi".source = config.lib.file.mkOutOfStoreSymlink
-      "/home/coco/nixos-dotfiles/nixos/config/rofi/config.rasi";
+      "/home/coco/nixos-dotfiles/modules/config/rofi/config.rasi";
     "rofi/tokyonight.rasi".source = config.lib.file.mkOutOfStoreSymlink
-      "/home/coco/nixos-dotfiles/nixos/config/rofi/tokyonight.rasi";
+      "/home/coco/nixos-dotfiles/modules/config/rofi/tokyonight.rasi";
     #"foot/foot.ini".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/foot/foot.ini";
     #"swaylock/config".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/swaylock/config";
     "waybar/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink
-      "/home/coco/nixos-dotfiles/nixos/config/waybar/config.jsonc";
+      "/home/coco/nixos-dotfiles/modules/config/waybar/config.jsonc";
     "waybar/style.css".source = config.lib.file.mkOutOfStoreSymlink
-      "/home/coco/nixos-dotfiles/nixos/config/waybar/style.css";
+      "/home/coco/nixos-dotfiles/modules/config/waybar/style.css";
     #
     # u have to rebuild but don't need to give full path...
-    "nixpkgs/config.nix".source = ./nixos/config/nixpkgs/config.nix;
+    "nixpkgs/config.nix".source = ./modules/config/nixpkgs/config.nix;
   };
 
   # programs.home-manager.enable = true;

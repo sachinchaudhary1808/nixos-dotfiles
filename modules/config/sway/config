@@ -12,7 +12,7 @@ default_border pixel 3
 default_floating_border normal
 # gaps inner 8
 
-font pango:monospace 16px 
+font pango:monospace 16px
 
 set $cl_high #b4befe
 set $cl_indi #9399b2
@@ -35,7 +35,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot 
+set $term foot
 set $browser brave
 set $file-manager thunar
 # Your preferred application launcher
@@ -65,7 +65,7 @@ exec dbus-sway-environment
 exec configure-gtk
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-exec nm-applet --indicator 
+exec nm-applet --indicator
 exec xhost +local:coco
 exec lxqt-policykit-agent
 exec QT_QPA_PLATFORM="wayland;xcb"
@@ -108,13 +108,13 @@ bindsym  $mod+Escape exec wlogout
 	scroll_factor 1
 	middle_emulation enabled
 	accel_profile "adaptive" # disable mouse acceleration (enabled by default; to set it manually, use "adaptive" instead of "flat")
-	pointer_accel 0.5 # set mouse sensitivity (between -1 and 1)	
+	pointer_accel 0.5 # set mouse sensitivity (between -1 and 1)
    }
 
 input "7247:52:SIGMACHIP_Usb_Mouse" {
 scroll_factor 1
 accel_profile "adaptive" # disable mouse acceleration (enabled by default; to set it manually, use "adaptive" instead of "flat")
-	pointer_accel 0.5 # set mouse sensitivity (between -1 and 1)	
+	pointer_accel 0.5 # set mouse sensitivity (between -1 and 1)
 
 }
 
@@ -141,8 +141,8 @@ bindsym $mod+Shift+b exec $browser
 
 #file manager
 bindsym $mod+Shift+f exec $file-manager
-bindsym $mod+Shift+return exec alacritty 
-bindsym $mod+m exec kitty  -e nvim
+bindsym $mod+Shift+return exec alacritty
+bindsym $mod+m exec foot  -e nvim
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -318,7 +318,7 @@ default_border pixel 3
 bindsym  Print exec grim -g "$(slurp)" - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | notify-send "Screenshot of the region taken" -t 1000 # screenshot of a region
 bindsym Shift+Print exec grim - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | notify-send "Screenshot of whole screen taken" -t 1000 # screenshot of the whole screen
 
-#python 
+#python
 bindsym xf86calculator exec alacritty -e python3
 
 

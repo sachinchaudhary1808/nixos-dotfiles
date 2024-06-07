@@ -25,6 +25,7 @@
 
     nix-colors.url = "github:misterio77/nix-colors";
     stylix.url = "github:danth/stylix";
+    xremap-flake.url = "github:xremap/nix-flake";
 
   };
 
@@ -45,9 +46,9 @@
         hostname = "nixos";
       };
 
-      pkgs = nixpkgs.legacyPackages."${system}";
+      # pkgs = nixpkgs.legacyPackages."${system}";
 
-      config = { allowunfree = true; };
+      # config = { allowunfree = true; };
 
     in {
       nixosConfigurations = {

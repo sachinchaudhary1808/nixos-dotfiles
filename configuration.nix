@@ -7,7 +7,19 @@ in {
     ./hardware-configuration.nix
     # <home-manager/nixos>
     # ./home-manager.nix
+    inputs.xremap-flake.nixosModules.default
   ];
+
+  services.xremap = {
+    withWlroots = true;
+    userName = "coco";
+  };
+  services.xremap.config.modmap = [{
+    name = "Global";
+    remap = { "CapsLock" = "Esc"; }; # globally remap CapsLock to Esc
+    remap = { "Esc" = "CapsLock"; }; # globally remap CapsLock to Esc
+    # application.only = [ "kitty" ];
+  }];
 
   # Bootloader.
   # boot.loader.systemd-boot.enable = true;
@@ -93,6 +105,12 @@ in {
 
   # Select internationalisation properties.
   i18n.defaultLocale = systemSettings.locale;
+  console = {
+    earlySetup = true;
+    font = "ter-powerline-v24b";
+    packages = with pkgs; [ terminus_font powerline-fonts ];
+    keyMap = "us";
+  };
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = systemSettings.locale;
@@ -194,6 +212,7 @@ in {
     wget
     greetd.tuigreet
     cachix
+    foot
     alejandra
     swayidle
     # swaylock

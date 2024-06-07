@@ -55,5 +55,8 @@
     #         inactive_tab_font_style bold
     #         tab_bar_background #${config.colorScheme.colors.base00}
     # '';
+    extraConfig = ''
+      map ctrl+alt+c copy_ansi_to_clipboard
+    '';
   };
 }

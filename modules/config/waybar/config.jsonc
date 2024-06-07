@@ -13,7 +13,7 @@
     "sway/mode",
     "sway/scratchpad",
     "custom/media",
-    "sway/window"
+    "sway/window",
   ],
   "modules-right": [
     // "mpd",
@@ -28,7 +28,7 @@
     "power-profiles-daemon",
     "battery#bat2",
     "clock",
-    "tray"
+    "tray",
   ],
   // Modules configuration
   // "sway/workspaces": {
@@ -53,11 +53,11 @@
     "format": "{name} {icon}",
     "format-icons": {
       "locked": "",
-      "unlocked": ""
-    }
+      "unlocked": "",
+    },
   },
   "sway/mode": {
-    "format": "<span style=\"italic\">{}</span>"
+    "format": "<span style=\"italic\">{}</span>",
   },
   "sway/scratchpad": {
     "format": "{icon} {count}",
@@ -67,7 +67,7 @@
       ""
     ],
     "tooltip": true,
-    "tooltip-format": "{app}: {title}"
+    "tooltip-format": "{app}: {title}",
     // "on-click": "swaymsg 'scratchpad show'",
   },
   // "mpd": {
@@ -100,25 +100,25 @@
     "format": "{icon}",
     "format-icons": {
       "activated": "",
-      "deactivated": ""
-    }
+      "deactivated": "",
+    },
   },
   "tray": {
     // "icon-size": 21,
-    "spacing": 10
+    "spacing": 10,
   },
   "clock": {
     "timezone": "Asia/Kolkata",
     "tooltip-format": "<big>{:%H:%M}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "{:%Y-%m-%d}",
-    "format": "{:%I:%M %p}"
+    "format": "{:%I:%M %p}",
   },
   "cpu": {
     "format": "{usage}% ",
-    "tooltip": false
+    "tooltip": false,
   },
   "memory": {
-    "format": "{}% "
+    "format": "{}% ",
   },
   "temperature": {
     // "thermal-zone": 2,
@@ -130,7 +130,7 @@
       "",
       "",
       ""
-    ]
+    ],
   },
   "backlight": {
     // "device": "acpi_video1",
@@ -145,13 +145,13 @@
       "",
       "",
       ""
-    ]
+    ],
   },
   "battery": {
     "states": {
       // "good": 95,
       "warning": 30,
-      "critical": 15
+      "critical": 15,
     },
     "format": "{capacity}% {icon}",
     "format-full": "{capacity}% {icon}",
@@ -166,10 +166,10 @@
       "",
       "",
       ""
-    ]
+    ],
   },
   "battery#bat2": {
-    "bat": "BAT2"
+    "bat": "BAT2",
   },
   "power-profiles-daemon": {
     "format": "{icon}",
@@ -179,8 +179,8 @@
       "default": "",
       "performance": "",
       "balanced": "",
-      "power-saver": ""
-    }
+      "power-saver": "",
+    },
   },
   "network": {
     // "interface": "wlp2*", // (Optional) To force the use of this interface
@@ -189,7 +189,7 @@
     "tooltip-format": "{ifname} via {gwaddr} ",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "Disconnected ⚠",
-    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
   },
   "pulseaudio": {
     // "scroll-step": 1, // %, can be a float
@@ -210,9 +210,9 @@
         "",
         "",
         ""
-      ]
+      ],
     },
-    "on-click": "pavucontrol"
+    "on-click": "pavucontrol",
   },
   "custom/media": {
     "format": "{icon} {}",
@@ -220,10 +220,10 @@
     "max-length": 40,
     "format-icons": {
       "spotify": "",
-      "default": "🎜"
+      "default": "🎜",
     },
     "escape": true,
-    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null", // Script in resources folder
     // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
-  }
+  },
 }

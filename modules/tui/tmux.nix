@@ -58,13 +58,13 @@
             bind r source-file ~/.config/tmux/tmux.conf
             set -sa terminal-overrides ",xterm*:Tc"
 
-            # open panes in current directory 
+            # open panes in current directory
             bind '"' split-window -v -c "#{pane_current_path}"
             bind % split-window -h -c "#{pane_current_path}"
 
 
 
-      # set-option -g status-position top
+      set-option -g status-position top
 
             #set vi-mode
             bind-key -T copy-mode-vi v send-keys -X begin-selection
