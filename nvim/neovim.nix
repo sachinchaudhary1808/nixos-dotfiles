@@ -44,10 +44,11 @@ programs = {
         lspkind-nvim
         comment-nvim
         nvim-ts-context-commentstring
-        {
-          plugin = catppuccin-nvim;
-          config = "colorscheme catppuccin";
-        }
+        # {
+        #   plugin = catppuccin-nvim;
+        #   config = "colorscheme catppuccin";
+        # }
+		onedark-nvim
         plenary-nvim
         neodev-nvim
         luasnip
@@ -78,8 +79,13 @@ programs = {
         require("ibl").setup()
         require("lualine").setup({
           icons_enabled = true,
-          theme = 'dracula',
+           -- theme = 'catppuccin',
         })
+
+require('onedark').setup {
+    style = 'darker'
+}
+require('onedark').load()
       '';
 };
 };

@@ -1,9 +1,9 @@
 local opt = vim.opt
 opt.number = true
 opt.relativenumber = true
-opt.tabstop = 2
-opt.shiftwidth = 2
-opt.expandtab = true
+opt.tabstop = 4
+opt.shiftwidth = 4
+-- opt.expandtab = true
 opt.autoindent = true
 opt.wrap = false
 opt.ignorecase = true
@@ -17,5 +17,9 @@ opt.backspace = "indent,eol,start"
 opt.clipboard:append("unnamedplus")
 opt.splitright = true
 opt.splitbelow = true
+opt.undofile = true
 opt.swapfile = false
 vim.g.mapleader = " "
+opt.scrolloff = 999
+opt.virtualedit = "block"
+opt.inccommand = "split"
