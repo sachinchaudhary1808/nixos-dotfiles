@@ -26,6 +26,7 @@
     nix-colors.url = "github:misterio77/nix-colors";
     stylix.url = "github:danth/stylix";
     xremap-flake.url = "github:xremap/nix-flake";
+    neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
 
   };
 
@@ -60,7 +61,9 @@
             home-manager.nixosModules.home-manager
             # inputs.stylix.nixosModules.stylix
             {
-              nixpkgs.overlays = [ nur.overlay ];
+              nixpkgs.overlays =
+                [ nur.overlay inputs.neorg-overlay.overlays.default ];
+
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;

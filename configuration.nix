@@ -56,7 +56,7 @@ in {
   services.logind.lidSwitch = "suspend";
   services.logind.lidSwitchExternalPower = "suspend";
   #kernel settings
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.kernelPackages = pkgs.linuxPackages_zen;
   #zram settings
   zramSwap.enable = true;
@@ -441,4 +441,7 @@ in {
   # bye bye nano
   # programs.nano.enable = lib.mkForce false;
 
+  # Disable things here 
+
+  # documentation.nixos.enable = false;
 }

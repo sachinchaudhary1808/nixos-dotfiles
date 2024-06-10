@@ -20,6 +20,7 @@ opt.splitbelow = true
 opt.undofile = true
 opt.swapfile = false
 vim.g.mapleader = " "
+vim.g.maplocalleader = ","
 opt.scrolloff = 999
 opt.virtualedit = "block"
 opt.inccommand = "split"
