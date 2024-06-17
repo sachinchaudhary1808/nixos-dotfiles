@@ -25,7 +25,7 @@ dashboard.section.buttons.val = {
 	dashboard.button("SPC fe", "  > Toggle file explorer", "<cmd>Ex<CR>"),
 	dashboard.button("SPC ff", "󰱼 > Find File", "<cmd>Telescope find_files<CR>"),
 	dashboard.button("SPC fg", "  > Find Word", "<cmd>Telescope live_grep<CR>"),
-	dashboard.button("SPC wr", "󰁯  > Restore Session For Current Directory", "<cmd>SessionRestore<CR>"),
+	dashboard.button("SPC wr", "󰁯  > Recent Files", "<cmd>Telescope oldfiles<CR>"),
 	dashboard.button("q", " > Quit NVIM", "<cmd>qa<CR>"),
 }
 

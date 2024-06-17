@@ -16,3 +16,14 @@ keymap.set("n", "<leader>o", "<cmd>Neorg<CR>", { desc = "opens Neorg using teles
 
 -- file-tree
 keymap.set("n", "<leader>fe", "<cmd>Ex<CR>", { desc = "netrw" })
+
+-- visual mode
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- scroll
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- something cool
+vim.keymap.set("x", "<leader>p", '"_dp')

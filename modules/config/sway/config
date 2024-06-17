@@ -328,9 +328,9 @@ bindsym $mod+q exec  kitty
 
 bindsym $mod+o exec swaync-client -op
 
-bindsym $mod+Help exec /home/coco/nixos-dotfiles/nixos/scripts/conservation_mode/off.sh
+bindsym $mod+Help exec /home/coco/nixos-dotfiles/modules/scripts/conservation_mode/off.sh
 
-bindsym Help exec /home/coco/nixos-dotfiles/nixos/scripts/conservation_mode/on.sh
+bindsym Help exec /home/coco/nixos-dotfiles/modules/scripts/conservation_mode/on.sh
 
 bindsym $mod+n exec nvim
 

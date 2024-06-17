@@ -7,10 +7,10 @@ in {
     catppuccin.enable = true;
     settings = {
       window = {
-        padding.x = 15;
-        padding.y = 15;
-        decorations = "none";
-        # startup_mode = "Windowed";
+        #   padding.x = 15;
+        #   padding.y = 15;
+        #   decorations = "none";
+        #   # startup_mode = "Windowed";
         dynamic_title = true;
         opacity = lib.mkForce 0.6;
       };
@@ -26,7 +26,7 @@ in {
         bold.family = "JetBrainsMono Nerd Font";
         italic.family = "JetBrainsMono Nerd Font";
         bold_italic.family = "JetBrainsMono Nerd Font";
-        size = 14;
+        size = 16;
       };
       #     colors = {
       #       bright = {

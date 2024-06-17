@@ -2,6 +2,7 @@
   programs = {
     gh.enable = true;
     neovim = {
+
       enable = true;
       defaultEditor = true;
       viAlias = true;
@@ -31,7 +32,7 @@
         pylint
 
       ];
-      plugins = with pkgs.vimPlugins; [
+      plugins = (with pkgs.vimPlugins; [
         alpha-nvim
         neorg
         neorg-telescope
@@ -41,17 +42,19 @@
         bufferline-nvim
         dressing-nvim
         indent-blankline-nvim
-        nvim-treesitter.withAllGrammars
+        # nvim-treesitter.withAllGrammars
         nvim-treesitter-context
         lualine-nvim
         nvim-autopairs
         which-key-nvim
+        markdown-preview-nvim
         nvim-web-devicons
         nvim-cmp
         nvim-surround
         nvim-lspconfig
         cmp-nvim-lsp
         cmp-buffer
+        cmp-path
         luasnip
         cmp_luasnip
         friendly-snippets
@@ -59,7 +62,8 @@
         lspsaga-nvim
         comment-nvim
         nvim-ts-context-commentstring
-        leap-nvim
+        flash-nvim
+        gitsigns-nvim
         {
           plugin = catppuccin-nvim;
           config = "colorscheme catppuccin-frappe";
@@ -69,11 +73,25 @@
         neodev-nvim
         luasnip
         telescope-nvim
+        telescope-file-browser-nvim
         todo-comments-nvim
         # nvim-tree-lua
         telescope-fzf-native-nvim
         vim-tmux-navigator
-      ];
+        undotree
+        vim-fugitive
+
+      ]) ++ (with pkgs.vimPlugins.nvim-treesitter-parsers; [{
+        plugin = pkgs.symlinkJoin {
+          name = "nvim-treesitter";
+          paths = [
+            pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+            pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies
+          ];
+        };
+        optional = false;
+      }]);
+
       extraConfig = ''
         set noemoji
       '';
@@ -95,7 +113,10 @@
                 ${builtins.readFile ./plugins/bufferline-nvim.lua}
                 ${builtins.readFile ./plugins/neorg.lua}
                 ${builtins.readFile ./plugins/none-ls.lua}
-                ${builtins.readFile ./plugins/leap-nvim.lua}
+                ${builtins.readFile ./plugins/flash-nvim.lua}
+                ${builtins.readFile ./plugins/undotree.lua}
+                ${builtins.readFile ./plugins/fugitive.lua}
+                ${builtins.readFile ./snippites/snip.lua}
 
 
                 require("ibl").setup()

@@ -5,9 +5,7 @@
     catppuccin.enable = true;
     font.name = lib.mkForce "JetBrainsMono Nerd Font";
     font.size = lib.mkForce 16;
-    settings = {
-      # background_opacity = "0.89";
-    };
+    # settings = { background_opacity = "0.89"; };
 
     # extraConfig = ''
     #
