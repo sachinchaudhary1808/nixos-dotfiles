@@ -50,7 +50,11 @@
         markdown-preview-nvim
         nvim-web-devicons
         nvim-cmp
-        nvim-surround
+        {
+          plugin = nvim-surround;
+          type = "lua";
+          config = ''require("nvim-surround").setup({	})'';
+        }
         nvim-lspconfig
         cmp-nvim-lsp
         cmp-buffer
@@ -65,8 +69,8 @@
         flash-nvim
         gitsigns-nvim
         {
-          plugin = catppuccin-nvim;
-          config = "colorscheme catppuccin-frappe";
+          plugin = onedarkpro-nvim;
+          config = "colorscheme onedark";
         }
         # onedark-nvim
         plenary-nvim
@@ -79,6 +83,7 @@
         telescope-fzf-native-nvim
         vim-tmux-navigator
         undotree
+        sniprun
         vim-fugitive
 
       ]) ++ (with pkgs.vimPlugins.nvim-treesitter-parsers; [{
@@ -116,6 +121,8 @@
                 ${builtins.readFile ./plugins/flash-nvim.lua}
                 ${builtins.readFile ./plugins/undotree.lua}
                 ${builtins.readFile ./plugins/fugitive.lua}
+                ${builtins.readFile ./plugins/gitsings.lua}
+                ${builtins.readFile ./plugins/sniprun.lua}
                 ${builtins.readFile ./snippites/snip.lua}
 
 

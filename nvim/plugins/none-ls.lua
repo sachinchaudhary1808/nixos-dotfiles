@@ -24,6 +24,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.black,
 		null_ls.builtins.formatting.prettierd,
 		null_ls.builtins.formatting.nixfmt,
+		null_ls.builtins.formatting.clang_format,
 		null_ls.builtins.completion.spell,
 		-- require("none-ls.diagnostics.eslint"), -- requires none-ls-extras.nvim
 		-- null_ls.builtins.diagnostics.mypy,

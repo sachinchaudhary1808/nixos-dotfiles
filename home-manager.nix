@@ -6,7 +6,7 @@ in {
 
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
-  catppuccin.flavor = "mocha";
+  catppuccin.flavor = "frappe";
 
   home = {
     username = userSettings.username;
@@ -90,4 +90,8 @@ in {
   # programs.home-manager.enable = true;
   # };
 
+  programs.bat = {
+    enable = true;
+    catppuccin.enable = true;
+  };
 }

@@ -211,6 +211,7 @@ in {
     # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     greetd.tuigreet
+    bat
     cachix
     foot
     alejandra
@@ -251,6 +252,7 @@ in {
     git
     gnome.gnome-keyring
     lxqt.lxqt-policykit
+    # polkit_gnome
     xorg.xhost
     gparted
     libnotify
@@ -299,6 +301,23 @@ in {
 
   #polkit service
   security.polkit.enable = true;
+
+  # systemd = {
+  #   user.services.polkit-gnome-authentication-agent-1 = {
+  #     description = "polkit-gnome-authentication-agent-1";
+  #     wantedBy = [ "graphical-session.target" ];
+  #     wants = [ "graphical-session.target" ];
+  #     after = [ "graphical-session.target" ];
+  #     serviceConfig = {
+  #       Type = "simple";
+  #       ExecStart =
+  #         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+  #       Restart = "on-failure";
+  #       RestartSec = 1;
+  #       TimeoutStopSec = 10;
+  #     };
+  #   };
+  # };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

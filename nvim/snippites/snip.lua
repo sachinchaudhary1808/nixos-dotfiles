@@ -16,8 +16,8 @@ ls.add_snippets("c", {
 		i(0),
 	}),
 	s("pr", {
-		t('printf("'),
+		t("printf("),
 		i(1),
-		t('");'),
+		t(");"),
 	}),
 })

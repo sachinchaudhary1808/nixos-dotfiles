@@ -82,10 +82,8 @@ set $lock_bg ~/Pictures/lockscreen.jpg
 bindsym $mod+End exec swaylock -i $lock_bg
 
 exec swayidle -w \
-         timeout 290 'swaylock -f -c 000000 -i $lock_bg' \
-         timeout 300 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"' \
-         timeout 310 'systemctl suspend' before-sleep 'swaylock -f -c 000000 -i $lock_bg && sleep 1.5'
+         timeout 300 'swaylock -f -c 000000 -i $lock_bg' \
+         timeout 390 'systemctl suspend' before-sleep 'swaylock -f -c 000000 -i $lock_bg && sleep 1.5'
 
 exec sway-audio-idle-inhibit
 
