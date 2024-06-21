@@ -48,29 +48,28 @@
     # escapeTime = 0;
     # keyMode = "vi";
     extraConfig = ''
-            set -g prefix M-Space
-            set -g mouse on
-            bind-key h select-pane -L
-            bind-key j select-pane -D
-            bind-key k select-pane -U
-            bind-key l select-pane -R
-            unbind r
-            bind r source-file ~/.config/tmux/tmux.conf
-            set -sa terminal-overrides ",xterm*:Tc"
+      set -g prefix M-Space
+      set -g mouse on
+      bind-key h select-pane -L
+      bind-key j select-pane -D
+      bind-key k select-pane -U
+      bind-key l select-pane -R
+      unbind r
+      bind r source-file ~/.config/tmux/tmux.conf
+      set -sa terminal-overrides ",xterm*:Tc"
 
-            # open panes in current directory
-            bind '"' split-window -v -c "#{pane_current_path}"
-            bind % split-window -h -c "#{pane_current_path}"
+      # open panes in current directory
+      bind '"' split-window -v -c "#{pane_current_path}"
+      bind % split-window -h -c "#{pane_current_path}"
 
 
 
-      set-option -g status-position top
 
-            #set vi-mode
-            bind-key -T copy-mode-vi v send-keys -X begin-selection
-            #keybidings
-            bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
-            bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+      #set vi-mode
+      bind-key -T copy-mode-vi v send-keys -X begin-selection
+      #keybidings
+      bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+      bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
 
 
 

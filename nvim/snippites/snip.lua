@@ -8,7 +8,7 @@ local fmt = require("luasnip.extras.fmt").fmt
 local c = ls.choice_node
 
 ls.add_snippets("c", {
-	s("boilerplate", {
+	s("c-boilerplate", {
 		t({ "#include <stdio.h>", "\t" }),
 		t({ "int main() {", "\t" }),
 		i(1, "printf();"),

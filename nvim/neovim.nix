@@ -69,7 +69,7 @@
         flash-nvim
         gitsigns-nvim
         {
-          plugin = onedarkpro-nvim;
+          plugin = onedark-nvim;
           config = "colorscheme onedark";
         }
         # onedark-nvim
@@ -85,6 +85,12 @@
         undotree
         sniprun
         vim-fugitive
+        {
+
+          plugin = toggleterm-nvim;
+          type = "lua";
+          config = ''require("toggleterm").setup()'';
+        }
 
       ]) ++ (with pkgs.vimPlugins.nvim-treesitter-parsers; [{
         plugin = pkgs.symlinkJoin {
