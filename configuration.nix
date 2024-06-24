@@ -28,18 +28,7 @@ in {
   boot.loader.grub.efiSupport = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
-  boot.loader.grub.splashImage = null;
-  boot.loader.grub.theme = pkgs.stdenv.mkDerivation {
-    pname = "distro-grub-themes";
-    version = "3.1";
-    src = pkgs.fetchFromGitHub {
-      owner = "AdisonCavani";
-      repo = "distro-grub-themes";
-      rev = "v3.1";
-      hash = "sha256-ZcoGbbOMDDwjLhsvs77C7G7vINQnprdfI37a9ccrmPs=";
-    };
-    installPhase = "cp -r customize/lenovo $out";
-  };
+  # boot.loader.grub.splashImage = null;
   # boot.loader.grub.useOSProber = true;
 
   # networking
@@ -60,7 +49,7 @@ in {
   # boot.kernelPackages = pkgs.linuxPackages_zen;
   #zram settings
   zramSwap.enable = true;
-  zramSwap.memoryPercent = 200;
+  zramSwap.memoryPercent = 70;
   boot.kernel.sysctl."vm.page-cluster" = 0;
 
   # Gpu settings
@@ -105,12 +94,12 @@ in {
 
   # Select internationalisation properties.
   i18n.defaultLocale = systemSettings.locale;
-  console = {
-    earlySetup = true;
-    font = "ter-powerline-v24b";
-    packages = with pkgs; [ terminus_font powerline-fonts ];
-    keyMap = "us";
-  };
+  # console = {
+  #   earlySetup = true;
+  #   font = "ter-powerline-v24b";
+  #   packages = with pkgs; [ terminus_font powerline-fonts ];
+  #   keyMap = "us";
+  # };
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = systemSettings.locale;
@@ -215,6 +204,7 @@ in {
     cachix
     foot
     alejandra
+    neovim
     swayidle
     # swaylock
     swaylock-effects

@@ -74,6 +74,7 @@
         }
         # onedark-nvim
         plenary-nvim
+        catppuccin-nvim
         neodev-nvim
         luasnip
         telescope-nvim
@@ -85,6 +86,7 @@
         undotree
         sniprun
         vim-fugitive
+        harpoon2
         {
 
           plugin = toggleterm-nvim;
@@ -130,6 +132,7 @@
                 ${builtins.readFile ./plugins/gitsings.lua}
                 ${builtins.readFile ./plugins/sniprun.lua}
                 ${builtins.readFile ./snippites/snip.lua}
+                ${builtins.readFile ./plugins/harpoon2.lua}
 
 
                 require("ibl").setup()
