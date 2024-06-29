@@ -70,7 +70,8 @@
         gitsigns-nvim
         {
           plugin = onedark-nvim;
-          config = "colorscheme onedark";
+          type = "lua";
+          config = "require('onedark').load()";
         }
         # onedark-nvim
         plenary-nvim

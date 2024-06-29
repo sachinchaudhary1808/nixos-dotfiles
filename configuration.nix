@@ -17,7 +17,7 @@ in {
   services.xremap.config.modmap = [{
     name = "Global";
     remap = { "CapsLock" = "Esc"; }; # globally remap CapsLock to Esc
-    remap = { "Esc" = "CapsLock"; }; # globally remap CapsLock to Esc
+    remap = { "Esc" = "CapsLock"; }; # globally remap Esc to CapsLock
     # application.only = [ "kitty" ];
   }];
 
@@ -39,7 +39,7 @@ in {
     [ "wlan0" ]; # Replace with actual interface names
 
   # Dns server
-  networking.nameservers = [ "8.8.8.8" "8.8.4.4" ];
+  networking.nameservers = [ "1.1.1.1" ];
 
   # what to do when lid is closed
   services.logind.lidSwitch = "suspend";
@@ -49,7 +49,7 @@ in {
   # boot.kernelPackages = pkgs.linuxPackages_zen;
   #zram settings
   zramSwap.enable = true;
-  zramSwap.memoryPercent = 70;
+  zramSwap.memoryPercent = 150;
   boot.kernel.sysctl."vm.page-cluster" = 0;
 
   # Gpu settings
@@ -285,8 +285,8 @@ in {
     nix-output-monitor
     nvd
 
-    jdk
-    jdk17
+    jdk8
+    # jdk17
   ];
 
   #polkit service
@@ -416,6 +416,7 @@ in {
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
+  boot.loader.grub.configurationLimit = 10;
   # nix store auto-optimization
   nix.settings.auto-optimise-store = true;
 

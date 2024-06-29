@@ -48,6 +48,9 @@ in {
       gnome.gnome-system-monitor
       trash-cli
       tldr
+      minetestclient
+      nix-tree
+      steam-run
       gnome-frog
       ttyper
       nomacs
@@ -65,6 +68,8 @@ in {
 
       tree
       freetube
+
+      mullvad-vpn
     ];
   };
 

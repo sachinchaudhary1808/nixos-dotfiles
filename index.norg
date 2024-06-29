@@ -5,6 +5,7 @@
   - (x) making a neovim config with home-manager so in future i can dump nixvim if i want...
   - ( ) making shell.nix
   - ( ) making this config for multipal machine
+  - ( ) removing blot and storage optimization
 
 
 
