@@ -61,7 +61,6 @@ in {
     enableAllFirmware = true;
     opengl = {
       enable = true;
-      driSupport = true; # amd
       driSupport32Bit = true;
       extraPackages = with pkgs; [
         rocm-opencl-icd # amd

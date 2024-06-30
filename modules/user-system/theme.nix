@@ -2,9 +2,10 @@
 
   gtk = {
     enable = true; # Enable GTK theme management
+    # catppuccin.enable = true;
     theme = {
       # Choose your theme name and package
-      name = "Catppuccin-Mocha-Compact-Blue-Dark";
+      name = "catppuccin-mocha-blue-compact+default";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "blue" ];
         variant = "mocha";
