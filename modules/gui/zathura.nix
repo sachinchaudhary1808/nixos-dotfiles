@@ -1,4 +1,10 @@
 {
-programs.zathura.enable = true;
+  programs.zathura = {
+    extraConfig = ''
+      set selection-clipboard clipboard
 
+    '';
+
+    enable = true;
+  };
 }

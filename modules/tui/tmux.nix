@@ -8,6 +8,7 @@
     plugins = with pkgs; [
       { plugin = tmuxPlugins.sensible; }
       { plugin = tmuxPlugins.vim-tmux-navigator; }
+      { plugin = tmuxPlugins.resurrect; }
       {
         plugin = tmuxPlugins.yank;
       }

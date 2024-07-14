@@ -19,10 +19,25 @@
     package = pkgs.papirus-icon-theme;
   };
 
-  qt.enable = true;
-  qt.platformTheme.name = "gtk";
-  qt.style.name = "adwaita-dark";
-  qt.style.package = pkgs.adwaita-qt;
+  qt = {
+    enable = true;
+    platformTheme.name = "qtct";
+    style.name = "kvantum";
+  };
+
+  xdg.configFile = {
+    "Kvantum/kvantum.kvconfig".text = ''
+      [General]
+      theme=Catppuccin-Mocha-Teal
+    '';
+
+    "Kvantum/Catppuccin-Mocha-Teal".source = "${
+        pkgs.catppuccin-kvantum.override {
+          accent = "Teal";
+          variant = "Mocha";
+        }
+      }/share/Kvantum/Catppuccin-Mocha-Teal";
+  };
 
   home.pointerCursor = {
     gtk.enable = true;

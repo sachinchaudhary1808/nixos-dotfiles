@@ -42,6 +42,7 @@
         bufferline-nvim
         dressing-nvim
         indent-blankline-nvim
+        # neocord
         # nvim-treesitter.withAllGrammars
         nvim-treesitter-context
         lualine-nvim
@@ -134,6 +135,7 @@
                 ${builtins.readFile ./plugins/sniprun.lua}
                 ${builtins.readFile ./snippites/snip.lua}
                 ${builtins.readFile ./plugins/harpoon2.lua}
+                ${builtins.readFile ./lua/compiler.lua}
 
 
                 require("ibl").setup()

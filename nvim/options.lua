@@ -35,3 +35,8 @@ function Colorscheme(color)
 end
 
 -- Colorscheme()
+--
+--
+
+-- The setup config table shows all available config options with their default values:
+-- require("neocord").setup({})

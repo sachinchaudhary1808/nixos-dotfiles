@@ -113,6 +113,7 @@ input "7247:52:SIGMACHIP_Usb_Mouse" {
 scroll_factor 1
 accel_profile "adaptive" # disable mouse acceleration (enabled by default; to set it manually, use "adaptive" instead of "flat")
 	pointer_accel 0.5 # set mouse sensitivity (between -1 and 1)
+	 # rotation_angle 0.0
 
 }
 

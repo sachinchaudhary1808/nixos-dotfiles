@@ -10,6 +10,9 @@ in {
     inputs.xremap-flake.nixosModules.default
   ];
 
+  # using lix insted of nix
+  nix.package = pkgs.lix;
+
   services.xremap = {
     withWlroots = true;
     userName = "coco";
@@ -20,7 +23,6 @@ in {
     remap = { "Esc" = "CapsLock"; }; # globally remap Esc to CapsLock
     # application.only = [ "kitty" ];
   }];
-
   # Bootloader.
   # boot.loader.systemd-boot.enable = true;
   boot.loader.grub.enable = true;
@@ -55,12 +57,16 @@ in {
   # Gpu settings
   services.xserver.videoDrivers = [ "amdgpu" ];
   # boot.initrd.kernelModules = ["amdgpu"];
+  # Enable firmware update service
+  services.fwupd.enable = true;
   hardware = {
     cpu.amd.updateMicrocode = true;
     enableRedistributableFirmware = true;
     enableAllFirmware = true;
+    firmware = with pkgs; [ firmwareLinuxNonfree ];
     opengl = {
       enable = true;
+      driSupport = true;
       driSupport32Bit = true;
       extraPackages = with pkgs; [
         rocm-opencl-icd # amd
@@ -229,7 +235,7 @@ in {
     cinnamon.warpinator
     tor-browser
     brave
-    chromium
+    ungoogled-chromium
     fish
     slurp
     grim
@@ -406,8 +412,8 @@ in {
 
   virtualisation.waydroid.enable = true;
 
-  #  virtualisation.libvirtd.enable = true;
-  # programs.virt-manager.enable = true;
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
 
   # Automatic Garbage Collection
   nix.gc = {
@@ -442,6 +448,12 @@ in {
       thunar-dropbox-plugin
     ];
   };
+  # thunar to open things in terminal 
+  xdg.terminal-exec = {
+    enable = true;
+    settings.default = [ "foot.desktop" ];
+  };
+
   programs.nautilus-open-any-terminal.enable = true;
   services.gvfs = { enable = true; };
 
@@ -453,4 +465,5 @@ in {
   # Disable things here 
 
   # documentation.nixos.enable = false;
+  programs.appimage.enable = true;
 }

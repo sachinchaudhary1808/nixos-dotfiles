@@ -8,21 +8,19 @@
     ];
   };
 
-  inputs.cachix.url = "github:cachix/cachix";
-
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
 
-    # Home manager
-    catppuccin.url = "github:catppuccin/nix";
+    cachix.url = "github:cachix/cachix";
 
+    # Home manager
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    catppuccin.url = "github:catppuccin/nix";
     nur.url = "github:nix-community/nur";
-
     nix-colors.url = "github:misterio77/nix-colors";
     stylix.url = "github:danth/stylix";
     xremap-flake.url = "github:xremap/nix-flake";
@@ -48,12 +46,12 @@
       };
 
       # pkgs = nixpkgs.legacyPackages."${system}";
-
       # config = { allowunfree = true; };
 
     in {
       nixosConfigurations = {
         ${systemSettings.hostname} = lib.nixosSystem {
+
           specialArgs = { inherit inputs system userSettings systemSettings; };
 
           modules = [

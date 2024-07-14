@@ -34,7 +34,6 @@ in {
       liferea
       newsflash
       yazi
-      emacs-gtk
       #image editing and etc...
       gimp
       waybar
@@ -48,8 +47,10 @@ in {
       gnome.gnome-system-monitor
       trash-cli
       tldr
+      librewolf
       minetestclient
       nix-tree
+      yt-dlp
       steam-run
       gnome-frog
       ttyper
@@ -59,7 +60,7 @@ in {
       telegram-desktop
 
       bottles
-      spotube
+      nuclear
 
       vscode
 
