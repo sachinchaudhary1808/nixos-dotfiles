@@ -56,7 +56,7 @@ in {
 
   # Gpu settings
   services.xserver.videoDrivers = [ "amdgpu" ];
-  # boot.initrd.kernelModules = ["amdgpu"];
+  boot.initrd.kernelModules = [ "amdgpu" ];
   # Enable firmware update service
   services.fwupd.enable = true;
   hardware = {
@@ -99,12 +99,12 @@ in {
 
   # Select internationalisation properties.
   i18n.defaultLocale = systemSettings.locale;
-  # console = {
-  #   earlySetup = true;
-  #   font = "ter-powerline-v24b";
-  #   packages = with pkgs; [ terminus_font powerline-fonts ];
-  #   keyMap = "us";
-  # };
+  console = {
+    earlySetup = true;
+    font = "ter-powerline-v24b";
+    packages = with pkgs; [ terminus_font powerline-fonts ];
+    keyMap = "us";
+  };
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = systemSettings.locale;
@@ -235,7 +235,7 @@ in {
     cinnamon.warpinator
     tor-browser
     brave
-    ungoogled-chromium
+    librewolf
     fish
     slurp
     grim
@@ -335,7 +335,21 @@ in {
       fonts = [ "JetBrainsMono" "DroidSansMono" "FiraCode" ];
     })
     font-awesome
+    ubuntu_font_family
+    liberation_ttf
+    # Persian Font
+    vazir-fonts
   ];
+
+  # set fonts
+  fonts.fontconfig = {
+    enable = true;
+    defaultFonts = {
+      serif = [ "JetBrainsMono Nerd Font Mono" ];
+      sansSerif = [ "JetBrainsMono Nerd Font Mono" ];
+      monospace = [ "JetBrainsMono Nerd Font Mono" ];
+    };
+  };
 
   # List services that you want to enable:
 
