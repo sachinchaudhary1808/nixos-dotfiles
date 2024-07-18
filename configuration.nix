@@ -335,19 +335,16 @@ in {
       fonts = [ "JetBrainsMono" "DroidSansMono" "FiraCode" ];
     })
     font-awesome
-    ubuntu_font_family
     liberation_ttf
-    # Persian Font
-    vazir-fonts
+    noto-fonts
   ];
 
-  # set fonts
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      serif = [ "JetBrainsMono Nerd Font Mono" ];
-      sansSerif = [ "JetBrainsMono Nerd Font Mono" ];
-      monospace = [ "JetBrainsMono Nerd Font Mono" ];
+      serif = [ "Liberation Serif" ];
+      sansSerif = [ "Noto Sans" ];
+      monospace = [ "Fira Code" ];
     };
   };
 

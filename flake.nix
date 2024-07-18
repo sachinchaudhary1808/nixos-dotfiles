@@ -10,6 +10,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     cachix.url = "github:cachix/cachix";
 
@@ -29,7 +30,7 @@
   };
 
   outputs =
-    inputs@{ self, nixpkgs, home-manager, catppuccin, nur, cachix, ... }:
+    inputs@{ self, nixpkgs, home-manager, catppuccin, nur, cachix, nixpkgs-unstable, ... }:
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -45,7 +46,13 @@
         hostname = "nixos";
       };
 
-      # pkgs = nixpkgs.legacyPackages."${system}";
+unstable-packages = final: _prev: {
+    unstable = import inputs.nixpkgs-unstable {
+      system = final.system;
+      config.allowUnfree = true;
+    };
+  };
+      # pkgs = nixpkgs-unstable.legacyPackages."${system}";
       # config = { allowunfree = true; };
 
     in {
@@ -60,7 +67,7 @@
             # inputs.stylix.nixosModules.stylix
             {
               nixpkgs.overlays =
-                [ nur.overlay inputs.neorg-overlay.overlays.default ];
+                [ nur.overlay inputs.neorg-overlay.overlays.default unstable-packages];
 
               home-manager = {
                 useGlobalPkgs = true;

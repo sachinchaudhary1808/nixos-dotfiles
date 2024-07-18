@@ -3,6 +3,7 @@
     gh.enable = true;
     neovim = {
 
+      package = pkgs.unstable.neovim-unwrapped;
       enable = true;
       defaultEditor = true;
       viAlias = true;
@@ -14,6 +15,7 @@
         gopls
         xclip
         wl-clipboard
+        fd
         luajitPackages.lua-lsp
         nil
         rust-analyzer

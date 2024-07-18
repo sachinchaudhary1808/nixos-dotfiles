@@ -5,7 +5,7 @@
     # catppuccin.enable = true;
     theme = {
       # Choose your theme name and package
-      name = "catppuccin-mocha-blue-compact+default";
+      name = "catppuccin-mocha-blue-compact";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "blue" ];
         variant = "mocha";
