@@ -2,7 +2,7 @@
 let
 in {
   # home-manager.users.coco = {
-  imports = [ ./modules/default.nix ./nvim/neovim.nix ];
+  imports = [ ./modules ./nvim/neovim.nix ];
 
   colorScheme = inputs.nix-colors.colorSchemes.catppuccin-mocha;
 
@@ -28,8 +28,8 @@ in {
       foot
       superTuxKart
       swww
+      amberol
       # neovim
-      swaynotificationcenter
       # news
       liferea
       newsflash
@@ -100,4 +100,26 @@ in {
     enable = true;
     catppuccin.enable = true;
   };
+
+  # services.mpd = {
+  #   enable = true;
+  #   musicDirectory = "/home/coco/Music";
+  #   dataDir = "/home/coco/.local/share/mpd";
+  #   dbFile = "/home/coco/.local/share/mpd/database";
+  #   network.listenAddress = "any";
+  #   network.startWhenNeeded = true;
+  #
+  #   extraConfig = ''
+  #
+  #     audio_output {
+  #            type "pipewire"
+  #            name "My Pipewire output"
+  #          }
+  #   '';
+  # };
+  #
+  # programs.ncmpcpp = {
+  #   enable = true;
+  #   mpdMusicDir = "~/Music";
+  # };
 }

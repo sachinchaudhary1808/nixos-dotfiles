@@ -31,5 +31,3 @@ null_ls.setup({
 		null_ls.builtins.diagnostics.pylint,
 	},
 })
-
-vim.keymap.set("n", "<leader>=", vim.lsp.buf.format, { desc = "formattes code using none-ls" })

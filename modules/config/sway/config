@@ -38,6 +38,7 @@ set $right l
 set $term foot
 set $browser brave
 set $file-manager thunar
+
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -83,7 +84,7 @@ bindsym $mod+End exec swaylock -i $lock_bg
 
 exec swayidle -w \
          timeout 300 'swaylock -f -c 000000 -i $lock_bg' \
-         timeout 390 'systemctl suspend' before-sleep 'swaylock -f -c 000000 -i $lock_bg && sleep 1.5'
+         timeout 390 'systemctl suspend' before-sleep 'swaylock -f -c 000000 -i $lock_bg'
 
 exec sway-audio-idle-inhibit
 

@@ -1,4 +1,4 @@
-# my nixos config
+# my nixos configconfiguratio
 { config, pkgs, inputs, lib, userSettings, systemSettings, ... }:
 let
 in {
@@ -119,11 +119,11 @@ in {
   };
 
   # Configure keymap in X11
-  # services.xserver = {
-  #  xkb.layout = "us";
-  # xkb.variant = "";
-  # enable = true;
-  # };
+  services.xserver = {
+    #  xkb.layout = "us";
+    # xkb.variant = "";
+    enable = true;
+  };
 
   #systemd.services."getty@tty1".enable = false;
   #systemd.services."autovt@tty1".enable = false;
@@ -132,7 +132,7 @@ in {
   users.users.${userSettings.username} = {
     isNormalUser = true;
     description = userSettings.name;
-    extraGroups = [ "networkmanager" "wheel" "video" "kvm" "input" ];
+    extraGroups = [ "networkmanager" "wheel" "video" "kvm" "input" "audio" ];
     packages = with pkgs; [ ];
   };
 

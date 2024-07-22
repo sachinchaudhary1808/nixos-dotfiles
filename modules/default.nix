@@ -15,6 +15,7 @@
     ./gui/alacritty.nix
     ./gui/foot.nix
     ./gui/swaylock.nix
+    ./gui/swaync/swaync.nix
 
     # tui programms
     ./tui/yazi.nix
