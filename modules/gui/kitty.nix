@@ -1,7 +1,11 @@
 { pkgs, config, lib, ... }: {
 
   programs.kitty = {
+<<<<<<< HEAD
     enable = true;
+=======
+    enable = false;
+>>>>>>> cb7905d (updated)
     catppuccin.enable = true;
     font.name = lib.mkForce "JetBrainsMono Nerd Font";
     font.size = lib.mkForce 16;

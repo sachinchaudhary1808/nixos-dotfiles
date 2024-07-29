@@ -5,12 +5,22 @@
     # catppuccin.enable = true;
     theme = {
       # Choose your theme name and package
+<<<<<<< HEAD
       name = "catppuccin-mocha-blue-compact";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "blue" ];
         variant = "mocha";
         size = "compact";
       };
+=======
+      name = "Dracula";
+      package = pkgs.dracula-theme;
+      # {
+      #      # accents = [ "blue" ];
+      #      # variant = "mocha";
+      #      # size = "compact";
+      #    };
+>>>>>>> cb7905d (updated)
     };
   };
 

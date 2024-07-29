@@ -26,11 +26,20 @@
     stylix.url = "github:danth/stylix";
     xremap-flake.url = "github:xremap/nix-flake";
     neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
+<<<<<<< HEAD
 
   };
 
   outputs =
     inputs@{ self, nixpkgs, home-manager, catppuccin, nur, cachix, nixpkgs-unstable, ... }:
+=======
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+  };
+
+  outputs = inputs@{ self, nixpkgs, home-manager, catppuccin, nur, cachix
+    , nixpkgs-unstable, nixos-hardware, ... }:
+>>>>>>> cb7905d (updated)
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -46,12 +55,21 @@
         hostname = "nixos";
       };
 
+<<<<<<< HEAD
 unstable-packages = final: _prev: {
     unstable = import inputs.nixpkgs-unstable {
       system = final.system;
       config.allowUnfree = true;
     };
   };
+=======
+      unstable-packages = final: _prev: {
+        unstable = import inputs.nixpkgs-unstable {
+          system = final.system;
+          config.allowUnfree = true;
+        };
+      };
+>>>>>>> cb7905d (updated)
       # pkgs = nixpkgs-unstable.legacyPackages."${system}";
       # config = { allowunfree = true; };
 
@@ -62,12 +80,24 @@ unstable-packages = final: _prev: {
           specialArgs = { inherit inputs system userSettings systemSettings; };
 
           modules = [
+<<<<<<< HEAD
+=======
+            nixos-hardware.nixosModules.lenovo-ideapad-slim-5
+>>>>>>> cb7905d (updated)
             ./configuration.nix
             home-manager.nixosModules.home-manager
             # inputs.stylix.nixosModules.stylix
             {
+<<<<<<< HEAD
               nixpkgs.overlays =
                 [ nur.overlay inputs.neorg-overlay.overlays.default unstable-packages];
+=======
+              nixpkgs.overlays = [
+                nur.overlay
+                inputs.neorg-overlay.overlays.default
+                unstable-packages
+              ];
+>>>>>>> cb7905d (updated)
 
               home-manager = {
                 useGlobalPkgs = true;
