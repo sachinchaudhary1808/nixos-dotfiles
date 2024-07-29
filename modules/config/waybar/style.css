@@ -47,13 +47,8 @@ window > box {
 #workspaces button {
   padding-top: 2px;
   padding-bottom: 2px;
-<<<<<<< HEAD
-  padding-left: 6px;
-  padding-right: 6px;
-=======
   padding-left: 9px;
   padding-right: 9px;
->>>>>>> cb7905d (updated)
 }
 #workspaces button.focused {
   background-color: rgb(181, 232, 224);

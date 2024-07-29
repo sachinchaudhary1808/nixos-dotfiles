@@ -62,11 +62,6 @@ in {
       bottles
       nuclear
 
-<<<<<<< HEAD
-      vscode
-
-=======
->>>>>>> cb7905d (updated)
       lazygit
       geoclue2
 
@@ -95,10 +90,7 @@ in {
     # u have to rebuild but don't need to give full path...
     "nixpkgs/config.nix".source = ./modules/config/nixpkgs/config.nix;
   };
-<<<<<<< HEAD
-=======
   home.file.".ignore".source = ./modules/config/home/.ignore;
->>>>>>> cb7905d (updated)
 
   # programs.home-manager.enable = true;
   # };
@@ -129,13 +121,10 @@ in {
   #   enable = true;
   #   mpdMusicDir = "~/Music";
   # };
-<<<<<<< HEAD
-=======
 
   programs.firefox = {
     enable = true;
 
   };
 
->>>>>>> cb7905d (updated)
 }

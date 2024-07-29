@@ -45,11 +45,7 @@ in {
 
   # what to do when lid is closed
   services.logind.lidSwitch = "suspend";
-<<<<<<< HEAD
-  services.logind.lidSwitchExternalPower = "suspend";
-=======
   services.logind.lidSwitchExternalPower = "ignore";
->>>>>>> cb7905d (updated)
   #kernel settings
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.kernelPackages = pkgs.linuxPackages_zen;
@@ -59,36 +55,6 @@ in {
   boot.kernel.sysctl."vm.page-cluster" = 0;
 
   # Gpu settings
-<<<<<<< HEAD
-  services.xserver.videoDrivers = [ "amdgpu" ];
-  boot.initrd.kernelModules = [ "amdgpu" ];
-  # Enable firmware update service
-  services.fwupd.enable = true;
-  hardware = {
-    cpu.amd.updateMicrocode = true;
-    enableRedistributableFirmware = true;
-    enableAllFirmware = true;
-    firmware = with pkgs; [ firmwareLinuxNonfree ];
-    opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
-      extraPackages = with pkgs; [
-        rocm-opencl-icd # amd
-        rocm-opencl-runtime # amd
-        rocmPackages.clr.icd
-        vaapiVdpau
-        libvdpau
-        amdvlk
-        libva-utils
-      ];
-      extraPackages32 = with pkgs; [ ];
-    };
-  };
-
-  #power savings
-  services.power-profiles-daemon.enable = true;
-=======
   # services.xserver.videoDrivers = [ "amdgpu" ];
   # boot.initrd.kernelModules = [ "amdgpu" ];
   # # Enable firmware update service
@@ -126,7 +92,6 @@ in {
   services.power-profiles-daemon.enable = true;
   # dbus u power
   services.upower.enable = true;
->>>>>>> cb7905d (updated)
 
   # geoclue2
   # services.geoclue2.enable = true;
@@ -248,15 +213,11 @@ in {
   environment.systemPackages = with pkgs; [
     # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-<<<<<<< HEAD
-    greetd.tuigreet
-=======
     mangohud
     protonup
     heroic
     greetd.tuigreet
     i2p
->>>>>>> cb7905d (updated)
     bat
     cachix
     foot
@@ -286,12 +247,8 @@ in {
     transmission-gtk
     cinnamon.warpinator
     tor-browser
-<<<<<<< HEAD
-    brave
-=======
     # (brave.override { vulkanSupport = true; })
     firefox
->>>>>>> cb7905d (updated)
     librewolf
     fish
     slurp
@@ -534,8 +491,6 @@ in {
 
   # documentation.nixos.enable = false;
   programs.appimage.enable = true;
-<<<<<<< HEAD
-=======
 
   #enable i2p
   # services.i2p.enable = true;
@@ -546,5 +501,4 @@ in {
   #game mode
   programs.gamemode.enable = true;
   programs.gamescope.enable = true;
->>>>>>> cb7905d (updated)
 }

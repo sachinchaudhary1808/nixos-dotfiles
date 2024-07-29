@@ -36,11 +36,7 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term foot
-<<<<<<< HEAD
-set $browser brave
-=======
 set $browser firefox
->>>>>>> cb7905d (updated)
 set $file-manager thunar
 
 # Your preferred application launcher
@@ -327,11 +323,7 @@ bindsym xf86calculator exec alacritty -e python3
 
 
 
-<<<<<<< HEAD
-bindsym $mod+q exec  kitty
-=======
 # bindsym $mod+q exec  kitty
->>>>>>> cb7905d (updated)
 
 
 bindsym $mod+o exec swaync-client -op
