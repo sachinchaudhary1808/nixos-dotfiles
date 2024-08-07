@@ -24,15 +24,10 @@ in {
     packages = with pkgs; [
       distrobox
       # inputs.nixvim-config.packages.${system}.default
-      black
-      foot
       superTuxKart
       swww
-      amberol
-      # neovim
       # news
       liferea
-      newsflash
       yazi
       #image editing and etc...
       gimp
@@ -56,19 +51,10 @@ in {
       ttyper
       nomacs
 
-      upower
-      telegram-desktop
-
-      bottles
-      nuclear
-
       lazygit
-      geoclue2
 
       tree
-      freetube
 
-      mullvad-vpn
     ];
   };
 

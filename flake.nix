@@ -23,6 +23,10 @@
     catppuccin.url = "github:catppuccin/nix";
     nur.url = "github:nix-community/nur";
     nix-colors.url = "github:misterio77/nix-colors";
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     stylix.url = "github:danth/stylix";
     xremap-flake.url = "github:xremap/nix-flake";
     neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
@@ -31,7 +35,8 @@
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, catppuccin, nur, cachix
-    , nixpkgs-unstable, nixos-hardware, ... }:
+    , nixpkgs-unstable, nixos-hardware, spicetify-nix, ... }:
+
     let
       system = "x86_64-linux";
       lib = nixpkgs.lib;
@@ -87,6 +92,8 @@
                     inputs.nix-colors.homeManagerModules.default
                     catppuccin.homeManagerModules.catppuccin
                     inputs.nur.hmModules.nur
+                    inputs.spicetify-nix.homeManagerModules.default
+                    ./spicetify.nix
 
                   ];
                 };

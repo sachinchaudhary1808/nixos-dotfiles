@@ -1,4 +1,4 @@
-vim.o.makeprg = "gcc % -o %<"
+vim.o.makeprg = "gcc % -o %< -lm"
 vim.o.shellpipe = ">%s 2>&1 "
 
 -- Function to compile and run the program

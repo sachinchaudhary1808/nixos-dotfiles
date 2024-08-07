@@ -45,7 +45,6 @@ in {
 
   # what to do when lid is closed
   services.logind.lidSwitch = "suspend";
-  services.logind.lidSwitchExternalPower = "ignore";
   #kernel settings
   # boot.kernelPackages = pkgs.linuxPackages_latest;
   # boot.kernelPackages = pkgs.linuxPackages_zen;
@@ -255,6 +254,7 @@ in {
     grim
     fzf
     gcc
+    keepassxc
     htop
     gnome.nautilus
     powertop
