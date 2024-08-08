@@ -7,7 +7,8 @@
   - ( ) making this config for multipal machine
   - ( ) removing blot and storage optimization
   - ( ) adding something to manager secrets like sops or ageix something
-  - ( ) using mpd
+  - figure out  iwd+systemd-networkd
+  - - https://github.com/TheRealGramdalf/nixos/blob/main/mods%2Fnixos%2Fadhde.nix#L132-L224
 
 
 

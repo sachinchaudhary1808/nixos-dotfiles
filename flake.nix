@@ -93,7 +93,7 @@
                     catppuccin.homeManagerModules.catppuccin
                     inputs.nur.hmModules.nur
                     inputs.spicetify-nix.homeManagerModules.default
-                    ./spicetify.nix
+                    ./modules/gui/spicetify.nix
 
                   ];
                 };
