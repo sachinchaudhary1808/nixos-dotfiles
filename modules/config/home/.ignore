@@ -1,0 +1,8 @@
+
+# Ignore the Games directory
+/Games/
+
+# Ignore the ENV_DIR directory
+/ENV_DIR/
+
+/Wallpapers
