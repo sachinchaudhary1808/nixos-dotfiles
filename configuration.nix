@@ -1,5 +1,6 @@
 # my nixos configconfiguratio
 { config, pkgs, inputs, userSettings, systemSettings, ... }: {
+
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
