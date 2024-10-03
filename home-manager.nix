@@ -1,4 +1,7 @@
-{ config, pkgs, inputs, userSettings, ... }: {
+{ config, pkgs, inputs, userSettings, ... }:
+let username = userSettings.username;
+
+in {
   # home-manager.users.coco = {
   imports = [ ./modules ./nvim/neovim.nix ];
 
@@ -53,17 +56,17 @@
   xdg.configFile = {
     # you don't have to rebuild..., but have to give full path..
     "sway/config".source = config.lib.file.mkOutOfStoreSymlink
-      "/home/coco/nixos-dotfiles/modules/config/sway/config";
+      "/home/${username}/nixos-dotfiles/modules/config/sway/config";
     "rofi/config.rasi".source = config.lib.file.mkOutOfStoreSymlink
-      "/home/coco/nixos-dotfiles/modules/config/rofi/config.rasi";
+      "/home/${username}/nixos-dotfiles/modules/config/rofi/config.rasi";
     "rofi/tokyonight.rasi".source = config.lib.file.mkOutOfStoreSymlink
-      "/home/coco/nixos-dotfiles/modules/config/rofi/tokyonight.rasi";
+      "/home/${username}/nixos-dotfiles/modules/config/rofi/tokyonight.rasi";
     #"foot/foot.ini".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/foot/foot.ini";
     #"swaylock/config".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/swaylock/config";
     "waybar/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink
-      "/home/coco/nixos-dotfiles/modules/config/waybar/config.jsonc";
+      "/home/${username}/nixos-dotfiles/modules/config/waybar/config.jsonc";
     "waybar/style.css".source = config.lib.file.mkOutOfStoreSymlink
-      "/home/coco/nixos-dotfiles/modules/config/waybar/style.css";
+      "/home/${username}/nixos-dotfiles/modules/config/waybar/style.css";
     #
     # u have to rebuild but don't need to give full path...
     "nixpkgs/config.nix".source = ./modules/config/nixpkgs/config.nix;

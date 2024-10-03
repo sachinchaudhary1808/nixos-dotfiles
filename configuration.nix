@@ -14,7 +14,7 @@
 
   services.xremap = {
     withWlroots = true;
-    userName = "coco";
+    userName = userSettings.username;
     config.modmap = [{
 
       name = "Global";
@@ -410,7 +410,7 @@
 
     NIXOS_OZONE_WL = "1";
     ACCESSIBILITY_ENABLED = "1";
-    FLAKE = "/home/coco/nixos-dotfiles";
+    FLAKE = "/home/${userSettings.username}/nixos-dotfiles";
   };
 
   #experimantlal features
