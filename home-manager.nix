@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, userSettings, ... }:
+{ config, pkgs, inputs, userSettings, ... }: # ... is called ellipsis
 let username = userSettings.username;
 
 in {
