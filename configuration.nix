@@ -1,6 +1,5 @@
 # my nixos configconfiguratio
 { config, pkgs, inputs, userSettings, systemSettings, ... }: {
-
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -157,7 +156,8 @@
   users.users.${userSettings.username} = {
     isNormalUser = true;
     description = userSettings.name;
-    extraGroups = [ "networkmanager" "wheel" "video" "kvm" "input" "audio" ];
+    extraGroups =
+      [ "networkmanager" "wheel" "video" "kvm" "input" "audio" "render" ];
     packages = with pkgs; [ ];
   };
 
