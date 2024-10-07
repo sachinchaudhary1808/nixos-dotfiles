@@ -19,6 +19,6 @@
     # tui programms
     ./tui/yazi.nix
     ./tui/git.nix
-    ./tui/tmux.nix
+    ./tui/tmux/tmux.nix
   ];
 }
