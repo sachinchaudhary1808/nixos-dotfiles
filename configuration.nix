@@ -70,7 +70,7 @@
   boot.kernel.sysctl."vm.page-cluster" = 0;
 
   # Gpu settings
-  # services.xserver.videoDrivers = [ "amdgpu" ];
+  services.xserver.videoDrivers = [ "amdgpu" ];
   boot.initrd.kernelModules = [ "amdgpu" ];
   # # Enable firmware update service
   services.fwupd.enable = true;

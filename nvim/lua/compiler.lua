@@ -1,4 +1,4 @@
-vim.o.makeprg = "gcc % -o %< -lm"
+vim.o.makeprg = "mkdir -p bin && gcc % -o bin/%< -lm"
 vim.o.shellpipe = ">%s 2>&1 "
 
 -- Function to compile and run the program
@@ -11,7 +11,7 @@ local function compile_and_run()
 		-- Close the quickfix window if it is open
 		vim.cmd("cclose")
 		-- Open a new terminal window and run the compiled program
-		vim.cmd("belowright split | terminal ./%<")
+		vim.cmd("belowright split | terminal ./bin/%<")
 	else
 		-- Open the quickfix window to display compilation errors
 		vim.cmd("copen")
