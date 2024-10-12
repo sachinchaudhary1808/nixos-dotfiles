@@ -40,6 +40,9 @@
     };
   };
 
+  # clean /tmp on every boot
+  # boot.tmp.cleanOnBoot = true;
+
   # networking
   networking.hostName = systemSettings.hostname; # Define your hostname.
   networking.wireless.enable = false; # disble wpa whatever

@@ -1,7 +1,7 @@
 local opt = vim.opt
 opt.number = true
 opt.relativenumber = true
-opt.tabstop = 4
+opt.tabstop = 3
 opt.shiftwidth = 2
 -- opt.expandtab = true
 opt.autoindent = true
@@ -25,5 +25,3 @@ opt.scrolloff = 999
 opt.virtualedit = "block"
 opt.inccommand = "split"
 opt.colorcolumn = "80"
-
-
