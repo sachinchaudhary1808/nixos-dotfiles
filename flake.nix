@@ -65,7 +65,7 @@
           specialArgs = { inherit inputs system userSettings systemSettings; };
 
           modules = [
-            nixos-hardware.nixosModules.lenovo-ideapad-slim-5
+            nixos-hardware.nixosModules.lenovo-ideapad-15alc6
             ./configuration.nix
             home-manager.nixosModules.home-manager
             {
