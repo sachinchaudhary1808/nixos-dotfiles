@@ -23,6 +23,9 @@ local compile_commands = {
 	go = function(unique_name)
 		return "go build -o " .. unique_name .. " %"
 	end,
+	lua = function()
+		return "lua %"
+	end,
 	-- Add more languages as needed
 }
 
