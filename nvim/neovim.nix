@@ -4,7 +4,7 @@
     neovim = {
 
       package = pkgs.unstable.neovim-unwrapped;
-      enable = true;
+      enable = false;
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
@@ -94,6 +94,12 @@
         sniprun
         vim-fugitive
         harpoon2
+        {
+          plugin = rainbow-delimiters-nvim;
+          type = "lua";
+          config = ''require("rainbow-delimiters.setup").setup({})'';
+        }
+
         {
 
           plugin = toggleterm-nvim;
