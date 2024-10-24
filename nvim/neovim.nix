@@ -4,7 +4,7 @@
     neovim = {
 
       package = pkgs.unstable.neovim-unwrapped;
-      enable = false;
+      enable = true;
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;

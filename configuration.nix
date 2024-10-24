@@ -10,6 +10,7 @@
 
   # using lix insted of nix
   nix.package = pkgs.unstable.lix;
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
   services.xremap = {
     withWlroots = true;
