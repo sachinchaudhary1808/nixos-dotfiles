@@ -238,9 +238,9 @@ riverctl map normal Super+Shift U spawn "systemctl suspend"
 
 # Idle and suspend behavior with swayidle
 swayidle -w \
-    timeout 300 'swaylock ' \
+    timeout 300 'swaylock -f' \
     timeout 490 'systemctl suspend' \
-    before-sleep 'swaylock'  &
+    before-sleep 'swaylock -f'  &
     # after-resume 'swaymsg output eDP-1 dpms on'
 
 

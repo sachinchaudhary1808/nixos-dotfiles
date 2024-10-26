@@ -5,14 +5,19 @@
 include /etc/sway/config.d/*
 ### Variables
 
+assign [app_id="firefox"] workspace 1
+assign [app_id="vesktop"] workspace 10
+for_window [app_id="pavucontrol"] floating enable
+
 # Visual
 # gaps inner 8
 smart_borders on
 
 default_border pixel 3
-# smart_gaps on
+smart_gaps on
 default_floating_border normal
 # gaps inner 8
+# gaps outer 8
 
 font pango:monospace 16px
 
@@ -25,9 +30,12 @@ set $cl_text #5A5A5A
 
 # Colors                border   bg       text     indi     childborder
 client.focused          $cl_high $cl_high $cl_text $cl_indi $cl_high
-# client.focused_inactive $cl_back $cl_back $cl_fore $cl_back $cl_back
+client.focused_inactive $cl_back $cl_back $cl_fore $cl_back $cl_back
 client.unfocused        $cl_text $cl_back $cl_fore $cl_back $cl_back
 client.urgent           $cl_urge $cl_urge $cl_fore $cl_urge $cl_urge
+client.background       $back 
+client.placeholder      $cl_back $cl_back $cl_fore $cl_back $cl_back
+
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
@@ -48,7 +56,7 @@ set $menu rofi -show drun | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
-#output * bg @datadir@/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# output * bg @datadir@/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # Example configuration:
 #
@@ -241,6 +249,7 @@ bindsym $mod+m exec $term  -e nvim
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+    bindsym $mod+z focus child
 #
 # Scratchpad:
 #
@@ -346,6 +355,7 @@ bindsym $mod+n exec nvim
 
 #clipboard
 exec wl-paste --watch cliphist store
+
 
 #rofi clibpboard manu
 bindsym Insert exec  cliphist list | rofi -dmenu | cliphist decode | wl-copy
