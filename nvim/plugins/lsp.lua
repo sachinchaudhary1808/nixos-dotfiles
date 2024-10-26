@@ -2,7 +2,12 @@ local lspconfig = require("lspconfig")
 
 -- Setup each LSP server individually
 lspconfig.pyright.setup({})
-lspconfig.lua_ls.setup({})
+lspconfig.lua_ls.setup({
+	root_dir = function(fname)
+		return require("lspconfig.util").root_pattern(".git")(fname) or require("lspconfig.util").path.dirname(fname)
+	end,
+	single_file_support = true, -- Ensures LSP works for single Lua files outside projects
+})
 lspconfig.nil_ls.setup({})
 lspconfig.marksman.setup({})
 lspconfig.rust_analyzer.setup({})

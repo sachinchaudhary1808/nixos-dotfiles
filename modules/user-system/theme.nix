@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ pkgs, lib, ... }: {
 
   gtk = {
     enable = true; # Enable GTK theme management
@@ -20,24 +20,33 @@
     package = pkgs.papirus-icon-theme;
   };
 
+  # qt = {
+  #   enable = true;
+  #   platformTheme.name = "qtct6";
+  #   style.name = "kvantum";
+  #
+  # };
   qt = {
     enable = true;
-    platformTheme.name = "qtct";
-    style.name = "kvantum";
+    platformTheme.name = "gtk";
+    style = {
+      name = "gtk2";
+      package = pkgs.libsForQt5.qtstyleplugins;
+    };
   };
 
   xdg.configFile = {
     "Kvantum/kvantum.kvconfig".text = ''
       [General]
-      theme=Catppuccin-Mocha-Teal
+      theme=catppuccin-mocha-teal
     '';
 
-    "Kvantum/Catppuccin-Mocha-Teal".source = "${
+    "Kvantum/catppuccin-mocha-teal".source = "${
         pkgs.catppuccin-kvantum.override {
-          accent = "Teal";
-          variant = "Mocha";
+          accent = "teal";
+          variant = "mocha";
         }
-      }/share/Kvantum/Catppuccin-Mocha-Teal";
+      }/share/Kvantum/catppuccin-mocha-teal";
   };
 
   home.pointerCursor = {
@@ -53,6 +62,11 @@
   gtk.gtk3 = { extraConfig = { gtk-application-prefer-dark-theme = 1; }; };
 
   # gtk.gtk2 = { extraConfig = { gtk-application-prefer-dark-theme = 1; }; };
+  gtk.gtk2 = {
+    extraConfig = ''
+      gtk-application-prefer-dark-theme=1
+    '';
+  };
 
   dconf.settings = {
     # set dark theme for gtk 4

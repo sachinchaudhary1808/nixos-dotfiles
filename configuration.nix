@@ -224,6 +224,7 @@
   environment.systemPackages = with pkgs; [
     # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     # some good nix tools
+    river
     deadnix
     # unstable.veloren
     statix
@@ -280,7 +281,6 @@
     xorg.xhost
     gparted
     libnotify
-    gtk3
     amdgpu_top
     appimage-run
     mpv
@@ -295,12 +295,8 @@
     pkg-config
     python311
     python311Packages.pip
-    qt5.qtwayland
-    qt5.qmake
-    qt6.qtwayland
     trash-cli
     wlroots
-    xdg-desktop-portal-gtk
     xdg-utils
     ripgrep
     unzip
