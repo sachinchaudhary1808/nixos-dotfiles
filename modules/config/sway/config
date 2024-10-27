@@ -10,12 +10,11 @@ assign [app_id="vesktop"] workspace 10
 for_window [app_id="pavucontrol"] floating enable
 
 # Visual
-# gaps inner 8
 smart_borders on
-
 default_border pixel 3
 smart_gaps on
 default_floating_border normal
+default_border pixel 3
 # gaps inner 8
 # gaps outer 8
 
@@ -81,21 +80,10 @@ exec gammastep-indicator
 exec swaync
 
 
-#startup apps
-
-# Example configuration:
-set $lock_bg ~/Pictures/lockscreen.jpg
-
-bindsym $mod+End exec swaylock -i $lock_bg
-
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000 -i $lock_bg' \
-         # timeout 490 'systemctl suspend' before-sleep 'swaylock -f -c 000000 -i $lock_bg'
-
 exec swayidle -w \
-    timeout 300 'swaylock -f -c 000000 -i $lock_bg' \
+    timeout 300 'swaylock -f -c 000000' \
     timeout 490 'systemctl suspend' \
-    before-sleep 'swaylock -f -c 000000 -i $lock_bg' \
+    before-sleep 'swaylock -f -c 000000 ' \
     after-resume 'swaymsg output eDP-1 dpms on'
 
 
@@ -108,15 +96,9 @@ bindsym  $mod+Escape exec wlogout
 bindsym F7 exec "swaymsg output eDP-1 dpms toggle"
 
 
-#
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Input configuration
-#
-# Example configuration:
-#
+# Touchped
    input "1739:52781:MSFT0001:00_06CB:CE2D_Touchpad" {
 	dwt enabled
 	tap enabled
@@ -127,6 +109,7 @@ bindsym F7 exec "swaymsg output eDP-1 dpms toggle"
 	pointer_accel 0.7 # set mouse sensitivity (between -1 and 1)
    }
 
+# Mouse
 input "7247:52:SIGMACHIP_Usb_Mouse" {
 scroll_factor 1
 accel_profile "adaptive" # disable mouse acceleration (enabled by default; to set it manually, use "adaptive" instead of "flat")
@@ -158,7 +141,9 @@ bindsym $mod+Shift+b exec $browser
 
 #file manager
 bindsym $mod+Shift+f exec $file-manager
+#terminal 2
 bindsym $mod+Shift+return exec alacritty
+#edior neovim
 bindsym $mod+m exec $term  -e nvim
 
     # Drag floating windows by holding down $mod and left mouse button.
@@ -328,47 +313,26 @@ bindsym --locked XF86AudioPrev exec playerctl --player playerctld previous
 #no titile border on windows
 # default_border none
 
-#pixle border
-default_border pixel 3
 
-#gaps inner 1
 
 #screenshots
 bindsym  Print exec grim -g "$(slurp)" - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | notify-send "Screenshot of the region taken" -t 1000 # screenshot of a region
 bindsym Shift+Print exec grim - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | notify-send "Screenshot of whole screen taken" -t 1000 # screenshot of the whole screen
 
-#python
+#python calculator
 bindsym xf86calculator exec $term -e python3
-
-
-
-# bindsym $mod+q exec  kitty
-
 
 bindsym $mod+o exec swaync-client -op
 
-bindsym $mod+Help exec /home/coco/nixos-dotfiles/modules/scripts/conservation_mode/off.sh
+bindsym $mod+Help exec $HOME/nixos-dotfiles/modules/scripts/conservation_mode/off.sh
 
-bindsym Help exec /home/coco/nixos-dotfiles/modules/scripts/conservation_mode/on.sh
+bindsym Help exec $HOME/nixos-dotfiles/modules/scripts/conservation_mode/on.sh
 
-bindsym $mod+n exec nvim
 
 #clipboard
 exec wl-paste --watch cliphist store
-
 
 #rofi clibpboard manu
 bindsym Insert exec  cliphist list | rofi -dmenu | cliphist decode | wl-copy
 bindsym $mod+Tab exec rofi -show window
 
-# set $cl_high #009ddc
-# set $cl_indi #d9d8d8
-# set $cl_back #231f20
-# set $cl_fore #d9d8d8
-# set $cl_urge #ee2e24
-#
-# # Colors                border   bg       text     indi     childborder
-# client.focused          $cl_high $cl_high $cl_fore $cl_indi $cl_high
-# client.focused_inactive $cl_back $cl_back $cl_fore $cl_back $cl_back
-# client.unfocused        $cl_back $cl_back $cl_fore $cl_back $cl_back
-# client.urgent           $cl_urge $cl_urge $cl_fore $cl_urge $cl_urge

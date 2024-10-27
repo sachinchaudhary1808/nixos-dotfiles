@@ -36,7 +36,6 @@
     , nixos-hardware, spicetify-nix, ... }:
 
     let
-      system = "x86_64-linux";
       inherit (nixpkgs) lib;
       systemSettings = {
         hostname = "nixos";
@@ -62,7 +61,7 @@
       nixosConfigurations = {
         ${systemSettings.hostname} = lib.nixosSystem {
 
-          specialArgs = { inherit inputs system userSettings systemSettings; };
+          specialArgs = { inherit inputs userSettings systemSettings; };
 
           modules = [
             nixos-hardware.nixosModules.lenovo-ideapad-15alc6
