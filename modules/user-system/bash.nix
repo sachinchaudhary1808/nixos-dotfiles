@@ -2,6 +2,7 @@ let
   myAliases = {
     nixupdate = "sudo nixos-rebuild switch";
     u = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles/";
+    uf = "sudo nixos-rebuild switch --flake ~/nixos-dotfiles/ --fast";
     nixgen = "sudo nix-env -p /nix/var/nix/profiles/system --list-generations";
     ns = "nix-shell -p";
     nr = "nix run";

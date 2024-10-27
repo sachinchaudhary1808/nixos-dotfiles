@@ -22,7 +22,6 @@ in {
       distrobox
       # inputs.nixvim-config.packages.${system}.default
       superTuxKart
-      swww
       # news
       yazi
       #image editing and etc...
@@ -49,8 +48,6 @@ in {
       btop
 
       signal-desktop
-
-      wlogout
 
     ];
   };

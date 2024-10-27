@@ -53,6 +53,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  networking.networkmanager.dns = "none";
 
   #  disable dhcpcd u don't need if u use network manager
   networking.dhcpcd.enable = false;
@@ -253,7 +254,7 @@
     brightnessctl
     android-tools
     playerctl
-    xorg.xev
+    wev
     go-mtpfs
     scrcpy
     cmake
@@ -266,8 +267,6 @@
     tor-browser
     # (brave.override { vulkanSupport = true; })
     firefox-esr
-    slurp
-    grim
     fzf
     gcc
     keepassxc
@@ -442,8 +441,18 @@
   #sway
   programs.sway = {
     enable = true;
+    xwayland.enable = true;
     wrapperFeatures.gtk = true; # so that gtk works properly
-    extraPackages = with pkgs; [ sway-audio-idle-inhibit imv ];
+    extraPackages = with pkgs; [
+      sway-audio-idle-inhibit
+      imv
+      wlogout
+      hyprpicker
+      swww
+      slurp
+      grim
+
+    ];
     extraSessionCommands = "export MOZ_ENABLE_WAYLAND=1    ";
   };
 
