@@ -50,6 +50,8 @@ in {
 
       signal-desktop
 
+      wlogout
+
     ];
   };
 

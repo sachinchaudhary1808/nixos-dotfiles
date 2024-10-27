@@ -19,6 +19,5 @@
     ./tui/yazi.nix
     ./tui/git.nix
     ./tui/tmux/tmux.nix
-
   ];
 }
