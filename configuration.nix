@@ -53,7 +53,7 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-  networking.networkmanager.dns = "none";
+  # networking.networkmanager.dns = "none";
 
   #  disable dhcpcd u don't need if u use network manager
   networking.dhcpcd.enable = false;
