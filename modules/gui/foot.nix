@@ -10,8 +10,8 @@
       };
       main = {
         term = "foot";
-        font = lib.mkForce "JetBrainsMono Nerd Font Mono:size=10.5";
-        dpi-aware = lib.mkForce "yes";
+        font = "JetBrainsMono Nerd Font Mono:size=10.5";
+        dpi-aware = "yes";
       };
       scrollback = {
         lines = "5000";
