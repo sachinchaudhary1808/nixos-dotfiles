@@ -7,7 +7,10 @@ include /etc/sway/config.d/*
 
 assign [app_id="firefox"] workspace 1
 assign [app_id="vesktop"] workspace 10
-for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="pavucontrol"] floating enable, resize set 800 600
+for_window [app_id="blueman-manager"] floating enable, resize set 800 600
+for_window [title="Authentication Required"] floating enable, resize set 600 400
+
 
 # Visual
 smart_borders on
@@ -15,8 +18,8 @@ default_border pixel 3
 smart_gaps on
 default_floating_border normal
 default_border pixel 3
-# gaps inner 8
-# gaps outer 8
+# gaps inner 5
+# gaps outer 5
 
 font pango:monospace 16px
 
