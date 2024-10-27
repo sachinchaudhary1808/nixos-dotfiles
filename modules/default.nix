@@ -9,7 +9,6 @@
 
     # gui programms
     ./gui/gammastep.nix
-    ./gui/wlogout.nix
     ./gui/zathura.nix
     ./gui/kitty.nix
     ./gui/foot.nix
@@ -20,5 +19,6 @@
     ./tui/yazi.nix
     ./tui/git.nix
     ./tui/tmux/tmux.nix
+
   ];
 }

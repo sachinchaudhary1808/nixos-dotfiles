@@ -77,6 +77,12 @@ in {
   };
   home.file.".ignore".source = ./modules/config/home/.ignore;
 
+  home.file.".config/wlogout" = {
+    source =
+      ./modules/config/wlogout; # Path to the source directory you want to symlink
+    recursive = true;
+  };
+
   # programs.home-manager.enable = true;
   # };
 
