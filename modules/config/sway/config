@@ -5,6 +5,9 @@
 include /etc/sway/config.d/*
 ### Variables
 
+#
+
+# rules and workspaces 
 assign [app_id="firefox"] workspace 1
 assign [app_id="vesktop"] workspace 10
 for_window [app_id="pavucontrol"] floating enable, resize set 800 600
@@ -15,7 +18,7 @@ for_window [title="Authentication Required"] floating enable, resize set 600 400
 # Visual
 smart_borders on
 default_border pixel 3
-smart_gaps on
+# smart_gaps on
 default_floating_border normal
 default_border pixel 3
 # gaps inner 5
@@ -73,7 +76,7 @@ output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_19
 ### Idle configuration
 
 #startup programs
-exec swww-daemon 
+# exec swww-daemon 
 exec nm-applet --indicator
 exec xhost +local:coco
 exec lxqt-policykit-agent
@@ -82,7 +85,7 @@ exec blueman-applet
 exec gammastep-indicator
 exec swaync
 
-
+# swayidel
 exec swayidle -w \
     timeout 300 'swaylock -f -c 000000' \
     timeout 490 'systemctl suspend' \

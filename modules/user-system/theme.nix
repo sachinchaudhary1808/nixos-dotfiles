@@ -35,20 +35,6 @@
     };
   };
 
-  xdg.configFile = {
-    "Kvantum/kvantum.kvconfig".text = ''
-      [General]
-      theme=catppuccin-mocha-teal
-    '';
-
-    "Kvantum/catppuccin-mocha-teal".source = "${
-        pkgs.catppuccin-kvantum.override {
-          accent = "teal";
-          variant = "mocha";
-        }
-      }/share/Kvantum/catppuccin-mocha-teal";
-  };
-
   home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
