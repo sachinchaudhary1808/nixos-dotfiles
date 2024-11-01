@@ -48,6 +48,7 @@ in {
       btop
 
       signal-desktop
+      obsidian
 
     ];
   };

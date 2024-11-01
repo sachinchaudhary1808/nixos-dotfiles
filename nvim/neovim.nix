@@ -1,4 +1,7 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, ... }:
+let
+
+in {
   programs = {
     gh.enable = true;
     neovim = {
@@ -29,6 +32,7 @@
         black
         stylua # for none-ls
         prettierd
+        # live-server
         mypy
         pylint
 
@@ -40,6 +44,17 @@
 
       ];
       plugins = (with pkgs.vimPlugins; [
+        # (pkgs.vimUtils.buildVimPlugin {
+        #   name = "nvim-liveserver";
+        #   src = pkgs.fetchFromGitHub {
+        #     owner = "diegoandino";
+        #     repo = "nvim-liveserver";
+        #     rev =
+        #       "297d8977cb41cce70d2445884597ece1c729c5e1"; # You can update this to the latest commit hash
+        #     sha256 = "sha256-U1uo/mY2YKXPIP5u4TR6v4Q3R20QByK0DGsKy53OpQI=";
+        #   };
+        # })
+
         alpha-nvim
         neorg
         neorg-telescope
