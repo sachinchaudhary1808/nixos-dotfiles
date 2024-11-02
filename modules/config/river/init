@@ -24,7 +24,7 @@ cleanup_programs() {
 cleanup_programs
 
 # exec your programs
-exec i3bar-river &
+exec waybar &
 exec swww-daemon &
 exec nm-applet --indicator &
 exec lxqt-policykit-agent &

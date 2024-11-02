@@ -5,24 +5,24 @@
     ./hardware-configuration.nix
     # <home-manager/nixos>
     # ./home-manager.nix
-    inputs.xremap-flake.nixosModules.default
+    # inputs.xremap-flake.nixosModules.default
   ];
 
   # using lix insted of nix
   nix.package = pkgs.unstable.lix;
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
-  services.xremap = {
-    withWlroots = true;
-    userName = userSettings.username;
-    config.modmap = [{
-
-      name = "Global";
-      remap = { "CapsLock" = "Esc"; }; # globally remap CapsLock to Esc
-      remap = { "Esc" = "CapsLock"; }; # globally remap Esc to CapsLock
-
-    }];
-  };
+  # services.xremap = {
+  #   withWlroots = true;
+  #   userName = userSettings.username;
+  #   config.modmap = [{
+  #
+  #     name = "Global";
+  #     remap = { "CapsLock" = "Esc"; }; # globally remap CapsLock to Esc
+  #     remap = { "Esc" = "CapsLock"; }; # globally remap Esc to CapsLock
+  #
+  #   }];
+  # };
 
   # Bootloader.
   # boot.loader.systemd-boot.enable = true;
@@ -548,4 +548,19 @@
     };
   };
 
+  services.keyd = {
+    enable = true;
+    keyboards = {
+      default = {
+        settings = {
+          main = {
+            # Simple capslock to escape remap
+            capslock = "escape";
+            escape = "capslock";
+
+          };
+        };
+      };
+    };
+  };
 }

@@ -8,7 +8,7 @@ include /etc/sway/config.d/*
 #
 
 # rules and workspaces 
-assign [app_id="firefox"] workspace 1
+# assign [app_id="firefox"] workspace 1
 assign [app_id="vesktop"] workspace 10
 for_window [app_id="pavucontrol"] floating enable, resize set 800 600
 for_window [app_id="blueman-manager"] floating enable, resize set 800 600
@@ -84,6 +84,7 @@ exec QT_QPA_PLATFORM="wayland;xcb"
 exec blueman-applet
 exec gammastep-indicator
 exec swaync
+# exec systemctl --user import-environment PATH # for the github issue 
 
 # swayidel
 exec swayidle -w \
@@ -331,8 +332,10 @@ bindsym xf86calculator exec $term -e python3
 bindsym $mod+o exec swaync-client -op
 
 bindsym $mod+Help exec $HOME/nixos-dotfiles/modules/scripts/conservation_mode/off.sh
+bindsym $mod+F9 exec $HOME/nixos-dotfiles/modules/scripts/conservation_mode/off.sh
 
 bindsym Help exec $HOME/nixos-dotfiles/modules/scripts/conservation_mode/on.sh
+bindsym F9 exec $HOME/nixos-dotfiles/modules/scripts/conservation_mode/on.sh
 
 
 #clipboard
