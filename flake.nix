@@ -26,7 +26,6 @@
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    xremap-flake.url = "github:xremap/nix-flake";
     neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
