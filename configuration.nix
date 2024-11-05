@@ -12,6 +12,11 @@
   nix.package = pkgs.unstable.lix;
   nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
+  nix.settings.extra-substituters = [ "https://nix-community.cachix.org" ];
+  nix.settings.extra-trusted-public-keys = [
+    "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+  ];
+
   # services.xremap = {
   #   withWlroots = true;
   #   userName = userSettings.username;
@@ -289,8 +294,6 @@
     dbus
     networkmanagerapplet
     pavucontrol
-    pipewire
-
     pkg-config
     python311
     python311Packages.pip
@@ -563,4 +566,5 @@
       };
     };
   };
+  services.xserver.windowManager.qtile.enable = true;
 }

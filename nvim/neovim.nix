@@ -64,7 +64,7 @@ in {
         bufferline-nvim
         dressing-nvim
         indent-blankline-nvim
-        # neocord
+        neocord
         # nvim-treesitter.withAllGrammars
         nvim-treesitter-context
         lualine-nvim
