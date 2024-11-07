@@ -296,8 +296,7 @@
     networkmanagerapplet
     pavucontrol
     pkg-config
-    python311
-    python311Packages.pip
+    python312
     trash-cli
     wlroots
     xdg-utils
@@ -567,5 +566,15 @@
       };
     };
   };
-  services.xserver.windowManager.qtile.enable = true;
+
+  # for the via app to work 
+  services.udev.extraRules = ''
+    # Vial-specific rule
+    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
+
+    # Generic rule for VIA (and other hidraw devices)
+    KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
+  '';
+  services.udev.packages = [ pkgs.qmk-udev-rules ];
+
 }
