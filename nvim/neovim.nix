@@ -24,7 +24,8 @@ in {
         rust-analyzer
         nodePackages.bash-language-server
         yaml-language-server
-        pyright
+        # python312Packages.python-lsp-server
+        python312Packages.jedi-language-server
         marksman
         # clang-tools
 

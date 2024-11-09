@@ -1,7 +1,8 @@
 local lspconfig = require("lspconfig")
 
 -- Setup each LSP server individually
-lspconfig.pyright.setup({}) -- for python
+lspconfig.gopls.setup({})
+lspconfig.jedi_language_server.setup({}) -- for python
 lspconfig.lua_ls.setup({
 	root_dir = function(fname)
 		return require("lspconfig.util").root_pattern(".git")(fname) or require("lspconfig.util").path.dirname(fname)

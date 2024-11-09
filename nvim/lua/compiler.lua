@@ -20,8 +20,9 @@ local compile_commands = {
 	javascript = function()
 		return "node %"
 	end,
-	go = function(unique_name)
-		return "go build -o " .. unique_name .. " %"
+	go = function()
+		-- return "go run % "
+		return 'go run "' .. vim.fn.expand("%:p:h") .. '"'
 	end,
 	lua = function()
 		return "lua %"
@@ -62,7 +63,7 @@ local function compile_and_run()
 		vim.cmd("cclose")
 
 		-- For compiled languages (C, C++, Go), run the binary in a terminal
-		if filetype == "c" or filetype == "cpp" or filetype == "go" then
+		if filetype == "c" or filetype == "cpp" then
 			vim.cmd("belowright split | terminal " .. unique_name)
 		else
 			-- For interpreted languages (Python, JavaScript), just run the script
