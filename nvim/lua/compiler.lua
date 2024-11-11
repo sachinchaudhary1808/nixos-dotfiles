@@ -73,7 +73,7 @@ local function compile_and_run()
 		-- Open the quickfix window to display compilation errors
 		vim.cmd("copen")
 		-- Map Enter to close the quickfix window
-		vim.api.nvim_buf_set_keymap(0, "n", "<CR>", ":cclose<CR>", { noremap = true, silent = true })
+		-- vim.api.nvim_buf_set_keymap(0, "n", "<CR>", ":cclose<CR>", { noremap = true, silent = true })
 	end
 end
 
