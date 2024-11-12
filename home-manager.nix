@@ -3,7 +3,7 @@ let username = userSettings.username;
 
 in {
   # home-manager.users.coco = {
-  imports = [ ./modules ./nvim/neovim.nix ];
+  imports = [ ./modules ];
 
   home = {
     inherit (userSettings) username;

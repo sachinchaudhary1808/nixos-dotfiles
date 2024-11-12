@@ -1,60 +1,17 @@
-{ pkgs, config, ... }:
-let
+# neovim.nix
+{
+  symlinkJoin,
+  neovim-unwrapped,
+  makeWrapper,
+  runCommandLocal,
+  vimPlugins,
+  lib,
+  pkgs,
+}: let
+  packageName = "mypackage";
 
-in {
-  programs = {
-    gh.enable = true;
-    neovim = {
 
-      package = pkgs.unstable.neovim-unwrapped;
-      enable = true;
-      defaultEditor = true;
-      viAlias = true;
-      vimAlias = true;
-      vimdiffAlias = true;
-      withNodeJs = true;
-      extraPackages = with pkgs; [
-        emmet-language-server
-        lua-language-server
-        gopls
-        xclip
-        wl-clipboard
-        fd
-        luajitPackages.lua-lsp
-        rust-analyzer
-        nodePackages.bash-language-server
-        yaml-language-server
-        # python312Packages.python-lsp-server
-        python312Packages.jedi-language-server
-        marksman
-        # clang-tools
-
-        #formatters
-        black
-        stylua # for none-ls
-        prettierd
-        # live-server
-        mypy
-        pylint
-
-        #nix
-        nixfmt-classic
-        statix
-        deadnix
-        nil
-
-      ];
-      plugins = (with pkgs.vimPlugins; [
-        # (pkgs.vimUtils.buildVimPlugin {
-        #   name = "nvim-liveserver";
-        #   src = pkgs.fetchFromGitHub {
-        #     owner = "diegoandino";
-        #     repo = "nvim-liveserver";
-        #     rev =
-        #       "297d8977cb41cce70d2445884597ece1c729c5e1"; # You can update this to the latest commit hash
-        #     sha256 = "sha256-U1uo/mY2YKXPIP5u4TR6v4Q3R20QByK0DGsKy53OpQI=";
-        #   };
-        # })
+  startPlugins =    with vimPlugins; [
 
         alpha-nvim
         neorg
@@ -66,7 +23,7 @@ in {
         dressing-nvim
         indent-blankline-nvim
         neocord
-        # nvim-treesitter.withAllGrammars
+        nvim-treesitter.withAllGrammars
         nvim-treesitter-context
         lualine-nvim
         nvim-autopairs
@@ -74,11 +31,7 @@ in {
         markdown-preview-nvim
         nvim-web-devicons
         nvim-cmp
-        {
-          plugin = nvim-surround;
-          type = "lua";
-          config = ''require("nvim-surround").setup({	})'';
-        }
+          nvim-surround
         nvim-lspconfig
         cmp-nvim-lsp
         cmp-buffer
@@ -90,11 +43,7 @@ in {
         lspsaga-nvim
         flash-nvim
         gitsigns-nvim
-        {
-          plugin = onedark-nvim;
-          type = "lua";
-          config = "require('onedark').load()";
-        }
+          onedark-nvim
         # onedark-nvim
         plenary-nvim
         catppuccin-nvim
@@ -110,71 +59,90 @@ in {
         sniprun
         vim-fugitive
         harpoon2
-        {
-          plugin = rainbow-delimiters-nvim;
-          type = "lua";
-          config = ''require("rainbow-delimiters.setup").setup({})'';
-        }
+           rainbow-delimiters-nvim
 
-        {
+       
 
-          plugin = toggleterm-nvim;
-          type = "lua";
-          config = ''require("toggleterm").setup()'';
-        }
+           toggleterm-nvim
+        
 
-      ]) ++ (with pkgs.vimPlugins.nvim-treesitter-parsers; [{
-        plugin = pkgs.symlinkJoin {
-          name = "nvim-treesitter";
-          paths = [
-            pkgs.vimPlugins.nvim-treesitter.withAllGrammars
-            pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies
-          ];
-        };
-        optional = false;
-      }]);
+  ];
 
-      extraConfig = ''
-        set noemoji
-      '';
-      extraLuaConfig = ''
-                ${builtins.readFile ./options.lua}
-                ${builtins.readFile ./auto-commands.lua}
-                ${builtins.readFile ./keymaps.lua}
-                ${builtins.readFile ./plugins/alpha.lua}
-                ${builtins.readFile ./plugins/autopairs.lua}
-                ${builtins.readFile ./plugins/auto-session.lua}
-                ${builtins.readFile ./plugins/cmp.lua}
-                ${builtins.readFile ./plugins/lsp.lua}
-                ${builtins.readFile ./plugins/nvim-tree.lua}
-                ${builtins.readFile ./plugins/telescope.lua}
-                ${builtins.readFile ./plugins/todo-comments.lua}
-                ${builtins.readFile ./plugins/which-key.lua}
-                ${builtins.readFile ./plugins/treesitter.lua}
-                ${builtins.readFile ./plugins/bufferline-nvim.lua}
-                ${builtins.readFile ./plugins/neorg.lua}
-                ${builtins.readFile ./plugins/none-ls.lua}
-                ${builtins.readFile ./plugins/flash-nvim.lua}
-                ${builtins.readFile ./plugins/undotree.lua}
-                ${builtins.readFile ./plugins/fugitive.lua}
-                ${builtins.readFile ./plugins/gitsings.lua}
-                ${builtins.readFile ./plugins/sniprun.lua}
-                ${builtins.readFile ./snippites/snip.lua}
-                ${builtins.readFile ./plugins/harpoon2.lua}
-                ${builtins.readFile ./lua/compiler.lua}
+  foldPlugins = builtins.foldl' (
+    acc: next:
+      acc
+      ++ [
+        next
+      ]
+      ++ (foldPlugins (next.dependencies or []))
+  ) [];
 
+  startPluginsWithDeps = lib.unique (foldPlugins startPlugins);
 
-                require("ibl").setup()
-                require("lualine").setup({
-                  icons_enabled = true,
-                   -- theme = 'catppuccin',
-                })
+  packpath = runCommandLocal "packpath" {} ''
+    mkdir -p $out/pack/${packageName}/{start,opt}
+    ln -vsfT ${./myplugin} $out/pack/${packageName}/start/myplugin
 
-        -- require('onedark').setup {
-         --    style = 'darker'
-         --}
-         -- require('onedark').load()
-      '';
+    ${
+       lib.concatMapStringsSep
+      "\n"
+      (plugin: "ln -vsfT ${plugin} $out/pack/${packageName}/start/${lib.getName plugin}")
+      startPluginsWithDeps
+    }
+     ${
+      lib.concatMapStringsSep
+      "\n"
+      (dep: "ln -vsfT ${dep} $out/pack/${packageName}/start/${lib.getName dep}")
+      [
+        pkgs.emmet-language-server
+        pkgs.lua-language-server
+        pkgs.gopls
+        pkgs.xclip
+        pkgs.wl-clipboard
+        pkgs.fd
+        pkgs.luajitPackages.lua-lsp
+        pkgs.rust-analyzer
+        pkgs.nodePackages.bash-language-server
+        pkgs.yaml-language-server
+        pkgs.python312Packages.jedi-language-server
+        pkgs.marksman
+        pkgs.black
+        pkgs.stylua
+        pkgs.prettierd
+        pkgs.mypy
+        pkgs.pylint
+        pkgs.nixfmt-classic
+        pkgs.statix
+        pkgs.deadnix
+        pkgs.nil
+      ]
+    }
+  '';
+in
+  symlinkJoin {
+    name = "nvim-custom";
+    meta.mainProgram = "nvim";
+    paths = [neovim-unwrapped];
+    nativeBuildInputs = [makeWrapper];
+    postBuild = ''
+      wrapProgram $out/bin/nvim \
+        --add-flags '-u' \
+        --add-flags '${./init.lua}' \
+        --add-flags '--cmd' \
+        --add-flags "'set packpath^=${packpath} | set runtimepath^=${packpath}'" \
+        --set-default NVIM_APPNAME nvim-custom
+    '';
+
+    passthru = {
+      inherit packpath;
     };
-  };
-}
+  }
+
+
+  
+  
+  
+
+  
+  
+

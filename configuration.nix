@@ -245,7 +245,6 @@
     cachix
     foot
     alejandra
-    neovim
     swayidle
     swaylock
     # swaylock-effects
