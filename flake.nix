@@ -48,14 +48,12 @@
       };
       # pkgs = nixpkgs-unstable.legacyPackages."${system}";
       # config = { allowunfree = true; };
- system = "x86_64-linux";
+      system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
-      
+
       myNeovim = pkgs.callPackage ./nvim/neovim.nix { };
     in {
-      packages.${system} = {
-        neovim = myNeovim;
-      };
+      packages.${system} = { neovim = myNeovim; };
       nixosConfigurations = {
         ${systemSettings.hostname} = lib.nixosSystem {
 
@@ -64,11 +62,9 @@
           modules = [
             nixos-hardware.nixosModules.lenovo-ideapad-15alc6
             ./configuration.nix
- ({ pkgs, ... }: {
-            environment.systemPackages = [
-	    self.packages.${system}.neovim
-            ];
-          })
+            ({ pkgs, ... }: {
+              environment.systemPackages = [ self.packages.${system}.neovim ];
+            })
             home-manager.nixosModules.home-manager
             {
               nixpkgs.overlays = [
