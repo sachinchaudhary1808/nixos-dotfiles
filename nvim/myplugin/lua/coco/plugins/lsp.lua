@@ -1,7 +1,10 @@
 local lspconfig = require("lspconfig")
 
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
 -- Setup each LSP server individually
 lspconfig.gopls.setup({
+    capabilities = capabilities,
     settings = {
         gopls = {
             analyses = {
@@ -9,10 +12,14 @@ lspconfig.gopls.setup({
             },
             staticcheck = true,
             gofumpt = true,
+            usePlaceholders = true,
+            completeUnimported = true,
         },
     },
 })
-lspconfig.jedi_language_server.setup({}) -- for python
+
+lspconfig.jedi_language_server.setup({ capabilities = capabilities }) -- for python
+
 lspconfig.lua_ls.setup({
     root_dir = function(fname)
         return require("lspconfig.util").root_pattern(".git")(fname) or require("lspconfig.util").path.dirname(fname)
