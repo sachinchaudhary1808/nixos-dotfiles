@@ -1,3 +1,6 @@
+-- options
+require("coco.options")
+
 -- require("coco.plugins")
 require("coco.plugins.alpha")
 require("coco.plugins.flash-nvim")
@@ -23,7 +26,6 @@ require("coco.lua.compiler")
 require("coco.snippites.snip")
 
 -- files
-require("coco.options")
 require("coco.keymaps")
 require("coco.auto-commands")
 
