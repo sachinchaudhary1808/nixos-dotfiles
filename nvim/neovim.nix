@@ -6,7 +6,10 @@ let
 
   optimizedTreesitter = pkgs.symlinkJoin {
     name = "nvim-treesitter-optimized";
-    paths = [ pkgs.vimPlugins.nvim-treesitter.withAllGrammars ];
+    paths = [
+      pkgs.vimPlugins.nvim-treesitter.withAllGrammars
+      pkgs.vimPlugins.nvim-treesitter.withAllGrammars.dependencies
+    ];
   };
 
   startPlugins = (with vimPlugins; [

@@ -53,10 +53,11 @@
 
       myNeovim = pkgs.callPackage ./nvim/neovim.nix { };
     in {
+
       packages.${system} = { neovim = myNeovim; };
+
       nixosConfigurations = {
         ${systemSettings.hostname} = lib.nixosSystem {
-
           specialArgs = { inherit inputs userSettings systemSettings; };
 
           modules = [
@@ -65,6 +66,7 @@
             ({ pkgs, ... }: {
               environment.systemPackages = [ self.packages.${system}.neovim ];
             })
+
             home-manager.nixosModules.home-manager
             {
               nixpkgs.overlays = [
