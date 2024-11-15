@@ -1,4 +1,5 @@
 -- options
+-- global option keep this at top
 require("coco.options")
 
 -- require("coco.plugins")
