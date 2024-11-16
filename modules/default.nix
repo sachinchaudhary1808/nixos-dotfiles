@@ -1,6 +1,9 @@
-{ pkgs, config, ... }: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   imports = [
-
     # user-system programms
     ./user-system/bash.nix
     ./user-system/startship.nix

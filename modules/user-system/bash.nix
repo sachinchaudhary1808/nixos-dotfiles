@@ -16,10 +16,8 @@ let
     npi = "nix profile install";
     h = "htop";
     gc = "git commit -m";
-
   };
 in {
-
   programs.bash = {
     enable = true;
     enableCompletion = true;
@@ -36,7 +34,5 @@ in {
     bashrcExtra = "";
 
     shellAliases = myAliases;
-
   };
-
 }

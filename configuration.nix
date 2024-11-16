@@ -1,5 +1,12 @@
 # my nixos configconfiguratio
-{ config, pkgs, inputs, userSettings, systemSettings, ... }: {
+{
+  config,
+  pkgs,
+  inputs,
+  userSettings,
+  systemSettings,
+  ...
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -10,10 +17,10 @@
 
   # using lix insted of nix
   nix.package = pkgs.unstable.lix;
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
   # for cachix builds
-  nix.settings.extra-substituters = [ "https://nix-community.cachix.org" ];
+  nix.settings.extra-substituters = ["https://nix-community.cachix.org"];
   nix.settings.extra-trusted-public-keys = [
     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
   ];
@@ -39,7 +46,6 @@
       enable = true;
       device = "nodev";
       efiSupport = true;
-
     };
     efi = {
       canTouchEfiVariables = true;
@@ -55,7 +61,7 @@
   networking.wireless.enable = false; # disble wpa whatever
 
   # Dns server
-  networking.nameservers = [ "1.1.1.1" ];
+  networking.nameservers = ["1.1.1.1"];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -65,8 +71,8 @@
   networking.dhcpcd.enable = false;
   networking.networkmanager.wifi.backend = "iwd";
   networking.wireless.iwd.settings = {
-    IPv6 = { Enabled = true; };
-    Settings = { AutoConnect = true; };
+    IPv6 = {Enabled = true;};
+    Settings = {AutoConnect = true;};
   };
 
   # what to do when lid is closed
@@ -81,8 +87,8 @@
   boot.kernel.sysctl."vm.page-cluster" = 0;
 
   # Gpu settings
-  services.xserver.videoDrivers = [ "amdgpu" ];
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  services.xserver.videoDrivers = ["amdgpu"];
+  boot.initrd.kernelModules = ["amdgpu"];
   # # Enable firmware update service
   services.fwupd.enable = true;
   # hardware = {
@@ -136,7 +142,7 @@
   console = {
     earlySetup = true;
     font = "ter-powerline-v24b";
-    packages = with pkgs; [ terminus_font powerline-fonts ];
+    packages = with pkgs; [terminus_font powerline-fonts];
     keyMap = "us";
   };
 
@@ -167,15 +173,13 @@
   users.users.${userSettings.username} = {
     isNormalUser = true;
     description = userSettings.name;
-    extraGroups =
-      [ "networkmanager" "wheel" "video" "kvm" "input" "audio" "render" ];
-    packages = with pkgs; [ ];
+    extraGroups = ["networkmanager" "wheel" "video" "kvm" "input" "audio" "render"];
+    packages = with pkgs; [];
   };
 
   # Allow unfree packages
   nixpkgs.config = {
     allowUnfree = true;
-
   };
   # nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowInsecure = true;
@@ -214,8 +218,7 @@
     enable = true;
     settings = {
       default_session = {
-        command =
-          "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd sway";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd sway";
         user = "greeter";
       };
     };
@@ -354,14 +357,14 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
   };
 
   #fonts
   fonts.enableDefaultPackages = true;
   fonts.packages = with pkgs; [
     (nerdfonts.override {
-      fonts = [ "JetBrainsMono" "DroidSansMono" "FiraCode" ];
+      fonts = ["JetBrainsMono" "DroidSansMono" "FiraCode"];
     })
     font-awesome
     liberation_ttf
@@ -374,9 +377,9 @@
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      serif = [ "Liberation Serif" ];
-      sansSerif = [ "Noto Sans" ];
-      monospace = [ "Fira Code" ];
+      serif = ["Liberation Serif"];
+      sansSerif = ["Noto Sans"];
+      monospace = ["Fira Code"];
     };
   };
 
@@ -416,13 +419,13 @@
   };
 
   #experimantlal features
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = ["nix-command" "flakes"];
 
   # settings of obs
   boot = {
-    kernelModules = [ "v4l2loopback" ];
+    kernelModules = ["v4l2loopback"];
 
-    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+    extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
   };
 
   #masked services
@@ -431,7 +434,7 @@
   #xwayland
   programs.xwayland.enable = true;
 
-  # #sway graphical session target 
+  # #sway graphical session target
   # systemd.user.targets.sway-session = {
   #   description = "sway compositor session";
   #   documentation = [ "man:systemd.special(7)" ];
@@ -453,17 +456,18 @@
       swww
       slurp
       grim
-
     ];
     extraSessionCommands = "export MOZ_ENABLE_WAYLAND=1    ";
   };
 
-  security.pam.loginLimits = [{
-    domain = "@users";
-    item = "rtprio";
-    type = "-";
-    value = 1;
-  }];
+  security.pam.loginLimits = [
+    {
+      domain = "@users";
+      item = "rtprio";
+      type = "-";
+      value = 1;
+    }
+  ];
   # programs.waybar.enable = true;
 
   #environment.variables = {
@@ -508,21 +512,21 @@
       thunar-dropbox-plugin
     ];
   };
-  # thunar to open things in terminal 
+  # thunar to open things in terminal
   xdg.terminal-exec = {
     enable = true;
-    settings.default = [ "foot.desktop" ];
+    settings.default = ["foot.desktop"];
   };
 
   programs.nautilus-open-any-terminal.enable = true;
-  services.gvfs = { enable = true; };
+  services.gvfs = {enable = true;};
 
-  xdg.mime.defaultApplications = { "image/png" = [ "imv.desktop" ]; };
+  xdg.mime.defaultApplications = {"image/png" = ["imv.desktop"];};
 
   # bye bye nano
   # programs.nano.enable = lib.mkForce false;
 
-  # Disable things here 
+  # Disable things here
 
   # documentation.nixos.enable = false;
   programs.appimage.enable = true;
@@ -559,14 +563,13 @@
             # Simple capslock to escape remap
             capslock = "escape";
             escape = "capslock";
-
           };
         };
       };
     };
   };
 
-  # for the via app to work 
+  # for the via app to work
   services.udev.extraRules = ''
     # Vial-specific rule
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
@@ -574,6 +577,5 @@
     # Generic rule for VIA (and other hidraw devices)
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
   '';
-  services.udev.packages = [ pkgs.qmk-udev-rules ];
-
+  services.udev.packages = [pkgs.qmk-udev-rules];
 }

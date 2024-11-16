@@ -1,9 +1,16 @@
-{ config, pkgs, inputs, userSettings, ... }: # ... is called ellipsis
-let username = userSettings.username;
-
+{
+  config,
+  pkgs,
+  inputs,
+  userSettings,
+  ...
+}:
+# ... is called ellipsis
+let
+  username = userSettings.username;
 in {
   # home-manager.users.coco = {
-  imports = [ ./modules ];
+  imports = [./modules];
 
   home = {
     inherit (userSettings) username;
@@ -49,26 +56,31 @@ in {
 
       signal-desktop
       obsidian
-
     ];
   };
 
   xdg.configFile = {
     # you don't have to rebuild..., but have to give full path..
-    "sway/config".source = config.lib.file.mkOutOfStoreSymlink
+    "sway/config".source =
+      config.lib.file.mkOutOfStoreSymlink
       "/home/${username}/nixos-dotfiles/modules/config/sway/config";
-    "river/init".source = config.lib.file.mkOutOfStoreSymlink
+    "river/init".source =
+      config.lib.file.mkOutOfStoreSymlink
       "/home/${username}/nixos-dotfiles/modules/config/river/init";
 
-    "rofi/config.rasi".source = config.lib.file.mkOutOfStoreSymlink
+    "rofi/config.rasi".source =
+      config.lib.file.mkOutOfStoreSymlink
       "/home/${username}/nixos-dotfiles/modules/config/rofi/config.rasi";
-    "rofi/tokyonight.rasi".source = config.lib.file.mkOutOfStoreSymlink
+    "rofi/tokyonight.rasi".source =
+      config.lib.file.mkOutOfStoreSymlink
       "/home/${username}/nixos-dotfiles/modules/config/rofi/tokyonight.rasi";
     #"foot/foot.ini".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/foot/foot.ini";
     #"swaylock/config".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/swaylock/config";
-    "waybar/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink
+    "waybar/config.jsonc".source =
+      config.lib.file.mkOutOfStoreSymlink
       "/home/${username}/nixos-dotfiles/modules/config/waybar/config.jsonc";
-    "waybar/style.css".source = config.lib.file.mkOutOfStoreSymlink
+    "waybar/style.css".source =
+      config.lib.file.mkOutOfStoreSymlink
       "/home/${username}/nixos-dotfiles/modules/config/waybar/style.css";
     #
     # u have to rebuild but don't need to give full path...
@@ -107,5 +119,4 @@ in {
   #   enable = true;
   #   mpdMusicDir = "~/Music";
   # };
-
 }

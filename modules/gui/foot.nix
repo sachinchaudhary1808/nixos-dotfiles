@@ -1,4 +1,9 @@
-{ pkgs, config, lib, ... }: {
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: {
   programs.foot = {
     # catppuccin.enable = true;
     enable = true;
@@ -41,7 +46,6 @@
         # selection-foreground=282c34
         # selection-background=979eab
       };
-
     };
   };
 }
