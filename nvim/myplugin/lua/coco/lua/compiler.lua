@@ -95,17 +95,20 @@ local function compile_and_run()
         -- Check if compilation was successful
         if vim.v.shell_error == 0 then
             vim.cmd("cclose")
-            -- Run the compiled binary in a terminal
-            vim.cmd("belowright split | terminal " .. commands.run)
+            -- Reuse or create a terminal split for running
+            vim.cmd("botright split | terminal " .. commands.run)
         else
             -- Show compilation errors
             vim.cmd("copen")
         end
     else
-        -- For interpreted languages, directly run in terminal
-        vim.cmd("belowright split | terminal " .. commands.run)
+        -- For interpreted languages, reuse or create a terminal split
+        vim.cmd("botright split | terminal " .. commands.run)
     end
 end
 
--- Keybind to compile and run the program in a new terminal window
-vim.keymap.set("n", "<leader>d", compile_and_run, { desc = "Compile and run the code in a new terminal" })
+-- Keybind to compile and run the program in a new terminal split
+vim.keymap.set("n", "<leader>d", compile_and_run, { desc = "Compile and run the code in a terminal split" })
+
+-- Keybind to switch terminal mode manually
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode to normal mode" })
