@@ -94,29 +94,4 @@ in {
       ./modules/config/wlogout; # Path to the source directory you want to symlink
     recursive = true;
   };
-
-  # programs.home-manager.enable = true;
-  # };
-
-  # services.mpd = {
-  #   enable = true;
-  #   musicDirectory = "/home/coco/Music";
-  #   dataDir = "/home/coco/.local/share/mpd";
-  #   dbFile = "/home/coco/.local/share/mpd/database";
-  #   network.listenAddress = "any";
-  #   network.startWhenNeeded = true;
-  #
-  #   extraConfig = ''
-  #
-  #     audio_output {
-  #            type "pipewire"
-  #            name "My Pipewire output"
-  #          }
-  #   '';
-  # };
-  #
-  # programs.ncmpcpp = {
-  #   enable = true;
-  #   mpdMusicDir = "~/Music";
-  # };
 }
