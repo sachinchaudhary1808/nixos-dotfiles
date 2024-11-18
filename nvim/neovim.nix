@@ -52,8 +52,8 @@
       onedark-nvim
       # onedark-nvim
       plenary-nvim
-      catppuccin-nvim
-      neodev-nvim
+      # catppuccin-nvim
+      # neodev-nvim
       luasnip
       telescope-nvim
       telescope-file-browser-nvim
@@ -68,6 +68,12 @@
       rainbow-delimiters-nvim
 
       toggleterm-nvim
+
+      # debugging
+      nvim-dap
+      nvim-dap-ui
+      nvim-dap-virtual-text
+      nvim-dap-go
     ])
     ++ [optimizedTreesitter];
 

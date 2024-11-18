@@ -218,7 +218,7 @@
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd sway";
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd sway --theme 'border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red'";
         user = "greeter";
       };
     };
@@ -235,6 +235,7 @@
     # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     # some good nix tools
     river
+    kdiskmark
     deadnix
     # unstable.veloren
     statix

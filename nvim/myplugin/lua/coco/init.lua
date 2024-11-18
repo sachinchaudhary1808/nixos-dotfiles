@@ -22,6 +22,7 @@ require("coco.plugins.which-key")
 require("coco.plugins.cmp")
 require("coco.plugins.lsp")
 require("coco.plugins.telescope")
+require("coco.plugins.debugging")
 
 require("coco.lua.compiler")
 require("coco.snippites.snip")
