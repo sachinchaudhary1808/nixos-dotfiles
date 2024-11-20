@@ -40,7 +40,7 @@ in {
       pciutils
       gnome-system-monitor
       trash-cli
-      tldr
+      tealdeer
       minetestclient
       nix-tree
       yt-dlp
