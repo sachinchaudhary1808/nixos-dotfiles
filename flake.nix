@@ -73,7 +73,7 @@
           ./configuration.nix
           ({pkgs, ...}: {
             environment.systemPackages = [
-              self.packages.${system}.neovim
+               self.packages.${system}.neovim
             ];
           })
           home-manager.nixosModules.home-manager

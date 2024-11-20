@@ -31,7 +31,9 @@ in {
 
 
     '';
-    bashrcExtra = "";
+    bashrcExtra = ''
+      export MANPAGER="$(which nvim >/dev/null 2>&1 && echo 'nvim +Man!' || echo 'less')"
+    '';
 
     shellAliases = myAliases;
   };
