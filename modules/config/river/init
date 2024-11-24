@@ -24,7 +24,6 @@ cleanup_programs() {
 cleanup_programs
 
 # exec your programs
-exec waybar &
 exec swww-daemon &
 exec nm-applet --indicator &
 exec lxqt-policykit-agent &
@@ -186,7 +185,7 @@ do
 
 
 	# show rofi with clipboard
-	riverctl map $mode None Insert spawn 'cliphist list | rofi -dmenu | cliphist decode | wl-copy'
+    riverctl map $mode None Insert spawn 'cliphist list | rofi -dmenu | cliphist decode | wl-copy'
 
 	#screenshots
 	riverctl map $mode None Print spawn 'grim -g "$(slurp)" - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | notify-send "Screenshot of the region taken" -t 1000 # screenshot of a region'
@@ -254,4 +253,5 @@ riverctl input pointer-1739-52781-MSFT0001:00_06CB:CE2D_Touchpad set sensitivity
 riverctl focus-follows-cursor normal
 
 
+exec waybar &
 
