@@ -156,8 +156,8 @@ bindsym $mod+Shift+b exec $browser
 bindsym $mod+Shift+f exec $file-manager
 #terminal 2
 bindsym $mod+Shift+return exec alacritty
-#edior neovim
-bindsym $mod+m exec $term  -e nvim
+# edior neovim
+bindsym $mod+n exec $term  -e nvim
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -352,3 +352,54 @@ exec wl-paste --watch cliphist store
 bindsym Insert exec  cliphist list | rofi -dmenu | cliphist decode | wl-copy
 bindsym $mod+Tab exec rofi -show window
 
+
+
+
+# Window marking system
+# Mode for setting marks
+set $mode_set_marks "Set Mark: [0-9]"
+mode $mode_set_marks {
+    bindsym 1 mark 1, mode "default"
+    bindsym 2 mark 2, mode "default"
+    bindsym 3 mark 3, mode "default"
+    bindsym 4 mark 4, mode "default"
+    bindsym 5 mark 5, mode "default"
+    bindsym 6 mark 6, mode "default"
+    bindsym 7 mark 7, mode "default"
+    bindsym 8 mark 8, mode "default"
+    bindsym 9 mark 9, mode "default"
+    bindsym 0 mark 0, mode "default"
+    
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# Mode for switching to marked windows
+set $mode_goto_marks "Go to Mark: [0-9]"
+mode $mode_goto_marks {
+    bindsym 1 [con_mark="1"] focus, mode "default"
+    bindsym 2 [con_mark="2"] focus, mode "default"
+    bindsym 3 [con_mark="3"] focus, mode "default"
+    bindsym 4 [con_mark="4"] focus, mode "default"
+    bindsym 5 [con_mark="5"] focus, mode "default"
+    bindsym 6 [con_mark="6"] focus, mode "default"
+    bindsym 7 [con_mark="7"] focus, mode "default"
+    bindsym 8 [con_mark="8"] focus, mode "default"
+    bindsym 9 [con_mark="9"] focus, mode "default"
+    bindsym 0 [con_mark="0"] focus, mode "default"
+    
+    # Quick switch to mark mode
+    bindsym m mode $mode_set_marks
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# Keybindings to enter mark modes
+bindsym $mod+m mode $mode_goto_marks
+bindsym $mod+Shift+m mode $mode_set_marks
+
+# Optional: Visual indication for marked windows
+for_window [con_mark="[0-9]"] border pixel 3
