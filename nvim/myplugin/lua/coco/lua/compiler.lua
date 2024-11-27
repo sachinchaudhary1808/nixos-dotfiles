@@ -46,7 +46,7 @@ local language_configs = {
         needs_compilation = false,
         get_command = function()
             return {
-                run = 'go run "' .. vim.fn.expand("%:p:h") .. '"',
+                run = 'go run "' .. vim.fn.expand("%:p") .. '"',
             }
         end,
     },
