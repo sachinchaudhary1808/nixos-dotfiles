@@ -2,7 +2,7 @@
   description = "coco-system";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     cachix.url = "github:cachix/cachix";
 
@@ -73,7 +73,7 @@
           ./configuration.nix
           ({pkgs, ...}: {
             environment.systemPackages = [
-               self.packages.${system}.neovim
+              self.packages.${system}.neovim
             ];
           })
           home-manager.nixosModules.home-manager
