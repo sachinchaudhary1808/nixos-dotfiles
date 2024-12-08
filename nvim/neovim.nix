@@ -21,6 +21,7 @@
   startPlugins =
     (with vimPlugins; [
       alpha-nvim
+      oil-nvim
       neorg
       neorg-telescope
       neoformat

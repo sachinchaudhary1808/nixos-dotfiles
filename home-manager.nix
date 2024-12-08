@@ -26,7 +26,9 @@ in {
 
     #Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     packages = with pkgs; [
+      calibre
       distrobox
+      emacs
       # inputs.nixvim-config.packages.${system}.default
       superTuxKart
       # news
@@ -35,7 +37,7 @@ in {
       gimp
       unstable.waybar
       rofi-wayland
-      webcord
+      vesktop
       element-desktop
       pciutils
       gnome-system-monitor
