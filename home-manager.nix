@@ -37,7 +37,7 @@ in {
       gimp
       unstable.waybar
       rofi-wayland
-      vesktop
+      webcord
       element-desktop
       pciutils
       gnome-system-monitor

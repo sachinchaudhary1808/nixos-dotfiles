@@ -75,6 +75,9 @@
       nvim-dap-ui
       nvim-dap-virtual-text
       nvim-dap-go
+
+      neotest
+      neotest-go
     ])
     ++ [optimizedTreesitter];
 

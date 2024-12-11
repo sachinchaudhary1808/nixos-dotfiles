@@ -23,6 +23,7 @@ require("coco.plugins.cmp")
 require("coco.plugins.lsp")
 require("coco.plugins.telescope")
 require("coco.plugins.debugging")
+require("coco.plugins.neotest")
 
 require("coco.lua.compiler")
 require("coco.snippites.snip")
