@@ -38,6 +38,7 @@ in {
       unstable.waybar
       rofi-wayland
       webcord
+      vesktop
       element-desktop
       pciutils
       gnome-system-monitor
@@ -58,6 +59,7 @@ in {
 
       signal-desktop
       obsidian
+      gnome-clocks
     ];
   };
 
