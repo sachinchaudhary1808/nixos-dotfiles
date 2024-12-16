@@ -24,6 +24,7 @@ in {
 
     initExtra = ''
                    # nitch
+                   pokeget random
              #      if [ -f $HOME/.bashrc-personal ]; then
               #       source $HOME/.bashrc-personal
                #    fi

@@ -1,4 +1,4 @@
-# my nixos configconfiguratio
+# my nixos configuration
 {
   config,
   pkgs,
@@ -553,9 +553,8 @@
   programs.gamescope.enable = true;
 
   # nixos devshell tools
-  programs.direnv.enable = true;
   programs.direnv = {
-    package = pkgs.direnv;
+    enable = true;
     silent = true;
     loadInNixShell = true;
     direnvrcExtra = "";
