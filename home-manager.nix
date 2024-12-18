@@ -29,7 +29,6 @@ in {
       pokeget-rs
       calibre
       distrobox
-      emacs
       # inputs.nixvim-config.packages.${system}.default
       superTuxKart
       # news

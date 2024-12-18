@@ -93,7 +93,7 @@
               users.${userSettings.username} = {
                 imports = [
                   ./home-manager.nix
-                  inputs.nur.hmModules.nur
+                  inputs.nur.modules.homeManager.default
                   ./modules/gui/spicetify.nix
                 ];
               };
