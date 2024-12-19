@@ -309,6 +309,7 @@
     wlroots
     xdg-utils
     ripgrep
+    fd
     unzip
     obs-studio
     v4l-utils
@@ -378,6 +379,8 @@
 
     lohit-fonts.gujarati
     lohit-fonts.devanagari
+    fira-sans
+    fira-code
   ];
 
   fonts.fontconfig = {
@@ -584,6 +587,7 @@
   '';
   services.udev.packages = [pkgs.qmk-udev-rules];
 
+  # enabling emacs ( doom emacs lol )
   services.emacs = {
     enable = true;
     package =

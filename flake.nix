@@ -102,5 +102,14 @@
         ];
       };
     };
+    devShells = {
+      x86_64-linux.default = nixpkgs.legacyPackages.x86_64-linux.mkShell {
+        buildInputs = with nixpkgs.legacyPackages.x86_64-linux; [nil];
+
+        shellHook = ''
+          echo "Development shell ready for nix to configure"
+        '';
+      };
+    };
   };
 }
