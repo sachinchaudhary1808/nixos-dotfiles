@@ -23,10 +23,11 @@ in {
     enableCompletion = true;
 
     initExtra = ''
-            # nitch
-      #      if [ -f $HOME/.bashrc-personal ]; then
-       #       source $HOME/.bashrc-personal
-        #    fi
+                   # nitch
+             #      if [ -f $HOME/.bashrc-personal ]; then
+              #       source $HOME/.bashrc-personal
+               #    fi
+      set -o vi
 
 
     '';
