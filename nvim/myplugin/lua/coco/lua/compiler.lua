@@ -111,6 +111,6 @@ end
 vim.keymap.set("n", "<leader>d", compile_and_run, { desc = "Compile and run the code in a terminal split" })
 
 -- Keybind to switch terminal mode manually
--- vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode to normal mode" })
+-- this is for to make esc disable cuz i use vi mode in terminal and it messhes with neovim's esc keymap, so to go to normal mode u use ctr + esc
 vim.keymap.set("t", "<C-Esc>", [[<C-\><C-n>]], { desc = "Exit terminal mode to normal mode" })
 vim.keymap.set("t", "<Esc>", "<Esc>", { desc = "Disable Esc in terminal mode" })

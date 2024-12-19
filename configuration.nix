@@ -149,10 +149,7 @@
   # to use with hindi gujarati layouts
   i18n.inputMethod = {
     enabled = "fcitx5";
-    fcitx5.addons = with pkgs; [
-      fcitx5-gtk
-      fcitx5-m17n
-    ];
+    fcitx5.addons = with pkgs; [fcitx5-gtk fcitx5-m17n];
     fcitx5.waylandFrontend = true;
   };
 
@@ -188,9 +185,7 @@
   };
 
   # Allow unfree packages
-  nixpkgs.config = {
-    allowUnfree = true;
-  };
+  nixpkgs.config = {allowUnfree = true;};
   # nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowInsecure = true;
 
@@ -591,6 +586,7 @@
 
   services.emacs = {
     enable = true;
-    package = pkgs.emacs; # replace with emacs-gtk, or a version provided by the community overlay if desired.
+    package =
+      pkgs.emacs; # replace with emacs-gtk, or a version provided by the community overlay if desired.
   };
 }
