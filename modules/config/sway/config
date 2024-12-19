@@ -159,6 +159,8 @@ bindsym $mod+Shift+f exec $file-manager
 bindsym $mod+Shift+return exec alacritty
 # edior neovim
 bindsym $mod+n exec $term  -e nvim
+bindsym $mod+p exec emacsclient -c -a 'emacs'
+
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -404,3 +406,4 @@ bindsym $mod+Shift+m mode $mode_set_marks
 
 # Optional: Visual indication for marked windows
 for_window [con_mark="[0-9]"] border pixel 3
+

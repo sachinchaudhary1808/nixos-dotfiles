@@ -26,7 +26,7 @@ in {
 
     #Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     packages = with pkgs; [
-      pokeget-rs
+      nil
       calibre
       distrobox
       # inputs.nixvim-config.packages.${system}.default
