@@ -1,0 +1,196 @@
+
+* {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 11pt;
+  font-weight: bold;
+  border-radius: 0px;
+  transition-property: background-color;
+  transition-duration: 0s;
+}
+
+@keyframes blink_red {
+  to {
+    background-color: #e06c75; /* base08 */
+    color: #1a1826; /* adjust as necessary */
+  }
+}
+
+.warning,
+.critical,
+.urgent {
+  animation-name: blink_red;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#window {
+  padding-left: 40px;
+  padding-right: 30px;
+  transition: none;
+  background: transparent;
+}
+
+window#waybar {
+  background-color: transparent;
+}
+
+window > box {
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0px;
+  border-bottom: 2px solid #c8ccd4; /* base07 */
+  background-color: #1e1e2e; /* adjust as necessary */
+}
+
+#workspaces {
+  padding-left: 0px;
+  padding-right: 4px;
+}
+
+#workspaces button {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 6px;
+  padding-right: 6px;
+}
+
+#workspaces button.focused {
+  background-color: #98c379; /* base0B */
+  color: #1a1826; /* adjust as necessary */
+}
+
+#workspaces button.urgent {
+  color: #1a1826; /* adjust as necessary */
+}
+
+#workspaces button:hover {
+  background-color: #d19a66; /* base09 */
+  color: #1a1826; /* adjust as necessary */
+}
+
+tooltip {
+  background: #30303f; /* base01 */
+}
+
+tooltip label {
+  color: #c8ccd4; /* base07 */
+}
+
+#custom-launcher {
+  padding-left: 8px;
+  padding-right: 6px;
+  color: #b6bdca; /* base06 */
+}
+
+#mode,
+#clock,
+#memory,
+#temperature,
+#cpu,
+#mpd,
+#idle_inhibitor,
+#temperature,
+#backlight,
+#pulseaudio,
+#network,
+#battery,
+#power-profiles-daemon,
+#custom-powermenu,
+#custom-cava-internal {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#memory {
+  color: #98c379; /* base0B */
+}
+
+#cpu {
+  color: #c678dd; /* base0E */
+}
+
+#clock {
+  color: #abb2bf; /* base05 */
+}
+
+#idle_inhibitor {
+  color: #c678dd; /* base0E */
+}
+
+#temperature {
+  color: #61afef; /* base0D */
+}
+
+#backlight {
+  color: #d19a66; /* base09 */
+}
+
+#pulseaudio {
+  color: #e5c07b; /* base0A */
+}
+
+#network {
+  color: #abe9b3; /* adjust as necessary */
+}
+
+#network.disconnected {
+  color: #ffffff; /* adjust as necessary */
+}
+
+#battery.charging,
+#battery.full,
+#battery.discharging {
+  color: #e5c07b; /* base0A */
+}
+
+#battery.critical:not(.charging) {
+  color: #e06c75; /* base08 */
+}
+
+#power-profiles-daemon {
+  padding-right: 15px;
+}
+
+#power-profiles-daemon.performance {
+  color: #f53c3c; /* adjust as necessary */
+}
+
+#power-profiles-daemon.balanced {
+  color: #2980b9; /* adjust as necessary */
+}
+
+#power-profiles-daemon.power-saver {
+  color: #2ecc71; /* adjust as necessary */
+}
+
+label:focus {
+  background-color: #000000;
+}
+
+#custom-powermenu {
+  color: #e06c75; /* base08 */
+}
+
+#tray {
+  padding-right: 8px;
+  padding-left: 10px;
+}
+
+#mpd.paused {
+  color: #414868; /* adjust as necessary */
+  font-style: italic;
+}
+
+#mpd.stopped {
+  background: transparent;
+}
+
+#mpd {
+  color: #c0caf5; /* adjust as necessary */
+}
+
+#custom-cava-internal {
+  font-family: "Hack Nerd Font";
+}

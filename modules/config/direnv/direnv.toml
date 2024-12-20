@@ -1,0 +1,4 @@
+hide_env_diff = true
+# Configure direnv to use a custom log format
+log_format = "silent"
+

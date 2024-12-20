@@ -1,0 +1,17 @@
+require("nvim-surround").setup({	})
+
+require('onedark').load()
+
+require("rainbow-delimiters.setup").setup({})
+
+require("toggleterm").setup()
+
+                require("ibl").setup()
+ 
+                require("lualine").setup({
+                  icons_enabled = true,
+                   -- theme = 'catppuccin',
+                })
+
+
+

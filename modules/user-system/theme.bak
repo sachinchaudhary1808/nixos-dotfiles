@@ -1,0 +1,77 @@
+{
+  pkgs,
+  lib,
+  ...
+}: {
+  home.packages = with pkgs; [
+    gtk3 # For gsettings
+    glib
+    gnome.gnome-themes-extra
+    gsettings-desktop-schemas
+    dconf
+  ];
+  dconf.enable = true;
+
+  services.darkman = {
+    enable = true;
+    settings = {
+      usegeoclue = false;
+      lat = 22.2587;
+      lng = 71.1924;
+    };
+    darkModeScripts = {
+      theme = ''
+                  ${pkgs.dconf}/bin/dconf write /org/gnome/desktop/interface/gtk-theme "'Dracula'"
+        ${pkgs.dconf}/bin/dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
+      '';
+    };
+    lightModeScripts = {
+      theme = ''
+                 ${pkgs.dconf}/bin/dconf write /org/gnome/desktop/interface/gtk-theme "'Adwaita'"
+        ${pkgs.dconf}/bin/dconf write /org/gnome/desktop/interface/color-scheme "'default'"
+      '';
+    };
+  };
+
+  gtk = {
+    enable = true;
+    theme = {
+      name = "Dracula";
+      package = pkgs.dracula-theme;
+    };
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+    # gtk3.extraConfig = {
+    #   gtk-application-prefer-dark-theme = 1;
+    # };
+    # gtk4.extraConfig = {
+    #   gtk-application-prefer-dark-theme = 1;
+    # };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
+    style = {
+      name = "gtk2";
+      package = pkgs.libsForQt5.qtstyleplugins;
+    };
+  };
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Ice";
+    size = 24;
+  };
+
+  # dconf.settings = {
+  #   "org/gnome/desktop/interface" = {
+  #     color-scheme = "prefer-dark";
+  #     gtk-theme = "Dracula";
+  #   };
+  # };
+}

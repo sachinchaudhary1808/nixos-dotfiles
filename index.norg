@@ -1,0 +1,19 @@
+* what to do ?
+  - (-) moduleraize config
+  - (-) documantation
+  - ( ) make code more redable
+  - ( ) making this config for multipal machine
+  - ( ) removing blot and storage optimization
+  - ( ) adding something to manager secrets like sops or ageix something
+  - ( ) next time u update remember to remove neorg overlay cuz it landed on unstable
+
+
+
+************************* so this is all wanna do for now...
+
+
+
+
+   nix run .\#nixosConfigurations.nixos.config.home-manager.users.coco.programs.spicetify.spicedSpotify
+
+
