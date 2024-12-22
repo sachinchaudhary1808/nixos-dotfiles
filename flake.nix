@@ -77,7 +77,7 @@
           home-manager.nixosModules.home-manager
           {
             nixpkgs.overlays = [
-              nur.overlay
+              nur.overlays.default
               inputs.neorg-overlay.overlays.default
               unstable-packages
             ];
