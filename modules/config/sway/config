@@ -159,7 +159,6 @@ bindsym $mod+Shift+f exec $file-manager
 bindsym $mod+Shift+return exec alacritty
 # edior neovim
 bindsym $mod+n exec $term  -e nvim
-bindsym $mod+p exec emacsclient -c -a 'emacs'
 
 
     # Drag floating windows by holding down $mod and left mouse button.

@@ -33,7 +33,6 @@ in {
     '';
     bashrcExtra = ''
       export MANPAGER="$(which nvim >/dev/null 2>&1 && echo 'nvim +Man!' || echo 'less')"
-      export PATH="$HOME/.config/emacs/bin:$PATH"
     '';
 
     shellAliases = myAliases;

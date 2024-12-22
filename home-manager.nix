@@ -93,12 +93,6 @@ in {
   };
 
   home.file.".ignore".source = ./modules/config/home/.ignore;
-  home.file.".config/doom" = {
-    source =
-      config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/nixos-dotfiles/modules/config/doom";
-    recursive = true;
-  };
 
   home.file.".config/wlogout" = {
     source =
