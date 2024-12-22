@@ -341,6 +341,9 @@ bindsym xf86calculator exec $term -e python3
 
 bindsym $mod+o exec swaync-client -op
 
+# for wshowkey
+bindsym $mod+q exec pkill wshowkeys || exec wshowkeys -a bottom
+
 bindsym $mod+Help exec $HOME/nixos-dotfiles/modules/scripts/conservation_mode/off.sh
 bindsym $mod+F9 exec $HOME/nixos-dotfiles/modules/scripts/conservation_mode/off.sh
 
@@ -406,4 +409,6 @@ bindsym $mod+Shift+m mode $mode_set_marks
 
 # Optional: Visual indication for marked windows
 for_window [con_mark="[0-9]"] border pixel 3
+
+
 
