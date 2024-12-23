@@ -18,7 +18,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
@@ -78,7 +77,6 @@
           {
             nixpkgs.overlays = [
               nur.overlays.default
-              inputs.neorg-overlay.overlays.default
               unstable-packages
             ];
 
