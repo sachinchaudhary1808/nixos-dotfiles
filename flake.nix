@@ -53,10 +53,10 @@
 
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-    myNeovim = pkgs.callPackage ./nvim/neovim.nix {};
+    neovim = pkgs.callPackage ./nvim/neovim.nix {};
   in {
     packages.${system} = {
-      neovim = myNeovim;
+      inherit neovim;
     };
 
     nixosConfigurations = {
