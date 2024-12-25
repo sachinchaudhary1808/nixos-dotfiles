@@ -36,7 +36,7 @@ vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action)
 vim.keymap.set("n", "gr", vim.lsp.buf.references)
 vim.keymap.set("n", "<leader>cd", function()
     vim.diagnostic.open_float({ border = "rounded" })
-end)
+end, { desc = "Goto Error" })
 
 -- tmux
 vim.g.tmux_navigator_no_mappings = 1

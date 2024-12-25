@@ -33,7 +33,7 @@
   }: let
     inherit (nixpkgs) lib;
     systemSettings = {
-      hostname = "nixos";
+      hostname = "laptop";
       timeZone = "Asia/Kolkata";
       locale = "en_US.UTF-8";
     };
@@ -41,7 +41,7 @@
     userSettings = {
       username = "coco"; # username
       name = "sachin chaudhary";
-      hostname = "nixos";
+      hostname = "laptop";
     };
 
     unstable-packages = final: _prev: {
