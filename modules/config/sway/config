@@ -108,7 +108,7 @@ bindsym F7 exec "swaymsg output eDP-1 dpms toggle"
 ### Input configuration
 # Touchped
    input "1739:52781:MSFT0001:00_06CB:CE2D_Touchpad" {
-	dwt disabled
+	dwt enabled
 	tap enabled
 	natural_scroll enabled
 	scroll_factor 1
