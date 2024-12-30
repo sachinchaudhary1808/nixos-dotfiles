@@ -61,7 +61,7 @@ set $menu rofi -show drun | xargs swaymsg exec --
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
 # output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
- output * bg ~/nixos-dotfiles/images/wallpapers/at-infinity-pi4a3mucMEA-unsplash.jpg fill
+ output * bg ~/kde-wallpapers/usr/share/wallpapers/Xero-Plasma11.jpg fill
 #
 # Example configuration:
 #
