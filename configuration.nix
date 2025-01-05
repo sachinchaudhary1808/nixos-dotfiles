@@ -589,4 +589,26 @@
   services.udev.packages = [pkgs.qmk-udev-rules];
 
   programs.wshowkeys.enable = true;
+
+  #
+  # services.geoclue2 = {
+  #   enable = true;
+  #   enableDemoAgent = true;
+  #   appConfig = {
+  #     "org.mozilla.firefox" = {
+  #       isAllowed = true;
+  #       isSystem = true;
+  #     };
+  #   };
+  # };
+  # location.provider = "geoclue2";
+  # services.avahi = {
+  #   enable = true;
+  #   nssmdns = true;
+  #   publish = {
+  #     enable = true;
+  #     addresses = true;
+  #     workstation = true;
+  #   };
+  # };
 }

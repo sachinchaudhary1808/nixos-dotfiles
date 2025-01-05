@@ -20,8 +20,9 @@ smart_borders on
 default_border pixel 3
 # smart_gaps on
 default_floating_border normal
-# gaps inner 5
-# gaps outer 5
+gaps inner 10
+gaps outer 5
+# smart_gaps on
 
 font pango:monospace 16px
 
@@ -61,7 +62,7 @@ set $menu rofi -show drun | xargs swaymsg exec --
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
 # output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
- output * bg ~/kde-wallpapers/usr/share/wallpapers/Xero-Plasma11.jpg fill
+ # output * bg ~/kde-wallpapers/usr/share/wallpapers/Xero-Plasma11.jpg fill
 #
 # Example configuration:
 #
@@ -76,7 +77,7 @@ set $menu rofi -show drun | xargs swaymsg exec --
 ### Idle configuration
 
 #startup programs
-# exec swww-daemon 
+exec swww init
 # exec fcitx5 -- for languages 
 exec nm-applet 
 exec xhost +local:coco
