@@ -12,8 +12,8 @@ in {
 
   programs.spicetify = {
     enable = true;
-    theme = spicePkgs.themes.starryNight;
-    colorScheme = "Galaxy";
+    # theme = spicePkgs.themes.spicetify-themes;
+    colorScheme = "default";
     enabledCustomApps = with spicePkgs.apps; [];
     enabledExtensions = with spicePkgs.extensions; [
       fullAppDisplay
