@@ -22,10 +22,17 @@ in {
     sessionVariables = {
       EDITOR = "nvim";
       GIO_EXTRA_MODULES = "${pkgs.gvfs}/lib/gio/modules";
+      GTK_IM_MODULE = "fcitx";
+      QT_IM_MODULE = "fcitx";
+      XMODIFIERS = "@im=fcitx";
+      NIXOS_OZONE_WL = "1";
     };
 
     #Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     packages = with pkgs; [
+      brave
+      prismlauncher
+      logseq
       calibre
       distrobox
       # inputs.nixvim-config.packages.${system}.default
@@ -58,7 +65,6 @@ in {
       btop
 
       signal-desktop
-      obsidian
       gnome-clocks
     ];
   };

@@ -36,8 +36,8 @@ window > box {
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0px;
-  border-bottom: 2px solid rgb(217, 224, 238);
-  /* border-top: 2px solid rgb(217, 224, 238); */
+  /*border-bottom: 2px solid rgb(217, 224, 238);*/
+  border-top: 2px solid rgb(217, 224, 238);
   /* background-color: rgba(0, 0, 0, 0.8); */
   background-color: rgba(30, 30, 46, 1);
   /* from rgb to rgba remove the 0.5 and put rgb insted of rgba*/

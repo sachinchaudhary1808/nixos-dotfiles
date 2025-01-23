@@ -32,7 +32,16 @@ in {
 
     '';
     bashrcExtra = ''
-      export MANPAGER="$(which nvim >/dev/null 2>&1 && echo 'nvim +Man!' || echo 'less')"
+            export MANPAGER="$(which nvim >/dev/null 2>&1 && echo 'nvim +Man!' || echo 'less')"
+
+            function y() {
+      	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+      	yazi "$@" --cwd-file="$tmp"
+      	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+      		builtin cd -- "$cwd"
+      	fi
+      	rm -f -- "$tmp"
+      }
     '';
 
     shellAliases = myAliases;

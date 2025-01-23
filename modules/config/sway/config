@@ -20,8 +20,8 @@ smart_borders on
 default_border pixel 3
 # smart_gaps on
 default_floating_border normal
-gaps inner 10
-gaps outer 5
+# gaps inner 10
+# gaps outer 5
 # smart_gaps on
 
 font pango:monospace 16px

@@ -189,6 +189,9 @@
   nixpkgs.config = {allowUnfree = true;};
   # nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowInsecure = true;
+  nixpkgs.config.permittedInsecurePackages = [
+    "electron-27.3.11"
+  ];
 
   services.blueman.enable = true;
   services.gnome.gnome-keyring.enable = true;
@@ -422,6 +425,11 @@
 
   environment.sessionVariables = {
     # WLR_NO_HARDWARE_CURSORS = "1";
+
+    # For input methods (e.g., Fcitx5)
+    GTK_IM_MODULE = "fcitx";
+    QT_IM_MODULE = "fcitx";
+    XMODIFIERS = "@im=fcitx";
 
     NIXOS_OZONE_WL = "1";
     ACCESSIBILITY_ENABLED = "1";
