@@ -426,12 +426,14 @@
   environment.sessionVariables = {
     # WLR_NO_HARDWARE_CURSORS = "1";
 
-    # For input methods (e.g., Fcitx5)
     GTK_IM_MODULE = "fcitx";
     QT_IM_MODULE = "fcitx";
     XMODIFIERS = "@im=fcitx";
-
+    SDL_IM_MODULE = "fcitx";
+    GLFW_IM_MODULE = "ibus";
+    INPUT_METHOD = "fcitx";
     NIXOS_OZONE_WL = "1";
+
     ACCESSIBILITY_ENABLED = "1";
     FLAKE = "/home/${userSettings.username}/nixos-dotfiles";
   };

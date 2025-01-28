@@ -46,9 +46,17 @@
     size = 24;
   };
 
-  gtk.gtk4 = {extraConfig = {gtk-application-prefer-dark-theme = 1;};};
+  gtk.gtk4 = {
+    extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
+  };
 
-  gtk.gtk3 = {extraConfig = {gtk-application-prefer-dark-theme = 1;};};
+  gtk.gtk3 = {
+    extraConfig = {
+      gtk-application-prefer-dark-theme = 1;
+    };
+  };
 
   # gtk.gtk2 = { extraConfig = { gtk-application-prefer-dark-theme = 1; }; };
   gtk.gtk2 = {

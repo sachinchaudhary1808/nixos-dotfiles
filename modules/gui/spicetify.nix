@@ -25,12 +25,12 @@ in {
     ];
   };
 
-  # xdg.desktopEntries = {
-  #   spotify = {
-  #     name = "Spicetify";
-  #     exec = "spotify";
-  #     icon = "spotify";
-  #     type = "Application";
-  #   };
-  # };
+  xdg.desktopEntries = {
+    spotify = {
+      name = "Spicetify";
+      exec = "spotify";
+      icon = "spotify";
+      type = "Application";
+    };
+  };
 }
