@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    # neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
 
     # Home manager
     home-manager = {
@@ -29,6 +30,7 @@
     nixpkgs-unstable,
     nixos-hardware,
     spicetify-nix,
+    # neorg-overlay,
     ...
   }: let
     inherit (nixpkgs) lib;
@@ -52,7 +54,10 @@
     };
 
     system = "x86_64-linux";
+    # pkgs = nixpkgs.legacyPackages.${system};
     pkgs = nixpkgs.legacyPackages.${system};
+
+    # pkgs = import nixpkgs { inherit system; overlays = [ neorg-overlay.overlays.default ]; }
     neovim = pkgs.callPackage ./nvim/neovim.nix {};
   in {
     packages.${system} = {
