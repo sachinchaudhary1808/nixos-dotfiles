@@ -294,6 +294,7 @@
     powertop
     git
     gnome-keyring
+    glow
     lxqt.lxqt-policykit
     # polkit_gnome
     xorg.xhost
