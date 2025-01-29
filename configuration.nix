@@ -267,6 +267,7 @@
     alacritty
     xorg.xmodmap
     libinput
+    qpwgraph
     blueman
     wl-clipboard
     brightnessctl

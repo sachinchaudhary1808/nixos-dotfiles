@@ -77,7 +77,7 @@ set $menu rofi -show drun | xargs swaymsg exec --
 ### Idle configuration
 
 #startup programs
-exec swww init
+exec swww-daemon
 # exec fcitx5 -- for languages 
 exec nm-applet 
 exec xhost +local:coco
