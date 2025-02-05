@@ -26,7 +26,6 @@ in {
 
     #Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     packages = with pkgs; [
-      rambox
       obsidian
       brave
       prismlauncher
