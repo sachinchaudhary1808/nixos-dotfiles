@@ -44,7 +44,6 @@ in {
       element-desktop
       pciutils
       gnome-system-monitor
-      mission-center
       trash-cli
       tealdeer
       minetestclient
