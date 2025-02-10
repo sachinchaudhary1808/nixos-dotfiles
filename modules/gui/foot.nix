@@ -45,6 +45,7 @@
         bright7 = "abb2bf"; # bright white;
         # selection-foreground=282c34
         # selection-background=979eab
+        alpha = "0.9"; # You can adjust this value between 0.0 and 1.0
       };
     };
   };
