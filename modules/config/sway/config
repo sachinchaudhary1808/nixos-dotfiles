@@ -128,7 +128,7 @@ input "7247:52:SIGMACHIP_Usb_Mouse" {
 }
 input "5426:163:Razer_Razer_Cobra" {
     scroll_factor 1
-    accel_profile "adaptive" # disable mouse acceleration (enabled by default; to set it manually, use "adaptive" instead of "flat")
+    accel_profile "flat" # disable mouse acceleration (enabled by default; to set it manually, use "adaptive" instead of "flat")
     pointer_accel 1
 }
 
