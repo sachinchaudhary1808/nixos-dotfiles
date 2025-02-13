@@ -1,8 +1,8 @@
 require("nvim-surround").setup({})
 
-require("onedark").setup({
-    transparent = true,
-})
+-- require("onedark").setup({
+--     transparent = true,
+-- })
 require("onedark").load()
 
 require("rainbow-delimiters.setup").setup({})
