@@ -26,6 +26,7 @@ in {
 
     #Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     packages = with pkgs; [
+      unstable.foliate
       obsidian
       brave
       prismlauncher
