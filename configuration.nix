@@ -243,7 +243,6 @@
   environment.systemPackages = with pkgs; [
     # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     # some good nix tools
-    emacs
     river
     kdiskmark
     deadnix
@@ -582,9 +581,11 @@
       default = {
         settings = {
           main = {
-            # Simple capslock to escape remap
-            capslock = "escape";
-            escape = "capslock";
+            # Maps capslock to escape when pressed and control when held.
+            capslock = "overload(control, esc)";
+
+            # Remaps the escape key to capslock
+            esc = "capslock";
           };
         };
       };
