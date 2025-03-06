@@ -20,7 +20,7 @@ in {
     stateVersion = "23.11";
 
     sessionVariables = {
-      VISUAL = "nvim";
+      VISUAL = "${lib.getExe pkgs.neovim}";
       GIO_EXTRA_MODULES = "${pkgs.gvfs}/lib/gio/modules";
     };
 
