@@ -148,9 +148,11 @@
 
   i18n.inputMethod = {
     enabled = "fcitx5";
+    fcitx5.waylandFrontend = true;
     fcitx5.addons = with pkgs; [
       fcitx5-m17n
       fcitx5-gtk
+      libsForQt5.fcitx5-qt
     ];
   };
 
@@ -336,6 +338,7 @@
     # jdk17
 
     unstable.libreoffice
+    fcitx5-configtool
   ];
 
   #polkit service
@@ -430,9 +433,8 @@
     QT_IM_MODULE = "fcitx";
     XMODIFIERS = "@im=fcitx";
     SDL_IM_MODULE = "fcitx";
-    GLFW_IM_MODULE = "ibus"; # Some apps use GLFW
+    GLFW_IM_MODULE = "ibus"; # Some Electron apps use this
     # WLR_NO_HARDWARE_CURSORS = "1";
-
     NIXOS_OZONE_WL = "1";
 
     ACCESSIBILITY_ENABLED = "1";
