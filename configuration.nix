@@ -146,12 +146,12 @@
     keyMap = "us";
   };
 
-  # to use with hindi gujarati layouts
   i18n.inputMethod = {
-    enable = true;
-    type = "fcitx5";
-    fcitx5.addons = with pkgs; [fcitx5-gtk fcitx5-m17n];
-    fcitx5.waylandFrontend = true;
+    enabled = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-m17n
+      fcitx5-gtk
+    ];
   };
 
   i18n.extraLocaleSettings = {
@@ -358,7 +358,7 @@
   #   };
   # };
 
-  # Some programs need SUID wrappers, can be configured further or are
+  # Some programs need SUID wrappers, can be configured further or areconfigurai
   # started in user sessions.
   # programs.mtr.enable = true;
   programs.gnupg.agent = {
@@ -426,14 +426,13 @@
   # ];
 
   environment.sessionVariables = {
-    # WLR_NO_HARDWARE_CURSORS = "1";
-
     GTK_IM_MODULE = "fcitx";
     QT_IM_MODULE = "fcitx";
     XMODIFIERS = "@im=fcitx";
     SDL_IM_MODULE = "fcitx";
-    GLFW_IM_MODULE = "ibus";
-    INPUT_METHOD = "fcitx";
+    GLFW_IM_MODULE = "ibus"; # Some apps use GLFW
+    # WLR_NO_HARDWARE_CURSORS = "1";
+
     NIXOS_OZONE_WL = "1";
 
     ACCESSIBILITY_ENABLED = "1";

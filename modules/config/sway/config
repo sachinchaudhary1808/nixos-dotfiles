@@ -7,6 +7,9 @@ include /etc/sway/config.d/*
 
 #
 
+exec ibus-daemon -drx
+
+
 # rules and workspaces 
 # assign [app_id="firefox"] workspace 1
 assign [app_id="vesktop"] workspace 10
@@ -62,7 +65,7 @@ set $menu rofi -show drun | xargs swaymsg exec --
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
 # output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
- # output * bg ~/kde-wallpapers/usr/share/wallpapers/Xero-Plasma11.jpg fill
+ output * bg ~/nixos-dotfiles/images/wallpapers/jose-forest.png fit
 #
 # Example configuration:
 #
@@ -77,7 +80,6 @@ set $menu rofi -show drun | xargs swaymsg exec --
 ### Idle configuration
 
 #startup programs
-exec swww-daemon
 # exec fcitx5 -- for languages 
 exec nm-applet 
 exec xhost +local:coco
