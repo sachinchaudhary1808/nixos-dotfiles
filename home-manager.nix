@@ -3,6 +3,7 @@
   pkgs,
   inputs,
   userSettings,
+  lib,
   ...
 }:
 # ... is called ellipsis
