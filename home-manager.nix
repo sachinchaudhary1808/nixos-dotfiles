@@ -27,6 +27,12 @@ in {
 
     #Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     packages = with pkgs; [
+      (lib.hiPrio (pkgs.writeShellScriptBin "vesktop" ''
+        exec ${pkgs.vesktop}/bin/vesktop --enable-wayland-ime --wayland-text-input-version=3 "$@"
+      ''))
+      (lib.hiPrio (pkgs.writeShellScriptBin "obsidian" ''
+        exec ${pkgs.obsidian}/bin/obsidian --enable-wayland-ime --wayland-text-input-version=3 "$@"
+      ''))
       unstable.foliate
       obsidian
       brave
