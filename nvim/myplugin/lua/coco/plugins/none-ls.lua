@@ -32,6 +32,6 @@ null_ls.setup({
         null_ls.builtins.diagnostics.pylint,
         null_ls.builtins.diagnostics.deadnix,
         null_ls.builtins.diagnostics.statix,
-        -- null_ls.builtins.diagnostics.revive, -- for go
+        null_ls.builtins.diagnostics.revive,
     },
 })

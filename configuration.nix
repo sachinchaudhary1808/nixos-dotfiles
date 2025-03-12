@@ -493,9 +493,10 @@
   ];
   # programs.waybar.enable = true;
 
-  #environment.variables = {
-  # EDITOR = "nvim";
-  # };
+  environment.variables = {
+    VISUAL = "nvim";
+    EDITOR = "nvim";
+  };
 
   virtualisation.waydroid.enable = true;
 
