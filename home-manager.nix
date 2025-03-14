@@ -26,14 +26,15 @@ in {
 
     #Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     packages = with pkgs; [
+      vesktop
       (lib.hiPrio (pkgs.writeShellScriptBin "vesktop" ''
         exec ${pkgs.vesktop}/bin/vesktop --enable-wayland-ime --wayland-text-input-version=3 "$@"
       ''))
+      obsidian
       (lib.hiPrio (pkgs.writeShellScriptBin "obsidian" ''
         exec ${pkgs.obsidian}/bin/obsidian --enable-wayland-ime --wayland-text-input-version=3 "$@"
       ''))
       unstable.foliate
-      obsidian
       brave
       prismlauncher
       calibre
@@ -47,7 +48,6 @@ in {
       unstable.waybar
       rofi-wayland
       webcord
-      vesktop
       element-desktop
       pciutils
       gnome-system-monitor
