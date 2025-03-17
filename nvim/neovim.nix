@@ -20,6 +20,7 @@
 
   startPlugins =
     (with vimPlugins; [
+      fidget-nvim
       alpha-nvim
       oil-nvim
       neoformat
