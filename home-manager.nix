@@ -35,6 +35,7 @@ in {
         exec ${pkgs.obsidian}/bin/obsidian --enable-wayland-ime --wayland-text-input-version=3 "$@"
       ''))
       unstable.foliate
+      gnome-pomodoro
       brave
       prismlauncher
       calibre
