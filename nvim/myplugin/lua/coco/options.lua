@@ -1,4 +1,3 @@
-
 local opt = vim.opt
 opt.number = true
 opt.relativenumber = true
@@ -26,3 +25,6 @@ opt.scrolloff = 999
 opt.virtualedit = "block"
 opt.inccommand = "split"
 opt.colorcolumn = "80"
+
+-- for startuptime
+vim.loader.enable()
