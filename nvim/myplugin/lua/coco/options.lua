@@ -28,3 +28,7 @@ opt.colorcolumn = "80"
 
 -- for startuptime
 vim.loader.enable()
+
+-- Enable spell checking
+vim.opt.spell = true
+vim.opt.spelllang = "en_us"
