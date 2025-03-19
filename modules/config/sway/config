@@ -5,10 +5,6 @@
 include /etc/sway/config.d/*
 ### Variables
 
-#
-
-exec ibus-daemon -drx
-
 
 # rules and workspaces 
 # assign [app_id="firefox"] workspace 1
@@ -411,6 +407,4 @@ bindsym $mod+Shift+m mode $mode_set_marks
 
 # Optional: Visual indication for marked windows
 for_window [con_mark="[0-9]"] border pixel 3
-
-
 
