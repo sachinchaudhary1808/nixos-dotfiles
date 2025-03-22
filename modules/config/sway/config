@@ -84,17 +84,15 @@ exec QT_QPA_PLATFORM="wayland;xcb"
 exec blueman-applet
 exec gammastep-indicator
 exec swaync
-# exec systemctl --user import-environment PATH # for the github issue 
 
-# swayidel
+# exec systemctl --user import-environment PATH # for the github issue 
+exec sway-audio-idle-inhibit
 exec swayidle -w \
     timeout 300 'swaylock -f -c 000000' \
-    timeout 490 'systemctl suspend' \
-    before-sleep 'swaylock -f -c 000000' \
-    after-resume 'swaymsg output eDP-1 dpms on'
+    timeout 600 'swaylock -f -c 000000; systemctl suspend' \
+    before-sleep 'swaylock -f -c 000000'\
+    after-resume 'swaymsg "output * dpms on"' 
 
-
-exec sway-audio-idle-inhibit
 
 #lock screen
 bindsym  $mod+Escape exec wlogout
