@@ -29,6 +29,11 @@ opt.colorcolumn = "80"
 -- for startuptime
 vim.loader.enable()
 
--- Enable spell checking
-vim.opt.spell = true
-vim.opt.spelllang = "en_us"
+-- Enable spell checking only for markdown files
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "markdown",
+    callback = function()
+        vim.opt_local.spell = true
+        vim.opt_local.spelllang = "en_us"
+    end,
+})
