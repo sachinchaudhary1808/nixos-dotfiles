@@ -14,7 +14,7 @@
     ./gui/gammastep.nix
     ./gui/zathura.nix
     ./gui/kitty.nix
-    ./gui/foot.nix
+    ./gui/foot/foot.nix
     ./gui/swaylock.nix
     ./gui/swaync/swaync.nix
 

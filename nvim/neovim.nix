@@ -50,9 +50,10 @@
       flash-nvim
       gitsigns-nvim
       onedark-nvim
+      dracula-nvim
       # onedark-nvim
       plenary-nvim
-      # catppuccin-nvim
+      catppuccin-nvim
       # neodev-nvim
       luasnip
       telescope-nvim
