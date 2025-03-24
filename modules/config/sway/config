@@ -4,7 +4,7 @@
 #idk for something may be graphical session target 
 include /etc/sway/config.d/*
 ### Variables
-set $opacity 0.95
+set $opacity 1
 # for_window [class="foot"] opacity $opacity
 for_window [app_id="foot"] opacity $opacity
 
