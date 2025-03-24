@@ -55,7 +55,10 @@
 
     system = "x86_64-linux";
     # pkgs = nixpkgs.legacyPackages.${system};
-    pkgs = nixpkgs.legacyPackages.${system};
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
 
     # pkgs = import nixpkgs { inherit system; overlays = [ neorg-overlay.overlays.default ]; }
     neovim = pkgs.callPackage ./nvim/neovim.nix {};
