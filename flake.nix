@@ -6,6 +6,7 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     # neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
 
+    nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager/release-24.11";
@@ -30,6 +31,7 @@
     nixpkgs-unstable,
     nixos-hardware,
     spicetify-nix,
+    nix-flatpak,
     # neorg-overlay,
     ...
   }: let
@@ -75,6 +77,7 @@
 
         modules = [
           nixos-hardware.nixosModules.lenovo-ideapad-15alc6
+          nix-flatpak.nixosModules.nix-flatpak
           ./configuration.nix
           ({pkgs, ...}: {
             environment.systemPackages = [

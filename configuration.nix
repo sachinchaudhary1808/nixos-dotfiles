@@ -626,4 +626,6 @@
   #     workstation = true;
   #   };
   # };
+  services.flatpak.packages = [
+  ];
 }
