@@ -57,13 +57,13 @@
 
     system = "x86_64-linux";
     # pkgs = nixpkgs.legacyPackages.${system};
-    pkgs = import nixpkgs {
+    pkgs = import nixpkgs-unstable {
       inherit system;
       config.allowUnfree = true;
     };
 
     # pkgs = import nixpkgs { inherit system; overlays = [ neorg-overlay.overlays.default ]; }
-    neovim = unstable-packages.callPackage ./nvim/neovim.nix {};
+    neovim = pkgs.callPackage ./nvim/neovim.nix {};
   in {
     packages.${system} = {
       inherit neovim;
