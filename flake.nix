@@ -63,7 +63,7 @@
     };
 
     # pkgs = import nixpkgs { inherit system; overlays = [ neorg-overlay.overlays.default ]; }
-    neovim = pkgs.callPackage ./nvim/neovim.nix {};
+    neovim = unstable-packages.callPackage ./nvim/neovim.nix {};
   in {
     packages.${system} = {
       inherit neovim;

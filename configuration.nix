@@ -38,12 +38,12 @@
   # };
 
   # Bootloader.
-  # boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot.enable = true;
   # boot.loader.grub.splashImage = null;
   # boot.loader.grub.useOSProber = true;
   boot.loader = {
     grub = {
-      enable = true;
+      enable = false;
       device = "nodev";
       efiSupport = true;
     };
