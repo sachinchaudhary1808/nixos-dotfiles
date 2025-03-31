@@ -11,6 +11,7 @@ for_window [app_id="foot"] opacity $opacity
 # rules and workspaces 
 # assign [app_id="firefox"] workspace 1
 assign [app_id="vesktop"] workspace 10
+assign [app_id="obsidian"] workspace 9
 for_window [app_id="pavucontrol"] floating enable, resize set 800 600
 for_window [app_id="blueman-manager"] floating enable, resize set 800 600
 for_window [title="Authentication Required"] floating enable, resize set 600 400
@@ -90,8 +91,8 @@ exec swaync
 # exec systemctl --user import-environment PATH # for the github issue 
 exec sway-audio-idle-inhibit
 exec swayidle -w \
-    timeout 300 'swaylock -f -c 000000' \
-    timeout 600 'systemctl suspend' \
+    timeout 300 'swaylock -f -c 000000'\
+    timeout 400 'systemctl suspend'\
     before-sleep 'swaylock -f -c 000000'\
     after-resume 'swaymsg "output * dpms on"' 
 
