@@ -111,7 +111,9 @@
     };
     devShells = {
       x86_64-linux.default = nixpkgs.legacyPackages.x86_64-linux.mkShell {
-        buildInputs = with nixpkgs.legacyPackages.x86_64-linux; [nil];
+        buildInputs = with nixpkgs.legacyPackages.x86_64-linux; [
+          emmet-language-server
+        ];
 
         shellHook = ''
           echo "Development shell ready for nix to configure"

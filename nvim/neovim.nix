@@ -98,7 +98,6 @@
   '';
   # Define a list of Nix packages to include
   neovimPackages = with pkgs; [
-    emmet-language-server
     lua-language-server
     gopls
     xclip
