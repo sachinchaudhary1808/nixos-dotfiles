@@ -16,8 +16,8 @@
   ],
   "modules-right": [
     // "mpd",
-    "idle_inhibitor",
     "custom/audio_idle_inhibitor",
+    "idle_inhibitor",
     "pulseaudio",
     "network",
     "cpu",
