@@ -84,7 +84,7 @@ tooltip label {
 #temperature,
 #backlight,
 #pulseaudio,
-#network,
+#custom-audio_idle_inhibitor #network,
 #battery,
 #power-profiles-daemon,
 #custom-powermenu,
@@ -117,6 +117,11 @@ tooltip label {
 }
 #pulseaudio {
   color: rgb(245, 224, 220);
+}
+#custom-audio_idle_inhibitor {
+  padding-left: 10px;
+  padding-right: 10px;
+  color: rgb(201, 203, 255);
 }
 #network {
   color: #abe9b3;
