@@ -16,13 +16,13 @@ This repository contains my personal NixOS configuration and dotfiles. It’s de
 
 ### swaywm
 
-![swaywm](images/Screenshots/Screenshot-2024-10-27_13:09:49.png)
+![swaywm](images/screenshots/swaywm-basic.png)
 
-![swaywm](images/Screenshots/sway-desktop.png)
+![swaywm](images/screenshots/sway-desktop.png)
 
 ### neovim
 
-![neovim](images/Screenshots/neovim.png)
+![neovim](images/screenshots/neovim.png)
 
 ## Features
 
