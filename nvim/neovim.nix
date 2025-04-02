@@ -20,6 +20,7 @@
 
   startPlugins =
     (with vimPlugins; [
+      trouble-nvim
       fidget-nvim
       alpha-nvim
       oil-nvim

@@ -24,6 +24,14 @@ lspconfig.lua_ls.setup({
         return require("lspconfig.util").root_pattern(".git")(fname) or require("lspconfig.util").path.dirname(fname)
     end,
     single_file_support = true, -- Ensures LSP works for single Lua files outside projects
+    settings = {
+        Lua = {
+            diagnostics = {
+                -- Get the language server to recognize the `vim` global
+                globals = { "vim" },
+            },
+        },
+    },
 })
 lspconfig.nil_ls.setup({})
 lspconfig.marksman.setup({})
@@ -35,4 +43,4 @@ lspconfig.clangd.setup({
 })
 lspconfig.emmet_language_server.setup({})
 -- Optional: Setup lsp-saga for enhanced LSP UI
-require("lspsaga").setup({})
+-- require("lspsaga").setup({})
