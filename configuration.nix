@@ -185,7 +185,7 @@
     isNormalUser = true;
     description = userSettings.name;
     extraGroups = ["networkmanager" "wheel" "video" "kvm" "input" "audio" "render"];
-    packages = with pkgs; [];
+    packages = with pkgs; [nil]; # just used nil to not have empty code lol
   };
 
   # Allow unfree packages

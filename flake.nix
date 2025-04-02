@@ -30,7 +30,6 @@
     nur,
     nixpkgs-unstable,
     nixos-hardware,
-    spicetify-nix,
     nix-flatpak,
     # neorg-overlay,
     ...
@@ -79,7 +78,7 @@
           nixos-hardware.nixosModules.lenovo-ideapad-15alc6
           nix-flatpak.nixosModules.nix-flatpak
           ./configuration.nix
-          ({pkgs, ...}: {
+          ({...}: {
             environment.systemPackages = [
               self.packages.${system}.neovim
             ];
