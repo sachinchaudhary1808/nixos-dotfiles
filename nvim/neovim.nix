@@ -122,7 +122,7 @@
 
     #nix
     alejandra
-    statix
+    # statix
     deadnix
     nil
   ];
