@@ -42,5 +42,6 @@ lspconfig.clangd.setup({
     cmd = { "clangd", "--offset-encoding=utf-16" }, -- Custom command for clangd
 })
 lspconfig.emmet_language_server.setup({})
+
 -- Optional: Setup lsp-saga for enhanced LSP UI
--- require("lspsaga").setup({})
+require("lspsaga").setup({})
