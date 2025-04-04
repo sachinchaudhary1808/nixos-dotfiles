@@ -45,3 +45,6 @@ lspconfig.emmet_language_server.setup({})
 
 -- Optional: Setup lsp-saga for enhanced LSP UI
 require("lspsaga").setup({})
+
+-- lsp inline hint
+-- vim.diagnostic.config({ virtual_text = true })
