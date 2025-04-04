@@ -23,7 +23,6 @@ in {
     enableCompletion = true;
 
     initExtra = ''
-            pokeget random
                    # nitch
              #      if [ -f $HOME/.bashrc-personal ]; then
               #       source $HOME/.bashrc-personal
