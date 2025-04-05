@@ -335,8 +335,10 @@ bindsym --locked XF86AudioPrev exec playerctl --player playerctld previous
 bindsym  Print exec grim -g "$(slurp)" - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | notify-send "Screenshot of the region taken" -t 1000 # screenshot of a region
 bindsym Shift+Print exec grim - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | notify-send "Screenshot of whole screen taken" -t 1000 # screenshot of the whole screen
 
-#python calculator
-bindsym xf86calculator exec $term -e python3
+#python calculator in floating mode 
+bindsym xf86calculator exec $term --title "pythoncalc" -e python
+bindsym $mod+F12 exec $term --title "pythoncalc" -e python
+for_window [title="^pythoncalc$"] floating enable, resize set 30ppt 50ppt, move position center
 
 bindsym $mod+o exec swaync-client -op
 
