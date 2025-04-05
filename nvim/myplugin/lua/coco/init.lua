@@ -25,8 +25,8 @@ require("coco.plugins.debugging")
 require("coco.plugins.vim-test")
 require("coco.plugins.trouble")
 
-require("coco.lua.compiler")
-require("coco.snippites.snip")
+require("coco.utils.compiler")
+require("coco.snippets.snip")
 
 -- files
 require("coco.keymaps")
