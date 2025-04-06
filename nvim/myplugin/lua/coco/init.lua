@@ -24,6 +24,7 @@ require("coco.plugins.telescope")
 require("coco.plugins.debugging")
 require("coco.plugins.vim-test")
 require("coco.plugins.trouble")
+require("coco.plugins.hardtime-nvim")
 
 require("coco.utils.compiler")
 require("coco.snippets.snip")
