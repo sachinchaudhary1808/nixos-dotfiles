@@ -68,7 +68,6 @@ in {
 
       signal-desktop
       gnome-clocks
-      nuclear
       newsflash
     ];
   };
