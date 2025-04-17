@@ -61,7 +61,7 @@ in {
       gnome-frog
       ttyper
 
-      lazygit
+      # lazygit
 
       tree
       btop

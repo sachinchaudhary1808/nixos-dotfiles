@@ -1,0 +1,1 @@
+- try to use git command-line instead of lazygit
