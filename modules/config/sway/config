@@ -336,9 +336,9 @@ bindsym  Print exec grim -g "$(slurp)" - | wl-copy && wl-paste > ~/Pictures/Scre
 bindsym Shift+Print exec grim - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png | notify-send "Screenshot of whole screen taken" -t 1000 # screenshot of the whole screen
 
 #python calculator in floating mode 
-bindsym xf86calculator exec $term --title "pythoncalc" -e python
-bindsym $mod+F12 exec $term --title "pythoncalc" -e python
-for_window [title="^pythoncalc$"] floating enable, resize set 30ppt 50ppt, move position center
+bindsym xf86calculator exec gnome-calculator 
+bindsym $mod+F12 exec gnome-calculator  
+for_window [app_id="org.gnome.Calculator"] floating enable
 
 bindsym $mod+o exec swaync-client -op
 
