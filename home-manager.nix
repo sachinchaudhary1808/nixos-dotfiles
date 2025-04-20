@@ -69,6 +69,7 @@ in {
       signal-desktop
       gnome-clocks
       newsflash
+      shortwave #radio
     ];
   };
 
