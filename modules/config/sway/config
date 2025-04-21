@@ -1,4 +1,4 @@
-# Default config for sway
+# Default config for swaysway co
 # Read `man 5 sway` for a complete reference.
 
 #idk for something may be graphical session target 
@@ -52,7 +52,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot
+set $term footclient
 set $browser firefox-esr
 set $file-manager thunar
 
@@ -158,7 +158,7 @@ bindsym $mod+Shift+f exec $file-manager
 #terminal 2
 bindsym $mod+Shift+return exec alacritty
 # edior neovim
-bindsym $mod+n exec $term  -e nvim
+bindsym $mod+n exec foot -e nvim
 
 
     # Drag floating windows by holding down $mod and left mouse button.
