@@ -24,3 +24,5 @@ require("lualine").setup({
 })
 
 require("fidget").setup({})
+
+require("precognition").toggle()

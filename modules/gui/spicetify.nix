@@ -13,7 +13,7 @@ in {
   programs.spicetify = {
     enable = true;
     # theme = spicePkgs.themes.spicetify-themes;
-    colorScheme = "default";
+    colorScheme = "";
     enabledCustomApps = with spicePkgs.apps; [];
     enabledExtensions = with spicePkgs.extensions; [
       fullAppDisplay

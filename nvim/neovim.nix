@@ -20,6 +20,7 @@
 
   startPlugins =
     (with vimPlugins; [
+      precognition-nvim
       hardtime-nvim
       trouble-nvim
       fidget-nvim
