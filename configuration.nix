@@ -265,7 +265,7 @@
     swayidle
     swaylock
     # swaylock-effects
-    cheese
+    snapshot
     kitty
     rclone
     alacritty
