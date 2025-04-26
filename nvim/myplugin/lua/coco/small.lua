@@ -26,3 +26,6 @@ require("lualine").setup({
 require("fidget").setup({})
 
 require("precognition").toggle()
+
+-- The setup config table shows all available config options with their default values:
+require("presence").setup({})
