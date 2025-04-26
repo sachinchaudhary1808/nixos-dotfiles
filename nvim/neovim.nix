@@ -22,7 +22,6 @@
     (with vimPlugins; [
       presence-nvim
       precognition-nvim
-      hardtime-nvim
       trouble-nvim
       fidget-nvim
       alpha-nvim
