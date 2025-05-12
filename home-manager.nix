@@ -26,6 +26,7 @@ in {
 
     #Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     packages = with pkgs; [
+      blender
       asciinema # for terminal recording in txt lol idk
       vesktop
       (lib.hiPrio (pkgs.writeShellScriptBin "vesktop" ''
