@@ -351,7 +351,7 @@ bindsym $mod+Help exec $HOME/nixos-dotfiles/modules/scripts/conservation_mode/of
 bindsym $mod+F9 exec $HOME/nixos-dotfiles/modules/scripts/conservation_mode/off.sh
 
 bindsym Help exec $HOME/nixos-dotfiles/modules/scripts/conservation_mode/on.sh
-bindsym F9 exec $HOME/nixos-dotfiles/modules/scripts/conservation_mode/on.sh
+bindsym $mod+Shift+F9 exec $HOME/nixos-dotfiles/modules/scripts/conservation_mode/on.sh
 
 
 #clipboard
