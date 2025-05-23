@@ -41,5 +41,3 @@ This repository contains my personal NixOS configuration and dotfiles. It’s de
 ### neovim preconfigured with basic to some advance stuff
 
 ### many tools like zoxide, startship etc preconfigured minimally
-
-![CodeRabbit Pull Request Reviews](https://img.shields.io/coderabbit/prs/github/sachinchaudhary1808/nixos-dotfiles?utm_source=oss&utm_medium=github&utm_campaign=sachinchaudhary1808%2Fnixos-dotfiles&labelColor=171717&color=FF570A&link=https%3A%2F%2Fcoderabbit.ai&label=CodeRabbit+Reviews)
