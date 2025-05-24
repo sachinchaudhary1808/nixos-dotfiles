@@ -223,7 +223,6 @@
 
   services.locate = {
     enable = true;
-    localuser = null;
     package = pkgs.mlocate;
   };
 
@@ -382,9 +381,10 @@
   #fonts
   fonts.enableDefaultPackages = true;
   fonts.packages = with pkgs; [
-    (nerdfonts.override {
-      fonts = ["JetBrainsMono" "DroidSansMono" "FiraCode" "Hack"];
-    })
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.droid-sans-mono
+    nerd-fonts.fira-code
+    nerd-fonts.hack
     font-awesome
     liberation_ttf
     noto-fonts
