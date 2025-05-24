@@ -50,7 +50,7 @@ in {
       gimp
       unstable.waybar
       rofi-wayland
-      webcord
+      legcord
       element-desktop
       pciutils
       gnome-system-monitor
