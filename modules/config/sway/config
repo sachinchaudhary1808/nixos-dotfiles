@@ -347,10 +347,7 @@ bindsym $mod+o exec swaync-client -op
 # for wshowkey
 bindsym $mod+q exec pkill wshowkeys || exec wshowkeys -a bottom
 
-bindsym $mod+Help exec $HOME/nixos-dotfiles/modules/scripts/conservation_mode/off.sh
 bindsym $mod+F9 exec $HOME/nixos-dotfiles/modules/scripts/conservation_mode/off.sh
-
-bindsym Help exec $HOME/nixos-dotfiles/modules/scripts/conservation_mode/on.sh
 bindsym $mod+Shift+F9 exec $HOME/nixos-dotfiles/modules/scripts/conservation_mode/on.sh
 
 
