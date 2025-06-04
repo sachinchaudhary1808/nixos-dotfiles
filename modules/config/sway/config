@@ -95,12 +95,12 @@ exec sway-audio-idle-inhibit
 exec swayidle -w \
     timeout 300 'swaylock -f -c 000000'\
     timeout 400 'systemctl suspend'\
-    before-sleep 'swaylock -f -c 000000'\
+    before-sleep 'swaylock -f -c 000000' && playerctl pause\
     after-resume 'swaymsg "output * dpms on"' 
 
 
 #lock screen
-bindsym  $mod+Escape exec wlogout
+bindsym  $mod+Escape exec wlogout && playerctl pause
 
 # Toggle screen off and on with a key (e.g., F9)
 bindsym F7 exec "swaymsg output eDP-1 dpms toggle"
