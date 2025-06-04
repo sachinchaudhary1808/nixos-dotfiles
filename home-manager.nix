@@ -110,6 +110,7 @@ in {
   };
 
   home.file.".ignore".source = ./modules/config/home/.ignore;
+  home.file.".inputrc".source = ./modules/config/home/.inputrc;
 
   home.file.".config/wlogout" = {
     source =
