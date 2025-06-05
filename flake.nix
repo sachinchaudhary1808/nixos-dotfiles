@@ -75,6 +75,12 @@
         };
 
         modules = [
+          {
+            nixpkgs.overlays = [
+              nur.overlays.default
+              unstable-packages
+            ];
+          }
           nixos-hardware.nixosModules.lenovo-ideapad-15alc6
           nix-flatpak.nixosModules.nix-flatpak
           ./configuration.nix
@@ -85,11 +91,6 @@
           })
           home-manager.nixosModules.home-manager
           {
-            nixpkgs.overlays = [
-              nur.overlays.default
-              unstable-packages
-            ];
-
             home-manager = {
               useGlobalPkgs = true;
               useUserPackages = true;

@@ -216,7 +216,7 @@
     wireplumber.enable = true;
   };
 
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   # hardware.pulseaudio.support32Bit = true;
 
   services.libinput.enable = true;
