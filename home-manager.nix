@@ -39,6 +39,8 @@ in {
       unstable.foliate
       zoom-us
       brave
+      protonvpn-gui
+      openvpn
       prismlauncher
       calibre
       distrobox
