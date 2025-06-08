@@ -442,11 +442,11 @@
     NIXOS_OZONE_WL = "1";
 
     ACCESSIBILITY_ENABLED = "1";
-    FLAKE = "/home/${userSettings.username}/nixos-dotfiles";
+    NH_FLAKE = "/home/${userSettings.username}/nixos-dotfiles";
   };
 
   #experimantlal features
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = ["nix-command" "flakes" "repl-flake"];
 
   # settings of obs
   boot = {
