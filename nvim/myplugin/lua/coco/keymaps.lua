@@ -45,3 +45,9 @@ vim.keymap.set("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>", { silent = true })
 vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { silent = true })
 vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", { silent = true })
 vim.keymap.set("n", "<C-\\>", "<cmd>TmuxNavigatePrevious<cr>", { silent = true })
+
+-- for live server
+vim.api.nvim_create_user_command("LiveServer", function()
+    vim.fn.jobstart("live-server --open")
+end, {})
+vim.keymap.set("n", "<leader>ls", ":LiveServer<CR>", { desc = "Start Live Server" })
