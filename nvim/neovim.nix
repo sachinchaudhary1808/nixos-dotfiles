@@ -20,6 +20,7 @@
 
   startPlugins =
     (with vimPlugins; [
+      blink-cmp
       nvim-ts-autotag
       nvim-colorizer-lua
       trouble-nvim
@@ -35,20 +36,14 @@
       neocord
       nvim-treesitter-context
       lualine-nvim
-      nvim-autopairs
+      mini-pairs
       which-key-nvim
       markdown-preview-nvim
       nvim-web-devicons
-      nvim-cmp
       nvim-surround
       nvim-lspconfig
-      cmp-nvim-lsp
-      cmp-buffer
-      cmp-path
       luasnip
-      cmp_luasnip
       friendly-snippets
-      lspkind-nvim
       lspsaga-nvim
       flash-nvim
       gitsigns-nvim

@@ -1,6 +1,15 @@
 local lspconfig = require("lspconfig")
 
-local capabilities = require("cmp_nvim_lsp").default_capabilities()
+local capabilities = {
+    textDocument = {
+        foldingRange = {
+            dynamicRegistration = false,
+            lineFoldingOnly = true,
+        },
+    },
+}
+
+capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
 -- Setup each LSP server individually
 lspconfig.gopls.setup({
