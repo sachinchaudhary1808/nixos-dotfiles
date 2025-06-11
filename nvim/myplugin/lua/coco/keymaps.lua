@@ -46,11 +46,17 @@ vim.keymap.set("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>", { silent = true })
 vim.keymap.set("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>", { silent = true })
 vim.keymap.set("n", "<C-\\>", "<cmd>TmuxNavigatePrevious<cr>", { silent = true })
 
--- for live server
-vim.api.nvim_create_user_command("LiveServer", function()
-    vim.fn.jobstart("live-server --open")
+vim.api.nvim_create_user_command("LivePreview", function()
+    local file = vim.fn.expand("%:t") -- just the filename, like 'buttons.html'
+    local dir = vim.fn.expand("%:p:h") -- directory of current file
+
+    vim.fn.jobstart({ "live-server", "--open=" .. file }, {
+        cwd = dir,
+        detach = true,
+    })
 end, {})
-vim.keymap.set("n", "<leader>ls", ":LiveServer<CR>", { desc = "Start Live Server" })
+
+vim.keymap.set("n", "<leader>ls", ":LivePreview<CR>", { desc = "Live Server Preview" })
 
 -- write the file
 vim.keymap.set("n", "<leader>e", ":write<CR>", { desc = "save the changes in the file" })
