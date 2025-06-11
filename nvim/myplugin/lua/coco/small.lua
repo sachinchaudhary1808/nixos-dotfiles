@@ -24,8 +24,5 @@ require("lualine").setup({
 })
 
 require("fidget").setup({})
-
-require("precognition").toggle()
-
 -- colorizer setup webdev stuff
 require("colorizer").setup()

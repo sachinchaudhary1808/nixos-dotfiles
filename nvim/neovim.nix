@@ -22,7 +22,6 @@
     (with vimPlugins; [
       nvim-ts-autotag
       nvim-colorizer-lua
-      precognition-nvim
       trouble-nvim
       fidget-nvim
       alpha-nvim
