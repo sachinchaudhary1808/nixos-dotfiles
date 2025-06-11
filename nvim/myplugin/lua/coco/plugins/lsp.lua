@@ -1,6 +1,8 @@
 local lspconfig = require("lspconfig")
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
+-- OPTIONAL: explicitly ensure snippet support is enabled
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- Setup each LSP server individually
 lspconfig.gopls.setup({
@@ -41,10 +43,20 @@ lspconfig.bashls.setup({})
 lspconfig.clangd.setup({
     cmd = { "clangd", "--offset-encoding=utf-16" }, -- Custom command for clangd
 })
-lspconfig.emmet_language_server.setup({})
 
 -- Optional: Setup lsp-saga for enhanced LSP UI
 require("lspsaga").setup({})
 
 -- lsp inline hint
 -- vim.diagnostic.config({ virtual_text = true })
+--
+
+lspconfig.cssls.setup({
+    capabilities = capabilities,
+})
+
+lspconfig.html.setup({
+    capabilities = capabilities,
+})
+
+vim.lsp.enable("eslint")
