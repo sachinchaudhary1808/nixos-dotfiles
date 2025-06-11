@@ -20,6 +20,7 @@
 
   startPlugins =
     (with vimPlugins; [
+      nvim-colorizer-lua
       precognition-nvim
       trouble-nvim
       fidget-nvim
