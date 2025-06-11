@@ -479,7 +479,7 @@
       sway-audio-idle-inhibit
       imv
       wlogout
-      hyprpicker
+      eyedropper
       swww
       slurp
       grim
