@@ -51,3 +51,6 @@ vim.api.nvim_create_user_command("LiveServer", function()
     vim.fn.jobstart("live-server --open")
 end, {})
 vim.keymap.set("n", "<leader>ls", ":LiveServer<CR>", { desc = "Start Live Server" })
+
+-- write the file
+vim.keymap.set("n", "<leader>e", ":write<CR>", { desc = "save the changes in the file" })
