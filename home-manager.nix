@@ -26,6 +26,7 @@ in {
 
     #Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     packages = with pkgs; [
+      woomer
       zed-editor-fhs
       blender
       asciinema # for terminal recording in txt lol idk
