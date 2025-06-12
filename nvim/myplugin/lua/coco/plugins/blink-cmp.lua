@@ -17,9 +17,7 @@ blink.setup({
             end
         end,
     },
-    -- I'd like to keep it enabled for search, while disabling for command line.
-    -- see https://github.com/Saghen/blink.cmp/discussions/1580
-    cmdline = { enabled = false },
+    cmdline = { enabled = true },
     sources = {
         default = { "lsp", "path", "snippets", "buffer", "omni" },
     },
