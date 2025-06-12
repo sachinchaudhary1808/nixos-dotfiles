@@ -50,10 +50,14 @@ lspconfig.bashls.setup({})
 lspconfig.clangd.setup({
     cmd = { "clangd", "--offset-encoding=utf-16" }, -- Custom command for clangd
 })
-vim.lsp.enable("emmet_language_server")
 
 -- Optional: Setup lsp-saga for enhanced LSP UI
 require("lspsaga").setup({})
 
 -- lsp inline hint
 -- vim.diagnostic.config({ virtual_text = true })
+--
+vim.lsp.enable("html")
+vim.lsp.enable("cssls")
+vim.lsp.enable("jsonls")
+vim.lsp.enable("eslint")
