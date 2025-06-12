@@ -21,7 +21,7 @@ blink.setup({
     -- see https://github.com/Saghen/blink.cmp/discussions/1580
     cmdline = { enabled = false },
     sources = {
-        default = { "lsp", "path", "snippets", "buffer" },
+        default = { "lsp", "path", "snippets", "buffer", "omni" },
     },
     signature = {
         enabled = true,
