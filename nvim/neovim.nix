@@ -20,6 +20,7 @@
 
   startPlugins =
     (with vimPlugins; [
+      lspkind-nvim
       blink-cmp
       nvim-ts-autotag
       nvim-colorizer-lua
