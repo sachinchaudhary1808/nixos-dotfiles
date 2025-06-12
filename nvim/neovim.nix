@@ -43,7 +43,6 @@
       nvim-web-devicons
       nvim-surround
       nvim-lspconfig
-      luasnip
       friendly-snippets
       lspsaga-nvim
       flash-nvim
