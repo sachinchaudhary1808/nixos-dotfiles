@@ -66,3 +66,7 @@ require("avante").setup({
     },
 })
 require("copilot").setup({})
+
+require("direnv").setup({
+    autoload_direnv = true,
+})
