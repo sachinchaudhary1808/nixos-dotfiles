@@ -20,6 +20,10 @@
 
   startPlugins =
     (with vimPlugins; [
+      blink-copilot
+      avante-nvim
+      blink-cmp-avante
+      copilot-lua
       lspkind-nvim
       blink-cmp
       nvim-ts-autotag
@@ -66,8 +70,6 @@
       harpoon2
       rainbow-delimiters-nvim
 
-      toggleterm-nvim
-
       # debugging
       nvim-dap
       nvim-dap-ui
@@ -96,6 +98,7 @@
   '';
   # Define a list of Nix packages to include
   neovimPackages = with pkgs; [
+    nodejs
     lua-language-server
     gopls
     xclip

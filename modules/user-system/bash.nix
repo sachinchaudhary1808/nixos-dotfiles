@@ -16,6 +16,7 @@ let
     npi = "nix profile install";
     h = "htop";
     gc = "git commit -m";
+    vup = "nix profile upgrade neovim";
   };
 in {
   programs.bash = {

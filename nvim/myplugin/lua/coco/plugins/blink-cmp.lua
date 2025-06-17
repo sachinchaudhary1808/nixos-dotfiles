@@ -19,7 +19,15 @@ blink.setup({
     },
     cmdline = { enabled = false },
     sources = {
-        default = { "lsp", "path", "snippets", "buffer", "omni" },
+        default = { "lsp", "path", "snippets", "buffer", "omni", "copilot" },
+        providers = {
+            copilot = {
+                name = "copilot",
+                module = "blink-copilot",
+                score_offset = 100,
+                async = true,
+            },
+        },
     },
     signature = {
         enabled = true,

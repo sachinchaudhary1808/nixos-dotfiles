@@ -4,16 +4,14 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    # neorg-overlay.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
+
     # Home manager
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    nur.url = "github:nix-community/nur";
 
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
@@ -27,11 +25,9 @@
     self,
     nixpkgs,
     home-manager,
-    nur,
     nixpkgs-unstable,
     nixos-hardware,
     nix-flatpak,
-    # neorg-overlay,
     ...
   }: let
     inherit (nixpkgs) lib;
@@ -47,21 +43,21 @@
       hostname = "laptop";
     };
 
-    unstable-packages = final: _prev: {
-      unstable = import inputs.nixpkgs-unstable {
-        inherit (final) system;
-        config.allowUnfree = true;
-      };
-    };
+    # unstable-packages = final: _prev: {
+    #   unstable = import inputs.nixpkgs-unstable {
+    #     inherit (final) system;
+    #     config.allowUnfree = true;
+    #   };
+    # };
+    pkgs-Unstable = import nixpkgs-unstable {inherit system;};
 
     system = "x86_64-linux";
-    # pkgs = nixpkgs.legacyPackages.${system};
+
     pkgs = import nixpkgs-unstable {
       inherit system;
       config.allowUnfree = true;
     };
 
-    # pkgs = import nixpkgs { inherit system; overlays = [ neorg-overlay.overlays.default ]; }
     neovim = pkgs.callPackage ./nvim/neovim.nix {};
   in {
     packages.${system} = {
@@ -71,23 +67,19 @@
     nixosConfigurations = {
       ${systemSettings.hostname} = lib.nixosSystem {
         specialArgs = {
-          inherit inputs userSettings systemSettings;
+          inherit inputs userSettings systemSettings pkgs-Unstable;
         };
 
         modules = [
-          {
-            nixpkgs.overlays = [
-              nur.overlays.default
-              unstable-packages
-            ];
-          }
           nixos-hardware.nixosModules.lenovo-ideapad-15alc6
           nix-flatpak.nixosModules.nix-flatpak
           ./configuration.nix
           ({...}: {
             environment.systemPackages = [
-              self.packages.${system}.neovim
             ];
+            # nixpkgs.overlays = [
+            #   unstable-packages
+            # ];
           })
           home-manager.nixosModules.home-manager
           {
@@ -95,12 +87,11 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               extraSpecialArgs = {
-                inherit inputs userSettings;
+                inherit inputs userSettings pkgs-Unstable;
               };
               users.${userSettings.username} = {
                 imports = [
                   ./home-manager.nix
-                  inputs.nur.modules.homeManager.default
                   ./modules/gui/spicetify.nix
                 ];
               };
@@ -113,8 +104,8 @@
       x86_64-linux.default = nixpkgs.legacyPackages.x86_64-linux.mkShell {
         buildInputs = with nixpkgs.legacyPackages.x86_64-linux; [
           vscode-langservers-extracted
+          nodejs
         ];
-
         shellHook = ''
           echo "Development shell ready for nix to configure"
         '';

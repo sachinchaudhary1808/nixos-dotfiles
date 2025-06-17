@@ -25,6 +25,8 @@ opt.scrolloff = 999
 opt.virtualedit = "block"
 opt.inccommand = "split"
 opt.colorcolumn = "80"
+-- views can only be fully collapsed with the global statusline
+vim.opt.laststatus = 3
 
 -- for startuptime
 vim.loader.enable()

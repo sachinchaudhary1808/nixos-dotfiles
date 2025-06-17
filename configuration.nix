@@ -1,30 +1,29 @@
-# my nixos configuration
+# my nixos configurationconfiguraion
 {
   config,
   pkgs,
   inputs,
   userSettings,
   systemSettings,
+  pkgs-Unstable,
   ...
 }: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    # <home-manager/nixos>
-    # ./home-manager.nix
-    # inputs.xremap-flake.nixosModules.default
   ];
 
-  # using lix insted of nix
-  nix.package = pkgs.unstable.lix;
-  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+  nix = {
+    # using lix insted of nix
+    package = pkgs-Unstable.lix;
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
-  # for cachix builds
-  nix.settings.extra-substituters = ["https://nix-community.cachix.org"];
-  nix.settings.extra-trusted-public-keys = [
-    "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-  ];
-
+    # for cachix builds
+    settings.extra-substituters = ["https://nix-community.cachix.org"];
+    settings.extra-trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
+  };
   # services.xremap = {
   #   withWlroots = true;
   #   userName = userSettings.username;
@@ -38,10 +37,10 @@
   # };
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
   # boot.loader.grub.splashImage = null;
   # boot.loader.grub.useOSProber = true;
   boot.loader = {
+    systemd-boot.enable = true;
     grub = {
       enable = false;
       device = "nodev";
@@ -91,37 +90,7 @@
   boot.initrd.kernelModules = ["amdgpu"];
   # # Enable firmware update service
   services.fwupd.enable = true;
-  # hardware = {
-  #   cpu.amd.updateMicrocode = true;
-  #   enableRedistributableFirmware = true;
-  #   enableAllFirmware = true;
-  #   firmware = with pkgs; [ firmwareLinuxNonfree ];
-  #   opengl = {
-  #     enable = true;
-  #     driSupport = true;
-  #     driSupport32Bit = true;
-  #     extraPackages = with pkgs; [
-  #       rocm-opencl-icd # amd
-  #       mesa
-  #       rocm-opencl-runtime # amd
-  #       rocmPackages.clr.icd
-  #       vaapiVdpau
-  #       libvdpau
-  #       amdvlk
-  #       vulkan-tools # Vulkan development tools
-  #       vulkan-loader # Vulkan loader
-  #       libva-utils
-  #     ];
-  #     extraPackages32 = with pkgs; [ ];
-  #   };
-  # };
-  #
-  # #increse battery ssd life
-  # services.fstrim.interval = "weekly";
-  # services.fstrim.enable = true;
 
-  # #power savings
-  # services.system76-scheduler.enable = true;
   services.power-profiles-daemon.enable = true;
 
   # dbus u power
@@ -139,6 +108,7 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = systemSettings.locale;
+
   console = {
     earlySetup = true;
     font = "ter-powerline-v24b";
@@ -188,55 +158,62 @@
     packages = with pkgs; [nil]; # just used nil to not have empty code lol
   };
 
-  # Allow unfree packages
-  nixpkgs.config = {allowUnfree = true;};
-  # nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.allowInsecure = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-27.3.11"
-    "electron-33.4.11"
-  ];
+  nixpkgs = {
+    # Allow unfree packages
+    config = {allowUnfree = true;};
+    # nixpkgs.config.allowUnfree = true;
+    config.allowInsecure = true;
+    config.permittedInsecurePackages = [
+      "electron-27.3.11"
+      "electron-33.4.11"
+    ];
+  };
 
-  services.blueman.enable = true;
-  services.gnome.gnome-keyring.enable = true;
+  services = {
+    blueman.enable = true;
+    gnome.gnome-keyring.enable = true;
+    # setup pipewire for audio
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      # alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true;
+      wireplumber.enable = true;
+    };
+
+    pulseaudio.enable = false;
+    # hardware.pulseaudio.support32Bit = true;
+
+    libinput.enable = true;
+
+    locate = {
+      enable = true;
+      package = pkgs.mlocate;
+    };
+
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd sway --theme 'border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red'";
+          user = "greeter";
+        };
+      };
+    };
+  };
+
+  security = {
+    rtkit.enable = true;
+    pam.services.greetd.enableGnomeKeyring = true;
+  };
 
   hardware = {
     bluetooth.enable = true;
     bluetooth.powerOnBoot = true;
   };
 
-  # setup pipewire for audio
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    # alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-    wireplumber.enable = true;
-  };
-
-  services.pulseaudio.enable = false;
-  # hardware.pulseaudio.support32Bit = true;
-
-  services.libinput.enable = true;
-
-  services.locate = {
-    enable = true;
-    package = pkgs.mlocate;
-  };
-
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd sway --theme 'border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red'";
-        user = "greeter";
-      };
-    };
-  };
   # unlock keyring on login
-  security.pam.services.greetd.enableGnomeKeyring = true;
 
   #   services.xserver.enable = true;sway
   # services.xserver.displayManager.gdm.enable = true;
@@ -340,7 +317,7 @@
     jdk8
     # jdk17
 
-    unstable.libreoffice
+    pkgs-Unstable.libreoffice
     fcitx5-configtool
   ];
 

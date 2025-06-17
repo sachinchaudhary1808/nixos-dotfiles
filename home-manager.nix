@@ -4,6 +4,7 @@
   # inputs,
   userSettings,
   lib,
+  pkgs-Unstable,
   ...
 }:
 # ... is called ellipsis
@@ -20,10 +21,6 @@ in {
     #The home.stateVersion option does not have a default and must be set
     stateVersion = "23.11";
 
-    sessionVariables = {
-      GIO_EXTRA_MODULES = "${pkgs.gvfs}/lib/gio/modules";
-    };
-
     #Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     packages = with pkgs; [
       woomer
@@ -38,7 +35,7 @@ in {
       (lib.hiPrio (pkgs.writeShellScriptBin "obsidian" ''
         exec ${pkgs.obsidian}/bin/obsidian --enable-wayland-ime --wayland-text-input-version=3 "$@"
       ''))
-      unstable.foliate
+      pkgs-Unstable.foliate
       zoom-us
       brave
       protonvpn-gui
@@ -46,13 +43,10 @@ in {
       prismlauncher
       calibre
       distrobox
-      # inputs.nixvim-config.packages.${system}.default
       superTuxKart
-      # news
       yazi
-      #image editing and etc...
       gimp
-      unstable.waybar
+      pkgs-Unstable.waybar
       rofi-wayland
       legcord
       element-desktop
@@ -63,21 +57,21 @@ in {
       minetestclient
       nix-tree
       yt-dlp
-
       steam-run
       gnome-frog
       ttyper
-
       # lazygit
-
       tree
       btop
-
       signal-desktop
       gnome-clocks
       newsflash
       shortwave #radio
     ];
+
+    sessionVariables = {
+      GIO_EXTRA_MODULES = "${pkgs.gvfs}/lib/gio/modules";
+    };
   };
 
   xdg.configFile = {
@@ -85,6 +79,7 @@ in {
     "sway/config".source =
       config.lib.file.mkOutOfStoreSymlink
       "/home/${username}/nixos-dotfiles/modules/config/sway/config";
+
     "river/init".source =
       config.lib.file.mkOutOfStoreSymlink
       "/home/${username}/nixos-dotfiles/modules/config/river/init";
@@ -95,15 +90,14 @@ in {
     "rofi/tokyonight.rasi".source =
       config.lib.file.mkOutOfStoreSymlink
       "/home/${username}/nixos-dotfiles/modules/config/rofi/tokyonight.rasi";
-    #"foot/foot.ini".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/foot/foot.ini";
-    #"swaylock/config".source = config.lib.file.mkOutOfStoreSymlink "/home/coco/nixos-dotfiles/nixos/swaylock/config";
+
     "waybar/config.jsonc".source =
       config.lib.file.mkOutOfStoreSymlink
       "/home/${username}/nixos-dotfiles/modules/config/waybar/config.jsonc";
     "waybar/style.css".source =
       config.lib.file.mkOutOfStoreSymlink
       "/home/${username}/nixos-dotfiles/modules/config/waybar/style.css";
-    #foot
+
     "foot/foot.ini".source =
       config.lib.file.mkOutOfStoreSymlink
       "/home/${username}/nixos-dotfiles/modules/gui/foot/foot.ini";
@@ -113,12 +107,14 @@ in {
     "direnv/direnv.toml".source = ./modules/config/direnv/direnv.toml;
   };
 
-  home.file.".ignore".source = ./modules/config/home/.ignore;
-  home.file.".inputrc".source = ./modules/config/home/.inputrc;
+  home.file = {
+    ".ignore".source = ./modules/config/home/.ignore;
+    ".inputrc".source = ./modules/config/home/.inputrc;
 
-  home.file.".config/wlogout" = {
-    source =
-      ./modules/config/wlogout; # Path to the source directory you want to symlink
-    recursive = true;
+    ".config/wlogout" = {
+      source =
+        ./modules/config/wlogout; # Path to the source directory you want to symlink
+      recursive = true;
+    };
   };
 }
