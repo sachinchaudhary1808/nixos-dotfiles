@@ -5,7 +5,7 @@ local winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:Pmen
 
 blink.setup({
     snippets = {
-        -- preset = "luasnip", # for bug
+        -- preset = "luasnip", -- for bug
         active = function()
             if luasnip.in_snippet() and not blink.is_visible() then
                 return true
