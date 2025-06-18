@@ -272,7 +272,6 @@
     gcc
     keepassxc
     htop
-    nautilus
     powertop
     git
     gnome-keyring
