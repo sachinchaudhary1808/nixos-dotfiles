@@ -155,7 +155,7 @@
     isNormalUser = true;
     description = userSettings.name;
     extraGroups = ["networkmanager" "wheel" "video" "kvm" "input" "audio" "render"];
-    packages = with pkgs; [nil]; # just used nil to not have empty code lol
+    packages = with pkgs; []; # just used nil to not have empty code lol
   };
 
   nixpkgs = {
