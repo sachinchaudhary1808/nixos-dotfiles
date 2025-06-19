@@ -1,11 +1,13 @@
 local blink = require("blink.cmp")
 local luasnip = require("luasnip")
+require("luasnip.loaders.from_vscode").lazy_load()
 
 local winhighlight = "Normal:NormalFloat,FloatBorder:FloatBorder,CursorLine:PmenuSel"
 
 blink.setup({
     snippets = {
-        -- preset = "luasnip", -- for bug
+        preset = "luasnip", -- for bug
+        -- https://github.com/Saghen/blink.cmp/issues/1805
         active = function()
             if luasnip.in_snippet() and not blink.is_visible() then
                 return true
