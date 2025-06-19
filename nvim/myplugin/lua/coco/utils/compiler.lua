@@ -108,7 +108,7 @@ local function compile_and_run()
 end
 
 -- Keybind to compile and run the program in a new terminal split
-vim.keymap.set("n", "<leader>m", compile_and_run, { desc = "Compile and run the code in a terminal split" })
+vim.keymap.set("n", "<leader>cc", compile_and_run, { desc = "Compile and run the code in a terminal split" })
 
 -- Keybind to switch terminal mode manually
 -- this is for to make esc disable cuz i use vi mode in terminal and it messhes with neovim's esc keymap, so to go to normal mode u use ctr + esc

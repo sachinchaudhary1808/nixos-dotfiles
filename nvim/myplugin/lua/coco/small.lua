@@ -9,7 +9,8 @@ require("fidget").setup({})
 require("colorizer").setup()
 
 -- Theme configuration
-require("onedark").load()
+-- require("onedark").load()
+vim.cmd.colorscheme("tokyonight")
 
 -- Fix WinBar color settings
 vim.api.nvim_set_hl(0, "WinBar", {

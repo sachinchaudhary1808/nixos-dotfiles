@@ -66,6 +66,7 @@
       dracula-nvim
       # onedark-nvim
       plenary-nvim
+      tokyonight-nvim
       catppuccin-nvim
       # neodev-nvim
       luasnip
