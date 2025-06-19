@@ -17,7 +17,7 @@ blink.setup({
             end
         end,
     },
-    cmdline = { enabled = false },
+    cmdline = { enabled = true },
     sources = {
         default = { "lsp", "path", "snippets", "buffer", "omni", "copilot" },
         providers = {
