@@ -413,4 +413,4 @@ for_window [con_mark="[0-9]"] border pixel 3
 
 
 # for screen zooming
-bindsym $mod+mod1+z exec woomer
+bindsym $mod+shift+p exec woomer
