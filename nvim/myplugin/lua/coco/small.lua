@@ -6,14 +6,19 @@ require("lualine").setup({
     icons_enabled = true,
 })
 require("fidget").setup({})
-require("colorizer").setup()
+require("ccc").setup({
+    highlighter = {
+        auto_enable = true,
+        lsp = true,
+    },
+})
 
 -- Theme configuration
 require("onedark").load()
 -- vim.cmd.colorscheme("tokyonight")
 
 -- Fix WinBar color settings
-vim.api.nvim_set_hl(0, "WinBar", {
+vim.api.nvim_set_hl(0, "WinBar", "WinBarNC", {
     bold = true, -- Keeps the bold attribute
     bg = "NONE", -- Removes background color
     fg = "NONE", -- Removes foreground color

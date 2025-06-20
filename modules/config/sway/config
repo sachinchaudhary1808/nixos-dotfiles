@@ -29,7 +29,7 @@ default_floating_border normal
 # gaps outer 5
 # smart_gaps on
 
-font pango:monospace 16px
+font pango:monospace 15px
 
 set $cl_high #b4befe
 set $cl_indi #9399b2
@@ -74,7 +74,7 @@ set $menu rofi -show drun | xargs swaymsg exec --
 # output HDMI-A-1 resolution 1920x1080 position 1920,0
 
 # laptop display configuration
- output eDP-1 resolution 1920x1080 position 1920,0 scale 1
+ output eDP-1 resolution 1920x1080 position 1920,0 scale 1.0
 
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs

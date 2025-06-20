@@ -11,62 +11,83 @@
             map o zoom out
             map R recolor
 
-      set window-title-basename "true"
-      set selection-clipboard "clipboard"
+      # Zathura One Dark Inspired Theme - Easy on Eyes
+      # Save this as ~/.config/zathura/zathurarc
 
-      # Dracula color theme for Zathura
-      # Swaps Foreground for Background to get a light version if the user prefers
+      # One Dark color palette - softer, eye-friendly version
+      set default-bg                  "#282c34"
+      set default-fg                  "#abb2bf"
 
-      #
-      # Dracula color theme
-      #
+      # Status bar colors
+      set statusbar-fg                "#abb2bf"
+      set statusbar-bg                "#3e4451"
 
-      set notification-error-bg       rgba(255,85,85,1)     # Red
-      set notification-error-fg       rgba(248,248,242,1)   # Foreground
-      set notification-warning-bg     rgba(255,184,108,1)   # Orange
-      set notification-warning-fg     rgba(68,71,90,1)      # Selection
-      set notification-bg             rgba(40,42,54,1)      # Background
-      set notification-fg             rgba(248,248,242,1)   # Foreground
+      # Input bar colors
+      set inputbar-bg                 "#3e4451"
+      set inputbar-fg                 "#abb2bf"
 
-      set completion-bg               rgba(40,42,54,1)      # Background
-      set completion-fg               rgba(98,114,164,1)    # Comment
-      set completion-group-bg         rgba(40,42,54,1)      # Background
-      set completion-group-fg         rgba(98,114,164,1)    # Comment
-      set completion-highlight-bg     rgba(68,71,90,1)      # Selection
-      set completion-highlight-fg     rgba(248,248,242,1)   # Foreground
+      # Notification colors
+      set notification-bg             "#3e4451"
+      set notification-fg             "#abb2bf"
+      set notification-error-bg       "#e06c75"
+      set notification-error-fg       "#282c34"
+      set notification-warning-bg     "#e5c07b"
+      set notification-warning-fg     "#282c34"
 
-      set index-bg                    rgba(40,42,54,1)      # Background
-      set index-fg                    rgba(248,248,242,1)   # Foreground
-      set index-active-bg             rgba(68,71,90,1)      # Current Line
-      set index-active-fg             rgba(248,248,242,1)   # Foreground
+      # Highlight colors - soft yellow and green
+      set highlight-color             "#e5c07b"
+      set highlight-active-color      "#98c379"
 
-      set inputbar-bg                 rgba(40,42,54,1)      # Background
-      set inputbar-fg                 rgba(248,248,242,1)   # Foreground
-      set statusbar-bg                rgba(40,42,54,1)      # Background
-      set statusbar-fg                rgba(248,248,242,1)   # Foreground
+      # Completion colors
+      set completion-bg               "#3e4451"
+      set completion-fg               "#abb2bf"
+      set completion-group-bg         "#3e4451"
+      set completion-group-fg         "#61afef"
+      set completion-highlight-bg     "#61afef"
+      set completion-highlight-fg     "#282c34"
 
-      set highlight-color             rgba(255,184,108,0.5) # Orange
-      set highlight-active-color      rgba(255,121,198,0.5) # Pink
+      # Index colors
+      set index-bg                    "#282c34"
+      set index-fg                    "#abb2bf"
+      set index-active-bg             "#3e4451"
+      set index-active-fg             "#61afef"
 
-      set default-bg                  rgba(40,42,54,1)      # Background
-      set default-fg                  rgba(248,248,242,1)   # Foreground
+      # Render loading colors
+      set render-loading-bg           "#282c34"
+      set render-loading-fg           "#abb2bf"
 
-      set render-loading              true
-      set render-loading-fg           rgba(40,42,54,1)      # Background
-      set render-loading-bg           rgba(248,248,242,1)   # Foreground
+      # Recolor mode - One Dark style recoloring
+      set recolor                     true
+      set recolor-lightcolor          "#282c34"
+      set recolor-darkcolor           "#abb2bf"
+      set recolor-reverse-video       true
+      set recolor-keephue             true
 
-      #
-      # Recolor mode settings
-      #
+      # Font settings
+      set font                        "JetBrains Mono 11"
 
-      set recolor-lightcolor          rgba(40,42,54,1)      # Background
-      set recolor-darkcolor           rgba(248,248,242,1)   # Foreground
+      # Scrolling and navigation
+      set scroll-page-aware           true
+      set scroll-full-overlap         0.01
+      set scroll-step                 50
+      set zoom-min                    10
+      set zoom-max                    1000
+      set zoom-step                   10
 
-      #
-      # Startup options
-      #
-      set adjust-open width
-      set recolor true
+      # Smooth scrolling
+      set smooth-scroll               true
+
+      # Adjust pages to window
+      set adjust-open                 "best-fit"
+      set pages-per-row               1
+      set first-page-column           1
+
+      # Search settings
+      set incremental-search          true
+      set search-hadjust              true
+
+      # Window settings
+      set window-title-basename       true
     '';
 
     enable = true;
