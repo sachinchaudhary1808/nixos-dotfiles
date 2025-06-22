@@ -18,7 +18,12 @@ require("onedark").load()
 -- vim.cmd.colorscheme("tokyonight")
 
 -- Fix WinBar color settings
-vim.api.nvim_set_hl(0, "WinBar", "WinBarNC", {
+vim.api.nvim_set_hl(0, "WinBar", {
+    bold = true, -- Keeps the bold attribute
+    bg = "NONE", -- Removes background color
+    fg = "NONE", -- Removes foreground color
+})
+vim.api.nvim_set_hl(0, "WinBarNC", {
     bold = true, -- Keeps the bold attribute
     bg = "NONE", -- Removes background color
     fg = "NONE", -- Removes foreground color

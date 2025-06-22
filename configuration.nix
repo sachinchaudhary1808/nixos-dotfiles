@@ -7,7 +7,8 @@
   systemSettings,
   pkgs-Unstable,
   ...
-}: {
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -16,10 +17,10 @@
   nix = {
     # using lix insted of nix
     package = pkgs-Unstable.lix;
-    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
     # for cachix builds
-    settings.extra-substituters = ["https://nix-community.cachix.org"];
+    settings.extra-substituters = [ "https://nix-community.cachix.org" ];
     settings.extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
@@ -60,7 +61,7 @@
   networking.wireless.enable = false; # disble wpa whatever
 
   # Dns server
-  networking.nameservers = ["1.1.1.1"];
+  networking.nameservers = [ "1.1.1.1" ];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -70,8 +71,12 @@
   networking.dhcpcd.enable = false;
   networking.networkmanager.wifi.backend = "iwd";
   networking.wireless.iwd.settings = {
-    IPv6 = {Enabled = true;};
-    Settings = {AutoConnect = true;};
+    IPv6 = {
+      Enabled = true;
+    };
+    Settings = {
+      AutoConnect = true;
+    };
   };
 
   # what to do when lid is closed
@@ -86,8 +91,8 @@
   boot.kernel.sysctl."vm.page-cluster" = 0;
 
   # Gpu settings
-  services.xserver.videoDrivers = ["amdgpu"];
-  boot.initrd.kernelModules = ["amdgpu"];
+  services.xserver.videoDrivers = [ "amdgpu" ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
   # # Enable firmware update service
   services.fwupd.enable = true;
 
@@ -112,7 +117,10 @@
   console = {
     earlySetup = true;
     font = "ter-powerline-v24b";
-    packages = with pkgs; [terminus_font powerline-fonts];
+    packages = with pkgs; [
+      terminus_font
+      powerline-fonts
+    ];
     keyMap = "us";
   };
 
@@ -154,13 +162,23 @@
   users.users.${userSettings.username} = {
     isNormalUser = true;
     description = userSettings.name;
-    extraGroups = ["networkmanager" "wheel" "video" "kvm" "input" "audio" "render"];
-    packages = with pkgs; []; # just used nil to not have empty code lol
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+      "kvm"
+      "input"
+      "audio"
+      "render"
+    ];
+    packages = with pkgs; [ ]; # just used nil to not have empty code lol
   };
 
   nixpkgs = {
     # Allow unfree packages
-    config = {allowUnfree = true;};
+    config = {
+      allowUnfree = true;
+    };
     # nixpkgs.config.allowUnfree = true;
     config.allowInsecure = true;
     config.permittedInsecurePackages = [
@@ -291,7 +309,6 @@
     networkmanagerapplet
     pavucontrol
     pkg-config
-    python312
     trash-cli
     wlroots
     xdg-utils
@@ -352,7 +369,7 @@
   xdg.portal = {
     enable = true;
     wlr.enable = true;
-    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   #fonts
@@ -375,9 +392,9 @@
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      serif = ["Liberation Serif"];
-      sansSerif = ["Noto Sans"];
-      monospace = ["Fira Code"];
+      serif = [ "Liberation Serif" ];
+      sansSerif = [ "Noto Sans" ];
+      monospace = [ "Fira Code" ];
     };
   };
 
@@ -422,13 +439,17 @@
   };
 
   #experimantlal features
-  nix.settings.experimental-features = ["nix-command" "flakes" "repl-flake"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+    "repl-flake"
+  ];
 
   # settings of obs
   boot = {
-    kernelModules = ["v4l2loopback"];
+    kernelModules = [ "v4l2loopback" ];
 
-    extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
+    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
   };
 
   #masked services
@@ -519,13 +540,17 @@
   # thunar to open things in terminal
   xdg.terminal-exec = {
     enable = true;
-    settings.default = ["foot.desktop"];
+    settings.default = [ "foot.desktop" ];
   };
 
   programs.nautilus-open-any-terminal.enable = true;
-  services.gvfs = {enable = true;};
+  services.gvfs = {
+    enable = true;
+  };
 
-  xdg.mime.defaultApplications = {"image/png" = ["imv.desktop"];};
+  xdg.mime.defaultApplications = {
+    "image/png" = [ "imv.desktop" ];
+  };
 
   # bye bye nano
   # programs.nano.enable = lib.mkForce false;
@@ -580,7 +605,7 @@
     # Generic rule for VIA (and other hidraw devices)
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
   '';
-  services.udev.packages = [pkgs.qmk-udev-rules];
+  services.udev.packages = [ pkgs.qmk-udev-rules ];
 
   programs.wshowkeys.enable = true;
 
