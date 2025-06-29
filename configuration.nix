@@ -285,7 +285,7 @@
     warpinator
     tor-browser
     # (brave.override { vulkanSupport = true; })
-    firefox-esr
+    firefox
     fzf
     gcc
     keepassxc
