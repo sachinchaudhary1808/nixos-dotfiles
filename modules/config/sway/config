@@ -56,7 +56,7 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term footclient
-set $browser firefox-esr
+set $browser firefox
 set $file-manager thunar
 
 # Your preferred application launcher
