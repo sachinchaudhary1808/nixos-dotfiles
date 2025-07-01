@@ -26,7 +26,6 @@ in
     packages = with pkgs; [
       geogebra6
       woomer
-      vscode-fhs
       blender
       asciinema # for terminal recording in txt lol idk
       vesktop

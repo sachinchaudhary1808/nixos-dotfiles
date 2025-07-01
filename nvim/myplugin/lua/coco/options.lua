@@ -29,6 +29,8 @@ opt.updatetime = 300
 -- views can only be fully collapsed with the global statusline
 vim.opt.laststatus = 3
 
+-- Netrw settings
+vim.g.netrw_bufsettings = "noma nomod nu rnu nobl nowrap ro"
 -- for startuptime
 vim.loader.enable()
 
