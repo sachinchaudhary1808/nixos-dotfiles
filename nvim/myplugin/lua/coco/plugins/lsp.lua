@@ -26,8 +26,6 @@ lspconfig.gopls.setup({
     },
 })
 
-lspconfig.jedi_language_server.setup({ capabilities = capabilities }) -- for python
-
 lspconfig.lua_ls.setup({
     root_dir = function(fname)
         return require("lspconfig.util").root_pattern(".git")(fname) or require("lspconfig.util").path.dirname(fname)
@@ -61,3 +59,6 @@ vim.lsp.enable("html")
 vim.lsp.enable("cssls")
 vim.lsp.enable("jsonls")
 vim.lsp.enable("eslint")
+
+-- python lsp server
+vim.lsp.enable("pylsp")

@@ -9,7 +9,8 @@
   pkgs,
   vimUtils,
   fetchFromGitHub,
-}: let
+}:
+let
   packageName = "mypackage";
 
   optimizedTreesitter = pkgs.symlinkJoin {
@@ -91,21 +92,21 @@
       # testing
       vim-test
     ])
-    ++ [optimizedTreesitter];
+    ++ [ optimizedTreesitter ];
 
-  foldPlugins =
-    builtins.foldl'
-    (acc: next: acc ++ [next] ++ (foldPlugins (next.dependencies or [])))
-    [];
+  foldPlugins = builtins.foldl' (
+    acc: next: acc ++ [ next ] ++ (foldPlugins (next.dependencies or [ ]))
+  ) [ ];
 
   startPluginsWithDeps = lib.unique (foldPlugins startPlugins);
 
-  packpath = runCommandLocal "packpath" {} ''
+  packpath = runCommandLocal "packpath" { } ''
     mkdir -p $out/pack/${packageName}/{start,opt}
     ln -vsfT ${./myplugin} $out/pack/${packageName}/start/myplugin
 
-    ${lib.concatMapStringsSep "\n" (plugin: "ln -vsfT ${plugin} $out/pack/${packageName}/start/${lib.getName plugin}")
-      startPluginsWithDeps}
+    ${lib.concatMapStringsSep "\n" (
+      plugin: "ln -vsfT ${plugin} $out/pack/${packageName}/start/${lib.getName plugin}"
+    ) startPluginsWithDeps}
 
   '';
   # Define a list of Nix packages to include
@@ -119,8 +120,7 @@
     rust-analyzer
     nodePackages.bash-language-server
     yaml-language-server
-    # python312Packages.python-lsp-server
-    python312Packages.jedi-language-server
+    python312Packages.python-lsp-server
     marksman
     # clang-tools
 
@@ -138,25 +138,23 @@
     deadnix
     nil
   ];
-  runtimeAndBinPaths =
-    lib.concatMapStringsSep "," (pkg: "${pkg}/share/nvim/runtime")
-    neovimPackages;
+  runtimeAndBinPaths = lib.concatMapStringsSep "," (pkg: "${pkg}/share/nvim/runtime") neovimPackages;
   binPath = lib.makeBinPath neovimPackages;
 in
-  symlinkJoin {
-    name = "nvim-custom";
-    meta.mainProgram = "nvim";
-    paths = [neovim-unwrapped];
-    nativeBuildInputs = [makeWrapper];
-    postBuild = ''
-      wrapProgram $out/bin/nvim \
-        --add-flags '-u' \
-        --add-flags '${./init.lua}' \
-        --add-flags '--cmd' \
-        --add-flags "'set packpath^=${packpath} | set runtimepath^=${packpath},${runtimeAndBinPaths}'" \
-        --prefix PATH ":" ${binPath} \
-        --set-default NVIM_APPNAME nvim-custom
-    '';
+symlinkJoin {
+  name = "nvim-custom";
+  meta.mainProgram = "nvim";
+  paths = [ neovim-unwrapped ];
+  nativeBuildInputs = [ makeWrapper ];
+  postBuild = ''
+    wrapProgram $out/bin/nvim \
+      --add-flags '-u' \
+      --add-flags '${./init.lua}' \
+      --add-flags '--cmd' \
+      --add-flags "'set packpath^=${packpath} | set runtimepath^=${packpath},${runtimeAndBinPaths}'" \
+      --prefix PATH ":" ${binPath} \
+      --set-default NVIM_APPNAME nvim-custom
+  '';
 
-    passthru = {inherit packpath;};
-  }
+  passthru = { inherit packpath; };
+}
