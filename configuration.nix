@@ -589,8 +589,8 @@
         settings = {
           main = {
             # Maps capslock to escape when pressed and control when held.
+            capslock = "overload(control, escape)";
             escape = "capslock";
-            capslock = "escape";
           };
         };
       };
