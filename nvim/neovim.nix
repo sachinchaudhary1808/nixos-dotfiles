@@ -32,6 +32,7 @@ let
           hash = "sha256-KqO8uDbVy4sVVZ6mHikuO+SWCzWr97ZuFRC8npOPJIE="; # fill with correct hash
         };
       })
+      lazydev-nvim
       blink-copilot
       avante-nvim
       blink-cmp-avante

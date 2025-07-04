@@ -31,6 +31,9 @@ vim.lsp.config("gopls", {
 vim.lsp.enable("gopls")
 
 vim.lsp.enable("lua_ls")
+require("lazydev").setup({
+    library = { { path = "${3rd}/luv/library", words = { "vim%.uv" } } },
+})
 
 vim.lsp.enable("nil_ls")
 vim.lsp.enable("marksman")
