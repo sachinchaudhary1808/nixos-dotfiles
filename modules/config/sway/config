@@ -92,7 +92,7 @@ exec gammastep-indicator
 exec swaync
 
 # exec systemctl --user import-environment PATH # for the github issue 
-exec sway-audio-idle-inhibit
+# exec sway-audio-idle-inhibit
 exec swayidle -w \
     timeout 300 'swaylock -f -c 000000'\
     timeout 400 'systemctl suspend'\
