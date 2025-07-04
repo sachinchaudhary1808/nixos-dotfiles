@@ -61,4 +61,4 @@ vim.lsp.enable("jsonls")
 vim.lsp.enable("eslint")
 
 -- python lsp server
-vim.lsp.enable("pylsp")
+vim.lsp.enable("pyright")

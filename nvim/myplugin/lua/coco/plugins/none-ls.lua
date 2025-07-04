@@ -28,7 +28,6 @@ null_ls.setup({
         null_ls.builtins.formatting.clang_format,
         null_ls.builtins.completion.spell,
         -- require("none-ls.diagnostics.eslint"), -- requires none-ls-extras.nvim
-        null_ls.builtins.diagnostics.mypy,
         null_ls.builtins.diagnostics.pylint,
         null_ls.builtins.diagnostics.deadnix,
         null_ls.builtins.diagnostics.statix,

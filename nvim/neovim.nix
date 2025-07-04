@@ -129,7 +129,7 @@ let
     stylua # for none-ls
     prettierd
     # live-server
-    mypy
+    pyright
     pylint
 
     #nix
