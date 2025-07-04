@@ -12,7 +12,7 @@ local capabilities = {
 capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
 -- Setup each LSP server individually
-lspconfig.gopls.setup({
+vim.lsp.config("gopls", {
     capabilities = capabilities,
     settings = {
         gopls = {
@@ -26,28 +26,16 @@ lspconfig.gopls.setup({
     },
 })
 
-lspconfig.lua_ls.setup({
-    root_dir = function(fname)
-        return require("lspconfig.util").root_pattern(".git")(fname) or require("lspconfig.util").path.dirname(fname)
-    end,
-    single_file_support = true, -- Ensures LSP works for single Lua files outside projects
-    settings = {
-        Lua = {
-            diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = { "vim" },
-            },
-        },
-    },
-})
-lspconfig.nil_ls.setup({})
-lspconfig.marksman.setup({})
-lspconfig.rust_analyzer.setup({})
-lspconfig.yamlls.setup({})
-lspconfig.bashls.setup({})
-lspconfig.clangd.setup({
-    cmd = { "clangd", "--offset-encoding=utf-16" }, -- Custom command for clangd
-})
+vim.lsp.enable("gopls")
+
+vim.lsp.enable("lua_ls")
+
+vim.lsp.enable("nil_ls")
+vim.lsp.enable("marksman")
+vim.lsp.enable("rust_analyzer")
+vim.lsp.enable("yamlls")
+vim.lsp.enable("bashls")
+vim.lsp.enable("clangd")
 
 -- Optional: Setup lsp-saga for enhanced LSP UI
 require("lspsaga").setup({})

@@ -3,6 +3,7 @@ local dapui = require("dapui")
 
 dapui.setup()
 
+-- Dapui configuration
 dap.listeners.after.event_initialized["dapui_config"] = function()
     dapui.open()
 end
@@ -13,8 +14,7 @@ dap.listeners.before.event_exited["dapui_config"] = function()
     dapui.close()
 end
 
-require("dap-python").setup("python") -- assumes python in PATH
-
+-- KeyMappings for DAP
 vim.keymap.set("n", "<F5>", function()
     require("dap").continue()
 end)
@@ -33,3 +33,6 @@ end)
 vim.keymap.set("n", "<Leader>Dr", function()
     require("dap").repl.open()
 end)
+
+-- For python
+require("dap-python").setup("python") -- assumes python in PATH
