@@ -85,6 +85,7 @@ let
 
       # debugging
       nvim-dap
+      nvim-dap-python
       nvim-dap-ui
       nvim-dap-virtual-text
       nvim-dap-go
