@@ -17,8 +17,10 @@ let
     h = "htop";
     gc = "git commit -m";
     vup = "nix profile upgrade neovim";
+    lvim = "nvim -u ~/.config/nvim/init.lua";
   };
-in {
+in
+{
   programs.bash = {
     enable = true;
     enableCompletion = true;
