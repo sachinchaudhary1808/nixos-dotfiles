@@ -9,11 +9,13 @@ local capabilities = {
     },
 }
 
-capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
+-- Set lsp capabilities globally
+vim.lsp.config("*", {
+    capabilities = require("blink.cmp").get_lsp_capabilities(capabilities),
+})
 
 -- Setup each LSP server individually
 vim.lsp.config("gopls", {
-    capabilities = capabilities,
     settings = {
         gopls = {
             analyses = {
