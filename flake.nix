@@ -21,95 +21,95 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = inputs @ {
-    self,
-    nixpkgs,
-    home-manager,
-    nixpkgs-unstable,
-    nixos-hardware,
-    nix-flatpak,
-    ...
-  }: let
-    inherit (nixpkgs) lib;
-    systemSettings = {
-      hostname = "laptop";
-      timeZone = "Asia/Kolkata";
-      locale = "en_US.UTF-8";
-    };
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      nixpkgs-unstable,
+      nixos-hardware,
+      nix-flatpak,
+      ...
+    }:
+    let
+      inherit (nixpkgs) lib;
+      systemSettings = {
+        hostname = "laptop";
+        timeZone = "Asia/Kolkata";
+        locale = "en_US.UTF-8";
+      };
 
-    userSettings = {
-      username = "coco"; # username
-      name = "sachin chaudhary";
-      hostname = "laptop";
-    };
+      userSettings = {
+        username = "coco"; # username
+        name = "sachin chaudhary";
+        hostname = "laptop";
+      };
 
-    # unstable-packages = final: _prev: {
-    #   unstable = import inputs.nixpkgs-unstable {
-    #     inherit (final) system;
-    #     config.allowUnfree = true;
-    #   };
-    # };
-    pkgs-Unstable = import nixpkgs-unstable {inherit system;};
+      # unstable-packages = final: _prev: {
+      #   unstable = import inputs.nixpkgs-unstable {
+      #     inherit (final) system;
+      #     config.allowUnfree = true;
+      #   };
+      # };
+      pkgs-Unstable = import nixpkgs-unstable { inherit system; };
 
-    system = "x86_64-linux";
+      system = "x86_64-linux";
+    in
+    {
+      nixosConfigurations = {
+        ${systemSettings.hostname} = lib.nixosSystem {
+          specialArgs = {
+            inherit
+              inputs
+              userSettings
+              systemSettings
+              pkgs-Unstable
+              ;
+          };
 
-    pkgs = import nixpkgs-unstable {
-      inherit system;
-      config.allowUnfree = true;
-    };
-
-    neovim = pkgs.callPackage ./nvim/neovim.nix {};
-  in {
-    packages.${system} = {
-      inherit neovim;
-    };
-
-    nixosConfigurations = {
-      ${systemSettings.hostname} = lib.nixosSystem {
-        specialArgs = {
-          inherit inputs userSettings systemSettings pkgs-Unstable;
-        };
-
-        modules = [
-          nixos-hardware.nixosModules.lenovo-ideapad-15alc6
-          nix-flatpak.nixosModules.nix-flatpak
-          ./configuration.nix
-          ({...}: {
-            environment.systemPackages = [
-            ];
-            # nixpkgs.overlays = [
-            #   unstable-packages
-            # ];
-          })
-          home-manager.nixosModules.home-manager
-          {
-            home-manager = {
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              extraSpecialArgs = {
-                inherit inputs userSettings pkgs-Unstable;
-              };
-              users.${userSettings.username} = {
-                imports = [
-                  ./home-manager.nix
-                  ./modules/gui/spicetify.nix
+          modules = [
+            nixos-hardware.nixosModules.lenovo-ideapad-15alc6
+            nix-flatpak.nixosModules.nix-flatpak
+            ./configuration.nix
+            (
+              { ... }:
+              {
+                environment.systemPackages = [
                 ];
+                # nixpkgs.overlays = [
+                #   unstable-packages
+                # ];
+              }
+            )
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                extraSpecialArgs = {
+                  inherit inputs userSettings pkgs-Unstable;
+                };
+                users.${userSettings.username} = {
+                  imports = [
+                    ./home-manager.nix
+                    ./modules/gui/spicetify.nix
+                  ];
+                };
               };
-            };
-          }
-        ];
+            }
+          ];
+        };
+      };
+      devShells = {
+        x86_64-linux.default = nixpkgs.legacyPackages.x86_64-linux.mkShell {
+          buildInputs = with nixpkgs.legacyPackages.x86_64-linux; [
+            vscode-langservers-extracted
+            nodejs
+          ];
+          shellHook = ''
+            echo "Development shell ready for nix to configure"
+          '';
+        };
       };
     };
-    devShells = {
-      x86_64-linux.default = nixpkgs.legacyPackages.x86_64-linux.mkShell {
-        buildInputs = with nixpkgs.legacyPackages.x86_64-linux; [
-          vscode-langservers-extracted
-          nodejs
-        ];
-        shellHook = ''
-          echo "Development shell ready for nix to configure"
-        '';
-      };
-    };
-  };
 }

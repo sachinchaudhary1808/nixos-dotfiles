@@ -16,7 +16,7 @@ let
     npi = "nix profile install";
     h = "htop";
     gc = "git commit -m";
-    vup = "nix profile upgrade neovim";
+    vup = "nix profile upgrade nvim";
     lvim = "nvim -u ~/.config/nvim/init.lua";
   };
 in
