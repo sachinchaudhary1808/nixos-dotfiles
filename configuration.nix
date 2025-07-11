@@ -474,7 +474,7 @@
     wrapperFeatures.gtk = true; # so that gtk works properly
     extraPackages = with pkgs; [
       sway-audio-idle-inhibit
-      imv
+      eog
       wlogout
       eyedropper
       swww
@@ -549,7 +549,7 @@
   };
 
   xdg.mime.defaultApplications = {
-    "image/png" = [ "imv.desktop" ];
+    "image/png" = [ "eog.desktop" ];
   };
 
   # bye bye nano
