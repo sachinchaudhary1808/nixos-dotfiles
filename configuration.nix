@@ -69,15 +69,17 @@
 
   #  disable dhcpcd u don't need if u use network manager
   networking.dhcpcd.enable = false;
-  networking.networkmanager.wifi.backend = "iwd";
-  networking.wireless.iwd.settings = {
-    IPv6 = {
-      Enabled = true;
-    };
-    Settings = {
-      AutoConnect = true;
-    };
-  };
+  ## dosen't work at university iwd
+  # networking.networkmanager.wifi.backend = "iwd";
+  networking.networkmanager.wifi.backend = "wpa_supplicant";
+  # networking.wireless.iwd.settings = {
+  #   IPv6 = {
+  #     Enabled = true;
+  #   };
+  #   Settings = {
+  #     AutoConnect = true;
+  #   };
+  # };
 
   # what to do when lid is closed
   services.logind.lidSwitch = "suspend";
