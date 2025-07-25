@@ -25,6 +25,7 @@ in
     #Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     packages = with pkgs; [
       neovim
+      wdisplays
       vscode-fhs
       geogebra6
       woomer
