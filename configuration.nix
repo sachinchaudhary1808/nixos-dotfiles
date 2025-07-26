@@ -172,6 +172,7 @@
       "input"
       "audio"
       "render"
+      "libvirtd"
     ];
     packages = with pkgs; [ ]; # just used nil to not have empty code lol
   };
