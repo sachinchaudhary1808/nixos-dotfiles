@@ -336,8 +336,7 @@
     jdk8
     # jdk17
 
-    # pkgs-Unstable.
-    onlyoffice-desktopeditors
+    pkgs-Unstable.libreoffice
     fcitx5-configtool
   ];
 
