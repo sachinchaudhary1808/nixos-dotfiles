@@ -603,20 +603,20 @@
     };
   };
 
-  services.keyd = {
-    enable = true;
-    keyboards = {
-      default = {
-        settings = {
-          main = {
-            # Maps capslock to escape when pressed and control when held.
-            capslock = "overload(control, escape)";
-            escape = "capslock";
-          };
-        };
-      };
-    };
-  };
+  # services.keyd = {
+  #   enable = true;
+  #   keyboards = {
+  #     default = {
+  #       settings = {
+  #         main = {
+  #           # Maps capslock to escape when pressed and control when held.
+  #           capslock = "overload(control, escape)";
+  #           escape = "capslock";
+  #         };
+  #       };
+  #     };
+  #   };
+  # };
 
   # for the via app to work
   services.udev.extraRules = ''

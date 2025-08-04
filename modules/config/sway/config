@@ -46,6 +46,10 @@ client.urgent           $cl_urge $cl_urge $cl_fore $cl_urge $cl_urge
 client.background       $back 
 client.placeholder      $cl_back $cl_back $cl_fore $cl_back $cl_back
 
+input * {
+    xkb_options "caps:swapescape"
+}
+
 
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
