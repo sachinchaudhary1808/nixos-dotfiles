@@ -17,8 +17,6 @@ for_window [app_id="blueman-manager"] floating enable, resize set 800 600
 for_window [title="Authentication Required"] floating enable, resize set 600 400
 for_window [window_role="dialog"] floating enable
 
-#eyedropper floating
-for_window [app_id="com.github.finefindus.eyedropper"] floating enable
 
 # Visual
 smart_borders on
@@ -417,4 +415,5 @@ for_window [con_mark="[0-9]"] border pixel 3
 
 
 # for screen zooming
+bindsym $mod+p exec hyprpicker | wl-copy
 bindsym $mod+shift+p exec woomer

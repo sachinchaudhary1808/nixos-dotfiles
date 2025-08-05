@@ -28,7 +28,7 @@ in
       wdisplays
       vscode-fhs
       geogebra6
-      woomer
+      hyprpicker
       blender
       asciinema # for terminal recording in txt lol idk
       vesktop
