@@ -44,9 +44,9 @@ client.urgent           $cl_urge $cl_urge $cl_fore $cl_urge $cl_urge
 client.background       $back 
 client.placeholder      $cl_back $cl_back $cl_fore $cl_back $cl_back
 
-input * {
-    xkb_options "caps:swapescape"
-}
+# input * {
+#     xkb_options "caps:swapescape"
+# }
 
 
 # Logo key. Use Mod1 for Alt.
@@ -69,7 +69,7 @@ set $menu rofi -show drun | xargs swaymsg exec --
 #
 # Default wallpaper (more resolutions are available in @datadir@/backgrounds/sway/)
 # output * bg /run/current-system/sw/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
- output * bg ~/nixos-dotfiles/images/wallpapers/Xero-Plasma11.jpg fit
+ output * bg ~/nixos-dotfiles/images/wallpapers/at-infinity-pi4a3mucMEA-unsplash.jpg fit
 #
 # Example configuration:
 #

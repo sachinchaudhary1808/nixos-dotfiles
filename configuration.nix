@@ -284,6 +284,7 @@
     acpi
     xarchiver
     baobab
+    ncdu
     transmission_4-gtk
     warpinator
     tor-browser
@@ -603,20 +604,28 @@
     };
   };
 
-  # services.keyd = {
-  #   enable = true;
-  #   keyboards = {
-  #     default = {
-  #       settings = {
-  #         main = {
-  #           # Maps capslock to escape when pressed and control when held.
-  #           capslock = "overload(control, escape)";
-  #           escape = "capslock";
-  #         };
-  #       };
-  #     };
-  #   };
-  # };
+  services.keyd = {
+    enable = true;
+    keyboards = {
+      default = {
+        settings = {
+          main = {
+            # Maps capslock to escape when pressed and control when held.
+            capslock = "overload(control, escape)";
+            escape = "capslock";
+          };
+        };
+      };
+    };
+  };
+
+  environment.etc."libinput/local-overrides.quirks".text = pkgs.lib.mkForce ''
+    [Serial Keyboards]
+    MatchUdevType=keyboard
+    MatchName=keyd virtual keyboard
+    AttrKeyboardIntegration=internal
+  '';
+  # https://github.com/rvaiya/keyd/issues/66#issuecomment-985983524
 
   # for the via app to work
   services.udev.extraRules = ''
