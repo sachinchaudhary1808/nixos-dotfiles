@@ -103,6 +103,9 @@ in
     "foot/foot.ini".source =
       config.lib.file.mkOutOfStoreSymlink "/home/${username}/nixos-dotfiles/modules/gui/foot/foot.ini";
 
+    "niri/config.kdl".source =
+      config.lib.file.mkOutOfStoreSymlink "/home/${username}/nixos-dotfiles/modules/gui/niri/config.kdl";
+
     # u have to rebuild but don't need to give full path...
     "nixpkgs/config.nix".source = ./modules/config/nixpkgs/config.nix;
     "direnv/direnv.toml".source = ./modules/config/direnv/direnv.toml;

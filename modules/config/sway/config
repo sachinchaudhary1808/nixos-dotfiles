@@ -75,8 +75,10 @@ set $menu rofi -show drun | xargs swaymsg exec --
 #
 output HDMI-A-1 resolution 1920x1080 position 1920,0
 
+workspace 8 output HDMI-A-1
+
 # laptop display configuration
- output eDP-1 resolution 1920x1080 position 1920,0 scale 1.0
+ output eDP-1 resolution 1920x1080 position 0,0 scale 1.0
 
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
@@ -92,6 +94,7 @@ exec QT_QPA_PLATFORM="wayland;xcb"
 exec blueman-applet
 exec gammastep-indicator
 exec swaync
+exec foot --server
 
 # exec systemctl --user import-environment PATH # for the github issue 
 # exec sway-audio-idle-inhibit

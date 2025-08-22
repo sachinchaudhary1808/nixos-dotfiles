@@ -9,10 +9,10 @@
   "spacing": 4, // Gaps between modules (4px)
   // Choose the order of the modules
   "modules-left": [
-    "sway/workspaces",
-    "sway/mode",
-    "sway/scratchpad",
-    "sway/window",
+    "niri/workspaces",
+    // "sway/mode",
+    "niri/scratchpad",
+    "niri/window",
   ],
   "modules-right": [
     // "mpd",
@@ -32,7 +32,7 @@
     "tray",
   ],
   // Modules configuration
-  "sway/workspaces": {
+  "niri/workspaces": {
     //     "disable-scroll": true,
     //     "all-outputs": true,
     //     "warp-on-scroll": false,
@@ -57,10 +57,10 @@
       "unlocked": "",
     },
   },
-  "sway/mode": {
-    "format": "<span style=\"italic\">{}</span>",
-  },
-  "sway/scratchpad": {
+  // "sway/mode": {
+  //   "format": "<span style=\"italic\">{}</span>",
+  // },
+  "niri/scratchpad": {
     "format": "{icon} {count}",
     "show-empty": false,
     "format-icons": ["", ""],
