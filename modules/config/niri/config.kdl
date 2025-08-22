@@ -79,7 +79,7 @@ output "eDP-1" {
 output "HDMI-A-1" {
     mode "1920x1080@60.000"
     position x=0 y=0   
-    scale 1
+    scale 2
     transform "normal"
 }
 // output "eDP-1" {
@@ -123,6 +123,7 @@ output "HDMI-A-1" {
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
 layout {
+
     // Set gaps around windows in logical pixels.
     gaps 16
 
@@ -325,6 +326,20 @@ window-rule {
 // remove titlebar
 prefer-no-csd
 
+
+overview {
+    backdrop-color "#2e3440"
+}
+
+layer-rule {
+    // This is for swaybg; change for other wallpaper tools.
+    // Find the right namespace by running niri msg layers.
+    match namespace="^wallpaper$"
+    place-within-backdrop true
+}
+
+
+
 // Open the Firefox picture-in-picture player as floating by default.
 window-rule {
     // This app-id regular expression will work for both:
@@ -393,6 +408,9 @@ binds {
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+    XF86MonBrightnessUp  allow-when-locked=true { spawn "brightnessctl" "set" "10%+" ; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "10%-" ; }
+
 
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,

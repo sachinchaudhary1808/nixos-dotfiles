@@ -7,16 +7,16 @@
   gtk = {
     enable = true; # Enable GTK theme management
     # catppuccin.enable = true;
-    # theme = {
-    #   # Choose your theme name and package
-    #   name = "Dracula";
-    #   package = pkgs.dracula-theme;
-    #   # {
-    #   #      # accents = [ "blue" ];
-    #   #      # variant = "mocha";
-    #   #      # size = "compact";
-    #   #    };
-    # };
+    theme = {
+      # Choose your theme name and package
+      name = "Dracula";
+      package = pkgs.dracula-theme;
+      # {
+      #      # accents = [ "blue" ];
+      #      # variant = "mocha";
+      #      # size = "compact";
+      #    };
+    };
   };
 
   gtk.iconTheme = {
