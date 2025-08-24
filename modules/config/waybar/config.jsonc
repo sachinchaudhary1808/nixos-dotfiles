@@ -2,9 +2,9 @@
 {
   "bar_id": "bar-0",
   "ipc": true,
-  // "layer": "top", // Waybar at top layer
+  "layer": "top", // Waybar at top layer
   "position": "bottom", // Waybar position (top|bottom|left|right)
-  "height": 32, // Waybar height (to be removed for auto height)
+  // "height": 32, // Waybar height (to be removed for auto height)
   // "width": 1280, // Waybar width
   "spacing": 4, // Gaps between modules (4px)
   // Choose the order of the modules
@@ -12,6 +12,7 @@
     "niri/workspaces",
     // "sway/mode",
     "niri/scratchpad",
+    "wlr/taskbar",
     "niri/window",
   ],
   "modules-right": [
@@ -209,6 +210,22 @@
       "input": "",
       "output-input": "  ",
       "none": "",
+    },
+  },
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 26,
+    "icon-theme": "Papirus-Dark",
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": ["Alacritty"],
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition",
+    },
+    "rewrite": {
+      "Firefox Web Browser": "Firefox",
+      "Foot Server": "Terminal",
     },
   },
 }
