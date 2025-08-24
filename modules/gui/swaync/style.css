@@ -1,0 +1,175 @@
+* {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.control-center {
+  background: rgba(30, 30, 46, 0.9);
+  border: 1px solid #45475a;
+  border-radius: 8px;
+  margin: 8px;
+}
+
+.notification-window {
+  background: rgba(30, 30, 46, 0.9);
+  border: 1px solid #45475a;
+  border-radius: 6px;
+}
+
+.notification {
+  background: rgba(49, 50, 68, 0.8);
+  border-radius: 4px;
+  margin: 4px;
+  padding: 8px;
+}
+
+.notification:hover {
+  background: rgba(69, 71, 90, 0.8);
+}
+
+.summary {
+  color: #cdd6f4;
+}
+
+.body {
+  color: #a6adc8;
+  margin-top: 2px;
+}
+
+.close-button {
+  background: #f38ba8;
+  border: none;
+  border-radius: 2px;
+  color: #1e1e2e;
+  padding: 2px 4px;
+}
+
+.widget-title {
+  color: #cdd6f4;
+  font-size: 14px;
+  margin: 8px;
+}
+
+.widget-title button {
+  background: #45475a;
+  border: none;
+  border-radius: 2px;
+  color: #cdd6f4;
+  padding: 4px 8px;
+  font-size: 11px;
+}
+
+.widget-buttons-grid {
+  background: rgba(49, 50, 68, 0.8);
+  border: 1px solid #45475a;
+  border-radius: 6px;
+  margin: 4px 8px;
+  padding: 8px;
+}
+
+.grid-button {
+  border: none;
+  border-radius: 4px;
+  color: #ffffff;
+  margin: 2px;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.grid-button:nth-child(1) {
+  background: #6b7280;
+}
+
+.grid-button:nth-child(1):hover {
+  background: #4f46e5;
+}
+
+.grid-button:nth-child(2) {
+  background: #6b7280;
+}
+
+.grid-button:nth-child(2):hover {
+  background: #f59e0b;
+}
+
+.grid-button:nth-child(3) {
+  background: #6b7280;
+}
+
+.grid-button:nth-child(3):hover {
+  background: #10b981;
+}
+
+.grid-button:nth-child(4) {
+  background: #6b7280;
+}
+
+.grid-button:nth-child(4):hover {
+  background: #06b6d4;
+}
+
+.grid-button:nth-child(5) {
+  background: #6b7280;
+}
+
+.grid-button:nth-child(5):hover {
+  background: #ef4444;
+}
+
+.widget-dnd {
+  background: rgba(49, 50, 68, 0.8);
+  border-radius: 6px;
+  margin: 4px 8px;
+  padding: 8px;
+}
+
+.widget-dnd > switch {
+  background: #6b7280;
+  border-radius: 12px;
+  min-width: 40px;
+  min-height: 20px;
+}
+
+.widget-dnd > switch:checked {
+  background: #f59e0b;
+}
+
+.widget-dnd > switch slider {
+  background: #cdd6f4;
+  border-radius: 50%;
+  min-width: 16px;
+  min-height: 16px;
+  margin: 2px;
+}
+
+.widget-mpris {
+  background: rgba(49, 50, 68, 0.8);
+  border-radius: 4px;
+  margin: 4px 8px;
+  padding: 6px;
+}
+
+.widget-mpris-title {
+  color: #cdd6f4;
+}
+
+.widget-mpris-subtitle {
+  color: #a6adc8;
+}
+
+.widget-inhibitors {
+  background: rgba(49, 50, 68, 0.8);
+  border-radius: 4px;
+  margin: 4px 8px;
+  padding: 4px;
+}
+
+.widget-inhibitors button {
+  background: #45475a;
+  border: none;
+  border-radius: 2px;
+  color: #cdd6f4;
+  padding: 2px 6px;
+  font-size: 11px;
+}
