@@ -114,10 +114,5 @@ in
   home.file = {
     ".ignore".source = ./modules/config/home/.ignore;
     ".inputrc".source = ./modules/config/home/.inputrc;
-
-    ".config/wlogout" = {
-      source = ./modules/config/wlogout; # Path to the source directory you want to symlink
-      recursive = true;
-    };
   };
 }

@@ -479,7 +479,6 @@
     extraPackages = with pkgs; [
       sway-audio-idle-inhibit
       eog
-      wlogout
       eyedropper
       swww
       slurp
