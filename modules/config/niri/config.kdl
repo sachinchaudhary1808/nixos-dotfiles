@@ -280,8 +280,15 @@ spawn-at-startup "swww-daemon"
 spawn-at-startup "swaync"
 spawn-at-startup "foot" "--server"
 spawn-at-startup "lxqt-policykit-agent"
-spawn-at-startup "lxqt-policykit-agent"
 spawn-at-startup "sh" "-c" "wl-paste --watch cliphist store" 
+
+spawn-at-startup "xwayland-satellite"
+// Or, if you built it by hand:
+// spawn-at-startup "~/path/to/code/target/release/xwayland-satellite"
+
+environment {
+    DISPLAY ":0"
+}
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -322,13 +329,14 @@ window-rule {
     match app-id=r#"^org\.wezfurlong\.wezterm$"#
     default-column-width {}
 
+
 }
 // remove titlebar
 prefer-no-csd
 
 
 overview {
-    backdrop-color "#2e3440"
+    backdrop-color "#92A8D1"
 }
 
 layer-rule {
@@ -410,8 +418,16 @@ binds {
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
     XF86MonBrightnessUp  allow-when-locked=true { spawn "brightnessctl" "set" "10%+" ; }
     XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "10%-" ; }
+    MOD+XF86AudioLowerVolume allow-when-locked=true {  spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "0.1-" "--limit" "1.0" ; }
+    MOD+XF86AudioRaiseVolume  allow-when-locked=true {  spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "0.1+" "--limit" "1.0" ;}
 
 
+
+
+ XF86AudioPlay allow-when-locked=true { spawn "playerctl" "--player" "playerctld" "play-pause" ; }  
+ XF86AudioStop allow-when-locked=true { spawn  "playerctl" "--player" "playerctld" "stop"; }
+ XF86AudioNext allow-when-locked=true { spawn "playerctl" "--player" "playerctld" "next" ;} 
+ XF86AudioPrev allow-when-locked=true { spawn "playerctl" "--player" "playerctld" "previous" ; }
     // Open/close the Overview: a zoomed-out view of workspaces and windows.
     // You can also move the mouse into the top-left hot corner,
     // or do a four-finger swipe up on a touchpad.
