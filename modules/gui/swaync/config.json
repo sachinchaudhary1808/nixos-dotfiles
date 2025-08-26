@@ -12,7 +12,7 @@
   "transition-time": 200,
   "hide-on-clear": false,
   "hide-on-action": true,
-  "widgets": ["title", "dnd", "notifications", "mpris", "buttons-grid"],
+  "widgets": ["title", "dnd", "notifications", "mpris"],
   "widget-config": {
     "inhibitors": {
       "text": "Inhibitors",
@@ -30,30 +30,6 @@
     "mpris": {
       "image-size": 96,
       "image-radius": 12
-    },
-    "buttons-grid": {
-      "actions": [
-        {
-          "label": "Lock",
-          "command": "swaylock"
-        },
-        {
-          "label": "Logout",
-          "command": "loginctl terminate-user $USER"
-        },
-        {
-          "label": "Suspend",
-          "command": "systemctl suspend"
-        },
-        {
-          "label": "Reboot",
-          "command": "systemctl reboot"
-        },
-        {
-          "label": "Shutdown",
-          "command": "systemctl poweroff"
-        }
-      ]
     }
   }
 }

@@ -79,7 +79,7 @@ output "eDP-1" {
 output "HDMI-A-1" {
     mode "1920x1080@60.000"
     position x=0 y=0   
-    scale 2
+    scale 1
     transform "normal"
 }
 // output "eDP-1" {
@@ -126,7 +126,7 @@ layout {
 
 
     // Set gaps around windows in logical pixels.
-    gaps 16
+    gaps 10
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -408,6 +408,8 @@ binds {
     Super+Shift+F9 hotkey-overlay-title="Disable battery conservation mode" { spawn "~/nixos-dotfiles/modules/scripts/conservation_mode/off.sh"; }
     Super+z hotkey-overlay-title="zoom" { spawn "woomer"; }
     Super+p hotkey-overlay-title="color-picker" { spawn "hyprpicker" "-a"; }
+    Super+escape hotkey-overlay-title="logout menu" { spawn "nwg-bar"; }
+
     // Super+shiftz hotkey-overlay-title="zoom +" { spawn "~/nixos-dotfiles/modules/scripts/conservation_mode/off.sh"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.

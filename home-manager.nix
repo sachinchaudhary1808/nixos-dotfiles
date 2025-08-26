@@ -114,5 +114,10 @@ in
   home.file = {
     ".ignore".source = ./modules/config/home/.ignore;
     ".inputrc".source = ./modules/config/home/.inputrc;
+
+    ".config/nwg-bar" = {
+      source = ./modules/config/nwg-bar; # Path to the source directory you want to symlink
+      recursive = true;
+    };
   };
 }

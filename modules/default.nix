@@ -2,7 +2,8 @@
   pkgs,
   config,
   ...
-}: {
+}:
+{
   imports = [
     # user-system programms
     ./user-system/bash.nix
@@ -22,5 +23,8 @@
     ./tui/yazi.nix
     ./tui/git.nix
     ./tui/tmux/tmux.nix
+
+    # services
+    ./services/swayidle.nix
   ];
 }

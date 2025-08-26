@@ -12,7 +12,7 @@
     "niri/workspaces",
     // "sway/mode",
     "niri/scratchpad",
-    "wlr/taskbar",
+    // "wlr/taskbar",
     "niri/window",
   ],
   "modules-right": [
