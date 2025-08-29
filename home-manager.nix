@@ -66,7 +66,7 @@ in
       nix-tree
       yt-dlp
       steam-run
-      gnome-frog
+      tesseract
       ttyper
       # lazygit
       tree

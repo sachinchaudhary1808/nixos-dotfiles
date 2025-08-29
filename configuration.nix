@@ -263,6 +263,7 @@
     alejandra
     swayidle
     swaylock
+    nwg-bar
     # swaylock-effects
     snapshot
     kitty
