@@ -271,7 +271,7 @@
     alacritty
     xorg.xmodmap
     libinput
-    qpwgraph
+    helvum
     blueman
     wl-clipboard
     brightnessctl
@@ -291,6 +291,7 @@
     tor-browser
     # (brave.override { vulkanSupport = true; })
     firefox
+    nautilus
     fzf
     gcc
     keepassxc
@@ -372,8 +373,9 @@
 
   services.dbus.enable = true;
   xdg.portal = {
-    enable = true;
     wlr.enable = true;
+    enable = true;
+    xdgOpenUsePortal = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
@@ -536,14 +538,14 @@
   };
 
   #thunar file-manager
-  programs.thunar = {
-    enable = true;
-    plugins = with pkgs.xfce; [
-      thunar-archive-plugin
-      thunar-volman
-      thunar-dropbox-plugin
-    ];
-  };
+  # programs.thunar = {
+  #   enable = true;
+  #   plugins = with pkgs.xfce; [
+  #     thunar-archive-plugin
+  #     thunar-volman
+  #     thunar-dropbox-plugin
+  #   ];
+  # };
   # thunar to open things in terminal
   xdg.terminal-exec = {
     enable = true;

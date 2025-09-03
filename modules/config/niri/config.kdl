@@ -1,7 +1,7 @@
 // This config is in the KDL format: https://kdl.dev
 // "/-" comments out the following node.
 // Check the wiki for a full description of the configuration:
-// https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
+// https://github.com/YaLTeR/niriwiki/Configuration:-Introduction
 
 // Input device configuration.
 // Find the full list of options on the wiki:
@@ -296,7 +296,7 @@ environment {
 // Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
 // This option will also fix border/focus ring drawing behind some semitransparent windows.
 // After enabling or disabling this, you need to restart the apps for this to take effect.
-// prefer-no-csd
+prefer-no-csd
 
 // You can change the path where screenshots are saved.
 // A ~ at the front will be expanded to the home directory.
@@ -335,8 +335,6 @@ window-rule {
 
 
 }
-// remove titlebar
-prefer-no-csd
 
 
 overview {
@@ -397,6 +395,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn "footclient"; }
+    Mod+Alt+F hotkey-overlay-title="Open file-manager: nautilus" { spawn "nautilus"; }
     Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn "sh" "-c" "rofi -show drun | xargs swaymsg exec --"; }
     Insert hotkey-overlay-title="Run Clipboard: rofi + clipboard" {
     spawn "sh" "-c" "cliphist list | rofi -dmenu | cliphist decode | wl-copy";
@@ -419,15 +418,15 @@ binds {
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1+" "--limit" "1.0"; }
-    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.1-"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.07+" "--limit" "1.0"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.07-"; }
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     MOD+XF86AudioMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
     XF86AudioMicMute     allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
-    XF86MonBrightnessUp  allow-when-locked=true { spawn "brightnessctl" "set" "10%+" ; }
-    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "10%-" ; }
-    MOD+XF86AudioLowerVolume allow-when-locked=true {  spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "0.1-" "--limit" "1.0" ; }
-    MOD+XF86AudioRaiseVolume  allow-when-locked=true {  spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "0.1+" "--limit" "1.0" ;}
+    XF86MonBrightnessUp  allow-when-locked=true { spawn "brightnessctl" "set" "7%+" ; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "7%-" ; }
+    MOD+XF86AudioLowerVolume allow-when-locked=true {  spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "0.07-" "--limit" "1.0" ; }
+    MOD+XF86AudioRaiseVolume  allow-when-locked=true {  spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "0.07+" "--limit" "1.0" ;}
 
 
 

@@ -18,6 +18,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    winapps = {
+      url = "github:winapps-org/winapps";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
@@ -29,6 +34,7 @@
       nixpkgs-unstable,
       nixos-hardware,
       nix-flatpak,
+      winapps,
       ...
     }:
     let
@@ -75,6 +81,8 @@
               { ... }:
               {
                 environment.systemPackages = [
+                  winapps.packages."${system}".winapps
+                  winapps.packages."${system}".winapps-launcher
                 ];
                 # nixpkgs.overlays = [
                 #   unstable-packages
