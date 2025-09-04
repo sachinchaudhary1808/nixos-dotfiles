@@ -413,10 +413,12 @@
       };
     };
     extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
       xdg-desktop-portal-gnome
+      xdg-desktop-portal-gtk
     ];
   };
+
+  programs.dconf.enable = true;
 
   #fonts
   fonts.enableDefaultPackages = true;
