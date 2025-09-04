@@ -661,3 +661,7 @@ binds {
     // moving the mouse or pressing any other key.
     Mod+Shift+P { power-off-monitors; }
 }
+
+debug {
+    honor-xdg-activation-with-invalid-serial
+}

@@ -41,13 +41,35 @@
   # boot.loader.grub.splashImage = null;
   # boot.loader.grub.useOSProber = true;
 
-fileSystems = {
+  fileSystems = {
+    "/".options = [
+      "compress=zstd"
+      "noatime"
+    ];
+    "/home".options = [ "compress=zstd" ];
+    "/nix".options = [
+      "compress=zstd"
+      "noatime"
+    ];
+  };
 
-"/".options = ["compress=zstd"];
-"/home".options = ["compress=zstd"];
-"/nix".options = ["compress=zstd" "noatime"];
+  services.btrfs.autoScrub = {
+    enable = true;
+    interval = "monthly";
+    fileSystems = [ "/" ];
+  };
 
-};
+  services.beesd.filesystems = {
+    root = {
+      spec = "LABEL=root";
+      hashTableSizeMB = 2048;
+      verbosity = "crit";
+      extraOptions = [
+        "--loadavg-target"
+        "5.0"
+      ];
+    };
+  };
 
   boot.loader = {
     systemd-boot.enable = true;
@@ -381,11 +403,19 @@ fileSystems = {
   };
 
   services.dbus.enable = true;
+
   xdg.portal = {
-    wlr.enable = true;
     enable = true;
-    xdgOpenUsePortal = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config = {
+      common = {
+        default = [ "gtk" ];
+        "org.freedesktop.impl.portal.ScreenCast" = "gnome";
+      };
+    };
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-gnome
+    ];
   };
 
   #fonts
@@ -546,15 +576,15 @@ fileSystems = {
     };
   };
 
-  #thunar file-manager
-  # programs.thunar = {
-  #   enable = true;
-  #   plugins = with pkgs.xfce; [
-  #     thunar-archive-plugin
-  #     thunar-volman
-  #     thunar-dropbox-plugin
-  #   ];
-  # };
+  # thunar file-manager
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [
+      thunar-archive-plugin
+      thunar-volman
+      thunar-dropbox-plugin
+    ];
+  };
   # thunar to open things in terminal
   xdg.terminal-exec = {
     enable = true;
