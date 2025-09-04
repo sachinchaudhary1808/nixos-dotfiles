@@ -75,6 +75,8 @@ in
       gnome-clocks
       newsflash
       shortwave # radio
+      xwayland-satellite
+      woomer
     ];
 
     sessionVariables = {

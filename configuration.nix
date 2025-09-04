@@ -40,6 +40,15 @@
   # Bootloader.
   # boot.loader.grub.splashImage = null;
   # boot.loader.grub.useOSProber = true;
+
+fileSystems = {
+
+"/".options = ["compress=zstd"];
+"/home".options = ["compress=zstd"];
+"/nix".options = ["compress=zstd" "noatime"];
+
+};
+
   boot.loader = {
     systemd-boot.enable = true;
     grub = {
