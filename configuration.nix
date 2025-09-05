@@ -406,13 +406,14 @@
 
   xdg.portal = {
     enable = true;
-    # common = {
-    #       config = {
-    #   default = [ "gtk" ];
-    #   "org.freedesktop.impl.portal.ScreenCast" = "gnome";
-    # };
-    # };
+    config = {
+      common = {
+        default = [ "gtk" ];
+        "org.freedesktop.impl.portal.ScreenCast" = "gnome";
+      };
+    };
     extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
       xdg-desktop-portal-gnome
     ];
   };
@@ -706,4 +707,8 @@
   # };
   services.flatpak.packages = [
   ];
+  # environment.pathsToLink = [
+  #   "/share/xdg-desktop-portal"
+  #   "/share/applications"
+  # ];
 }

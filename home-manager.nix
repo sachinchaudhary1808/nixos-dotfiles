@@ -77,6 +77,7 @@ in
       shortwave # radio
       xwayland-satellite
       woomer
+      wl-mirror
     ];
 
     sessionVariables = {
