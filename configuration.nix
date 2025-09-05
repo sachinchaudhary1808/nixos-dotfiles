@@ -244,15 +244,15 @@
       package = pkgs.mlocate;
     };
 
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd 'niri-session' --theme 'border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red'";
-          user = "greeter";
-        };
-      };
-    };
+    # greetd = {
+    #   enable = true;
+    #   settings = {
+    #     default_session = {
+    #       command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd 'niri-session' --theme 'border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red'";
+    #       user = "greeter";
+    #     };
+    #   };
+    # };
   };
 
   security = {
@@ -268,8 +268,8 @@
   # unlock keyring on login
 
   #   services.xserver.enable = true;sway
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -406,15 +406,14 @@
 
   xdg.portal = {
     enable = true;
-    config = {
-      common = {
-        default = [ "gtk" ];
-        "org.freedesktop.impl.portal.ScreenCast" = "gnome";
-      };
-    };
+    # common = {
+    #       config = {
+    #   default = [ "gtk" ];
+    #   "org.freedesktop.impl.portal.ScreenCast" = "gnome";
+    # };
+    # };
     extraPortals = with pkgs; [
       xdg-desktop-portal-gnome
-      xdg-desktop-portal-gtk
     ];
   };
 
