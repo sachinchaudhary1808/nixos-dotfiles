@@ -78,6 +78,7 @@ in
       xwayland-satellite
       woomer
       wl-mirror
+      lazygit
     ];
 
     sessionVariables = {

@@ -1,8 +1,8 @@
 {
   services.gammastep = {
     enable = true;
-    temperature.day = 5000;
-    temperature.night = 2500;
+    temperature.day = 6500;
+    temperature.night = 3500;
     provider = "manual";
     settings = {
       general = {

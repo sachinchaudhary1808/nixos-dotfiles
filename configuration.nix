@@ -59,17 +59,18 @@
     fileSystems = [ "/" ];
   };
 
-  services.beesd.filesystems = {
-    root = {
-      spec = "LABEL=root";
-      hashTableSizeMB = 2048;
-      verbosity = "crit";
-      extraOptions = [
-        "--loadavg-target"
-        "5.0"
-      ];
-    };
-  };
+  ## Disabled cuz heavy on ram and stuff
+  # services.beesd.filesystems = {
+  #   root = {
+  #     spec = "LABEL=root";
+  #     hashTableSizeMB = 2048;
+  #     verbosity = "crit";
+  #     extraOptions = [
+  #       "--loadavg-target"
+  #       "5.0"
+  #     ];
+  #   };
+  # };
 
   boot.loader = {
     systemd-boot.enable = true;
@@ -244,15 +245,15 @@
       package = pkgs.mlocate;
     };
 
-    # greetd = {
-    #   enable = true;
-    #   settings = {
-    #     default_session = {
-    #       command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd 'niri-session' --theme 'border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red'";
-    #       user = "greeter";
-    #     };
-    #   };
-    # };
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd 'niri-session' --theme 'border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red'";
+          user = "greeter";
+        };
+      };
+    };
   };
 
   security = {
@@ -268,8 +269,8 @@
   # unlock keyring on login
 
   #   services.xserver.enable = true;sway
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -352,7 +353,6 @@
     ripgrep
     fd
     unzip
-    obs-studio
     v4l-utils
     cliphist
     #podman
@@ -492,6 +492,17 @@
     "flakes"
   ];
 
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-backgroundremoval
+      obs-pipewire-audio-capture
+      obs-vaapi # optional AMD hardware acceleration
+      obs-gstreamer
+      obs-vkcapture
+    ];
+  };
   # settings of obs
   boot = {
     kernelModules = [ "v4l2loopback" ];
