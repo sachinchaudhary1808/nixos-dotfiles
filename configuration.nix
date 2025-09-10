@@ -372,6 +372,8 @@
 
     pkgs-Unstable.libreoffice
     fcitx5-configtool
+
+    clang-tools
   ];
 
   #polkit service

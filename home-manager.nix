@@ -79,6 +79,7 @@ in
       woomer
       wl-mirror
       lazygit
+      zed-editor
     ];
 
     sessionVariables = {
