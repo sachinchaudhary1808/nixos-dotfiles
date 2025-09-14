@@ -1,4 +1,3 @@
-# my nixos configurationconfiguraion
 {
   config,
   pkgs,
@@ -7,8 +6,7 @@
   systemSettings,
   pkgs-Unstable,
   ...
-}:
-{
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -17,10 +15,10 @@
   nix = {
     # using lix insted of nix
     package = pkgs-Unstable.lix;
-    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 
     # for cachix builds
-    settings.extra-substituters = [ "https://nix-community.cachix.org" ];
+    settings.extra-substituters = ["https://nix-community.cachix.org"];
     settings.extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
@@ -46,7 +44,7 @@
       "compress=zstd"
       "noatime"
     ];
-    "/home".options = [ "compress=zstd" ];
+    "/home".options = ["compress=zstd"];
     "/nix".options = [
       "compress=zstd"
       "noatime"
@@ -56,7 +54,7 @@
   services.btrfs.autoScrub = {
     enable = true;
     interval = "monthly";
-    fileSystems = [ "/" ];
+    fileSystems = ["/"];
   };
 
   ## Disabled cuz heavy on ram and stuff
@@ -93,7 +91,7 @@
   networking.wireless.enable = false; # disble wpa whatever
 
   # Dns server
-  networking.nameservers = [ "1.1.1.1" ];
+  networking.nameservers = ["1.1.1.1"];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -125,8 +123,8 @@
   boot.kernel.sysctl."vm.page-cluster" = 0;
 
   # Gpu settings
-  services.xserver.videoDrivers = [ "amdgpu" ];
-  boot.initrd.kernelModules = [ "amdgpu" ];
+  services.xserver.videoDrivers = ["amdgpu"];
+  boot.initrd.kernelModules = ["amdgpu"];
   # # Enable firmware update service
   services.fwupd.enable = true;
 
@@ -206,7 +204,7 @@
       "render"
       "libvirtd"
     ];
-    packages = with pkgs; [ ]; # just used nil to not have empty code lol
+    packages = with pkgs; []; # just used nil to not have empty code lol
   };
 
   nixpkgs = {
@@ -277,6 +275,11 @@
     # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     # some good nix tools
     nixd
+    nil
+    pkgs-Unstable.zed-editor
+    nixpkgs-fmt
+    nodejs
+
     gnome-calculator
     river
     kdiskmark
@@ -322,7 +325,7 @@
     warpinator
     tor-browser
     # (brave.override { vulkanSupport = true; })
-    firefox
+    firefox-esr
     nautilus
     fzf
     gcc
@@ -372,7 +375,7 @@
 
     pkgs-Unstable.libreoffice
     fcitx5-configtool
-
+    orca
     clang-tools
   ];
 
@@ -410,7 +413,7 @@
     enable = true;
     config = {
       common = {
-        default = [ "gtk" ];
+        default = ["gtk"];
         "org.freedesktop.impl.portal.ScreenCast" = "gnome";
       };
     };
@@ -442,9 +445,9 @@
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      serif = [ "Liberation Serif" ];
-      sansSerif = [ "Noto Sans" ];
-      monospace = [ "Fira Code" ];
+      serif = ["Liberation Serif"];
+      sansSerif = ["Noto Sans"];
+      monospace = ["Fira Code"];
     };
   };
 
@@ -507,9 +510,9 @@
   };
   # settings of obs
   boot = {
-    kernelModules = [ "v4l2loopback" ];
+    kernelModules = ["v4l2loopback"];
 
-    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+    extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
   };
 
   #masked services
@@ -602,7 +605,7 @@
   # thunar to open things in terminal
   xdg.terminal-exec = {
     enable = true;
-    settings.default = [ "foot.desktop" ];
+    settings.default = ["foot.desktop"];
   };
 
   programs.nautilus-open-any-terminal.enable = true;
@@ -693,7 +696,7 @@
     # Generic rule for VIA (and other hidraw devices)
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
   '';
-  services.udev.packages = [ pkgs.qmk-udev-rules ];
+  services.udev.packages = [pkgs.qmk-udev-rules];
 
   programs.wshowkeys.enable = true;
 

@@ -10,10 +10,9 @@
 # ... is called ellipsis
 let
   username = userSettings.username;
-in
-{
+in {
   # home-manager.users.coco = {
-  imports = [ ./modules ];
+  imports = [./modules];
 
   home = {
     inherit (userSettings) username;
@@ -24,6 +23,7 @@ in
 
     #Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     packages = with pkgs; [
+      fortune
       neovim
       wdisplays
       vscode-fhs
@@ -79,7 +79,6 @@ in
       woomer
       wl-mirror
       lazygit
-      zed-editor
     ];
 
     sessionVariables = {

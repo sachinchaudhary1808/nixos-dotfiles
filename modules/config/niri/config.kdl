@@ -397,7 +397,7 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn "footclient"; }
-    Mod+Alt+F hotkey-overlay-title="Open file-manager: nautilus" { spawn "thunar"; }
+    Mod+Alt+F hotkey-overlay-title="Open file-manager: thunar" { spawn "thunar"; }
     Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun | xargs swaymsg exec --"; }
     Insert hotkey-overlay-title="Run Clipboard: rofi + clipboard" { spawn-sh "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
      // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
