@@ -1,9 +1,4 @@
-{
-  pkgs,
-  lib,
-  ...
-}:
-{
+{ pkgs, lib, ... }: {
   gtk = {
     enable = true; # Enable GTK theme management
     # catppuccin.enable = true;
@@ -47,17 +42,9 @@
     size = 24;
   };
 
-  gtk.gtk4 = {
-    extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
-    };
-  };
+  gtk.gtk4 = { extraConfig = { gtk-application-prefer-dark-theme = 1; }; };
 
-  gtk.gtk3 = {
-    extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
-    };
-  };
+  gtk.gtk3 = { extraConfig = { gtk-application-prefer-dark-theme = 1; }; };
 
   # gtk.gtk2 = { extraConfig = { gtk-application-prefer-dark-theme = 1; }; };
   gtk.gtk2 = {
@@ -68,8 +55,6 @@
 
   dconf.settings = {
     # set dark theme for gtk 4
-    "org/gnome/desktop/interface" = {
-      color-scheme = "prefer-dark";
-    };
+    "org/gnome/desktop/interface" = { color-scheme = "prefer-dark"; };
   };
 }

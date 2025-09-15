@@ -1,20 +1,15 @@
-{
-  inputs,
-  pkgs,
-  config,
-  ...
-}: let
-  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+{ inputs, pkgs, config, ... }:
+let spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
 in {
-  imports = [inputs.spicetify-nix.homeManagerModules.default];
+  imports = [ inputs.spicetify-nix.homeManagerModules.default ];
 
-  home.packages = [pkgs.spotify-cli-linux];
+  home.packages = [ pkgs.spotify-cli-linux ];
 
   programs.spicetify = {
     enable = true;
     # theme = spicePkgs.themes.spicetify-themes;
     colorScheme = "";
-    enabledCustomApps = with spicePkgs.apps; [];
+    enabledCustomApps = with spicePkgs.apps; [ ];
     enabledExtensions = with spicePkgs.extensions; [
       fullAppDisplay
       shuffle

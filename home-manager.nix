@@ -1,18 +1,11 @@
-{
-  config,
-  pkgs,
-  # inputs,
-  userSettings,
-  lib,
-  pkgs-Unstable,
-  ...
-}:
+{ config, pkgs,
+# inputs,
+userSettings, lib, pkgs-Unstable, ... }:
 # ... is called ellipsis
-let
-  username = userSettings.username;
+let username = userSettings.username;
 in {
   # home-manager.users.coco = {
-  imports = [./modules];
+  imports = [ ./modules ];
 
   home = {
     inherit (userSettings) username;
@@ -32,17 +25,13 @@ in {
       blender
       asciinema # for terminal recording in txt lol idk
       vesktop
-      (lib.hiPrio (
-        pkgs.writeShellScriptBin "vesktop" ''
-          exec ${pkgs.vesktop}/bin/vesktop --enable-wayland-ime --wayland-text-input-version=3 "$@"
-        ''
-      ))
+      (lib.hiPrio (pkgs.writeShellScriptBin "vesktop" ''
+        exec ${pkgs.vesktop}/bin/vesktop --enable-wayland-ime --wayland-text-input-version=3 "$@"
+      ''))
       obsidian
-      (lib.hiPrio (
-        pkgs.writeShellScriptBin "obsidian" ''
-          exec ${pkgs.obsidian}/bin/obsidian --enable-wayland-ime --wayland-text-input-version=3 "$@"
-        ''
-      ))
+      (lib.hiPrio (pkgs.writeShellScriptBin "obsidian" ''
+        exec ${pkgs.obsidian}/bin/obsidian --enable-wayland-ime --wayland-text-input-version=3 "$@"
+      ''))
       pkgs-Unstable.foliate
       zoom-us
       brave
@@ -81,34 +70,32 @@ in {
       lazygit
     ];
 
-    sessionVariables = {
-      GIO_EXTRA_MODULES = "${pkgs.gvfs}/lib/gio/modules";
-    };
+    sessionVariables = { GIO_EXTRA_MODULES = "${pkgs.gvfs}/lib/gio/modules"; };
   };
 
   xdg.configFile = {
     # you don't have to rebuild..., but have to give full path..
-    "sway/config".source =
-      config.lib.file.mkOutOfStoreSymlink "/home/${username}/nixos-dotfiles/modules/config/sway/config";
+    "sway/config".source = config.lib.file.mkOutOfStoreSymlink
+      "/home/${username}/nixos-dotfiles/modules/config/sway/config";
 
-    "river/init".source =
-      config.lib.file.mkOutOfStoreSymlink "/home/${username}/nixos-dotfiles/modules/config/river/init";
+    "river/init".source = config.lib.file.mkOutOfStoreSymlink
+      "/home/${username}/nixos-dotfiles/modules/config/river/init";
 
-    "rofi/config.rasi".source =
-      config.lib.file.mkOutOfStoreSymlink "/home/${username}/nixos-dotfiles/modules/config/rofi/config.rasi";
-    "rofi/tokyonight.rasi".source =
-      config.lib.file.mkOutOfStoreSymlink "/home/${username}/nixos-dotfiles/modules/config/rofi/tokyonight.rasi";
+    "rofi/config.rasi".source = config.lib.file.mkOutOfStoreSymlink
+      "/home/${username}/nixos-dotfiles/modules/config/rofi/config.rasi";
+    "rofi/tokyonight.rasi".source = config.lib.file.mkOutOfStoreSymlink
+      "/home/${username}/nixos-dotfiles/modules/config/rofi/tokyonight.rasi";
 
-    "waybar/config.jsonc".source =
-      config.lib.file.mkOutOfStoreSymlink "/home/${username}/nixos-dotfiles/modules/config/waybar/config.jsonc";
-    "waybar/style.css".source =
-      config.lib.file.mkOutOfStoreSymlink "/home/${username}/nixos-dotfiles/modules/config/waybar/style.css";
+    "waybar/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink
+      "/home/${username}/nixos-dotfiles/modules/config/waybar/config.jsonc";
+    "waybar/style.css".source = config.lib.file.mkOutOfStoreSymlink
+      "/home/${username}/nixos-dotfiles/modules/config/waybar/style.css";
 
-    "foot/foot.ini".source =
-      config.lib.file.mkOutOfStoreSymlink "/home/${username}/nixos-dotfiles/modules/gui/foot/foot.ini";
+    "foot/foot.ini".source = config.lib.file.mkOutOfStoreSymlink
+      "/home/${username}/nixos-dotfiles/modules/gui/foot/foot.ini";
 
-    "niri/config.kdl".source =
-      config.lib.file.mkOutOfStoreSymlink "/home/${username}/nixos-dotfiles/modules/config/niri/config.kdl";
+    "niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink
+      "/home/${username}/nixos-dotfiles/modules/config/niri/config.kdl";
 
     # u have to rebuild but don't need to give full path...
     "nixpkgs/config.nix".source = ./modules/config/nixpkgs/config.nix;
@@ -120,7 +107,8 @@ in {
     ".inputrc".source = ./modules/config/home/.inputrc;
 
     ".config/nwg-bar" = {
-      source = ./modules/config/nwg-bar; # Path to the source directory you want to symlink
+      source =
+        ./modules/config/nwg-bar; # Path to the source directory you want to symlink
       recursive = true;
     };
   };

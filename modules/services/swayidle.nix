@@ -1,9 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}:
-{
+{ config, pkgs, ... }: {
   systemd.user.services.swayidle = {
     Unit = {
       PartOf = [ "graphical-session.target" ];
@@ -22,8 +17,6 @@
       Restart = "on-failure";
     };
 
-    Install = {
-      WantedBy = [ "graphical-session.target" ];
-    };
+    Install = { WantedBy = [ "graphical-session.target" ]; };
   };
 }

@@ -1,9 +1,4 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}: {
+{ pkgs, config, lib, ... }: {
   programs.foot = {
     # catppuccin.enable = true;
     enable = true;

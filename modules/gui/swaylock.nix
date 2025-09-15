@@ -1,8 +1,4 @@
-{
-  pkgs,
-  config,
-  ...
-}: {
+{ pkgs, config, ... }: {
   home.file.".config/swaylock/config".text = ''
     daemonize
 

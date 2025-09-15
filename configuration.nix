@@ -1,12 +1,4 @@
-{
-  config,
-  pkgs,
-  inputs,
-  userSettings,
-  systemSettings,
-  pkgs-Unstable,
-  ...
-}: {
+{ config, pkgs, inputs, userSettings, systemSettings, pkgs-Unstable, ... }: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -15,10 +7,10 @@
   nix = {
     # using lix insted of nix
     package = pkgs-Unstable.lix;
-    nixPath = ["nixpkgs=${inputs.nixpkgs}"];
+    nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
     # for cachix builds
-    settings.extra-substituters = ["https://nix-community.cachix.org"];
+    settings.extra-substituters = [ "https://nix-community.cachix.org" ];
     settings.extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
@@ -40,21 +32,15 @@
   # boot.loader.grub.useOSProber = true;
 
   fileSystems = {
-    "/".options = [
-      "compress=zstd"
-      "noatime"
-    ];
-    "/home".options = ["compress=zstd"];
-    "/nix".options = [
-      "compress=zstd"
-      "noatime"
-    ];
+    "/".options = [ "compress=zstd" "noatime" ];
+    "/home".options = [ "compress=zstd" ];
+    "/nix".options = [ "compress=zstd" "noatime" ];
   };
 
   services.btrfs.autoScrub = {
     enable = true;
     interval = "monthly";
-    fileSystems = ["/"];
+    fileSystems = [ "/" ];
   };
 
   ## Disabled cuz heavy on ram and stuff
@@ -91,7 +77,7 @@
   networking.wireless.enable = false; # disble wpa whatever
 
   # Dns server
-  networking.nameservers = ["1.1.1.1"];
+  networking.nameservers = [ "1.1.1.1" ];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -123,8 +109,8 @@
   boot.kernel.sysctl."vm.page-cluster" = 0;
 
   # Gpu settings
-  services.xserver.videoDrivers = ["amdgpu"];
-  boot.initrd.kernelModules = ["amdgpu"];
+  services.xserver.videoDrivers = [ "amdgpu" ];
+  boot.initrd.kernelModules = [ "amdgpu" ];
   # # Enable firmware update service
   services.fwupd.enable = true;
 
@@ -149,10 +135,7 @@
   console = {
     earlySetup = true;
     font = "ter-powerline-v24b";
-    packages = with pkgs; [
-      terminus_font
-      powerline-fonts
-    ];
+    packages = with pkgs; [ terminus_font powerline-fonts ];
     keyMap = "us";
   };
 
@@ -160,11 +143,7 @@
     enable = true;
     type = "fcitx5";
     fcitx5.waylandFrontend = true;
-    fcitx5.addons = with pkgs; [
-      fcitx5-m17n
-      fcitx5-gtk
-      libsForQt5.fcitx5-qt
-    ];
+    fcitx5.addons = with pkgs; [ fcitx5-m17n fcitx5-gtk libsForQt5.fcitx5-qt ];
   };
 
   i18n.extraLocaleSettings = {
@@ -204,20 +183,15 @@
       "render"
       "libvirtd"
     ];
-    packages = with pkgs; []; # just used nil to not have empty code lol
+    packages = with pkgs; [ ]; # just used nil to not have empty code lol
   };
 
   nixpkgs = {
     # Allow unfree packages
-    config = {
-      allowUnfree = true;
-    };
+    config = { allowUnfree = true; };
     # nixpkgs.config.allowUnfree = true;
     config.allowInsecure = true;
-    config.permittedInsecurePackages = [
-      "electron-27.3.11"
-      "electron-33.4.11"
-    ];
+    config.permittedInsecurePackages = [ "electron-33.4.11" ];
   };
 
   services = {
@@ -247,7 +221,8 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd 'niri-session' --theme 'border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red'";
+          command =
+            "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd 'niri-session' --theme 'border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red'";
           user = "greeter";
         };
       };
@@ -295,7 +270,7 @@
     bat
     cachix
     foot
-    alejandra
+    nixfmt-classic
     swayidle
     swaylock
     nwg-bar
@@ -413,7 +388,7 @@
     enable = true;
     config = {
       common = {
-        default = ["gtk"];
+        default = [ "gtk" ];
         "org.freedesktop.impl.portal.ScreenCast" = "gnome";
       };
     };
@@ -445,9 +420,9 @@
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
-      serif = ["Liberation Serif"];
-      sansSerif = ["Noto Sans"];
-      monospace = ["Fira Code"];
+      serif = [ "Liberation Serif" ];
+      sansSerif = [ "Noto Sans" ];
+      monospace = [ "Fira Code" ];
     };
   };
 
@@ -492,10 +467,7 @@
   };
 
   #experimantlal features
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   programs.obs-studio = {
     enable = true;
@@ -510,9 +482,9 @@
   };
   # settings of obs
   boot = {
-    kernelModules = ["v4l2loopback"];
+    kernelModules = [ "v4l2loopback" ];
 
-    extraModulePackages = [config.boot.kernelPackages.v4l2loopback];
+    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
   };
 
   #masked services
@@ -549,14 +521,12 @@
   #niri
   programs.niri.enable = true;
 
-  security.pam.loginLimits = [
-    {
-      domain = "@users";
-      item = "rtprio";
-      type = "-";
-      value = 1;
-    }
-  ];
+  security.pam.loginLimits = [{
+    domain = "@users";
+    item = "rtprio";
+    type = "-";
+    value = 1;
+  }];
   # programs.waybar.enable = true;
 
   environment.variables = {
@@ -605,17 +575,16 @@
   # thunar to open things in terminal
   xdg.terminal-exec = {
     enable = true;
-    settings.default = ["foot.desktop"];
+    settings.default = [ "foot.desktop" ];
   };
 
   programs.nautilus-open-any-terminal.enable = true;
-  services.gvfs = {
-    enable = true;
-  };
+  services.gvfs = { enable = true; };
 
   xdg.mime.defaultApplications = {
     # Microsoft Word documents (.docx)
-    "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "writer.desktop";
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document" =
+      "writer.desktop";
 
     # Other potential LibreOffice Writer formats you might want to set:
     # "application/vnd.oasis.opendocument.text" = "writer.desktop"; # OpenDocument Text (.odt)
@@ -696,7 +665,7 @@
     # Generic rule for VIA (and other hidraw devices)
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
   '';
-  services.udev.packages = [pkgs.qmk-udev-rules];
+  services.udev.packages = [ pkgs.qmk-udev-rules ];
 
   programs.wshowkeys.enable = true;
 
@@ -721,8 +690,7 @@
   #     workstation = true;
   #   };
   # };
-  services.flatpak.packages = [
-  ];
+  services.flatpak.packages = [ ];
   # environment.pathsToLink = [
   #   "/share/xdg-desktop-portal"
   #   "/share/applications"

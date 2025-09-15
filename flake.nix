@@ -26,17 +26,8 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      home-manager,
-      nixpkgs-unstable,
-      nixos-hardware,
-      nix-flatpak,
-      winapps,
-      ...
-    }:
+  outputs = inputs@{ self, nixpkgs, home-manager, nixpkgs-unstable
+    , nixos-hardware, nix-flatpak, winapps, ... }:
     let
       inherit (nixpkgs) lib;
       systemSettings = {
@@ -60,35 +51,26 @@
       pkgs-Unstable = import nixpkgs-unstable { inherit system; };
 
       system = "x86_64-linux";
-    in
-    {
+    in {
       nixosConfigurations = {
         ${systemSettings.hostname} = lib.nixosSystem {
           specialArgs = {
-            inherit
-              inputs
-              userSettings
-              systemSettings
-              pkgs-Unstable
-              ;
+            inherit inputs userSettings systemSettings pkgs-Unstable;
           };
 
           modules = [
             nixos-hardware.nixosModules.lenovo-ideapad-15alc6
             nix-flatpak.nixosModules.nix-flatpak
             ./configuration.nix
-            (
-              { ... }:
-              {
-                environment.systemPackages = [
-                  winapps.packages."${system}".winapps
-                  winapps.packages."${system}".winapps-launcher
-                ];
-                # nixpkgs.overlays = [
-                #   unstable-packages
-                # ];
-              }
-            )
+            ({ ... }: {
+              environment.systemPackages = [
+                winapps.packages."${system}".winapps
+                winapps.packages."${system}".winapps-launcher
+              ];
+              # nixpkgs.overlays = [
+              #   unstable-packages
+              # ];
+            })
             home-manager.nixosModules.home-manager
             {
               home-manager = {
@@ -98,10 +80,7 @@
                   inherit inputs userSettings pkgs-Unstable;
                 };
                 users.${userSettings.username} = {
-                  imports = [
-                    ./home-manager.nix
-                    ./modules/gui/spicetify.nix
-                  ];
+                  imports = [ ./home-manager.nix ./modules/gui/spicetify.nix ];
                 };
               };
             }

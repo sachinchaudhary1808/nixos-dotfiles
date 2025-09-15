@@ -1,7 +1,6 @@
 {
   allowUnfree = true;
 
-  packageOverrides = pkgs: {
-  };
+  packageOverrides = pkgs: { };
   allowUnsupportedSystem = true;
 }

@@ -18,8 +18,7 @@ let
     gc = "git commit -m";
     vup = "nix profile upgrade nvim";
   };
-in
-{
+in {
   programs.bash = {
     enable = true;
     enableCompletion = true;

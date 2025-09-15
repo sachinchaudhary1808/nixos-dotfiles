@@ -1,9 +1,4 @@
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}: {
+{ pkgs, config, lib, ... }: {
   programs.kitty = {
     enable = true;
     font.name = lib.mkForce "FiraCode Nerd Font";
