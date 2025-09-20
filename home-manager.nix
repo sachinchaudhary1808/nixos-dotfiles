@@ -19,7 +19,6 @@ in {
       fortune
       neovim
       wdisplays
-      vscode-fhs
       geogebra6
       hyprpicker
       blender

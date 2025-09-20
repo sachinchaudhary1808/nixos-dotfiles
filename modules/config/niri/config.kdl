@@ -60,7 +60,7 @@ input {
 
     // Focus windows and outputs automatically when moving the mouse into them.
     // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
-    // focus-follows-mouse max-scroll-amount="0%"
+    focus-follows-mouse max-scroll-amount="0%"
 }
 
 // You can configure outputs by their name, which you can find
@@ -413,7 +413,7 @@ binds {
     Super+z hotkey-overlay-title="zoom" { spawn "woomer"; }
     Super+p hotkey-overlay-title="color-picker" { spawn "hyprpicker" "-a"; }
     Super+alt+e hotkey-overlay-title="text-extract" { spawn "bash" "-c" r#"grim -g "$(slurp)" - | tesseract - - | wl-copy"#;}
-    Super+escape hotkey-overlay-title="logout menu" { spawn "nwg-bar"; }
+    Super+Ctrl+escape hotkey-overlay-title="logout menu" { spawn "nwg-bar"; }
 
     // Super+shiftz hotkey-overlay-title="zoom +" { spawn "~/nixos-dotfiles/modules/scripts/conservation_mode/off.sh"; }
 
@@ -436,7 +436,7 @@ binds {
 
 
 
- XF86AudioPlay allow-when-locked=true { spawn "playerctl" "--player" "playerctld" "play-pause" ; }  
+ XF86AudioPlay repeat=false allow-when-locked=true { spawn "playerctl" "--player" "playerctld" "play-pause" ; }  
  XF86AudioStop allow-when-locked=true { spawn  "playerctl" "--player" "playerctld" "stop"; }
  XF86AudioNext allow-when-locked=true { spawn "playerctl" "--player" "playerctld" "next" ;} 
  XF86AudioPrev allow-when-locked=true { spawn "playerctl" "--player" "playerctld" "previous" ; }
