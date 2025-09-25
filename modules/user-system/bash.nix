@@ -24,7 +24,6 @@ in {
     enableCompletion = true;
 
     initExtra = ''
-            fortune
             # nitch
       #      if [ -f $HOME/.bashrc-personal ]; then
        #       source $HOME/.bashrc-personal

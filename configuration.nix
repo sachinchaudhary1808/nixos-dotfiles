@@ -217,16 +217,16 @@
       package = pkgs.mlocate;
     };
 
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command =
-            "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd 'niri-session' --theme 'border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red'";
-          user = "greeter";
-        };
-      };
-    };
+    # greetd = {
+    #   enable = true;
+    #   settings = {
+    #     default_session = {
+    #       command =
+    #         "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd 'niri-session' --theme 'border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red'";
+    #       user = "greeter";
+    #     };
+    #   };
+    # };
   };
 
   security = {
@@ -695,4 +695,10 @@
   #   "/share/xdg-desktop-portal"
   #   "/share/applications"
   # ];
+
+  # Enable the COSMIC Desktop Environment
+  services.desktopManager.cosmic.enable = true;
+
+  # Enable a display manager. cosmic-greeter is recommended.
+  services.displayManager.cosmic-greeter.enable = true;
 }

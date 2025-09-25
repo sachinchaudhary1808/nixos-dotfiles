@@ -16,7 +16,6 @@ in {
 
     #Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     packages = with pkgs; [
-      fortune
       neovim
       wdisplays
       geogebra6
@@ -111,4 +110,5 @@ in {
       recursive = true;
     };
   };
+  programs.zen-browser.enable = true;
 }
