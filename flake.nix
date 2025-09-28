@@ -25,12 +25,6 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
-      # IMPORTANT: we're using "libgbm" and is only available in unstable so ensure
-      # to have it up-to-date or simply don't specify the nixpkgs input
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, nixpkgs-unstable
@@ -87,11 +81,7 @@
                   inherit inputs userSettings pkgs-Unstable;
                 };
                 users.${userSettings.username} = {
-                  imports = [
-                    ./home-manager.nix
-                    ./modules/gui/spicetify.nix
-                    inputs.zen-browser.homeModules.twilight-official
-                  ];
+                  imports = [ ./home-manager.nix ./modules/gui/spicetify.nix ];
                 };
               };
             }

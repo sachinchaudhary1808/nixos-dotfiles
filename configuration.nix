@@ -1,4 +1,5 @@
-{ config, pkgs, inputs, userSettings, systemSettings, pkgs-Unstable, ... }: {
+{ config, pkgs, inputs, userSettings, systemSettings, pkgs-Unstable, lib, ...
+}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -188,10 +189,12 @@
 
   nixpkgs = {
     # Allow unfree packages
-    config = { allowUnfree = true; };
+    config.allowUnfree = true;
     # nixpkgs.config.allowUnfree = true;
     config.allowInsecure = true;
     config.permittedInsecurePackages = [ "electron-33.4.11" ];
+    config.allowUnfreePredicate = pkg:
+      builtins.elem (lib.getName pkg) [ "steam" ];
   };
 
   services = {
@@ -217,16 +220,16 @@
       package = pkgs.mlocate;
     };
 
-    # greetd = {
-    #   enable = true;
-    #   settings = {
-    #     default_session = {
-    #       command =
-    #         "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd 'niri-session' --theme 'border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red'";
-    #       user = "greeter";
-    #     };
-    #   };
-    # };
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command =
+            "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd 'niri-session' --theme 'border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red'";
+          user = "greeter";
+        };
+      };
+    };
   };
 
   security = {
@@ -249,6 +252,7 @@
   environment.systemPackages = with pkgs; [
     # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     # some good nix tools
+    unrar
     nixd
     nil
     pkgs-Unstable.zed-editor
@@ -264,7 +268,7 @@
     wget
     mangohud
     protonup
-    heroic
+    lutris
     greetd.tuigreet
     i2p
     bat
@@ -352,7 +356,11 @@
     fcitx5-configtool
     orca
     clang-tools
+
+    gnome-software
+
   ];
+  programs.steam.enable = true;
 
   #polkit service
   security.polkit.enable = true;
@@ -696,9 +704,4 @@
   #   "/share/applications"
   # ];
 
-  # Enable the COSMIC Desktop Environment
-  services.desktopManager.cosmic.enable = true;
-
-  # Enable a display manager. cosmic-greeter is recommended.
-  services.displayManager.cosmic-greeter.enable = true;
 }

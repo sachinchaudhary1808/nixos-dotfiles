@@ -26,7 +26,7 @@ input {
     touchpad {
         // off
         tap
-        dwt
+        // dwt
         // dwtp
         // drag false
         // drag-lock
@@ -314,7 +314,7 @@ animations {
     // off
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
-    // slowdown 3.0
+    // slowdown 0.5
 }
 
 // Window rules let you adjust behavior for individual windows.
@@ -397,8 +397,8 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+T hotkey-overlay-title="Open a Terminal: foot" { spawn "footclient"; }
-    Mod+Alt+F hotkey-overlay-title="Open file-manager: thunar" { spawn "thunar"; }
-    Mod+B hotkey-overlay-title="Open Browser: Zen" { spawn "zen"; }
+    Mod+E hotkey-overlay-title="Open file-manager: thunar" { spawn "thunar"; }
+    Mod+B hotkey-overlay-title="Open Browser: firefox-esr" { spawn "firefox-esr"; }
     Mod+D hotkey-overlay-title="Run an Application: rofi" { spawn-sh "rofi -show drun | xargs swaymsg exec --"; }
     Insert hotkey-overlay-title="Run Clipboard: rofi + clipboard" { spawn-sh "cliphist list | rofi -dmenu | cliphist decode | wl-copy"; }
      // Use spawn-sh to run a shell command. Do this if you need pipes, multiple commands, etc.
@@ -424,7 +424,7 @@ binds {
 
     // Example volume keys mappings for PipeWire & WirePlumber.
     // The allow-when-locked=true property makes them work even when the session is locked.
-    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.07+" "--limit" "1.0"; }
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.07+" "--limit" "1.5"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "0.07-"; }
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
     MOD+XF86AudioMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }

@@ -110,5 +110,4 @@ in {
       recursive = true;
     };
   };
-  programs.zen-browser.enable = true;
 }
