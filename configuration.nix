@@ -704,4 +704,5 @@
   #   "/share/applications"
   # ];
 
+  services.preload.enable = true;
 }
