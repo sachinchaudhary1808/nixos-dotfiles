@@ -1,0 +1,17 @@
+Some(([
+    "co.uk.cappsy.CosmicAppletLogoMenu",
+    "com.system76.CosmicAppletWorkspaces",
+], [
+    "io.github.cosmic_utils.sysinfo-applet",
+    "io.github.cosmic_utils.cosmic-ext-applet-clipboard-manager",
+    "com.system76.CosmicAppletInputSources",
+    "com.system76.CosmicAppletA11y",
+    "com.system76.CosmicAppletStatusArea",
+    "com.system76.CosmicAppletTiling",
+    "com.system76.CosmicAppletAudio",
+    "com.system76.CosmicAppletBluetooth",
+    "com.system76.CosmicAppletNetwork",
+    "com.system76.CosmicAppletBattery",
+    "com.system76.CosmicAppletNotifications",
+    "com.system76.CosmicAppletPower",
+]))

@@ -1,0 +1,9 @@
+(
+    output: "all",
+    source: Path("/home/coco/nixos-dotfiles/images/wallpapers/Xero-Plasma11.jpg"),
+    filter_by_theme: true,
+    rotation_frequency: 300,
+    filter_method: Lanczos,
+    scaling_mode: Fit((0.0, 0.0, 0.0)),
+    sampling_method: Alphanumeric,
+)
