@@ -280,16 +280,18 @@ layout {
 spawn-at-startup "waybar"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "swaync"
-spawn-at-startup "lxqt-policykit-agent"
+// spawn-at-startup "lxqt-policykit-agent"
 spawn-sh-at-startup "wl-paste --watch cliphist store" 
 
 // spawn-at-startup "xwayland-satellite"
 // Or, if you built it by hand:
 // spawn-at-startup "~/path/to/code/target/release/xwayland-satellite"
 
-// environment {
+environment {
 //     DISPLAY ":0"
-// }
+ZED_WINDOW_DECORATIONS "server"
+
+}
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.
@@ -357,6 +359,10 @@ window-rule {
     // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
+
+    //     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    // open-floating true
+
 }
 
 // Example: block out two password managers from screen capture.

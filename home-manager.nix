@@ -110,4 +110,10 @@ in {
       recursive = true;
     };
   };
+  programs.zed-editor = {
+    enable = true;
+    package = pkgs-Unstable.zed-editor;
+    extraPackages = with pkgs-Unstable; [ ];
+
+  };
 }
