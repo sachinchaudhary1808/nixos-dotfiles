@@ -72,10 +72,6 @@ in {
   };
 
   xdg.configFile = {
-    "cosmic" = {
-      source = ./modules/config/cosmic; # your repo copy
-      recursive = true;
-    };
     # you don't have to rebuild..., but have to give full path..
     "sway/config".source = config.lib.file.mkOutOfStoreSymlink
       "/home/${username}/nixos-dotfiles/modules/config/sway/config";
