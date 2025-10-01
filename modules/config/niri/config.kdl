@@ -288,9 +288,7 @@ spawn-sh-at-startup "wl-paste --watch cliphist store"
 // spawn-at-startup "~/path/to/code/target/release/xwayland-satellite"
 
 environment {
-//     DISPLAY ":0"
 ZED_WINDOW_DECORATIONS "server"
-
 }
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.

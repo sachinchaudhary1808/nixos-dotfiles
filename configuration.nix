@@ -198,7 +198,7 @@
   };
 
   services = {
-    blueman.enable = true;
+    # blueman.enable = true;
     gnome.gnome-keyring.enable = true;
     # setup pipewire for audio
     pipewire = {
@@ -220,16 +220,16 @@
       package = pkgs.mlocate;
     };
 
-    greetd = {
-      enable = true;
-      settings = {
-        default_session = {
-          command =
-            "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd 'niri-session' --theme 'border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red'";
-          user = "greeter";
-        };
-      };
-    };
+    # greetd = {
+    #   enable = true;
+    #   settings = {
+    #     default_session = {
+    #       command =
+    #         "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd 'niri-session' --theme 'border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red'";
+    #       user = "greeter";
+    #     };
+    #   };
+    # };
   };
 
   security = {
@@ -260,7 +260,6 @@
     nodejs
 
     gnome-calculator
-    river
     kdiskmark
     deadnix
     # unstable.veloren
@@ -286,7 +285,7 @@
     xorg.xmodmap
     libinput
     helvum
-    blueman
+    # blueman
     wl-clipboard
     brightnessctl
     android-tools
@@ -304,7 +303,6 @@
     warpinator
     tor-browser
     # (brave.override { vulkanSupport = true; })
-    firefox-esr
     nautilus
     fzf
     gcc
@@ -326,7 +324,7 @@
     nitch
     ninja
     dbus
-    networkmanagerapplet
+    # networkmanagerapplet
     pavucontrol
     pkg-config
     trash-cli
@@ -394,15 +392,16 @@
 
   xdg.portal = {
     enable = true;
-    config = {
-      common = {
-        default = [ "gtk" ];
-        "org.freedesktop.impl.portal.ScreenCast" = "gnome";
-      };
-    };
+    # config = {
+    #   common = {
+    #     default = [ "gtk" ];
+    #     "org.freedesktop.impl.portal.ScreenCast" = "gnome";
+    #   };
+    # };
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
       xdg-desktop-portal-gnome
+      xdg-desktop-portal-cosmic
     ];
   };
 
@@ -472,6 +471,8 @@
 
     ACCESSIBILITY_ENABLED = "1";
     NH_FLAKE = "/home/${userSettings.username}/nixos-dotfiles";
+
+    COSMIC_DATA_CONTROL_ENABLED = 1;
   };
 
   #experimantlal features
@@ -723,4 +724,20 @@
     };
   };
 
+  # Enable the COSMIC login manager
+  services.displayManager.cosmic-greeter.enable = true;
+
+  # Enable the COSMIC desktop environment
+  services.desktopManager.cosmic.enable = true;
+
+  environment.cosmic.excludePackages = with pkgs; [ cosmic-edit ];
+
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox-esr;
+    preferences = {
+      # disable libadwaita theming for Firefox
+      "widget.gtk.libadwaita-colors.enabled" = false;
+    };
+  };
 }

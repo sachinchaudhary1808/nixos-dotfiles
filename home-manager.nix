@@ -42,7 +42,7 @@ in {
       yazi
       gimp
       pkgs-Unstable.waybar
-      rofi-wayland
+      rofi
       legcord
       element-desktop
       pciutils
@@ -75,9 +75,6 @@ in {
     # you don't have to rebuild..., but have to give full path..
     "sway/config".source = config.lib.file.mkOutOfStoreSymlink
       "/home/${username}/nixos-dotfiles/modules/config/sway/config";
-
-    "river/init".source = config.lib.file.mkOutOfStoreSymlink
-      "/home/${username}/nixos-dotfiles/modules/config/river/init";
 
     "rofi/config.rasi".source = config.lib.file.mkOutOfStoreSymlink
       "/home/${username}/nixos-dotfiles/modules/config/rofi/config.rasi";

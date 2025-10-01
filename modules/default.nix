@@ -20,6 +20,6 @@
     ./tui/tmux/tmux.nix
 
     # services
-    ./services/swayidle.nix
+    # ./services/swayidle.nix
   ];
 }
