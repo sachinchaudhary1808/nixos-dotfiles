@@ -78,7 +78,7 @@
   networking.wireless.enable = false; # disble wpa whatever
 
   # Dns server
-  networking.nameservers = [ "1.1.1.1" ];
+  # networking.nameservers = [ "1.1.1.1" ];
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -140,12 +140,12 @@
     keyMap = "us";
   };
 
-  i18n.inputMethod = {
-    enable = true;
-    type = "fcitx5";
-    fcitx5.waylandFrontend = true;
-    fcitx5.addons = with pkgs; [ fcitx5-m17n fcitx5-gtk libsForQt5.fcitx5-qt ];
-  };
+  # i18n.inputMethod = {
+  #   enable = true;
+  #   type = "fcitx5";
+  #   fcitx5.waylandFrontend = true;
+  # fcitx5.addons = with pkgs; [ fcitx5-m17n fcitx5-gtk libsForQt5.fcitx5-qt ];
+  # };
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = systemSettings.locale;
@@ -305,7 +305,6 @@
     # (brave.override { vulkanSupport = true; })
     nautilus
     fzf
-    gcc
     keepassxc
     htop
     powertop
@@ -353,7 +352,6 @@
     pkgs-Unstable.libreoffice
     fcitx5-configtool
     orca
-    clang-tools
 
     gnome-software
 
@@ -416,6 +414,7 @@
     nerd-fonts.hack
     font-awesome
     liberation_ttf
+    monocraft
     noto-fonts
 
     lohit-fonts.gujarati

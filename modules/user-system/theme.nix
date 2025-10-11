@@ -56,7 +56,6 @@
   dconf.settings = {
     # set dark theme for gtk 4
     "org/gnome/desktop/interface" = { color-scheme = "prefer-dark"; };
-    "org/gnome/desktop/wm/preferences" = { button-layout = ":close"; };
 
   };
 
