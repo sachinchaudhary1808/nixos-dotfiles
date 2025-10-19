@@ -17,6 +17,7 @@ let
     h = "htop";
     gc = "git commit -m";
     vup = "nix profile upgrade nvim";
+    o = "xdg-open";
   };
 in {
   programs.bash = {

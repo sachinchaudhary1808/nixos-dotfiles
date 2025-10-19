@@ -24,20 +24,21 @@ This repository contains my personal NixOS configuration and dotfiles. It’s de
 
 ## Screenshots
 
-### swaywm
+### Cosmic Desktop
 
-![swaywm](images/screenshots/swaywm-basic.png)
+![Cosmic](images/screenshots/Cosmic.png)
+![Cosmic](images/screenshots/Waydroid.png)
+![Cosmic](images/screenshots/Fetch.png)
+![Cosmic](images/screenshots/store&file-manager.png)
 
-![swaywm](images/screenshots/sway-desktop.png)
+### Neovim
 
-### neovim
-
-![neovim](images/screenshots/neovim.png)
+![Cosmic](images/screenshots/Neovim.png)
 
 ## Features
 
-### minimal sway setup with many utils
+### Cosmic setup with many utils
 
-### neovim preconfigured with basic to some advance stuff
+### Many tools like zoxide, startship etc preconfigured minimally
 
-### many tools like zoxide, startship etc preconfigured minimally
+### For neovim see my nvim repository

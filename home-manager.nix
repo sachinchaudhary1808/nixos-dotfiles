@@ -54,7 +54,7 @@ in {
       yt-dlp
       steam-run
       tesseract
-      ttyper
+      keypunch
       # lazygit
       tree
       btop
