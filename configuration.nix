@@ -254,7 +254,6 @@
     # some good nix tools
     unrar
     nixd
-    nil
     pkgs-Unstable.zed-editor
     nixpkgs-fmt
     nodejs
@@ -352,9 +351,6 @@
     pkgs-Unstable.libreoffice
     fcitx5-configtool
     orca
-
-    gnome-software
-
   ];
   programs.steam.enable = true;
 
