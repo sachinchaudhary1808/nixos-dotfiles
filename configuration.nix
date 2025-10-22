@@ -348,7 +348,7 @@
     jdk8
     # jdk17
 
-    pkgs-Unstable.libreoffice
+    pkgs-Unstable.onlyoffice-desktopeditors
     fcitx5-configtool
     orca
   ];
