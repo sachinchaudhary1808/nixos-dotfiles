@@ -1,5 +1,14 @@
-{ config, pkgs, inputs, userSettings, systemSettings, pkgs-Unstable, lib, ...
-}: {
+{
+  config,
+  pkgs,
+  inputs,
+  userSettings,
+  systemSettings,
+  pkgs-Unstable,
+  lib,
+  ...
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -33,9 +42,15 @@
   # boot.loader.grub.useOSProber = true;
 
   fileSystems = {
-    "/".options = [ "compress=zstd" "noatime" ];
+    "/".options = [
+      "compress=zstd"
+      "noatime"
+    ];
     "/home".options = [ "compress=zstd" ];
-    "/nix".options = [ "compress=zstd" "noatime" ];
+    "/nix".options = [
+      "compress=zstd"
+      "noatime"
+    ];
   };
 
   services.btrfs.autoScrub = {
@@ -136,7 +151,10 @@
   console = {
     earlySetup = true;
     font = "ter-powerline-v24b";
-    packages = with pkgs; [ terminus_font powerline-fonts ];
+    packages = with pkgs; [
+      terminus_font
+      powerline-fonts
+    ];
     keyMap = "us";
   };
 
@@ -193,8 +211,7 @@
     # nixpkgs.config.allowUnfree = true;
     config.allowInsecure = true;
     config.permittedInsecurePackages = [ "electron-33.4.11" ];
-    config.allowUnfreePredicate = pkg:
-      builtins.elem (lib.getName pkg) [ "steam" ];
+    config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "steam" ];
   };
 
   services = {
@@ -471,7 +488,10 @@
   };
 
   #experimantlal features
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   programs.obs-studio = {
     enable = true;
@@ -525,12 +545,14 @@
   #niri
   programs.niri.enable = true;
 
-  security.pam.loginLimits = [{
-    domain = "@users";
-    item = "rtprio";
-    type = "-";
-    value = 1;
-  }];
+  security.pam.loginLimits = [
+    {
+      domain = "@users";
+      item = "rtprio";
+      type = "-";
+      value = 1;
+    }
+  ];
   # programs.waybar.enable = true;
 
   environment.variables = {
@@ -583,12 +605,13 @@
   };
 
   programs.nautilus-open-any-terminal.enable = true;
-  services.gvfs = { enable = true; };
+  services.gvfs = {
+    enable = true;
+  };
 
   xdg.mime.defaultApplications = {
     # Microsoft Word documents (.docx)
-    "application/vnd.openxmlformats-officedocument.wordprocessingml.document" =
-      "writer.desktop";
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "writer.desktop";
 
     # Other potential LibreOffice Writer formats you might want to set:
     # "application/vnd.oasis.opendocument.text" = "writer.desktop"; # OpenDocument Text (.odt)
@@ -710,8 +733,7 @@
       after = [ "graphical-session.target" ];
       serviceConfig = {
         Type = "simple";
-        ExecStart =
-          "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
         Restart = "on-failure";
         RestartSec = 1;
         TimeoutStopSec = 10;
@@ -735,4 +757,5 @@
       "widget.gtk.libadwaita-colors.enabled" = false;
     };
   };
+  programs.nix-ld.enable = true;
 }
