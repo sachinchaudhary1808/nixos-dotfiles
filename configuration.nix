@@ -1,16 +1,8 @@
-{
-  config,
-  pkgs,
-  inputs,
-  userSettings,
-  systemSettings,
-  pkgs-Unstable,
-  lib,
-  ...
-}:
-{
+{ config, pkgs, inputs, userSettings, systemSettings, pkgs-Unstable, lib, ...
+}: {
   imports = [
     # Include the results of the hardware scan.
+    ./desktop/cosmic.nix
     ./hardware-configuration.nix
   ];
 
@@ -25,32 +17,11 @@
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
   };
-  # services.xremap = {
-  #   withWlroots = true;
-  #   userName = userSettings.username;
-  #   config.modmap = [{
-  #
-  #     name = "Global";
-  #     remap = { "CapsLock" = "Esc"; }; # globally remap CapsLock to Esc
-  #     remap = { "Esc" = "CapsLock"; }; # globally remap Esc to CapsLock
-  #
-  #   }];
-  # };
-
-  # Bootloader.
-  # boot.loader.grub.splashImage = null;
-  # boot.loader.grub.useOSProber = true;
 
   fileSystems = {
-    "/".options = [
-      "compress=zstd"
-      "noatime"
-    ];
+    "/".options = [ "compress=zstd" "noatime" ];
     "/home".options = [ "compress=zstd" ];
-    "/nix".options = [
-      "compress=zstd"
-      "noatime"
-    ];
+    "/nix".options = [ "compress=zstd" "noatime" ];
   };
 
   services.btrfs.autoScrub = {
@@ -136,7 +107,7 @@
   services.upower.enable = true;
 
   # geoclue2
-  # services.geoclue2.enable = true;
+  services.geoclue2.enable = true;
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -151,19 +122,9 @@
   console = {
     earlySetup = true;
     font = "ter-powerline-v24b";
-    packages = with pkgs; [
-      terminus_font
-      powerline-fonts
-    ];
+    packages = with pkgs; [ terminus_font powerline-fonts ];
     keyMap = "us";
   };
-
-  # i18n.inputMethod = {
-  #   enable = true;
-  #   type = "fcitx5";
-  #   fcitx5.waylandFrontend = true;
-  # fcitx5.addons = with pkgs; [ fcitx5-m17n fcitx5-gtk libsForQt5.fcitx5-qt ];
-  # };
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = systemSettings.locale;
@@ -176,17 +137,6 @@
     LC_TELEPHONE = systemSettings.locale;
     LC_TIME = systemSettings.locale;
   };
-
-  # Configure keymap in X11
-  # services.xserver = {
-
-  #  xkb.layout = "us";
-  # xkb.variant = "";
-  # enable = true;
-  # };
-
-  #systemd.services."getty@tty1".enable = false;
-  #systemd.services."autovt@tty1".enable = false;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${userSettings.username} = {
@@ -211,7 +161,8 @@
     # nixpkgs.config.allowUnfree = true;
     config.allowInsecure = true;
     config.permittedInsecurePackages = [ "electron-33.4.11" ];
-    config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "steam" ];
+    config.allowUnfreePredicate = pkg:
+      builtins.elem (lib.getName pkg) [ "steam" ];
   };
 
   services = {
@@ -236,17 +187,6 @@
       enable = true;
       package = pkgs.mlocate;
     };
-
-    # greetd = {
-    #   enable = true;
-    #   settings = {
-    #     default_session = {
-    #       command =
-    #         "${pkgs.greetd.tuigreet}/bin/tuigreet --time --time-format '%I:%M %p | %a • %h | %F' --cmd 'niri-session' --theme 'border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red'";
-    #       user = "greeter";
-    #     };
-    #   };
-    # };
   };
 
   security = {
@@ -259,11 +199,6 @@
     bluetooth.powerOnBoot = true;
   };
 
-  # unlock keyring on login
-
-  #   services.xserver.enable = true;sway
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.desktopManager.gnome.enable = true;
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -274,7 +209,6 @@
     pkgs-Unstable.zed-editor
     nixpkgs-fmt
     nodejs
-
     gnome-calculator
     kdiskmark
     deadnix
@@ -283,34 +217,24 @@
     wget
     mangohud
     protonup
+    heroic
     lutris
-    greetd.tuigreet
-    i2p
     bat
     cachix
-    foot
     nixfmt-classic
-    swayidle
-    swaylock
-    nwg-bar
     # swaylock-effects
     snapshot
-    kitty
     rclone
-    alacritty
     xorg.xmodmap
     libinput
     helvum
     # blueman
     wl-clipboard
-    brightnessctl
     android-tools
     playerctl
     wev
     go-mtpfs
     scrcpy
-    cmake
-    gnumake
     acpi
     xarchiver
     baobab
@@ -327,23 +251,16 @@
     git
     gnome-keyring
     glow
-    lxqt.lxqt-policykit
-    # polkit_gnome
-    xorg.xhost
     gparted
     libnotify
     amdgpu_top
     appimage-run
     mpv
-    meson
-    nitch
-    ninja
     dbus
     # networkmanagerapplet
     pavucontrol
     pkg-config
     trash-cli
-    wlroots
     xdg-utils
     ripgrep
     fd
@@ -361,9 +278,7 @@
     #nh helper
     nix-output-monitor
     nvd
-
     jdk8
-    # jdk17
 
     pkgs-Unstable.onlyoffice-desktopeditors
     fcitx5-configtool
@@ -373,23 +288,6 @@
 
   #polkit service
   security.polkit.enable = true;
-
-  # systemd = {
-  #   user.services.polkit-gnome-authentication-agent-1 = {
-  #     description = "polkit-gnome-authentication-agent-1";
-  #     wantedBy = [ "graphical-session.target" ];
-  #     wants = [ "graphical-session.target" ];
-  #     after = [ "graphical-session.target" ];
-  #     serviceConfig = {
-  #       Type = "simple";
-  #       ExecStart =
-  #         "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-  #       Restart = "on-failure";
-  #       RestartSec = 1;
-  #       TimeoutStopSec = 10;
-  #     };
-  #   };
-  # };
 
   # Some programs need SUID wrappers, can be configured further or areconfigurai
   # started in user sessions.
@@ -411,7 +309,6 @@
     # };
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
-      xdg-desktop-portal-gnome
       xdg-desktop-portal-cosmic
     ];
   };
@@ -422,9 +319,8 @@
   fonts.enableDefaultPackages = true;
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
-    nerd-fonts.droid-sans-mono
     nerd-fonts.fira-code
-    nerd-fonts.hack
+    corefonts
     font-awesome
     liberation_ttf
     monocraft
@@ -432,6 +328,7 @@
 
     lohit-fonts.gujarati
     lohit-fonts.devanagari
+
     fira-sans
     fira-code
   ];
@@ -464,34 +361,14 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
 
-  #nixpkgs.overlays = [
-  #(self: super: {
-  # waybar = super.waybar.overrideAttrs (oldAttrs: {
-  #	mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-  #	});
-  # })
-  # ];
-
   environment.sessionVariables = {
-    GTK_IM_MODULE = "fcitx";
-    QT_IM_MODULE = "fcitx";
-    XMODIFIERS = "@im=fcitx";
-    SDL_IM_MODULE = "fcitx";
-    GLFW_IM_MODULE = "ibus"; # Some Electron apps use this
-    # WLR_NO_HARDWARE_CURSORS = "1";
     NIXOS_OZONE_WL = "1";
-
-    ACCESSIBILITY_ENABLED = "1";
     NH_FLAKE = "/home/${userSettings.username}/nixos-dotfiles";
-
     COSMIC_DATA_CONTROL_ENABLED = 1;
   };
 
   #experimantlal features
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   programs.obs-studio = {
     enable = true;
@@ -507,7 +384,6 @@
   # settings of obs
   boot = {
     kernelModules = [ "v4l2loopback" ];
-
     extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
   };
 
@@ -517,42 +393,12 @@
   #xwayland
   programs.xwayland.enable = true;
 
-  # #sway graphical session target
-  # systemd.user.targets.sway-session = {
-  #   description = "sway compositor session";
-  #   documentation = [ "man:systemd.special(7)" ];
-  #   bindsTo = [ "graphical-session.target" ];
-  #   wants = [ "graphical-session-pre.target" ];
-  #   after = [ "graphical-session-pre.target" ];
-  # };
-
-  #sway
-  programs.sway = {
-    enable = true;
-    xwayland.enable = true;
-    wrapperFeatures.gtk = true; # so that gtk works properly
-    extraPackages = with pkgs; [
-      sway-audio-idle-inhibit
-      eog
-      eyedropper
-      swww
-      slurp
-      grim
-    ];
-    extraSessionCommands = "export MOZ_ENABLE_WAYLAND=1    ";
-  };
-
-  #niri
-  programs.niri.enable = true;
-
-  security.pam.loginLimits = [
-    {
-      domain = "@users";
-      item = "rtprio";
-      type = "-";
-      value = 1;
-    }
-  ];
+  security.pam.loginLimits = [{
+    domain = "@users";
+    item = "rtprio";
+    type = "-";
+    value = 1;
+  }];
   # programs.waybar.enable = true;
 
   environment.variables = {
@@ -589,29 +435,13 @@
     };
   };
 
-  # thunar file-manager
-  programs.thunar = {
-    enable = true;
-    plugins = with pkgs.xfce; [
-      thunar-archive-plugin
-      thunar-volman
-      thunar-dropbox-plugin
-    ];
-  };
-  # thunar to open things in terminal
-  xdg.terminal-exec = {
-    enable = true;
-    settings.default = [ "foot.desktop" ];
-  };
-
   programs.nautilus-open-any-terminal.enable = true;
-  services.gvfs = {
-    enable = true;
-  };
+  services.gvfs = { enable = true; };
 
   xdg.mime.defaultApplications = {
     # Microsoft Word documents (.docx)
-    "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "writer.desktop";
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document" =
+      "writer.desktop";
 
     # Other potential LibreOffice Writer formats you might want to set:
     # "application/vnd.oasis.opendocument.text" = "writer.desktop"; # OpenDocument Text (.odt)
@@ -627,8 +457,6 @@
     "image/tiff" = "org.gnome.eog.desktop";
     # You can add more image MIME types as needed, using eog.desktop
 
-    # PDF documents
-    "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
   };
 
   # bye bye nano
@@ -692,62 +520,12 @@
     # Generic rule for VIA (and other hidraw devices)
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
   '';
+
   services.udev.packages = [ pkgs.qmk-udev-rules ];
 
-  programs.wshowkeys.enable = true;
-
-  #
-  # services.geoclue2 = {
-  #   enable = true;
-  #   enableDemoAgent = true;
-  #   appConfig = {
-  #     "org.mozilla.firefox" = {
-  #       isAllowed = true;
-  #       isSystem = true;
-  #     };
-  #   };
-  # };
-  # location.provider = "geoclue2";
-  # services.avahi = {
-  #   enable = true;
-  #   nssmdns = true;
-  #   publish = {
-  #     enable = true;
-  #     addresses = true;
-  #     workstation = true;
-  #   };
-  # };
   services.flatpak.packages = [ ];
-  # environment.pathsToLink = [
-  #   "/share/xdg-desktop-portal"
-  #   "/share/applications"
-  # ];
 
   services.preload.enable = true;
-
-  systemd = {
-    user.services.polkit-gnome-authentication-agent-1 = {
-      description = "polkit-gnome-authentication-agent-1";
-      wantedBy = [ "graphical-session.target" ];
-      wants = [ "graphical-session.target" ];
-      after = [ "graphical-session.target" ];
-      serviceConfig = {
-        Type = "simple";
-        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-        Restart = "on-failure";
-        RestartSec = 1;
-        TimeoutStopSec = 10;
-      };
-    };
-  };
-
-  # Enable the COSMIC login manager
-  services.displayManager.cosmic-greeter.enable = true;
-
-  # Enable the COSMIC desktop environment
-  services.desktopManager.cosmic.enable = true;
-
-  environment.cosmic.excludePackages = with pkgs; [ cosmic-edit ];
 
   programs.firefox = {
     enable = true;
