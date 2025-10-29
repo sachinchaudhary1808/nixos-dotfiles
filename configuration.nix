@@ -165,6 +165,8 @@
       builtins.elem (lib.getName pkg) [ "steam" ];
   };
 
+  programs.seahorse.enable = true; # optional GUI for managing secrets
+
   services = {
     # blueman.enable = true;
     gnome.gnome-keyring.enable = true;
@@ -189,10 +191,7 @@
     };
   };
 
-  security = {
-    rtkit.enable = true;
-    pam.services.greetd.enableGnomeKeyring = true;
-  };
+  security = { rtkit.enable = true; };
 
   hardware = {
     bluetooth.enable = true;

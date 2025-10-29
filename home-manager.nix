@@ -16,6 +16,7 @@ in {
 
     #Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     packages = with pkgs; [
+      eog
       gemini-cli
       neovim
       wdisplays
@@ -66,7 +67,7 @@ in {
       woomer
       wl-mirror
       lazygit
-      gnome-gnome-software
+      gnome-software
     ];
 
     sessionVariables = { GIO_EXTRA_MODULES = "${pkgs.gvfs}/lib/gio/modules"; };
