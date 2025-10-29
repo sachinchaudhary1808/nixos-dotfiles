@@ -85,7 +85,7 @@
           buildInputs = with nixpkgs.legacyPackages.x86_64-linux; [
             vscode-langservers-extracted
             nodejs
-            nil
+            nixd
           ];
           shellHook = ''
             echo "Development shell ready for nix to configure"
