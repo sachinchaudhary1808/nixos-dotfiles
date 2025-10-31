@@ -9,5 +9,6 @@
 
   # excludePackages
   environment.cosmic.excludePackages = with pkgs; [ cosmic-edit ];
+  environment.systemPackages = with pkgs; [ cosmic-ext-applet-caffeine ];
 
 }

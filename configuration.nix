@@ -101,7 +101,8 @@
   # # Enable firmware update service
   services.fwupd.enable = true;
 
-  services.power-profiles-daemon.enable = true;
+  services.power-profiles-daemon.enable = false;
+  hardware.system76.power-daemon.enable = true;
 
   # dbus u power
   services.upower.enable = true;
@@ -205,7 +206,6 @@
     # some good nix tools
     unrar
     nixd
-    pkgs-Unstable.zed-editor
     nixpkgs-fmt
     nodejs
     gnome-calculator
@@ -535,4 +535,19 @@
     };
   };
   programs.nix-ld.enable = true;
+
+  systemd.user.services.polkit-gnome-authentication-agent-1 = {
+    description = "polkit-gnome-authentication-agent-1";
+    wantedBy = [ "graphical-session.target" ];
+    wants = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    serviceConfig = {
+      Type = "simple";
+      ExecStart =
+        "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+      Restart = "on-failure";
+      RestartSec = 1;
+      TimeoutStopSec = 10;
+    };
+  };
 }

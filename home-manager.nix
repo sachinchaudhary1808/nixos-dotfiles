@@ -67,7 +67,7 @@ in {
       woomer
       wl-mirror
       lazygit
-      gnome-software
+      komikku
     ];
 
     sessionVariables = { GIO_EXTRA_MODULES = "${pkgs.gvfs}/lib/gio/modules"; };
