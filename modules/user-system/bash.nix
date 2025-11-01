@@ -18,6 +18,7 @@ let
     gc = "git commit -m";
     vup = "nix profile upgrade nvim";
     o = "xdg-open";
+    of = "o $(fzf)";
   };
 in {
   programs.bash = {
@@ -43,6 +44,9 @@ in {
       	fi
       	rm -f -- "$tmp"
       }
+
+      export FZF_DEFAULT_COMMAND="fd --type f --exclude '.*'"
+
     '';
 
     shellAliases = myAliases;
