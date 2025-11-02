@@ -24,6 +24,8 @@ This repository contains my personal NixOS configuration and dotfiles. It’s de
 
 ## Screenshots
 
+### Cosmic-Dots Link: [sachinchaudhary1808/cosmic-dotfiles](https://github.com/sachinchaudhary1808/cosmic-dotfiles)
+
 ### Cosmic Desktop
 
 ![Cosmic](images/screenshots/Cosmic.png)
