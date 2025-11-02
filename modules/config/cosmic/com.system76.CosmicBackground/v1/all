@@ -1,9 +1,0 @@
-(
-    output: "all",
-    source: Path("/home/coco/nixos-dotfiles/images/wallpapers/View_of_Vent_in_the_Ventertal.jpg"),
-    filter_by_theme: false,
-    rotation_frequency: 300,
-    filter_method: Lanczos,
-    scaling_mode: Zoom,
-    sampling_method: Alphanumeric,
-)

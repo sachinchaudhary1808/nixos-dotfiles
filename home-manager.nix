@@ -75,8 +75,8 @@ in {
   };
 
   xdg.configFile = {
-    "cosmic".source = config.lib.file.mkOutOfStoreSymlink
-      "/home/${username}/nixos-dotfiles/modules/config/cosmic";
+    "cosmic".source =
+      config.lib.file.mkOutOfStoreSymlink "/home/${username}/cosmic";
 
     # you don't have to rebuild..., but have to give full path..
     "sway/config".source = config.lib.file.mkOutOfStoreSymlink

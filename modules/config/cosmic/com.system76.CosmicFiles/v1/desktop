@@ -1,7 +1,0 @@
-(
-    grid_spacing: 100,
-    icon_size: 100,
-    show_content: true,
-    show_mounted_drives: true,
-    show_trash: false,
-)
