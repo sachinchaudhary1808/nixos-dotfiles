@@ -1,0 +1,14 @@
+(
+    state: Enabled,
+    acceleration: Some((
+        profile: Some(Flat),
+        speed: 0.6042271248762552,
+    )),
+    left_handed: Some(false),
+    scroll_config: Some((
+        method: None,
+        natural_scroll: Some(false),
+        scroll_button: None,
+        scroll_factor: Some(1.0),
+    )),
+)

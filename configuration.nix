@@ -108,7 +108,13 @@
   services.upower.enable = true;
 
   # geoclue2
-  services.geoclue2.enable = true;
+  services.geoclue2 = {
+    enable = true;
+    appConfig.firefox = {
+      isAllowed = true;
+      isSystem = false;
+    };
+  };
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -239,7 +245,7 @@
     baobab
     ncdu
     transmission_4-gtk
-    warpinator
+    localsend
     tor-browser
     # (brave.override { vulkanSupport = true; })
     nautilus
@@ -401,8 +407,8 @@
   # programs.waybar.enable = true;
 
   environment.variables = {
-    VISUAL = "nvim";
-    EDITOR = "nvim";
+    # VISUAL = "nvim";
+    # EDITOR = "nvim";
   };
 
   virtualisation.waydroid.enable = true;

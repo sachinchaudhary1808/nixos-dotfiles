@@ -18,7 +18,8 @@ let
     gc = "git commit -m";
     vup = "nix profile upgrade nvim";
     o = "xdg-open";
-    of = "o $(fzf)";
+    fo = "o $(fzf)";
+    zo = "zeditor $(fzf)";
   };
 in {
   programs.bash = {

@@ -2,6 +2,16 @@
     items: [
         (
             item_type: LaunchAction,
+            label: Some("New launcher"),
+            command: Some("cosmic-logomenu-settings"),
+        ),
+        (
+            item_type: LaunchAction,
+            label: Some("New launcher"),
+            command: Some("cosmic-logomenu-settings"),
+        ),
+        (
+            item_type: LaunchAction,
             label: Some("About system"),
             command: Some("cosmic-settings about"),
         ),

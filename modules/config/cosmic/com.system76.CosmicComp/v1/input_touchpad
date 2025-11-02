@@ -2,8 +2,9 @@
     state: Enabled,
     acceleration: Some((
         profile: Some(Adaptive),
-        speed: 0.2930971574034791,
+        speed: 0.20824352991090378,
     )),
+    disable_while_typing: Some(false),
     scroll_config: Some((
         method: None,
         natural_scroll: Some(true),

@@ -3,8 +3,8 @@
         modifiers: [
             Super,
         ],
-        key: "e",
-    ): System(HomeFolder),
+        key: "f",
+    ): Maximize,
     (
         modifiers: [
             Super,
@@ -15,16 +15,23 @@
     ): Spawn("~/nixos-dotfiles/modules/scripts/conservation_mode/off.sh"),
     (
         modifiers: [
-            Super,
+            Ctrl,
         ],
-        key: "f",
-    ): Maximize,
+        key: "F4",
+    ): Disable,
     (
         modifiers: [
             Super,
         ],
-        key: "m",
-    ): Disable,
+        key: "F9",
+        description: Some("Conservation Mode On"),
+    ): Spawn("~/nixos-dotfiles/modules/scripts/conservation_mode/on.sh"),
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "XF86AudioMute",
+    ): System(MuteMic),
     (
         modifiers: [
             Super,
@@ -34,7 +41,24 @@
         modifiers: [
             Super,
         ],
-        key: "F9",
-        description: Some("Conservation Mode On"),
-    ): Spawn("~/nixos-dotfiles/modules/scripts/conservation_mode/on.sh"),
+        key: "m",
+    ): Disable,
+    (
+        modifiers: [
+            Ctrl,
+        ],
+        key: "BackSpace",
+    ): Disable,
+    (
+        modifiers: [
+            Ctrl,
+        ],
+        key: "c",
+    ): Disable,
+    (
+        modifiers: [
+            Super,
+        ],
+        key: "e",
+    ): System(HomeFolder),
 }

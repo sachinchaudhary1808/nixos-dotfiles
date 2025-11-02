@@ -68,12 +68,16 @@ in {
       wl-mirror
       lazygit
       komikku
+      gnome-software
     ];
 
     sessionVariables = { GIO_EXTRA_MODULES = "${pkgs.gvfs}/lib/gio/modules"; };
   };
 
   xdg.configFile = {
+    "cosmic".source = config.lib.file.mkOutOfStoreSymlink
+      "/home/${username}/nixos-dotfiles/modules/config/cosmic";
+
     # you don't have to rebuild..., but have to give full path..
     "sway/config".source = config.lib.file.mkOutOfStoreSymlink
       "/home/${username}/nixos-dotfiles/modules/config/sway/config";
