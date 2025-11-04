@@ -86,6 +86,7 @@
             vscode-langservers-extracted
             nodejs
             nixd
+            nil
           ];
           shellHook = ''
             echo "Development shell ready for nix to configure"

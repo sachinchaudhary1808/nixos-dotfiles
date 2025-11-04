@@ -158,6 +158,7 @@
       "audio"
       "render"
       "libvirtd"
+      "docker"
     ];
     packages = with pkgs; [ ]; # just used nil to not have empty code lol
   };
@@ -221,7 +222,7 @@
     statix
     wget
     mangohud
-    protonup
+    protonup-ng
     heroic
     lutris
     bat
@@ -248,7 +249,6 @@
     localsend
     tor-browser
     # (brave.override { vulkanSupport = true; })
-    nautilus
     fzf
     keepassxc
     htop
@@ -286,7 +286,7 @@
     jdk8
 
     pkgs-Unstable.onlyoffice-desktopeditors
-    fcitx5-configtool
+    qt6Packages.fcitx5-configtool
     orca
   ];
   programs.steam.enable = true;
@@ -426,18 +426,18 @@
   virtualisation.containers.enable = true;
   services.flatpak.enable = true;
   virtualisation = {
+    docker = { enable = true; };
     podman = {
       enable = true;
 
       # Create a `docker` alias for podman, to use it as a drop-in replacement
-      dockerCompat = true;
+      # dockerCompat = true;
 
       # Required for containers under podman-compose to be able to talk to each other.
       defaultNetwork.settings.dns_enabled = true;
     };
   };
 
-  programs.nautilus-open-any-terminal.enable = true;
   services.gvfs = { enable = true; };
 
   xdg.mime.defaultApplications = {
