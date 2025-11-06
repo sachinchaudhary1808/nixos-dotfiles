@@ -288,6 +288,8 @@
     pkgs-Unstable.onlyoffice-desktopeditors
     qt6Packages.fcitx5-configtool
     orca
+    ollama
+
   ];
   programs.steam.enable = true;
 

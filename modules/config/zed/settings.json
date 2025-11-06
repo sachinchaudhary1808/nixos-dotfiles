@@ -10,12 +10,13 @@
   "agent": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-5-mini"
+      "model": "gpt-4o"
     }
   },
   "minimap": {
     "show": "never"
   },
+  "show_edit_predictions": false,
   "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "icon_theme": {
     "mode": "system",
@@ -26,6 +27,16 @@
     "mode": "system",
     "light": "Catppuccin Latte",
     "dark": "Catppuccin Mocha"
+  },
+  "profiles": {
+    "no-ai": {
+      "disable_ai": true
+    },
+    "presentation": {
+      "buffer_font_size": 20,
+      "ui_font_size": 18,
+      "theme": "Catppuccin Latte"
+    }
   },
   "vim_mode": true,
   "relative_line_numbers": true,
