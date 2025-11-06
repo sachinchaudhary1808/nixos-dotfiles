@@ -539,6 +539,7 @@
       "widget.gtk.libadwaita-colors.enabled" = false;
     };
   };
+
   programs.nix-ld.enable = true;
 
   systemd.user.services.polkit-gnome-authentication-agent-1 = {
