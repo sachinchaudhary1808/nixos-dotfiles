@@ -19,12 +19,14 @@
     }
   },
   {
-    "bindings": {
+    "context": "(vim_mode == normal && !menu) || EmptyPane || SharedScreen",
+      "bindings": {
       "space o": "workspace::Open"
     }
   },
   {
-    "bindings": {
+    "context": "vim_mode == normal",
+      "bindings": {
       "space f e": "vim::ToggleProjectPanelFocus"
     }
   },
@@ -34,7 +36,7 @@
     }
   },
   {
-    "context": "Workspace",
+    "context": "(vim_mode == normal && !menu) || EmptyPane || SharedScreen",
     "bindings": {
       "space f r": [
         "projects::OpenRecent",

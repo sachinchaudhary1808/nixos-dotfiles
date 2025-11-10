@@ -38,6 +38,9 @@
       "theme": "Catppuccin Latte"
     }
   },
+  "auto_install_extensions": {
+    "markdown-oxide": true
+  },
   "vim_mode": true,
   "relative_line_numbers": true,
   "base_keymap": "VSCode",
