@@ -85,24 +85,6 @@ in {
       "/home/${username}/nixos-dotfiles/modules/config/zed";
 
     # you don't have to rebuild..., but have to give full path..
-    "sway/config".source = config.lib.file.mkOutOfStoreSymlink
-      "/home/${username}/nixos-dotfiles/modules/config/sway/config";
-
-    "rofi/config.rasi".source = config.lib.file.mkOutOfStoreSymlink
-      "/home/${username}/nixos-dotfiles/modules/config/rofi/config.rasi";
-    "rofi/tokyonight.rasi".source = config.lib.file.mkOutOfStoreSymlink
-      "/home/${username}/nixos-dotfiles/modules/config/rofi/tokyonight.rasi";
-
-    "waybar/config.jsonc".source = config.lib.file.mkOutOfStoreSymlink
-      "/home/${username}/nixos-dotfiles/modules/config/waybar/config.jsonc";
-    "waybar/style.css".source = config.lib.file.mkOutOfStoreSymlink
-      "/home/${username}/nixos-dotfiles/modules/config/waybar/style.css";
-
-    "foot/foot.ini".source = config.lib.file.mkOutOfStoreSymlink
-      "/home/${username}/nixos-dotfiles/modules/gui/foot/foot.ini";
-
-    "niri/config.kdl".source = config.lib.file.mkOutOfStoreSymlink
-      "/home/${username}/nixos-dotfiles/modules/config/niri/config.kdl";
 
     # u have to rebuild but don't need to give full path...
     "nixpkgs/config.nix".source = ./modules/config/nixpkgs/config.nix;
@@ -112,12 +94,6 @@ in {
   home.file = {
     ".ignore".source = ./modules/config/home/.ignore;
     ".inputrc".source = ./modules/config/home/.inputrc;
-
-    ".config/nwg-bar" = {
-      source =
-        ./modules/config/nwg-bar; # Path to the source directory you want to symlink
-      recursive = true;
-    };
   };
   programs.zed-editor = {
     enable = true;

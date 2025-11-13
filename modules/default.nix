@@ -9,10 +9,6 @@
     # gui programms
     ./gui/gammastep.nix
     ./gui/zathura.nix
-    ./gui/kitty.nix
-    ./gui/foot/foot.nix
-    ./gui/swaylock.nix
-    ./gui/swaync/swaync.nix
 
     # tui programms
     ./tui/yazi.nix
@@ -20,6 +16,5 @@
     ./tui/tmux/tmux.nix
 
     # services
-    # ./services/swayidle.nix
   ];
 }
