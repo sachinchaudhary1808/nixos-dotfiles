@@ -18,11 +18,6 @@
   },
   "show_edit_predictions": false,
   "buffer_font_family": "JetBrainsMono Nerd Font Mono",
-  "icon_theme": {
-    "mode": "system",
-    "light": "Zed (Default)",
-    "dark": "Zed (Default)"
-  },
   "theme": {
     "mode": "system",
     "light": "Catppuccin Latte",
@@ -39,7 +34,9 @@
     }
   },
   "auto_install_extensions": {
-    "markdown-oxide": true
+    "markdown-oxide": true,
+    "live-server": true,
+    "catppuccin": true
   },
   "vim_mode": true,
   "relative_line_numbers": true,

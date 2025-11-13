@@ -314,7 +314,7 @@
     #     "org.freedesktop.impl.portal.ScreenCast" = "gnome";
     #   };
     # };
-    extraPortals = with pkgs; [ xdg-desktop-portal-cosmic ];
+    extraPortals = with pkgs; [ xdg-desktop-portal-cosmic xdg-desktop-portal ];
   };
 
   programs.dconf.enable = true;

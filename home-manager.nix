@@ -17,6 +17,7 @@ in {
 
     #Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     packages = with pkgs; [
+      vscode-fhs
       ghostty
       blanket
       eog
@@ -48,7 +49,7 @@ in {
       pkgs-Unstable.waybar
       rofi
       legcord
-      element-desktop
+      # element-desktop
       pciutils
       gnome-system-monitor
       trash-cli
