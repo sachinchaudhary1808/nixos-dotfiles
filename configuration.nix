@@ -85,7 +85,7 @@
   # };
 
   # what to do when lid is closed
-  services.logind.lidSwitch = "suspend";
+  services.logind.settings.Login.HandleLidSwitch = "suspend";
   #kernel settings
   # boot.kernelPackages = pkgs.linuxPackages_latest;
 

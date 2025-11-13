@@ -45,7 +45,6 @@
       #   };
       # };
       pkgs-Unstable = import nixpkgs-unstable { inherit system; };
-
       system = "x86_64-linux";
     in {
       nixosConfigurations = {

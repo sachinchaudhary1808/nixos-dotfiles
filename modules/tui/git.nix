@@ -1,8 +1,12 @@
 {
   programs.git = {
     enable = true;
-    userName = "sachinchaudhary1808";
-    userEmail = "chaudharysachinasachin@gmail.com";
-    extraConfig = { init.defaultBranch = "main"; };
+    settings = {
+      user = {
+        name = "sachinchaudhary1808";
+        email = "chaudharysachinasachin@gmail.com";
+        init.defaultBranch = "main";
+      };
+    };
   };
 }
