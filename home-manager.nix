@@ -74,7 +74,6 @@ in {
       wl-mirror
       lazygit
       komikku
-      gnome-software
     ];
 
     sessionVariables = { GIO_EXTRA_MODULES = "${pkgs.gvfs}/lib/gio/modules"; };
