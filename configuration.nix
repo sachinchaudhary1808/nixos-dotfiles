@@ -451,16 +451,6 @@
     # "application/vnd.oasis.opendocument.text" = "writer.desktop"; # OpenDocument Text (.odt)
     # "application/msword" = "writer.desktop"; # Older Microsoft Word formats (.doc)
 
-    # PNG images
-    "image/png" = "org.gnome.eog.desktop";
-
-    # Other common image formats (using eog)
-    "image/jpeg" = "org.gnome.eog.desktop";
-    "image/gif" = "org.gnome.eog.desktop";
-    "image/bmp" = "org.gnome.eog.desktop";
-    "image/tiff" = "org.gnome.eog.desktop";
-    # You can add more image MIME types as needed, using eog.desktop
-
   };
 
   # bye bye nano
