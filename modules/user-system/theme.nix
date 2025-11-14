@@ -2,16 +2,16 @@
   gtk = {
     enable = true; # Enable GTK theme management
     # catppuccin.enable = true;
-    theme = {
-      # Choose your theme name and package
-      name = "Adwaita";
-      # package = pkgs.dracula-theme;
-      # {
-      #      # accents = [ "blue" ];
-      #      # variant = "mocha";
-      #      # size = "compact";
-      #    };
-    };
+    # theme = {
+    # Choose your theme name and package
+    # name = "Adwaita";
+    # package = pkgs.gnome-themes-extra;
+    # {
+    #      # accents = [ "blue" ];
+    #      # variant = "mocha";
+    #      # size = "compact";
+    #    };
+    # };
   };
 
   gtk.iconTheme = {
