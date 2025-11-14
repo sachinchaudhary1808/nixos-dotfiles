@@ -289,6 +289,7 @@
     qt6Packages.fcitx5-configtool
     orca
     ollama
+    adw-gtk3
 
   ];
   programs.steam.enable = true;

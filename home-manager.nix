@@ -17,7 +17,8 @@ in {
 
     #Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     packages = with pkgs; [
-      gnome-solanum
+      adw-gtk3
+      gnome-pomodoro
       nautilus
       papers
       vscode-fhs
