@@ -1,0 +1,7 @@
+{
+  "boilerplat": {
+    "prefix": "main",
+    "body": "#include <stdio.h>\n\nint main() {\n    $0\n\treturn 0;\n}",
+    "description": "c boilerplat without printf"
+  }
+}
