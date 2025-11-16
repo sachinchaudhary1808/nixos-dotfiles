@@ -3,5 +3,10 @@
     "prefix": "main",
     "body": "#include <stdio.h>\n\nint main() {\n    $0\n\treturn 0;\n}",
     "description": "c boilerplat without printf"
+  },
+  "copyrightplat": {
+    "prefix": "copyright",
+    "body": "/*\nCopyright by: $1\nDate: $2/$3/$4 $5:$6 $7\nCP: $8\n*/",
+    "description": "copyright boilderplat for clg"
   }
 }
