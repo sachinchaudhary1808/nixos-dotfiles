@@ -31,11 +31,6 @@
     }
   },
   {
-    "bindings": {
-      "space space": "editor::ToggleFocus"
-    }
-  },
-  {
     "context": "(vim_mode == normal && !menu) || EmptyPane || SharedScreen",
     "bindings": {
       "space f r": [
@@ -44,6 +39,12 @@
           "create_new_window": false
         }
       ]
+    }
+  },
+  {
+    "context": "!Editor",
+    "bindings": {
+      "space space": "editor::ToggleFocus"
     }
   }
 ]

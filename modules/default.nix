@@ -7,7 +7,7 @@
     ./user-system/zoxide.nix
 
     # gui programms
-    ./gui/gammastep.nix
+    # ./gui/gammastep.nix
     ./gui/zathura.nix
 
     # tui programms

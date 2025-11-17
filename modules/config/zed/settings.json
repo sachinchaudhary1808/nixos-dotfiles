@@ -42,5 +42,6 @@
   "relative_line_numbers": true,
   "base_keymap": "VSCode",
   "ui_font_size": 16.0,
-  "buffer_font_size": 18.0
+  "buffer_font_size": 18.0,
+
 }
