@@ -230,16 +230,14 @@
 
   security = { rtkit.enable = true; };
 
-  hardware = {
-    bluetooth.enable = true;
-    bluetooth.powerOnBoot = true;
-  };
+  hardware = { bluetooth.enable = true; };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     # some good nix tools
+    tokei
     unrar
     nixd
     nixpkgs-fmt
@@ -576,4 +574,5 @@
       TimeoutStopSec = 10;
     };
   };
+  services.orca.enable = false;
 }

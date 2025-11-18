@@ -1,9 +1,17 @@
-{ config, pkgs,
-# inputs,
-userSettings, lib, pkgs-Unstable, ... }:
+{
+  config,
+  pkgs,
+  # inputs,
+  userSettings,
+  lib,
+  pkgs-Unstable,
+  ...
+}:
 # ... is called ellipsis
-let username = userSettings.username;
-in {
+let
+  username = userSettings.username;
+in
+{
   # home-manager.users.coco = {
   imports = [ ./modules ];
 
@@ -32,13 +40,17 @@ in {
       blender
       asciinema # for terminal recording in txt lol idk
       vesktop
-      (lib.hiPrio (pkgs.writeShellScriptBin "vesktop" ''
-        exec ${pkgs.vesktop}/bin/vesktop --enable-wayland-ime --wayland-text-input-version=3 "$@"
-      ''))
+      (lib.hiPrio (
+        pkgs.writeShellScriptBin "vesktop" ''
+          exec ${pkgs.vesktop}/bin/vesktop --enable-wayland-ime --wayland-text-input-version=3 "$@"
+        ''
+      ))
       obsidian
-      (lib.hiPrio (pkgs.writeShellScriptBin "obsidian" ''
-        exec ${pkgs.obsidian}/bin/obsidian --enable-wayland-ime --wayland-text-input-version=3 "$@"
-      ''))
+      (lib.hiPrio (
+        pkgs.writeShellScriptBin "obsidian" ''
+          exec ${pkgs.obsidian}/bin/obsidian --enable-wayland-ime --wayland-text-input-version=3 "$@"
+        ''
+      ))
       pkgs-Unstable.foliate
       zoom-us
       protonvpn-gui
@@ -77,14 +89,15 @@ in {
       komikku
     ];
 
-    sessionVariables = { GIO_EXTRA_MODULES = "${pkgs.gvfs}/lib/gio/modules"; };
+    sessionVariables = {
+      GIO_EXTRA_MODULES = "${pkgs.gvfs}/lib/gio/modules";
+    };
   };
 
   xdg.configFile = {
-    "cosmic".source =
-      config.lib.file.mkOutOfStoreSymlink "/home/${username}/cosmic";
-    "zed".source = config.lib.file.mkOutOfStoreSymlink
-      "/home/${username}/nixos-dotfiles/modules/config/zed";
+    "cosmic".source = config.lib.file.mkOutOfStoreSymlink "/home/${username}/cosmic";
+    "zed".source =
+      config.lib.file.mkOutOfStoreSymlink "/home/${username}/nixos-dotfiles/modules/config/zed";
 
     # you don't have to rebuild..., but have to give full path..
 

@@ -8,7 +8,7 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "project_panel": {
-    "hide_hidden": false
+    "hide_hidden": true
   },
   "agent": {
     "default_model": {
@@ -42,18 +42,9 @@
     "catppuccin": true
   },
   "vim_mode": true,
-  "relative_line_numbers": "enabled",
+  "relative_line_numbers": true,
   "base_keymap": "VSCode",
   "ui_font_size": 16.0,
   "buffer_font_size": 18.0,
 
-  "lsp": {
-    "nixd": {
-      "initialization_options": {
-        "formatting": {
-          "command": ["nixfmt"] // or ["nixfmt"]
-        }
-      }
-    }
-  }
 }
