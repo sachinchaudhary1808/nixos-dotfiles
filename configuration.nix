@@ -116,7 +116,7 @@
   # what to do when lid is closed
   services.logind.settings.Login.HandleLidSwitch = "suspend";
   #kernel settings
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # boot.kernelPackages = pkgs.linuxPackages_zen;
   #zram settings
@@ -575,4 +575,7 @@
     };
   };
   services.orca.enable = false;
+
+  # services.displayManager.gdm.enable = true;
+  # services.desktopManager.gnome.enable = true;
 }

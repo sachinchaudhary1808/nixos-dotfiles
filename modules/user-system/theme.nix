@@ -2,16 +2,16 @@
   gtk = {
     enable = true; # Enable GTK theme management
     # catppuccin.enable = true;
-    # theme = {
-    # Choose your theme name and package
-    # name = "Adwaita";
-    # package = pkgs.gnome-themes-extra;
-    # {
-    #      # accents = [ "blue" ];
-    #      # variant = "mocha";
-    #      # size = "compact";
-    #    };
-    # };
+    theme = {
+      # Choose your theme name and package
+      name = "Adwaita";
+      # package = pkgs.gnome-themes-extra;
+      # {
+      #      # accents = [ "blue" ];
+      #      # variant = "mocha";
+      #      # size = "compact";
+      #    };
+    };
   };
 
   gtk.iconTheme = {
@@ -25,14 +25,14 @@
   #   style.name = "kvantum";
   #
   # };
-  qt = {
-    enable = true;
-    platformTheme.name = "gtk";
-    style = {
-      name = "gtk2";
-      package = pkgs.libsForQt5.qtstyleplugins;
-    };
-  };
+  # qt = {
+  #   enable = true;
+  #   platformTheme.name = "gtk";
+  #   style = {
+  #     name = "gtk2";
+  #     package = pkgs.libsForQt5.qtstyleplugins;
+  #   };
+  # };
 
   home.pointerCursor = {
     gtk.enable = true;

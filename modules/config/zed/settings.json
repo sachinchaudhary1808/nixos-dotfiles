@@ -8,12 +8,12 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   "project_panel": {
-    "hide_hidden": false
+    "hide_hidden": true
   },
   "agent": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4o"
+      "model": "gpt-5-mini"
     }
   },
   "minimap": {
@@ -51,7 +51,22 @@
     "nixd": {
       "initialization_options": {
         "formatting": {
-          "command": ["nixfmt"] // or ["nixfmt"]
+          "command": ["nixfmt"]
+        }
+      }
+    },
+    "nil": {
+      "initialization_options": {
+        "formatting": {
+          "command": ["nixfmt"]
+        }
+      }
+    },
+    "lsp": {
+      "hls": {
+        "binary": {
+          "path": "haskell-language-server",
+          "arguments": ["--lsp"]
         }
       }
     }
