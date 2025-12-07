@@ -46,11 +46,13 @@
   boot = {
     plymouth = {
       enable = true;
-      theme = "owl";
+      theme = "circle_flow";
       themePackages = with pkgs;
         [
           # By default we would install all themes
-          (adi1090x-plymouth-themes.override { selected_themes = [ "owl" ]; })
+          (adi1090x-plymouth-themes.override {
+            selected_themes = [ "circle_flow" ];
+          })
         ];
     };
 
@@ -297,7 +299,7 @@
     ripgrep
     fd
     unzip
-    v4l-utils
+    # v4l-utils
     cliphist
     #podman
     dive # look into docker image layers
@@ -414,10 +416,10 @@
     ];
   };
   # settings of obs
-  boot = {
-    kernelModules = [ "v4l2loopback" ];
-    extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
-  };
+  # boot = {
+  # kernelModules = [ "v4l2loopback" ];
+  # extraModulePackages = [ config.boot.kernelPackages.v4l2loopback ];
+  # };
 
   #masked services
   systemd.services.NetworkManager-wait-online.enable = false;
@@ -546,8 +548,6 @@
   services.udev.packages = [ pkgs.qmk-udev-rules ];
 
   services.flatpak.packages = [ ];
-
-  services.preload.enable = true;
 
   programs.firefox = {
     enable = true;

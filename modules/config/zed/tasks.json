@@ -46,5 +46,13 @@
     "shell": "system"
     // Represents the tags for inline runnable indicators, or spawning multiple tasks at once.
     // "tags": []
+  },
+  {
+    "label": "run current go file",
+    "command": "go",
+    "args": ["run", "$ZED_FILE"],
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
   }
 ]

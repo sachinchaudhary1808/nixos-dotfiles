@@ -40,11 +40,5 @@
         }
       ]
     }
-  },
-  {
-    "context": "!Editor",
-    "bindings": {
-      "space space": "editor::ToggleFocus"
-    }
   }
 ]

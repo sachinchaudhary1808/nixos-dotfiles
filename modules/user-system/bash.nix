@@ -28,6 +28,7 @@ in {
 
     initExtra = ''
             # nitch
+            echo "DO IT FOR FUN!"
       #      if [ -f $HOME/.bashrc-personal ]; then
        #       source $HOME/.bashrc-personal
         #    fi
