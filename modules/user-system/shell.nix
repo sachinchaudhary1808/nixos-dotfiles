@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 let
   myAliases = {
     nixupdate = "sudo nixos-rebuild switch";
@@ -28,6 +29,7 @@ in {
 
     initExtra = ''
             # nitch
+             colorscript random
             echo "DO IT FOR FUN!"
       #      if [ -f $HOME/.bashrc-personal ]; then
        #       source $HOME/.bashrc-personal
@@ -49,8 +51,15 @@ in {
 
       export FZF_DEFAULT_COMMAND="fd --type f --exclude '.*'"
 
+
+
     '';
 
     shellAliases = myAliases;
   };
+  programs.fzf = {
+    enable = true;
+    enableBashIntegration = true;
+  };
+
 }

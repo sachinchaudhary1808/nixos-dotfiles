@@ -9,38 +9,38 @@
 {
   "soft_wrap": "editor_width",
   "project_panel": {
-    "hide_hidden": true
+    "hide_hidden": true,
   },
   "agent": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-5-mini"
-    }
+      "model": "gpt-5-mini",
+    },
   },
   "minimap": {
-    "show": "never"
+    "show": "never",
   },
   "show_edit_predictions": false,
   "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "theme": {
     "mode": "system",
     "light": "Catppuccin Latte",
-    "dark": "Catppuccin Mocha"
+    "dark": "Catppuccin Mocha",
   },
   "profiles": {
     "no-ai": {
-      "disable_ai": true
+      "disable_ai": true,
     },
     "presentation": {
       "buffer_font_size": 20,
       "ui_font_size": 18,
-      "theme": "Catppuccin Latte"
-    }
+      "theme": "Catppuccin Latte",
+    },
   },
   "auto_install_extensions": {
     "markdown-oxide": true,
     "live-server": true,
-    "catppuccin": true
+    "catppuccin": true,
   },
   "vim_mode": true,
   "relative_line_numbers": "enabled",
@@ -52,24 +52,24 @@
     "nixd": {
       "initialization_options": {
         "formatting": {
-          "command": ["nixfmt"]
-        }
-      }
+          "command": ["nixfmt"],
+        },
+      },
     },
     "nil": {
       "initialization_options": {
         "formatting": {
-          "command": ["nixfmt"]
-        }
-      }
+          "command": ["nixfmt"],
+        },
+      },
     },
     "lsp": {
       "hls": {
         "binary": {
           "path": "haskell-language-server",
-          "arguments": ["--lsp"]
-        }
-      }
-    }
-  }
+          "arguments": ["--lsp"],
+        },
+      },
+    },
+  },
 }

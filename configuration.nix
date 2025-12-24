@@ -132,8 +132,8 @@
   # # Enable firmware update service
   services.fwupd.enable = true;
 
-  services.power-profiles-daemon.enable = false;
-  hardware.system76.power-daemon.enable = true;
+  services.power-profiles-daemon.enable = true;
+  hardware.system76.power-daemon.enable = false;
 
   # dbus u power
   services.upower.enable = true;
@@ -353,6 +353,7 @@
   #fonts
   fonts.enableDefaultPackages = true;
   fonts.packages = with pkgs; [
+    monocraft
     nerd-fonts.jetbrains-mono
     nerd-fonts.fira-code
     corefonts
