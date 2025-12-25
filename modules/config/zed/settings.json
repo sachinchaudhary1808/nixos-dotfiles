@@ -7,20 +7,19 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "terminal": {
+    "font_weight": 400.0,
+  },
+  "wrap_guides": [
+    80, // A default colored ruler at column 80
+  ],
   "soft_wrap": "editor_width",
   "project_panel": {
     "hide_hidden": true,
   },
-  "agent": {
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-5-mini",
-    },
-  },
   "minimap": {
     "show": "never",
   },
-  "show_edit_predictions": false,
   "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "theme": {
     "mode": "system",
@@ -35,6 +34,13 @@
       "buffer_font_size": 20,
       "ui_font_size": 18,
       "theme": "Catppuccin Latte",
+    },
+  },
+  "show_edit_predictions": false,
+  "agent": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-5-mini",
     },
   },
   "auto_install_extensions": {
