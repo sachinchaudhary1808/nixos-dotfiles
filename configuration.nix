@@ -438,8 +438,8 @@
   # programs.waybar.enable = true;
 
   environment.variables = {
-    # VISUAL = "nvim";
-    # EDITOR = "nvim";
+    VISUAL = "zeditor";
+    EDITOR = "nvim";
   };
 
   virtualisation.waydroid.enable = true;

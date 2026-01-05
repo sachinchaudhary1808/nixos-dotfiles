@@ -7,6 +7,8 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "show_completions_on_input": false,
+  "show_completion_documentation": true,
   "terminal": {
     "font_weight": 400.0,
   },
