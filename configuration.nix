@@ -1,5 +1,14 @@
-{ config, pkgs, inputs, userSettings, systemSettings, pkgs-Unstable, lib, ...
-}: {
+{
+  config,
+  pkgs,
+  inputs,
+  userSettings,
+  systemSettings,
+  pkgs-Unstable,
+  lib,
+  ...
+}:
+{
   imports = [
     # Include the results of the hardware scan.
     ./desktop/cosmic.nix
@@ -19,9 +28,15 @@
   };
 
   fileSystems = {
-    "/".options = [ "compress=zstd" "noatime" ];
+    "/".options = [
+      "compress=zstd"
+      "noatime"
+    ];
     "/home".options = [ "compress=zstd" ];
-    "/nix".options = [ "compress=zstd" "noatime" ];
+    "/nix".options = [
+      "compress=zstd"
+      "noatime"
+    ];
   };
 
   services.btrfs.autoScrub = {
@@ -47,13 +62,12 @@
     plymouth = {
       enable = true;
       theme = "circle_flow";
-      themePackages = with pkgs;
-        [
-          # By default we would install all themes
-          (adi1090x-plymouth-themes.override {
-            selected_themes = [ "circle_flow" ];
-          })
-        ];
+      themePackages = with pkgs; [
+        # By default we would install all themes
+        (adi1090x-plymouth-themes.override {
+          selected_themes = [ "circle_flow" ];
+        })
+      ];
     };
 
     # Enable "Silent boot"
@@ -92,7 +106,7 @@
 
   # networking
   networking.hostName = systemSettings.hostname; # Define your hostname.
-  networking.wireless.enable = false; # disble wpa whatever
+  networking.wireless.enable = true; # disble wpa whatever
 
   # Dns server
   # networking.nameservers = [ "1.1.1.1" ];
@@ -201,8 +215,7 @@
     # nixpkgs.config.allowUnfree = true;
     config.allowInsecure = true;
     config.permittedInsecurePackages = [ "electron-33.4.11" ];
-    config.allowUnfreePredicate = pkg:
-      builtins.elem (lib.getName pkg) [ "steam" ];
+    config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "steam" ];
   };
 
   programs.seahorse.enable = true; # optional GUI for managing secrets
@@ -231,9 +244,13 @@
     };
   };
 
-  security = { rtkit.enable = true; };
+  security = {
+    rtkit.enable = true;
+  };
 
-  hardware = { bluetooth.enable = true; };
+  hardware = {
+    bluetooth.enable = true;
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -241,6 +258,7 @@
     # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     # some good nix tools
     tokei
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     unrar
     nixd
     nixpkgs-fmt
@@ -257,7 +275,7 @@
     lutris
     bat
     cachix
-    nixfmt-classic
+    nixfmt
     # swaylock-effects
     snapshot
     rclone
@@ -306,6 +324,7 @@
     dive # look into docker image layers
     podman-tui # status of containers in the terminal
     docker-compose # start group of containers for dev
+    freerdp
     #podman-compose # start group of containers for dev
 
     # nixos helper
@@ -345,7 +364,10 @@
     #     "org.freedesktop.impl.portal.ScreenCast" = "gnome";
     #   };
     # };
-    extraPortals = with pkgs; [ xdg-desktop-portal-cosmic xdg-desktop-portal ];
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-cosmic
+      xdg-desktop-portal
+    ];
   };
 
   programs.dconf.enable = true;
@@ -404,7 +426,10 @@
   };
 
   #experimantlal features
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   programs.obs-studio = {
     enable = true;
@@ -429,12 +454,14 @@
   #xwayland
   programs.xwayland.enable = true;
 
-  security.pam.loginLimits = [{
-    domain = "@users";
-    item = "rtprio";
-    type = "-";
-    value = 1;
-  }];
+  security.pam.loginLimits = [
+    {
+      domain = "@users";
+      item = "rtprio";
+      type = "-";
+      value = 1;
+    }
+  ];
   # programs.waybar.enable = true;
 
   environment.variables = {
@@ -460,24 +487,27 @@
   virtualisation.containers.enable = true;
   services.flatpak.enable = true;
   virtualisation = {
-    docker = { enable = true; };
-    podman = {
+    docker = {
       enable = true;
-
-      # Create a `docker` alias for podman, to use it as a drop-in replacement
-      # dockerCompat = true;
-
-      # Required for containers under podman-compose to be able to talk to each other.
-      defaultNetwork.settings.dns_enabled = true;
     };
+    # podman = {
+    #   enable = true;
+
+    # Create a `docker` alias for podman, to use it as a drop-in replacement
+    # dockerCompat = true;
+
+    # Required for containers under podman-compose to be able to talk to each other.
+    # defaultNetwork.settings.dns_enabled = true;
+    # };
   };
 
-  services.gvfs = { enable = true; };
+  services.gvfs = {
+    enable = true;
+  };
 
   xdg.mime.defaultApplications = {
     # Microsoft Word documents (.docx)
-    "application/vnd.openxmlformats-officedocument.wordprocessingml.document" =
-      "writer.desktop";
+    "application/vnd.openxmlformats-officedocument.wordprocessingml.document" = "writer.desktop";
 
     # Other potential LibreOffice Writer formats you might want to set:
     # "application/vnd.oasis.opendocument.text" = "writer.desktop"; # OpenDocument Text (.odt)
@@ -569,8 +599,7 @@
     after = [ "graphical-session.target" ];
     serviceConfig = {
       Type = "simple";
-      ExecStart =
-        "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
       Restart = "on-failure";
       RestartSec = 1;
       TimeoutStopSec = 10;

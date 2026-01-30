@@ -2,14 +2,18 @@
   description = "coco-system";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
 
     nix-flatpak.url = "github:gmodena/nix-flatpak/?ref=latest";
 
     # Home manager
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11"; # master";
+      url = "github:nix-community/home-manager/master"; # master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -22,8 +26,16 @@
 
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nixpkgs-unstable
-    , nixos-hardware, nix-flatpak, ... }:
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      nixpkgs-unstable,
+      nixos-hardware,
+      nix-flatpak,
+      ...
+    }:
     let
       inherit (nixpkgs) lib;
       systemSettings = {
@@ -46,23 +58,32 @@
       # };
       pkgs-Unstable = import nixpkgs-unstable { inherit system; };
       system = "x86_64-linux";
-    in {
+    in
+    {
       nixosConfigurations = {
         ${systemSettings.hostname} = lib.nixosSystem {
           specialArgs = {
-            inherit inputs userSettings systemSettings pkgs-Unstable;
+            inherit
+              inputs
+              userSettings
+              systemSettings
+              pkgs-Unstable
+              ;
           };
 
           modules = [
             nixos-hardware.nixosModules.lenovo-ideapad-15alc6
             nix-flatpak.nixosModules.nix-flatpak
             ./configuration.nix
-            ({ ... }: {
-              environment.systemPackages = [ ];
-              # nixpkgs.overlays = [
-              #   unstable-packages
-              # ];
-            })
+            (
+              { ... }:
+              {
+                environment.systemPackages = [ ];
+                # nixpkgs.overlays = [
+                #   unstable-packages
+                # ];
+              }
+            )
             home-manager.nixosModules.home-manager
             {
               home-manager = {
@@ -72,7 +93,10 @@
                   inherit inputs userSettings pkgs-Unstable;
                 };
                 users.${userSettings.username} = {
-                  imports = [ ./home-manager.nix ./modules/gui/spicetify.nix ];
+                  imports = [
+                    ./home-manager.nix
+                    ./modules/gui/spicetify.nix
+                  ];
                 };
               };
             }
