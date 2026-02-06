@@ -258,7 +258,6 @@
     # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     # some good nix tools
     tokei
-    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     unrar
     nixd
     nixpkgs-fmt
