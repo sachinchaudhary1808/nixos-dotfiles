@@ -339,6 +339,9 @@
     orca
     ollama
     adw-gtk3
+    tesseract
+    grim
+    slurp
 
   ];
   programs.steam.enable = true;

@@ -25,6 +25,9 @@ in
 
     #Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     packages = with pkgs; [
+      bottles
+      vivaldi
+      vivaldi-ffmpeg-codecs
       winboat
       gnome-pomodoro
       brave
