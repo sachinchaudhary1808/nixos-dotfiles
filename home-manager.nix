@@ -37,7 +37,6 @@ in
       gradia
       rustdesk-flutter
       melonDS
-      super-productivity
       switcheroo
       kooha
       nautilus
@@ -45,7 +44,7 @@ in
       ghostty
       blanket
       loupe
-      gemini-cli
+      # gemini-cli
       neovim
       wdisplays
       geogebra6

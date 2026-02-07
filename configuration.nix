@@ -214,7 +214,7 @@
     config.allowUnfree = true;
     # nixpkgs.config.allowUnfree = true;
     config.allowInsecure = true;
-    config.permittedInsecurePackages = [ "electron-33.4.11" ];
+    config.permittedInsecurePackages = [ "electron-37.10.3" ];
     config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "steam" ];
   };
 
@@ -270,6 +270,7 @@
     wget
     mangohud
     protonup-ng
+    vim
     heroic
     lutris
     bat
@@ -611,4 +612,5 @@
 
   # services.displayManager.gdm.enable = true;
   # services.desktopManager.gnome.enable = true;
+
 }
