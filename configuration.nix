@@ -491,7 +491,7 @@
   services.flatpak.enable = true;
   virtualisation = {
     docker = {
-      enable = true;
+      enable = false;
     };
     # podman = {
     #   enable = true;
