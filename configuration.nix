@@ -16,6 +16,10 @@
   ];
 
   nix = {
+    settings.trusted-users = [
+      "root"
+      "coco"
+    ];
     # using lix insted of nix
     package = pkgs-Unstable.lix;
     nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
@@ -252,6 +256,22 @@
     bluetooth.enable = true;
   };
 
+  systemd.services.toggle-battery = {
+    description = "Toggle Lenovo Conservation Mode";
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = pkgs.writeShellScript "toggle-battery-root" ''
+        FILE=/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode
+
+        if [ "$(cat $FILE)" = "1" ]; then
+          echo 0 > $FILE
+        else
+          echo 1 > $FILE
+        fi
+      '';
+    };
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -269,7 +289,6 @@
     statix
     wget
     mangohud
-    protonup-ng
     vim
     heroic
     lutris
@@ -279,7 +298,7 @@
     # swaylock-effects
     snapshot
     rclone
-    xorg.xmodmap
+    xmodmap
     libinput
     helvum
     # blueman
@@ -342,6 +361,17 @@
     tesseract
     grim
     slurp
+    (writeShellScriptBin "toggle-battery" ''
+      systemctl start toggle-battery.service
+      sleep 0.2
+      STATUS=$(cat /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode)
+      if [ "$STATUS" = "1" ]; then
+        notify-send "Battery: Conservation Mode (~60%)"
+      else
+        notify-send "Battery: Full Charge Mode (100%)"
+      fi
+    '')
+    polkit_gnome
 
   ];
   programs.steam.enable = true;
@@ -491,7 +521,7 @@
   services.flatpak.enable = true;
   virtualisation = {
     docker = {
-      enable = false;
+      enable = true;
     };
     # podman = {
     #   enable = true;
@@ -571,13 +601,13 @@
   '';
   # https://github.com/rvaiya/keyd/issues/66#issuecomment-985983524
 
-  # for the via app to work
   services.udev.extraRules = ''
     # Vial-specific rule
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", ATTRS{serial}=="*vial:f64c2b3c*", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
 
     # Generic rule for VIA (and other hidraw devices)
     KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
+
   '';
 
   services.udev.packages = [ pkgs.qmk-udev-rules ];
@@ -612,5 +642,12 @@
 
   # services.displayManager.gdm.enable = true;
   # services.desktopManager.gnome.enable = true;
+
+  security.polkit.extraConfig = ''
+    polkit.addRule(function(action, subject) {
+      if (subject.isInGroup("wheel"))
+        return polkit.Result.YES;
+    });
+  '';
 
 }

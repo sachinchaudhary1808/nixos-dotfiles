@@ -25,28 +25,22 @@ in
 
     #Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     packages = with pkgs; [
+      devenv
+      pinta
       bottles
-      vivaldi
-      vivaldi-ffmpeg-codecs
       winboat
-      gnome-pomodoro
       brave
       rstudio
-      vim
-      gnome-solanum
       gradia
-      rustdesk-flutter
       melonDS
       switcheroo
       kooha
       nautilus
       vscode-fhs
-      ghostty
       blanket
       loupe
       # gemini-cli
       neovim
-      wdisplays
       geogebra6
       hyprpicker
       blender
@@ -73,15 +67,11 @@ in
       superTuxKart
       yazi
       gimp
-      pkgs-Unstable.waybar
-      rofi
-      legcord
       # element-desktop
       pciutils
       gnome-system-monitor
       trash-cli
       tealdeer
-      lunar-client
       nix-tree
       yt-dlp
       steam-run
@@ -94,9 +84,6 @@ in
       gnome-clocks
       newsflash
       shortwave # radio
-      xwayland-satellite
-      woomer
-      wl-mirror
       lazygit
       komikku
     ];

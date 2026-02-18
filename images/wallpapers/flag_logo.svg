@@ -1,0 +1,54 @@
+
+<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Flag background -->
+  <rect x="0" y="0" width="300" height="200" fill="#282a36"/>
+
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#bd93f9"/>
+      <stop offset="50%" stop-color="#ff79c6"/>
+      <stop offset="100%" stop-color="#bd93f9"/>
+    </linearGradient>
+
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8be9fd"/>
+      <stop offset="100%" stop-color="#50fa7b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Centered emblem -->
+  <g transform="translate(150,100) scale(1.6)">
+    <!-- Lambda shapes -->
+    <g transform="rotate(0)">
+      <path d="M -5,-40 L -8,-55 L -2,-55 L 8,-30 L 12,-30 L 2,-55 L 8,-55 L 20,-25 L 15,-20 L 5,-40 Z" fill="url(#grad1)"/>
+      <path d="M -5,-40 L 5,-40 L 15,-20 L 10,-15 Z" fill="#ffb86c"/>
+    </g>
+
+    <g transform="rotate(60)">
+      <path d="M -5,-40 L -8,-55 L -2,-55 L 8,-30 L 12,-30 L 2,-55 L 8,-55 L 20,-25 L 15,-20 L 5,-40 Z" fill="url(#grad2)"/>
+      <path d="M -5,-40 L 5,-40 L 15,-20 L 10,-15 Z" fill="#f1fa8c"/>
+    </g>
+
+    <g transform="rotate(120)">
+      <path d="M -5,-40 L -8,-55 L -2,-55 L 8,-30 L 12,-30 L 2,-55 L 8,-55 L 20,-25 L 15,-20 L 5,-40 Z" fill="url(#grad1)"/>
+      <path d="M -5,-40 L 5,-40 L 15,-20 L 10,-15 Z" fill="#bd93f9"/>
+    </g>
+
+    <g transform="rotate(180)">
+      <path d="M -5,-40 L -8,-55 L -2,-55 L 8,-30 L 12,-30 L 2,-55 L 8,-55 L 20,-25 L 15,-20 L 5,-40 Z" fill="url(#grad2)"/>
+      <path d="M -5,-40 L 5,-40 L 15,-20 L 10,-15 Z" fill="#50fa7b"/>
+    </g>
+
+    <g transform="rotate(240)">
+      <path d="M -5,-40 L -8,-55 L -2,-55 L 8,-30 L 12,-30 L 2,-55 L 8,-55 L 20,-25 L 15,-20 L 5,-40 Z" fill="url(#grad1)"/>
+      <path d="M -5,-40 L 5,-40 L 15,-20 L 10,-15 Z" fill="#ff79c6"/>
+    </g>
+
+    <g transform="rotate(300)">
+      <path d="M -5,-40 L -8,-55 L -2,-55 L 8,-30 L 12,-30 L 2,-55 L 8,-55 L 20,-25 L 15,-20 L 5,-40 Z" fill="url(#grad2)"/>
+      <path d="M -5,-40 L 5,-40 L 15,-20 L 10,-15 Z" fill="#8be9fd"/>
+    </g>
+
+    <circle cx="0" cy="0" r="12" fill="#f8f8f2"/>
+  </g>
+</svg>
