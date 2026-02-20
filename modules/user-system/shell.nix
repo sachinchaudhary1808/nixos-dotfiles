@@ -9,7 +9,7 @@ let
     nr = "nix run";
     v = "nvim";
     sv = "sudo nvim";
-    :q = "exit";
+    ":q" = "exit";
     #z
     cd = "z";
     cdi = "zi";
@@ -22,7 +22,8 @@ let
     fo = "o $(fzf)";
     zo = "zeditor $(fzf)";
   };
-in {
+in
+{
   programs.bash = {
     enable = true;
     enableCompletion = true;
