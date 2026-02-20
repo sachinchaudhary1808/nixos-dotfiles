@@ -9,7 +9,7 @@ let
     nr = "nix run";
     v = "nvim";
     sv = "sudo nvim";
-    e = "exit";
+    :q = "exit";
     #z
     cd = "z";
     cdi = "zi";
