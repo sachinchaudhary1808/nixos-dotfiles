@@ -7,12 +7,10 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "show_completions_on_input": true,
-  "show_completion_documentation": true,
   "terminal": {
     "font_weight": 400.0,
   },
-  "wrap_guides": [80, 100],
+  "wrap_guides": [100, 120],
   "soft_wrap": "none",
   "project_panel": {
     "hide_hidden": true,
@@ -36,7 +34,7 @@
       "theme": "Catppuccin Latte",
     },
   },
-  "show_edit_predictions": false,
+  "show_edit_predictions": true,
   "agent": {
     "default_model": {
       "provider": "copilot_chat",
