@@ -25,6 +25,8 @@ in
 
     #Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     packages = with pkgs; [
+      winboat
+      emacs
       loupe
       pinta
       bottles
@@ -61,7 +63,7 @@ in
       protonvpn-gui
       openvpn
       prismlauncher
-      calibre
+      # calibre
       distrobox
       superTuxKart
       yazi

@@ -51,8 +51,7 @@ in
       }
 
       export FZF_DEFAULT_COMMAND="fd --type f --exclude '.*'"
-
-
+      export PATH="$HOME/.config/emacs/bin:$PATH"
 
     '';
 
