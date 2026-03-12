@@ -25,8 +25,9 @@ in
 
     #Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     packages = with pkgs; [
+      # screen annotation
+      gromit-mpx
       winboat
-      emacs
       loupe
       pinta
       bottles
@@ -34,7 +35,7 @@ in
       brave
       rstudio
       gradia
-      melonDS
+      melonds
       switcheroo
       kooha
       nautilus
@@ -65,7 +66,7 @@ in
       prismlauncher
       # calibre
       distrobox
-      superTuxKart
+      supertuxkart
       yazi
       gimp
       # element-desktop

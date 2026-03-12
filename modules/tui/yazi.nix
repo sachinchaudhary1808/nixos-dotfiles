@@ -1,8 +1,11 @@
 {
   programs.yazi = {
+    shellWrapperName = "y";
     enable = true;
     settings = {
-      log = { enabled = false; };
+      log = {
+        enabled = false;
+      };
       mgr = {
         show_hidden = true;
         sort_by = "mtime";
@@ -10,12 +13,14 @@
         sort_reverse = true;
       };
       opener = {
-        edit = [{
-          run = "direnv exec . $EDITOR $1";
-          desc = "$EDITOR";
-          block = true;
-          for = "unix";
-        }];
+        edit = [
+          {
+            run = "direnv exec . $EDITOR $1";
+            desc = "$EDITOR";
+            block = true;
+            for = "unix";
+          }
+        ];
       };
     };
   };

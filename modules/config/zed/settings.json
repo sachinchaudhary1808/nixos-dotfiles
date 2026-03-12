@@ -7,11 +7,20 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent": {
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-5-mini",
+      "enable_thinking": false,
+    },
+    "favorite_models": [],
+    "model_parameters": [],
+  },
   "terminal": {
     "font_weight": 400.0,
   },
-  "wrap_guides": [100, 120],
-  "soft_wrap": "none",
+  "wrap_guides": [80],
+  "soft_wrap": "preferred_line_length",
   "project_panel": {
     "hide_hidden": true,
   },
@@ -29,18 +38,12 @@
       "disable_ai": true,
     },
     "presentation": {
-      "buffer_font_size": 20,
-      "ui_font_size": 18,
+      "buffer_font_size": 18,
+      "ui_font_size": 25,
       "theme": "Catppuccin Latte",
     },
   },
   "show_edit_predictions": true,
-  "agent": {
-    "default_model": {
-      "provider": "copilot_chat",
-      "model": "gpt-5-mini",
-    },
-  },
   "auto_install_extensions": {
     "markdown-oxide": true,
     "live-server": true,
@@ -50,7 +53,7 @@
   "relative_line_numbers": "enabled",
   "base_keymap": "VSCode",
   "ui_font_size": 16.0,
-  "buffer_font_size": 18.0,
+  "buffer_font_size": 24.0,
 
   "lsp": {
     "nixd": {
@@ -67,12 +70,10 @@
         },
       },
     },
-    "lsp": {
-      "hls": {
-        "binary": {
-          "path": "haskell-language-server",
-          "arguments": ["--lsp"],
-        },
+    "hls": {
+      "binary": {
+        "path": "haskell-language-server",
+        "arguments": ["--lsp"],
       },
     },
   },
