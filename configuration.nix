@@ -111,6 +111,7 @@
   # networking
   networking.hostName = systemSettings.hostname; # Define your hostname.
   networking.wireless.enable = true; # disble wpa whatever
+  networking.nftables.enable = true;
 
   # Dns server
   # networking.nameservers = [ "1.1.1.1" ];
@@ -372,6 +373,9 @@
       fi
     '')
     polkit_gnome
+
+    #python
+    uv
 
   ];
   programs.steam.enable = true;
@@ -646,5 +650,7 @@
         return polkit.Result.YES;
     });
   '';
+
+  programs.nix-index-database.comma.enable = true;
 
 }

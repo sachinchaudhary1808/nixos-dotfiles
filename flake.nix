@@ -20,6 +20,11 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
@@ -30,6 +35,7 @@
       nixpkgs-unstable,
       nixos-hardware,
       nix-flatpak,
+      nix-index-database,
       ...
     }:
     let
@@ -70,6 +76,7 @@
           modules = [
             nixos-hardware.nixosModules.lenovo-ideapad-15alc6
             nix-flatpak.nixosModules.nix-flatpak
+            nix-index-database.nixosModules.default
             ./configuration.nix
             (
               { ... }:
