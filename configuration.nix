@@ -24,6 +24,9 @@
     package = pkgs-Unstable.lix;
     nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
+    settings.substituters = lib.mkForce [
+      "https://nixos-cache-proxy.cofob.dev"
+    ];
     # for cachix builds
     settings.extra-substituters = [ "https://nix-community.cachix.org" ];
     settings.extra-trusted-public-keys = [
