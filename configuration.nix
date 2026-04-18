@@ -154,8 +154,8 @@
   # # Enable firmware update service
   services.fwupd.enable = true;
 
-  services.power-profiles-daemon.enable = true;
-  hardware.system76.power-daemon.enable = false;
+  # services.power-profiles-daemon.enable = true;
+  hardware.system76.power-daemon.enable = true;
 
   # dbus u power
   services.upower.enable = true;
@@ -222,7 +222,7 @@
     config.allowUnfree = true;
     # nixpkgs.config.allowUnfree = true;
     config.allowInsecure = true;
-    config.permittedInsecurePackages = [ "electron-37.10.3" ];
+    config.permittedInsecurePackages = [ "electron-38.8.4" ];
     config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "steam" ];
   };
 
@@ -304,7 +304,7 @@
     rclone
     xmodmap
     libinput
-    helvum
+    crosspipe
     # blueman
     wl-clipboard
     android-tools

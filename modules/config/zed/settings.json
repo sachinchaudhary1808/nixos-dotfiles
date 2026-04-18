@@ -19,8 +19,9 @@
   "terminal": {
     "font_weight": 400.0,
   },
-  "wrap_guides": [80],
-  "soft_wrap": "preferred_line_length",
+  "show_wrap_guides": true,
+  "wrap_guides": [80, 120],
+  "preferred_line_length": 80,
   "project_panel": {
     "hide_hidden": true,
   },
@@ -43,7 +44,7 @@
       "theme": "Catppuccin Latte",
     },
   },
-  "show_edit_predictions": true,
+  "show_edit_predictions": false,
   "auto_install_extensions": {
     "markdown-oxide": true,
     "live-server": true,
