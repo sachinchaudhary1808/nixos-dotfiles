@@ -25,16 +25,14 @@ in
 
     #Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     packages = with pkgs; [
-      emacs
       krita
       # screen annotation
       winboat
       loupe
       pinta
-      bottles
       winboat
       brave
-      rstudio
+      # rstudio
       gradia
       melonds
       switcheroo
@@ -62,7 +60,7 @@ in
       ))
       pkgs-Unstable.foliate
       zoom-us
-      protonvpn-gui
+      proton-vpn
       openvpn
       prismlauncher
       # calibre
