@@ -42,7 +42,6 @@ in
       vscode-fhs
       blanket
       # gemini-cli
-      neovim
       geogebra6
       hyprpicker
       blender
