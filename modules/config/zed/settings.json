@@ -7,7 +7,22 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "outline_panel": {
+    "dock": "left"
+  },
+  "collaboration_panel": {
+    "dock": "left"
+  },
+  "git_panel": {
+    "dock": "left"
+  },
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
   "agent": {
+    "dock": "right",
     "default_model": {
       "provider": "copilot_chat",
       "model": "gpt-5-mini",
@@ -23,6 +38,7 @@
   "wrap_guides": [80, 120],
   "preferred_line_length": 80,
   "project_panel": {
+    "dock": "left",
     "hide_hidden": true,
   },
   "minimap": {
@@ -30,7 +46,7 @@
   },
   "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "Catppuccin Latte",
     "dark": "Catppuccin Mocha",
   },

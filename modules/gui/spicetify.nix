@@ -1,6 +1,13 @@
-{ inputs, pkgs, config, ... }:
-let spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
-in {
+{
+  inputs,
+  pkgs,
+  config,
+  ...
+}:
+let
+  spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.system};
+in
+{
   imports = [ inputs.spicetify-nix.homeManagerModules.default ];
 
   home.packages = [ pkgs.spotify-cli-linux ];

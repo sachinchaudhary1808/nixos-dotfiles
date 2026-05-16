@@ -21,6 +21,7 @@ let
     o = "xdg-open";
     fo = "o $(fzf)";
     zo = "zeditor $(fzf)";
+
   };
 in
 {
