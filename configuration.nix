@@ -295,7 +295,7 @@
     mangohud
     vim
     heroic
-    lutris
+    # lutris
     bat
     cachix
     nixfmt
@@ -375,7 +375,6 @@
         notify-send "Battery: Full Charge Mode (100%)"
       fi
     '')
-    polkit_gnome
 
     #python
     uv
@@ -629,30 +628,8 @@
 
   programs.nix-ld.enable = true;
 
-  systemd.user.services.polkit-gnome-authentication-agent-1 = {
-    description = "polkit-gnome-authentication-agent-1";
-    wantedBy = [ "graphical-session.target" ];
-    wants = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
-      Restart = "on-failure";
-      RestartSec = 1;
-      TimeoutStopSec = 10;
-    };
-  };
-  services.orca.enable = false;
-
   # services.displayManager.gdm.enable = true;
   # services.desktopManager.gnome.enable = true;
-
-  security.polkit.extraConfig = ''
-    polkit.addRule(function(action, subject) {
-      if (subject.isInGroup("wheel"))
-        return polkit.Result.YES;
-    });
-  '';
 
   programs.nix-index-database.comma.enable = true;
 
