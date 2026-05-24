@@ -154,8 +154,8 @@
   # # Enable firmware update service
   services.fwupd.enable = true;
 
-  # services.power-profiles-daemon.enable = true;
-  hardware.system76.power-daemon.enable = true;
+  services.power-profiles-daemon.enable = true;
+  # hardware.system76.power-daemon.enable = true;
 
   # dbus u power
   services.upower.enable = true;
@@ -378,6 +378,7 @@
 
     #python
     uv
+    gsettings-desktop-schemas
 
   ];
   programs.steam.enable = true;
