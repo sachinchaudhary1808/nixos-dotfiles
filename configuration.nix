@@ -24,11 +24,15 @@
     package = pkgs-Unstable.lix;
     nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
-    settings.substituters = lib.mkForce [
+    # settings.substituters = lib.mkForce [
+    #   "https://nixos-cache-proxy.cofob.dev"
+    # ];
+
+    # extra substituers
+    settings.extra-substituters = [
+      "https://nix-community.cachix.org"
       "https://nixos-cache-proxy.cofob.dev"
     ];
-    # for cachix builds
-    settings.extra-substituters = [ "https://nix-community.cachix.org" ];
     settings.extra-trusted-public-keys = [
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
@@ -292,6 +296,7 @@
     # unstable.veloren
     statix
     wget
+    rlwrap
     mangohud
     vim
     heroic
@@ -631,6 +636,12 @@
 
   # services.displayManager.gdm.enable = true;
   # services.desktopManager.gnome.enable = true;
+
+  # services.desktopManager.plasma6.enable = true;
+  # services.displayManager.sddm = {
+  #   enable = true;
+  #   wayland.enable = true;
+  # };
 
   programs.nix-index-database.comma.enable = true;
 
