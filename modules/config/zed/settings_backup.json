@@ -7,44 +7,91 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "project_panel": {
-    "hide_hidden": true
+  "cli_default_open_behavior": "existing_window",
+  "outline_panel": {
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "dock": "left",
+  },
+  "git_panel": {
+    "dock": "left",
+  },
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)",
   },
   "agent": {
+    "dock": "right",
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gpt-4o"
-    }
+      "model": "gpt-5-mini",
+      "enable_thinking": false,
+    },
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "terminal": {
+    "font_weight": 400.0,
+  },
+  "show_wrap_guides": true,
+  "wrap_guides": [80, 120],
+  "preferred_line_length": 80,
+  "project_panel": {
+    "dock": "left",
+    "hide_hidden": true,
   },
   "minimap": {
-    "show": "never"
+    "show": "never",
   },
-  "show_edit_predictions": false,
   "buffer_font_family": "JetBrainsMono Nerd Font Mono",
   "theme": {
-    "mode": "system",
     "light": "Catppuccin Latte",
-    "dark": "Catppuccin Mocha"
+    "dark": "Catppuccin Mocha",
   },
   "profiles": {
     "no-ai": {
-      "disable_ai": true
+      "disable_ai": true,
     },
     "presentation": {
-      "buffer_font_size": 20,
-      "ui_font_size": 18,
-      "theme": "Catppuccin Latte"
-    }
+      "buffer_font_size": 18,
+      "ui_font_size": 25,
+      "theme": "Catppuccin Latte",
+    },
   },
+  "show_edit_predictions": false,
   "auto_install_extensions": {
     "markdown-oxide": true,
     "live-server": true,
-    "catppuccin": true
+    "catppuccin": true,
   },
   "vim_mode": true,
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "base_keymap": "VSCode",
   "ui_font_size": 16.0,
-  "buffer_font_size": 18.0,
+  "buffer_font_size": 24.0,
 
+  "lsp": {
+    "nixd": {
+      "initialization_options": {
+        "formatting": {
+          "command": ["nixfmt"],
+        },
+      },
+    },
+    "nil": {
+      "initialization_options": {
+        "formatting": {
+          "command": ["nixfmt"],
+        },
+      },
+    },
+    "hls": {
+      "binary": {
+        "path": "haskell-language-server",
+        "arguments": ["--lsp"],
+      },
+    },
+  },
 }
