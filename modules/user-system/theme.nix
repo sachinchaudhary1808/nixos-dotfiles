@@ -1,4 +1,5 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, ... }:
+{
   gtk = {
     enable = true; # Enable GTK theme management
     # catppuccin.enable = true;
@@ -19,12 +20,12 @@
     package = pkgs.papirus-icon-theme;
   };
 
-  # qt = {
-  #   enable = true;
-  #   platformTheme.name = "qtct6";
-  #   style.name = "kvantum";
-  #
-  # };
+  qt = {
+    enable = true;
+    # platformTheme.name = "qtct6";
+    # style.name = "kvantum";
+
+  };
   # qt = {
   #   enable = true;
   #   platformTheme.name = "gtk";
