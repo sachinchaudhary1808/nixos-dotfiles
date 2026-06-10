@@ -28,6 +28,7 @@ This repository contains my personal NixOS configuration and dotfiles. It’s de
 
 ### Cosmic Desktop
 
+![Cosmic](images/screenshots/new.png)
 ![Cosmic](images/screenshots/Cosmic.png)
 ![Cosmic](images/screenshots/Waydroid.png)
 ![Cosmic](images/screenshots/Fetch.png)
