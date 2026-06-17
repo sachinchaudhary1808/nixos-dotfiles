@@ -284,6 +284,7 @@
     # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     # some good nix tools
     tokei
+    ppsspp
     unrar
     nixd
     nixpkgs-fmt
@@ -298,7 +299,7 @@
     mangohud
     vim
     heroic
-    # lutris
+    lutris
     bat
     cachix
     nixfmt
