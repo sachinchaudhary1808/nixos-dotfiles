@@ -215,6 +215,7 @@
       "libvirtd"
       "docker"
       "dialout"
+      "openrazer"
     ];
     packages = with pkgs; [ ]; # just used nil to not have empty code lol
   };
@@ -648,4 +649,5 @@
   # services.displayManager.sddm.enable = true;
   # services.displayManager.sddm.wayland.enable = true;
 
+  hardware.openrazer.enable = true;
 }

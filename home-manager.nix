@@ -25,6 +25,7 @@ in
 
     #Here goes the rest of your home-manager config, e.g. home.packages = [ pkgs.foo ];
     packages = with pkgs; [
+      razergenie
       kitty
       xeyes
       drawy
@@ -73,7 +74,7 @@ in
       gimp
       # element-desktop
       pciutils
-      gnome-system-monitor
+      cosmic-monitor
       trash-cli
       tealdeer
       nix-tree
