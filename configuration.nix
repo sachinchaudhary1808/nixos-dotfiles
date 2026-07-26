@@ -225,7 +225,7 @@
     config.allowUnfree = true;
     # nixpkgs.config.allowUnfree = true;
     config.allowInsecure = true;
-    config.permittedInsecurePackages = [ "electron-38.8.4" ];
+    config.permittedInsecurePackages = [ "electron-40.10.5" ];
     config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "steam" ];
   };
 
