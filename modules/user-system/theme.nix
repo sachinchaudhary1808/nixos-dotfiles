@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 {
   gtk = {
     enable = true; # Enable GTK theme management
@@ -12,6 +17,9 @@
       #      # variant = "mocha";
       #      # size = "compact";
       #    };
+    };
+    gtk4 = {
+      theme = config.gtk.theme;
     };
   };
 
@@ -36,6 +44,7 @@
   # };
 
   home.pointerCursor = {
+    enable = true;
     gtk.enable = true;
     x11.enable = true;
     package = pkgs.bibata-cursors;
