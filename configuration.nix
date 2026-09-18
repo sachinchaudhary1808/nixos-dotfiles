@@ -24,9 +24,18 @@
     package = pkgs-Unstable.lix;
     nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 
-    settings.substituters = lib.mkForce [
-      "https://nixos-cache-proxy.cofob.dev"
-    ];
+    settings = {
+      # Nix queries these from top to bottom. It will check Cloudflare first, then fall back.
+      substituters = [
+        "https://nixos-cache-proxy.cofob.dev"
+        "https://cache.nixos.org"
+      ];
+
+      # Ensure the official public key is present so Nix can safely verify packages from both
+      trusted-public-keys = [
+        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      ];
+    };
 
     settings.extra-substituters = [
       "https://nix-community.cachix.org"
@@ -142,7 +151,7 @@
   # what to do when lid is closed
   services.logind.settings.Login.HandleLidSwitch = "suspend";
   #kernel settings
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # boot.kernelPackages = pkgs.linuxPackages_zen;
   #zram settings
